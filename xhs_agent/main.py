@@ -1,8 +1,8 @@
 """小红书实习情报 Agent CLI 入口。
 
 用法：
-    uv run python -m xhs_agent "帮我找广州 AI Agent 实习"
-    uv run python -m xhs_agent "帮我搜索广州的 AI Agent、RAG 实习岗位，优先找适合 2028 届本科生的岗位。" --max-search 3 --max-detail 6
+    uv run python -m xhs_agent "帮我搜索广州的 AI Agent、RAG 实习岗位，优先找适合 2028 届本科生的岗位，并导出 Excel。"
+    uv run python -m xhs_agent "帮我找广州 AI Agent 实习" --max-search 3 --max-detail 6
 """
 
 from __future__ import annotations
@@ -46,6 +46,7 @@ async def run_cli(
     task: str,
     *,
     config_path: Path | None = None,
+    db_path: Path | None = None,
     max_steps: int | None = None,
     max_search: int | None = None,
     max_detail: int | None = None,
@@ -60,15 +61,19 @@ async def run_cli(
         cfg.budget.max_detail_calls = max_detail
 
     console.print(Panel(task, title="任务需求", border_style="cyan"))
-    console.print("[dim]正在执行启动预检（MCP 连通性 → 白名单 Schema → 登录态）...[/dim]")
+    console.print("[dim]正在执行启动预检（SQLite 初始化 → MCP 连通性 → 白名单 Schema → 登录态）...[/dim]")
 
+    db_total_jobs: int | None = None
     try:
-        async with AgentRuntime(cfg) as rt:
+        async with AgentRuntime(cfg, db_path=db_path) as rt:
             console.print(
                 f"[green]预检通过[/green] | 可用工具：{', '.join(rt.precheck_summary['registered_agent_tools'])} | "
+                f"数据库：{rt.precheck_summary.get('db_path')} | "
                 f"预算：steps≤{cfg.budget.max_steps}, search≤{cfg.budget.max_search_calls}, detail≤{cfg.budget.max_detail_calls}"
             )
             result = await rt.run_task(task, on_event=_make_cli_event_printer(console))
+            if rt.store is not None:
+                db_total_jobs = rt.store.count_jobs()
     except StartupPrecheckError as exc:
         console.print(Panel(str(exc), title="启动预检失败", border_style="red"))
         return 2
@@ -84,9 +89,10 @@ async def run_cli(
         if result.usage.prompt_tokens > 0
         else 0.0
     )
+    jobs_note = f" | db_jobs={db_total_jobs}" if db_total_jobs is not None else ""
     console.print(
         f"[dim]统计：session={result.session_id} | steps={result.steps} | llm_calls={result.llm_calls} | "
-        f"tools={result.tool_calls} | tokens={result.usage.total_tokens} "
+        f"tools={result.tool_calls}{jobs_note} | tokens={result.usage.total_tokens} "
         f"(prompt={result.usage.prompt_tokens}, cache_hit={result.usage.cache_hit_tokens} [{cache_rate:.0f}%], "
         f"completion={result.usage.completion_tokens}) | stop={result.stop_reason}[/dim]"
     )
@@ -101,6 +107,7 @@ def main(argv: list[str] | None = None) -> int:
     )
     parser.add_argument("task", help="自然语言实习搜索需求")
     parser.add_argument("--config", type=Path, default=None, help="自定义 config.toml 路径")
+    parser.add_argument("--db", type=Path, default=None, help="自定义 SQLite 数据库路径（默认 data/xhs_jobs.db）")
     parser.add_argument("--max-steps", type=int, default=None, help="覆盖最大循环步数")
     parser.add_argument("--max-search", type=int, default=None, help="覆盖本次最大搜索次数")
     parser.add_argument("--max-detail", type=int, default=None, help="覆盖本次最大详情拉取次数")
@@ -109,6 +116,7 @@ def main(argv: list[str] | None = None) -> int:
         run_cli(
             args.task,
             config_path=args.config,
+            db_path=args.db,
             max_steps=args.max_steps,
             max_search=args.max_search,
             max_detail=args.max_detail,

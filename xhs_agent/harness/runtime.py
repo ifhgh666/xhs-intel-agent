@@ -1,20 +1,27 @@
-"""Runtime：启动预检、工具注册、预算组装与资源生命周期管理。"""
+"""Runtime：启动预检、SQLite 初始化、全量业务工具注册、预算组装与资源生命周期管理。"""
 
 from __future__ import annotations
 
 from datetime import date
 from pathlib import Path
-from typing import Any
+from typing import TYPE_CHECKING, Any
 
 from xhs_agent.config import AppConfig, ROOT_DIR, load_config
 from xhs_agent.harness.executor import BudgetTracker, ExecutionEngine
 from xhs_agent.harness.llm import DeepSeekClient, LLMClientProtocol
 from xhs_agent.harness.loop import AgentLoop, AgentRunResult, EventCallback
 from xhs_agent.harness.registry import ToolRegistry, ToolSpec
+from xhs_agent.jobs.store import DEFAULT_DB_PATH, JobStore
 from xhs_agent.xhs import MCPClient, RateLimiter, XhsAdapter
 from xhs_agent.xhs.adapter import VALID_SEARCH_FILTERS
 
+if TYPE_CHECKING:
+    from xhs_agent.jobs.tools import JobTools
+
+DEFAULT_EXPORT_DIR = ROOT_DIR / "data"
+
 DEFAULT_AGENT_PROMPT_PATH = ROOT_DIR / "xhs_agent" / "prompts" / "agent_system.md"
+_VALID_JOB_STATUSES = ["new", "interested", "applied", "rejected", "expired"]
 
 
 class StartupPrecheckError(RuntimeError):
@@ -33,7 +40,7 @@ def render_agent_system_prompt(
 
 
 def build_phase3_registry(adapter: XhsAdapter, config: AppConfig) -> ToolRegistry:
-    """注册阶段 3 可见给主 LLM 的两个核心只读业务工具：search_notes 与 get_note_detail。"""
+    """注册只读检索工具：search_notes 与 get_note_detail。"""
     registry = ToolRegistry()
 
     registry.register(
@@ -82,8 +89,8 @@ def build_phase3_registry(adapter: XhsAdapter, config: AppConfig) -> ToolRegistr
         ToolSpec(
             name="get_note_detail",
             description=(
-                "根据短编号（如 'n1'）获取单篇小红书笔记详情（标题、正文、发布时间、图片数、来源链接）。"
-                "仅对筛选后确认为潜在招聘帖的笔记调用；已查看过的笔记会直接走本地缓存。"
+                "可选预览工具：根据短编号（如 'n1'）预览笔记正文片段。"
+                "仅在标题过于模糊、无法判断是否为招聘帖时使用；明确是招聘帖时请直接调用 extract_and_save_jobs。"
             ),
             parameters={
                 "type": "object",
@@ -108,8 +115,109 @@ def build_phase3_registry(adapter: XhsAdapter, config: AppConfig) -> ToolRegistr
     return registry
 
 
+def build_v1_registry(
+    adapter: XhsAdapter,
+    config: AppConfig,
+    job_tools: JobTools | None = None,
+) -> ToolRegistry:
+    """注册第一版全部 5 个业务工具（search_notes / get_note_detail / extract_and_save_jobs / query_jobs / export_jobs）。"""
+    registry = build_phase3_registry(adapter, config)
+    if job_tools is None:
+        return registry
+
+    registry.register(
+        ToolSpec(
+            name="extract_and_save_jobs",
+            description=(
+                "核心入库管道：自动获取笔记详情（优先走缓存）、独立抽取结构化岗位、做原文防编造校验、"
+                "笔记级与岗位级去重并写入本地 SQLite 数据库，仅返回一行精简摘要（新增/重复/无岗位/需看图）。"
+                "对筛选出的高相关招聘帖优先直接调用本工具。"
+            ),
+            parameters={
+                "type": "object",
+                "properties": {
+                    "note": {
+                        "type": "string",
+                        "minLength": 1,
+                        "description": "笔记短编号，必须来自 search_notes 返回结果（如 'n1'）",
+                    },
+                },
+                "required": ["note"],
+                "additionalProperties": False,
+            },
+            handler=job_tools.extract_and_save_jobs,
+            read_only=False,
+            timeout=150.0,
+            max_calls_per_task=config.budget.max_detail_calls,
+            budget_group="detail",
+        )
+    )
+
+    query_filter_props: dict[str, Any] = {
+        "city": {"type": "string", "description": "城市关键词，如 '广州'"},
+        "keyword": {"type": "string", "description": "公司、岗位、技能或标题关键词，如 'Agent'、'RAG'"},
+        "graduation_year": {"type": "string", "description": "届别关键词，如 '2028'"},
+        "since": {"type": "string", "description": "起始发布时间（ISO 日期，如 '2026-09-20'）"},
+        "status": {
+            "type": "string",
+            "enum": _VALID_JOB_STATUSES,
+            "description": "岗位状态筛选：new / interested / applied / rejected / expired",
+        },
+        "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 200,
+            "description": "最多返回条数，默认 20",
+        },
+    }
+
+    registry.register(
+        ToolSpec(
+            name="query_jobs",
+            description=(
+                "按城市、关键词、届别、时间或状态查询本地 SQLite 岗位库，返回已验证的结构化岗位列表及来源链接。"
+                "在抽取完相关笔记后，调用本工具获取准确字段用于最终汇总。"
+            ),
+            parameters={
+                "type": "object",
+                "properties": query_filter_props,
+                "additionalProperties": False,
+            },
+            handler=job_tools.query_jobs,
+            read_only=True,
+            timeout=15.0,
+        )
+    )
+
+    export_props = dict(query_filter_props)
+    export_props["path"] = {
+        "type": "string",
+        "description": "可选导出文件路径或文件名（如 'gz_ai_interns.xlsx'），不填则自动保存到 data/ 目录",
+    }
+
+    registry.register(
+        ToolSpec(
+            name="export_jobs",
+            description=(
+                "将符合筛选条件的本地岗位导出为 Excel (.xlsx) 文件（包含来源链接列、过期提醒与看图标记），"
+                "返回生成的文件绝对路径与导出条数。"
+            ),
+            parameters={
+                "type": "object",
+                "properties": export_props,
+                "additionalProperties": False,
+            },
+            handler=job_tools.export_jobs,
+            read_only=False,
+            timeout=30.0,
+        )
+    )
+
+    return registry
+
+
 class AgentRuntime:
-    """Agent 运行时容器：负责启动预检、装配 Harness 组件与安全退出。"""
+    """Agent 运行时容器：负责启动预检、初始化 SQLite、装配 Harness 组件与安全退出。"""
 
     def __init__(
         self,
@@ -117,25 +225,44 @@ class AgentRuntime:
         *,
         adapter: XhsAdapter | None = None,
         llm: LLMClientProtocol | None = None,
+        extractor_llm: LLMClientProtocol | None = None,
+        store: JobStore | None = None,
+        db_path: Path | str | None = None,
+        export_dir: Path | str | None = None,
         traces_dir: Path | str | None = None,
         prompt_path: Path | None = None,
         current_date: str | None = None,
+        enable_job_tools: bool = True,
     ) -> None:
         self.config = config or load_config()
         self._injected_adapter = adapter
         self._injected_llm = llm
+        self._injected_extractor_llm = extractor_llm
+        self._injected_store = store
+        self.db_path = Path(db_path) if db_path is not None else DEFAULT_DB_PATH
+        self.export_dir = Path(export_dir) if export_dir is not None else DEFAULT_EXPORT_DIR
         self.traces_dir = Path(traces_dir) if traces_dir is not None else (ROOT_DIR / "traces")
         self.prompt_path = prompt_path
         self.current_date = current_date
+        self.enable_job_tools = enable_job_tools
 
         self._mcp_client: MCPClient | None = None
+        self.store: JobStore | None = None
         self.adapter: XhsAdapter | None = None
         self.llm: LLMClientProtocol | None = None
+        self.job_tools: JobTools | None = None
         self.registry: ToolRegistry | None = None
         self.precheck_summary: dict[str, Any] = {}
 
     async def start(self) -> None:
-        """启动预检：连接 MCP → 校验白名单工具与 Schema → 检查登录态 → 装配注册表与 LLM。"""
+        """启动预检：初始化 SQLite → 连接 MCP → 校验白名单工具与 Schema → 检查登录态 → 装配注册表与 LLM。"""
+        # 0. 初始化 SQLite（notes / jobs / daily_usage）
+        if self._injected_store is not None:
+            self.store = self._injected_store
+        elif self.enable_job_tools:
+            self.store = JobStore(self.db_path)
+
+        # 1. 连接 MCP 并组装适配层（每日配额持久化到 SQLite daily_usage）
         if self._injected_adapter is not None:
             self.adapter = self._injected_adapter
         else:
@@ -143,6 +270,7 @@ class AgentRuntime:
             try:
                 await self._mcp_client.connect()
             except Exception as exc:
+                await self.close()
                 raise StartupPrecheckError(
                     f"无法连接 xiaohongshu-mcp ({self.config.mcp.url}): {exc}\n"
                     "请确认 MCP 容器或服务已启动（如 docker compose up -d）。"
@@ -155,17 +283,18 @@ class AgentRuntime:
                     "search": self.config.rate_limit.daily_search_limit,
                     "detail": self.config.rate_limit.daily_detail_limit,
                 },
+                counter=self.store,
             )
             self.adapter = XhsAdapter(self._mcp_client, rate_limiter=limiter)
 
-        # 1. 白名单工具与参数 Schema 预检
+        # 2. 白名单工具与参数 Schema 预检
         try:
             validated = await self.adapter.validate_mcp_tools()
         except Exception as exc:
             await self.close()
             raise StartupPrecheckError(f"MCP 工具白名单/Schema 预检失败: {exc}") from exc
 
-        # 2. 登录状态预检
+        # 3. 登录状态预检
         try:
             login = await self.adapter.check_login_status()
         except Exception as exc:
@@ -179,17 +308,33 @@ class AgentRuntime:
                 "请先运行 `uv run python scripts/probe_login.py --save-qrcode` 获取二维码并扫码登录。"
             )
 
-        # 3. 装配 LLM 客户端与业务工具注册表
+        # 4. 装配 LLM 客户端、抽取管道与工具注册表
         if self._injected_llm is not None:
             self.llm = self._injected_llm
         else:
             self.llm = DeepSeekClient(self.config.llm)
 
-        self.registry = build_phase3_registry(self.adapter, self.config)
+        if self.enable_job_tools and self.store is not None:
+            from xhs_agent.jobs.extract import JobExtractor
+            from xhs_agent.jobs.tools import JobTools
+
+            ext_llm = self._injected_extractor_llm or self.llm
+            extractor = JobExtractor(ext_llm, self.config.llm)
+            self.job_tools = JobTools(
+                adapter=self.adapter,
+                store=self.store,
+                extractor=extractor,
+                export_dir=self.export_dir,
+            )
+            self.registry = build_v1_registry(self.adapter, self.config, self.job_tools)
+        else:
+            self.registry = build_phase3_registry(self.adapter, self.config)
+
         self.precheck_summary = {
             "mcp_url": self.config.mcp.url,
             "validated_mcp_tools": sorted(validated.keys()),
             "logged_in": True,
+            "db_path": str(self.store.db_path) if self.store is not None else None,
             "registered_agent_tools": self.registry.names(),
         }
 
@@ -199,6 +344,9 @@ class AgentRuntime:
             self._mcp_client = None
         if self._injected_llm is None and isinstance(self.llm, DeepSeekClient):
             await self.llm.close()
+        if self._injected_store is None and self.store is not None:
+            self.store.close()
+            self.store = None
 
     async def __aenter__(self) -> AgentRuntime:
         await self.start()

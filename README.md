@@ -20,7 +20,7 @@
 - [x] 阶段 1：MCP 接入与数据验证（`phase-1`：18 个工具 Schema、3 份搜索样本、20 份详情样本、20 篇评估与标注集）
 - [x] 阶段 2：小红书适配层（`phase-2`：MCPClient、RateLimiter、NoteCache、XhsAdapter，搜索裁剪 -85.8%、29 项离线测试通过）
 - [x] 阶段 3：Harness 核心（`phase-3`：ToolRegistry、Trace、ExecutionEngine、ContextManager、DeepSeekClient、AgentLoop、Runtime、CLI，36 项离线单测 + 真机端到端验收通过）
-- [ ] 阶段 4：岗位抽取与存储
+- [x] 阶段 4：岗位抽取与存储（`phase-4`：SQLite notes/jobs/daily_usage、JSON 抽取 + 原文证据校验、笔记与岗位双层去重、Excel 导出，20 篇评估集核心字段准确率 97.8% / 编造率 0.0%，43 项离线单测 + 真机端到端通过）
 - [ ] 阶段 5：工程化与增强
 
 ## 使用说明
