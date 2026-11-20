@@ -16,10 +16,10 @@
 
 ## 当前进度
 
-- [x] 阶段 0：环境准备（Docker MCP 已启动并登录、Python/uv 环境就绪；DeepSeek Key 待阶段 3 前验证）
+- [x] 阶段 0：环境准备（Docker MCP 已启动并登录、Python/uv 环境就绪、DeepSeek API 验证通过）
 - [x] 阶段 1：MCP 接入与数据验证（`phase-1`：18 个工具 Schema、3 份搜索样本、20 份详情样本、20 篇评估与标注集）
 - [x] 阶段 2：小红书适配层（`phase-2`：MCPClient、RateLimiter、NoteCache、XhsAdapter，搜索裁剪 -85.8%、29 项离线测试通过）
-- [ ] 阶段 3：Harness 核心
+- [x] 阶段 3：Harness 核心（`phase-3`：ToolRegistry、Trace、ExecutionEngine、ContextManager、DeepSeekClient、AgentLoop、Runtime、CLI，36 项离线单测 + 真机端到端验收通过）
 - [ ] 阶段 4：岗位抽取与存储
 - [ ] 阶段 5：工程化与增强
 
