@@ -1,0 +1,122 @@
+{
+  "captured_at": "2026-11-20T18:30:32.015373+00:00",
+  "mcp_url": "http://localhost:18060/mcp",
+  "tool": "get_feed_detail",
+  "arguments": {
+    "feed_id": "6adb8ae5000000002b003e1c",
+    "xsec_token": "ABVBbHE3ILbyzYUemC7CIXMCZAdxeaksyoiLA4U9YrqMM="
+  },
+  "candidate": {
+    "feed_id": "6adb8ae5000000002b003e1c",
+    "xsec_token": "ABVBbHE3ILbyzYUemC7CIXMCZAdxeaksyoiLA4U9YrqMM=",
+    "title": "05 大三暨大AI应用开发实习第19-20天Vlog",
+    "author": "JIOJIO",
+    "published_at": "",
+    "liked_count": "12",
+    "type": "normal",
+    "source_keyword": "广州 AI实习",
+    "source_fixture": "search_01_广州_AI实习.json"
+  },
+  "is_error": false,
+  "raw_text": "{\n  \"feed_id\": \"6adb8ae5000000002b003e1c\",\n  \"data\": {\n    \"note\": {\n      \"noteId\": \"6adb8ae5000000002b003e1c\",\n      \"xsecToken\": \"ABVBbHE3ILbyzYUemC7CIXMCZAdxeaksyoiLA4U9YrqMM=\",\n      \"title\": \"05 大三暨大AI应用开发实习第19-20天Vlog\",\n      \"desc\": \"继周二的NLP方案探索以来，总计探索五个范式方案分别是（cross-encode联合编码，NLI判别式模型，生成式模型进行字段约束，微调方案，混合式架构），内部没有标准的SOP和产出标准，导致很多步骤都是问ai，以及文档也是AI编写的，如果有标准得流程和产出标准，相信定能很好完成目标，没有状态下只能去猜测mt想要什么结果，虽然后续也说了需要补充对应方案的应用场景、能力边界、优劣势等等方面，时候再给出推荐方案等等（也是汇报之后的提醒），总之，公司内部暂时没有SOP\\u0026标准，对于整个过程不熟悉的人很难上手，更别说产出符合汇报的文档。\\n\\t\\n其次，由于整体方案范式没有确定，比如使用纯向量数据库、模型应该被用于什么场景，输入输出都没确定等，却让我去做模型范型的对比\\u0026甚至具体的模型，自认为是不合理的。\\n\\t\\n上述皆本人看法，觉得整个过程需要优化的点，最后一点思考就是，无论是实习生、初中高级开发、产品经理、PM、架构师，如果跳脱不出更高维度，本质还是变卖个人能力换取更丰厚的报酬，那么又应该去追寻什么（目标）呢？以及哪些能力又是元能力（内力）？…\\n\\t\\n晚安😴宝子们💤\\n#实习[话题]# #实习生[话题]# #大学生实习[话题]# #实习生日常[话题]# #实习vlog日常[话题]# #实习的思考[话题]#\",\n      \"type\": \"normal\",\n      \"time\": 1792772837000,\n      \"ipLocation\": \"广东\",\n      \"user\": {\n        \"userId\": \"62a0aee3000000001b025c9b\",\n        \"nickname\": \"JIOJIO\",\n        \"nickName\": \"\",\n        \"avatar\": \"https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo31c6g3a1g08605ol0lrhmsn4r3qfnkgg\"\n      },\n      \"interactInfo\": {\n        \"liked\": false,\n        \"likedCount\": \"12\",\n        \"sharedCount\": \"\",\n        \"commentCount\": \"3\",\n        \"collectedCount\": \"2\",\n        \"collected\": false\n      },\n      \"imageList\": [\n        {\n          \"width\": 4284,\n          \"height\": 5712,\n          \"urlDefault\": \"http://sns-webpic-qc.xhscdn.com/202611210230/7223108b131ed5a1879d407c444a51a3/notes_uhdr/1040g3qg326m2u98sk6005ol0lrhmsn4r5t8037o!nd_dft_wlteh_webp_3\",\n          \"urlPre\": \"http://sns-webpic-qc.xhscdn.com/202611210230/731e90d30ccf0efc8d2ca46c9defee94/notes_uhdr/1040g3qg326m2u98sk6005ol0lrhmsn4r5t8037o!nd_prv_wlteh_webp_3\",\n          \"livePhoto\": true\n        }\n      ]\n    },\n    \"comments\": {\n      \"list\": [\n        {\n          \"id\": \"6adb920b000000001203a044\",\n          \"noteId\": \"6adb8ae5000000002b003e1c\",\n          \"content\": \"周末快乐！坚持发笔记到现在非常棒[点赞R]\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1792774667000,\n          \"ipLocation\": \"广东\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"669b60d400000000240229cf\",\n            \"nickname\": \"Zain\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"1\",\n          \"subComments\": [\n            {\n              \"id\": \"6adc0433000000000a0233b5\",\n              \"noteId\": \"6adb8ae5000000002b003e1c\",\n              \"content\": \"周末快乐🎉 [飞吻R][飞吻R][飞吻R]\",\n              \"likeCount\": \"0\",\n              \"createTime\": 1792803891000,\n              \"ipLocation\": \"广东\",\n              \"liked\": false,\n              \"userInfo\": {\n                \"userId\": \"62a0aee3000000001b025c9b\",\n                \"nickname\": \"JIOJIO\",\n                \"nickName\": \"\",\n                \"avatar\": \"\"\n              },\n              \"subCommentCount\": \"\",\n              \"subComments\": null,\n              \"showTags\": [\n                \"is_author\"\n              ]\n            }\n          ],\n          \"showTags\": []\n        },\n        {\n          \"id\": \"6adb8cdc000000000b01ae84\",\n          \"noteId\": \"6adb8ae5000000002b003e1c\",\n          \"content\": \"真好啊，我也想实习\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1792773341000,\n          \"ipLocation\": \"美国\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"548bd8ff2e1d93154ccff614\",\n            \"nickname\": \"小鸟游西亚\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"0\",\n          \"subComments\": [],\n          \"showTags\": []\n        }\n      ],\n      \"cursor\": \"6adb8cdc000000000b01ae84\",\n      \"hasMore\": false\n    }\n  }\n}",
+  "parsed": {
+    "feed_id": "6adb8ae5000000002b003e1c",
+    "data": {
+      "note": {
+        "noteId": "6adb8ae5000000002b003e1c",
+        "xsecToken": "ABVBbHE3ILbyzYUemC7CIXMCZAdxeaksyoiLA4U9YrqMM=",
+        "title": "05 大三暨大AI应用开发实习第19-20天Vlog",
+        "desc": "继周二的NLP方案探索以来，总计探索五个范式方案分别是（cross-encode联合编码，NLI判别式模型，生成式模型进行字段约束，微调方案，混合式架构），内部没有标准的SOP和产出标准，导致很多步骤都是问ai，以及文档也是AI编写的，如果有标准得流程和产出标准，相信定能很好完成目标，没有状态下只能去猜测mt想要什么结果，虽然后续也说了需要补充对应方案的应用场景、能力边界、优劣势等等方面，时候再给出推荐方案等等（也是汇报之后的提醒），总之，公司内部暂时没有SOP&标准，对于整个过程不熟悉的人很难上手，更别说产出符合汇报的文档。\n\t\n其次，由于整体方案范式没有确定，比如使用纯向量数据库、模型应该被用于什么场景，输入输出都没确定等，却让我去做模型范型的对比&甚至具体的模型，自认为是不合理的。\n\t\n上述皆本人看法，觉得整个过程需要优化的点，最后一点思考就是，无论是实习生、初中高级开发、产品经理、PM、架构师，如果跳脱不出更高维度，本质还是变卖个人能力换取更丰厚的报酬，那么又应该去追寻什么（目标）呢？以及哪些能力又是元能力（内力）？…\n\t\n晚安😴宝子们💤\n#实习[话题]# #实习生[话题]# #大学生实习[话题]# #实习生日常[话题]# #实习vlog日常[话题]# #实习的思考[话题]#",
+        "type": "normal",
+        "time": 1792772837000,
+        "ipLocation": "广东",
+        "user": {
+          "userId": "62a0aee3000000001b025c9b",
+          "nickname": "JIOJIO",
+          "nickName": "",
+          "avatar": "https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo31c6g3a1g08605ol0lrhmsn4r3qfnkgg"
+        },
+        "interactInfo": {
+          "liked": false,
+          "likedCount": "12",
+          "sharedCount": "",
+          "commentCount": "3",
+          "collectedCount": "2",
+          "collected": false
+        },
+        "imageList": [
+          {
+            "width": 4284,
+            "height": 5712,
+            "urlDefault": "http://sns-webpic-qc.xhscdn.com/202611210230/7223108b131ed5a1879d407c444a51a3/notes_uhdr/1040g3qg326m2u98sk6005ol0lrhmsn4r5t8037o!nd_dft_wlteh_webp_3",
+            "urlPre": "http://sns-webpic-qc.xhscdn.com/202611210230/731e90d30ccf0efc8d2ca46c9defee94/notes_uhdr/1040g3qg326m2u98sk6005ol0lrhmsn4r5t8037o!nd_prv_wlteh_webp_3",
+            "livePhoto": true
+          }
+        ]
+      },
+      "comments": {
+        "list": [
+          {
+            "id": "6adb920b000000001203a044",
+            "noteId": "6adb8ae5000000002b003e1c",
+            "content": "周末快乐！坚持发笔记到现在非常棒[点赞R]",
+            "likeCount": "0",
+            "createTime": 1792774667000,
+            "ipLocation": "广东",
+            "liked": false,
+            "userInfo": {
+              "userId": "669b60d400000000240229cf",
+              "nickname": "Zain",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "1",
+            "subComments": [
+              {
+                "id": "6adc0433000000000a0233b5",
+                "noteId": "6adb8ae5000000002b003e1c",
+                "content": "周末快乐🎉 [飞吻R][飞吻R][飞吻R]",
+                "likeCount": "0",
+                "createTime": 1792803891000,
+                "ipLocation": "广东",
+                "liked": false,
+                "userInfo": {
+                  "userId": "62a0aee3000000001b025c9b",
+                  "nickname": "JIOJIO",
+                  "nickName": "",
+                  "avatar": ""
+                },
+                "subCommentCount": "",
+                "subComments": null,
+                "showTags": [
+                  "is_author"
+                ]
+              }
+            ],
+            "showTags": []
+          },
+          {
+            "id": "6adb8cdc000000000b01ae84",
+            "noteId": "6adb8ae5000000002b003e1c",
+            "content": "真好啊，我也想实习",
+            "likeCount": "0",
+            "createTime": 1792773341000,
+            "ipLocation": "美国",
+            "liked": false,
+            "userInfo": {
+              "userId": "548bd8ff2e1d93154ccff614",
+              "nickname": "小鸟游西亚",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "0",
+            "subComments": [],
+            "showTags": []
+          }
+        ],
+        "cursor": "6adb8cdc000000000b01ae84",
+        "hasMore": false
+      }
+    }
+  }
+}

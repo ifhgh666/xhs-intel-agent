@@ -1,0 +1,412 @@
+{
+  "captured_at": "2026-11-20T18:28:52.641419+00:00",
+  "mcp_url": "http://localhost:18060/mcp",
+  "tool": "get_feed_detail",
+  "arguments": {
+    "feed_id": "6ad215a2000000001800473f",
+    "xsec_token": "ABuk83rZybbYRA7Ydi_isyJXNb4uBkMHdbvNxH3LO7J_k="
+  },
+  "candidate": {
+    "feed_id": "6ad215a2000000001800473f",
+    "xsec_token": "ABuk83rZybbYRA7Ydi_isyJXNb4uBkMHdbvNxH3LO7J_k=",
+    "title": "网易游戏(互娱) base 广州 28届日常实习",
+    "author": "Ryan",
+    "published_at": "",
+    "liked_count": "79",
+    "type": "normal",
+    "source_keyword": "广州 AI实习",
+    "source_fixture": "search_01_广州_AI实习.json"
+  },
+  "is_error": false,
+  "raw_text": "{\n  \"feed_id\": \"6ad215a2000000001800473f\",\n  \"data\": {\n    \"note\": {\n      \"noteId\": \"6ad215a2000000001800473f\",\n      \"xsecToken\": \"ABuk83rZybbYRA7Ydi_isyJXNb4uBkMHdbvNxH3LO7J_k=\",\n      \"title\": \"网易游戏(互娱) base 广州 28届日常实习\",\n      \"desc\": \"一面（约40分钟）\\n开共享屏幕画出coding agent架构图，并阐述一个请求进来流程怎么走？\\n有了MCP为什么还需要skill？\\nMCP有哪些实现方式，分别使用哪些协议？\\n实习中是否遇到过模型限流的问题？错误码是多少?怎么处理?\\n实习项目里对大模型API并发调用怎么控制的?\\n有没有思考过不同的coding agent缓存命中率不同的原因\\n二面（约一小时）几乎全是他们内部业务(coding agent)的场景题\\n1、你的实习项目中，你觉得遇到了最大的困难是什么？怎么解决的\\n2、如何设计一套针对线上业务报错、通过 AI 自动化管线进行分析分类、自动修复并提交 Merge Request 闭环的系统？ 需要划分哪些模块？提供什么样的服务？用户应该怎么去使用？ 系统的技术选型应该怎么做？例如 Agent 框架、接收监控系统的接入层框架以及数据库分别该如何选型？\\n3、在由 Agent 持续修改代码的情况下，如何通过质量保障来确保代码质量符合预期？\\n4、当系统上线后 AI 生成了大量代码导致人工看不过来时，人工审查的重点究竟应该看什么？\\n5、打开 GitLab 看到 AI 为某个需求或单子提交了大量的文件和代码时，具体应该看哪些文件或内容？\\n6、如何让 AI 来辅助进行代码审查？当 AI 审查完代码并表示没有问题时，如何保证其审查结果的可靠性？\\n7、当输入 MR 让 AI 审查，而 AI 回复“没问题，看完了”时，此时是否真的代表没有问题？\\n8、  怎么利用 AI 来提升测试效率，以避免每次写完需求都要人工手动把系统点一遍的不现实情况？\\n9、当 AI 表示测试好了且单元测试全绿通过，这是否意味着可以直接上线？\\n10、当 AI 打开页面点了几下按钮并生成了一份详细的测试报告时，如何判断这个测试是否充分？\\n11、当团队自动化开发久了出现 AI 制造“屎山代码”导致越来越改不动的情况时，应该怎么处理和预防？\\n12、如果团队在 CLAUDE.md中写了三四十条规则且连续开发了两三个月，如何确认仓库是否真的在遵循这些规则，以及如何确定有没有产生不可控的技术债务？\\n13、分享你最近了解过的新的 AI 知识？\\n#互联网大厂实习[话题]# #24h新鲜面经[话题]# #互联网[话题]# #找实习[话题]# #28届实习[话题]# #校招[话题]# #agent[话题]# #AI应用开发[话题]#\",\n      \"type\": \"normal\",\n      \"time\": 1792152994000,\n      \"ipLocation\": \"\",\n      \"user\": {\n        \"userId\": \"64ce6be4000000000b00b7f8\",\n        \"nickname\": \"Ryan\",\n        \"nickName\": \"\",\n        \"avatar\": \"https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo325ccscjokk605p6edfi2pdvonl2af9o\"\n      },\n      \"interactInfo\": {\n        \"liked\": false,\n        \"likedCount\": \"79\",\n        \"sharedCount\": \"\",\n        \"commentCount\": \"19\",\n        \"collectedCount\": \"123\",\n        \"collected\": false\n      },\n      \"imageList\": [\n        {\n          \"width\": 1200,\n          \"height\": 1600,\n          \"urlDefault\": \"http://sns-webpic-qc.xhscdn.com/202611210228/7927b94b69cf18ad3e260998794cdacb/1040g008326crah0ql6605p6edfi2pdvo47vlqvo!nd_dft_wlteh_webp_3\",\n          \"urlPre\": \"http://sns-webpic-qc.xhscdn.com/202611210228/e0972953aab1a16b9b9271b8b60d920f/1040g008326crah0ql6605p6edfi2pdvo47vlqvo!nd_prv_wlteh_webp_3\"\n        }\n      ]\n    },\n    \"comments\": {\n      \"list\": [\n        {\n          \"id\": \"6ad2d3c60000000005029386\",\n          \"noteId\": \"6ad215a2000000001800473f\",\n          \"content\": \"佬一面是什么时候面的\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1792201671000,\n          \"ipLocation\": \"江苏\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"60f0f63e0000000001007837\",\n            \"nickname\": \"小红薯A2FC78TQ\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"1\",\n          \"subComments\": [\n            {\n              \"id\": \"6ad2db210000000008031487\",\n              \"noteId\": \"6ad215a2000000001800473f\",\n              \"content\": \"10.12\",\n              \"likeCount\": \"0\",\n              \"createTime\": 1792203553000,\n              \"ipLocation\": \"山东\",\n              \"liked\": false,\n              \"userInfo\": {\n                \"userId\": \"64ce6be4000000000b00b7f8\",\n                \"nickname\": \"Ryan\",\n                \"nickName\": \"\",\n                \"avatar\": \"\"\n              },\n              \"subCommentCount\": \"\",\n              \"subComments\": null,\n              \"showTags\": [\n                \"is_author\"\n              ]\n            }\n          ],\n          \"showTags\": []\n        },\n        {\n          \"id\": \"6ad365ee0000000008003d79\",\n          \"noteId\": \"6ad215a2000000001800473f\",\n          \"content\": \"感觉稳了 shirui\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1792239087000,\n          \"ipLocation\": \"福建\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"6319b34f000000002303e48a\",\n            \"nickname\": \"shoko\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"2\",\n          \"subComments\": [\n            {\n              \"id\": \"6ad373f3000000001103b9e2\",\n              \"noteId\": \"6ad215a2000000001800473f\",\n              \"content\": \"之前面的我也感觉稳了 结果全挂 已老实[哭惹R]\",\n              \"likeCount\": \"1\",\n              \"createTime\": 1792242676000,\n              \"ipLocation\": \"山东\",\n              \"liked\": false,\n              \"userInfo\": {\n                \"userId\": \"64ce6be4000000000b00b7f8\",\n                \"nickname\": \"Ryan\",\n                \"nickName\": \"\",\n                \"avatar\": \"\"\n              },\n              \"subCommentCount\": \"\",\n              \"subComments\": null,\n              \"showTags\": [\n                \"is_author\"\n              ]\n            }\n          ],\n          \"showTags\": []\n        },\n        {\n          \"id\": \"6ad233f70000000008035491\",\n          \"noteId\": \"6ad215a2000000001800473f\",\n          \"content\": \"oc了吗\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1792160760000,\n          \"ipLocation\": \"上海\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"5dfa09c60000000001009eaf\",\n            \"nickname\": \"Eli\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"1\",\n          \"subComments\": [\n            {\n              \"id\": \"6ad24a83000000000702fd91\",\n              \"noteId\": \"6ad215a2000000001800473f\",\n              \"content\": \"今天刚面的二面\",\n              \"likeCount\": \"0\",\n              \"createTime\": 1792166531000,\n              \"ipLocation\": \"山东\",\n              \"liked\": false,\n              \"userInfo\": {\n                \"userId\": \"64ce6be4000000000b00b7f8\",\n                \"nickname\": \"Ryan\",\n                \"nickName\": \"\",\n                \"avatar\": \"\"\n              },\n              \"subCommentCount\": \"\",\n              \"subComments\": null,\n              \"showTags\": [\n                \"is_author\"\n              ]\n            }\n          ],\n          \"showTags\": []\n        },\n        {\n          \"id\": \"6ad21711000000001202ba19\",\n          \"noteId\": \"6ad215a2000000001800473f\",\n          \"content\": \"请问啥时候递的简历呀[皱眉R]\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1792153362000,\n          \"ipLocation\": \"贵州\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"5bfd1ee551783a0f5ba17138\",\n            \"nickname\": \"🌟\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"1\",\n          \"subComments\": [\n            {\n              \"id\": \"6ad21743000000000702dd6e\",\n              \"noteId\": \"6ad215a2000000001800473f\",\n              \"content\": \"9. 24\",\n              \"likeCount\": \"0\",\n              \"createTime\": 1792153411000,\n              \"ipLocation\": \"山东\",\n              \"liked\": false,\n              \"userInfo\": {\n                \"userId\": \"64ce6be4000000000b00b7f8\",\n                \"nickname\": \"Ryan\",\n                \"nickName\": \"\",\n                \"avatar\": \"\"\n              },\n              \"subCommentCount\": \"\",\n              \"subComments\": null,\n              \"showTags\": [\n                \"is_author\"\n              ]\n            }\n          ],\n          \"showTags\": []\n        },\n        {\n          \"id\": \"6ad2336b000000001103b58b\",\n          \"noteId\": \"6ad215a2000000001800473f\",\n          \"content\": \"佬之前有实习经历吗\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1792160620000,\n          \"ipLocation\": \"黑龙江\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"5b1efa934eacab4db97b8bc3\",\n            \"nickname\": \"Veranair\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"1\",\n          \"subComments\": [\n            {\n              \"id\": \"6ad24a9a00000000070115f4\",\n              \"noteId\": \"6ad215a2000000001800473f\",\n              \"content\": \"三段，简历上只写了对口的两段\",\n              \"likeCount\": \"1\",\n              \"createTime\": 1792166554000,\n              \"ipLocation\": \"山东\",\n              \"liked\": false,\n              \"userInfo\": {\n                \"userId\": \"64ce6be4000000000b00b7f8\",\n                \"nickname\": \"Ryan\",\n                \"nickName\": \"\",\n                \"avatar\": \"\"\n              },\n              \"subCommentCount\": \"\",\n              \"subComments\": null,\n              \"showTags\": [\n                \"is_author\"\n              ]\n            }\n          ],\n          \"showTags\": []\n        },\n        {\n          \"id\": \"6ad250b00000000008003db7\",\n          \"noteId\": \"6ad215a2000000001800473f\",\n          \"content\": \"佬太强了，我也是neu软件研二，刚开始准备实习[doge]\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1792168112000,\n          \"ipLocation\": \"辽宁\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"651c38d4000000002402c624\",\n            \"nickname\": \"M0M0\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"1\",\n          \"subComments\": [\n            {\n              \"id\": \"6ad2a5b30000000008032cad\",\n              \"noteId\": \"6ad215a2000000001800473f\",\n              \"content\": \"一起加油[微笑R]\",\n              \"likeCount\": \"0\",\n              \"createTime\": 1792189876000,\n              \"ipLocation\": \"山东\",\n              \"liked\": false,\n              \"userInfo\": {\n                \"userId\": \"64ce6be4000000000b00b7f8\",\n                \"nickname\": \"Ryan\",\n                \"nickName\": \"\",\n                \"avatar\": \"\"\n              },\n              \"subCommentCount\": \"\",\n              \"subComments\": null,\n              \"showTags\": [\n                \"is_author\"\n              ]\n            }\n          ],\n          \"showTags\": []\n        },\n        {\n          \"id\": \"6ad220c8000000001103255b\",\n          \"noteId\": \"6ad215a2000000001800473f\",\n          \"content\": \"没有手撕吗\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1792155849000,\n          \"ipLocation\": \"浙江\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"6890b9950000000028034d3a\",\n            \"nickname\": \"enaz\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"1\",\n          \"subComments\": [\n            {\n              \"id\": \"6ad223180000000011038a11\",\n              \"noteId\": \"6ad215a2000000001800473f\",\n              \"content\": \"没有\",\n              \"likeCount\": \"0\",\n              \"createTime\": 1792156440000,\n              \"ipLocation\": \"山东\",\n              \"liked\": false,\n              \"userInfo\": {\n                \"userId\": \"64ce6be4000000000b00b7f8\",\n                \"nickname\": \"Ryan\",\n                \"nickName\": \"\",\n                \"avatar\": \"\"\n              },\n              \"subCommentCount\": \"\",\n              \"subComments\": null,\n              \"showTags\": [\n                \"is_author\"\n              ]\n            }\n          ],\n          \"showTags\": []\n        },\n        {\n          \"id\": \"6ae9e6ac000000000f02c3ec\",\n          \"noteId\": \"6ad215a2000000001800473f\",\n          \"content\": \"日常实习是双机位还是单机位呀\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1793713837000,\n          \"ipLocation\": \"陕西\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"5d0e1edb00000000110098ae\",\n            \"nickname\": \"InXx\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"1\",\n          \"subComments\": [\n            {\n              \"id\": \"6aea7d850000000012032672\",\n              \"noteId\": \"6ad215a2000000001800473f\",\n              \"content\": \"单\",\n              \"likeCount\": \"0\",\n              \"createTime\": 1793752453000,\n              \"ipLocation\": \"山东\",\n              \"liked\": false,\n              \"userInfo\": {\n                \"userId\": \"64ce6be4000000000b00b7f8\",\n                \"nickname\": \"Ryan\",\n                \"nickName\": \"\",\n                \"avatar\": \"\"\n              },\n              \"subCommentCount\": \"\",\n              \"subComments\": null,\n              \"showTags\": [\n                \"is_author\"\n              ]\n            }\n          ],\n          \"showTags\": []\n        },\n        {\n          \"id\": \"6aed66f0000000000202b439\",\n          \"noteId\": \"6ad215a2000000001800473f\",\n          \"content\": \"你这一面和我一个面试官吗\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1793943281000,\n          \"ipLocation\": \"湖南\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"613b492c000000000201c8aa\",\n            \"nickname\": \"夕夕如环🌙\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"0\",\n          \"subComments\": [],\n          \"showTags\": []\n        },\n        {\n          \"id\": \"6ad62f79000000000b01e4b3\",\n          \"noteId\": \"6ad215a2000000001800473f\",\n          \"content\": \"太强了\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1792421754000,\n          \"ipLocation\": \"广东\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"5ccaae3c000000001101c3ed\",\n            \"nickname\": \"JYFUN\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"0\",\n          \"subComments\": [],\n          \"showTags\": []\n        }\n      ],\n      \"cursor\": \"6ad62f79000000000b01e4b3\",\n      \"hasMore\": true\n    }\n  }\n}",
+  "parsed": {
+    "feed_id": "6ad215a2000000001800473f",
+    "data": {
+      "note": {
+        "noteId": "6ad215a2000000001800473f",
+        "xsecToken": "ABuk83rZybbYRA7Ydi_isyJXNb4uBkMHdbvNxH3LO7J_k=",
+        "title": "网易游戏(互娱) base 广州 28届日常实习",
+        "desc": "一面（约40分钟）\n开共享屏幕画出coding agent架构图，并阐述一个请求进来流程怎么走？\n有了MCP为什么还需要skill？\nMCP有哪些实现方式，分别使用哪些协议？\n实习中是否遇到过模型限流的问题？错误码是多少?怎么处理?\n实习项目里对大模型API并发调用怎么控制的?\n有没有思考过不同的coding agent缓存命中率不同的原因\n二面（约一小时）几乎全是他们内部业务(coding agent)的场景题\n1、你的实习项目中，你觉得遇到了最大的困难是什么？怎么解决的\n2、如何设计一套针对线上业务报错、通过 AI 自动化管线进行分析分类、自动修复并提交 Merge Request 闭环的系统？ 需要划分哪些模块？提供什么样的服务？用户应该怎么去使用？ 系统的技术选型应该怎么做？例如 Agent 框架、接收监控系统的接入层框架以及数据库分别该如何选型？\n3、在由 Agent 持续修改代码的情况下，如何通过质量保障来确保代码质量符合预期？\n4、当系统上线后 AI 生成了大量代码导致人工看不过来时，人工审查的重点究竟应该看什么？\n5、打开 GitLab 看到 AI 为某个需求或单子提交了大量的文件和代码时，具体应该看哪些文件或内容？\n6、如何让 AI 来辅助进行代码审查？当 AI 审查完代码并表示没有问题时，如何保证其审查结果的可靠性？\n7、当输入 MR 让 AI 审查，而 AI 回复“没问题，看完了”时，此时是否真的代表没有问题？\n8、  怎么利用 AI 来提升测试效率，以避免每次写完需求都要人工手动把系统点一遍的不现实情况？\n9、当 AI 表示测试好了且单元测试全绿通过，这是否意味着可以直接上线？\n10、当 AI 打开页面点了几下按钮并生成了一份详细的测试报告时，如何判断这个测试是否充分？\n11、当团队自动化开发久了出现 AI 制造“屎山代码”导致越来越改不动的情况时，应该怎么处理和预防？\n12、如果团队在 CLAUDE.md中写了三四十条规则且连续开发了两三个月，如何确认仓库是否真的在遵循这些规则，以及如何确定有没有产生不可控的技术债务？\n13、分享你最近了解过的新的 AI 知识？\n#互联网大厂实习[话题]# #24h新鲜面经[话题]# #互联网[话题]# #找实习[话题]# #28届实习[话题]# #校招[话题]# #agent[话题]# #AI应用开发[话题]#",
+        "type": "normal",
+        "time": 1792152994000,
+        "ipLocation": "",
+        "user": {
+          "userId": "64ce6be4000000000b00b7f8",
+          "nickname": "Ryan",
+          "nickName": "",
+          "avatar": "https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo325ccscjokk605p6edfi2pdvonl2af9o"
+        },
+        "interactInfo": {
+          "liked": false,
+          "likedCount": "79",
+          "sharedCount": "",
+          "commentCount": "19",
+          "collectedCount": "123",
+          "collected": false
+        },
+        "imageList": [
+          {
+            "width": 1200,
+            "height": 1600,
+            "urlDefault": "http://sns-webpic-qc.xhscdn.com/202611210228/7927b94b69cf18ad3e260998794cdacb/1040g008326crah0ql6605p6edfi2pdvo47vlqvo!nd_dft_wlteh_webp_3",
+            "urlPre": "http://sns-webpic-qc.xhscdn.com/202611210228/e0972953aab1a16b9b9271b8b60d920f/1040g008326crah0ql6605p6edfi2pdvo47vlqvo!nd_prv_wlteh_webp_3"
+          }
+        ]
+      },
+      "comments": {
+        "list": [
+          {
+            "id": "6ad2d3c60000000005029386",
+            "noteId": "6ad215a2000000001800473f",
+            "content": "佬一面是什么时候面的",
+            "likeCount": "0",
+            "createTime": 1792201671000,
+            "ipLocation": "江苏",
+            "liked": false,
+            "userInfo": {
+              "userId": "60f0f63e0000000001007837",
+              "nickname": "小红薯A2FC78TQ",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "1",
+            "subComments": [
+              {
+                "id": "6ad2db210000000008031487",
+                "noteId": "6ad215a2000000001800473f",
+                "content": "10.12",
+                "likeCount": "0",
+                "createTime": 1792203553000,
+                "ipLocation": "山东",
+                "liked": false,
+                "userInfo": {
+                  "userId": "64ce6be4000000000b00b7f8",
+                  "nickname": "Ryan",
+                  "nickName": "",
+                  "avatar": ""
+                },
+                "subCommentCount": "",
+                "subComments": null,
+                "showTags": [
+                  "is_author"
+                ]
+              }
+            ],
+            "showTags": []
+          },
+          {
+            "id": "6ad365ee0000000008003d79",
+            "noteId": "6ad215a2000000001800473f",
+            "content": "感觉稳了 shirui",
+            "likeCount": "0",
+            "createTime": 1792239087000,
+            "ipLocation": "福建",
+            "liked": false,
+            "userInfo": {
+              "userId": "6319b34f000000002303e48a",
+              "nickname": "shoko",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "2",
+            "subComments": [
+              {
+                "id": "6ad373f3000000001103b9e2",
+                "noteId": "6ad215a2000000001800473f",
+                "content": "之前面的我也感觉稳了 结果全挂 已老实[哭惹R]",
+                "likeCount": "1",
+                "createTime": 1792242676000,
+                "ipLocation": "山东",
+                "liked": false,
+                "userInfo": {
+                  "userId": "64ce6be4000000000b00b7f8",
+                  "nickname": "Ryan",
+                  "nickName": "",
+                  "avatar": ""
+                },
+                "subCommentCount": "",
+                "subComments": null,
+                "showTags": [
+                  "is_author"
+                ]
+              }
+            ],
+            "showTags": []
+          },
+          {
+            "id": "6ad233f70000000008035491",
+            "noteId": "6ad215a2000000001800473f",
+            "content": "oc了吗",
+            "likeCount": "0",
+            "createTime": 1792160760000,
+            "ipLocation": "上海",
+            "liked": false,
+            "userInfo": {
+              "userId": "5dfa09c60000000001009eaf",
+              "nickname": "Eli",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "1",
+            "subComments": [
+              {
+                "id": "6ad24a83000000000702fd91",
+                "noteId": "6ad215a2000000001800473f",
+                "content": "今天刚面的二面",
+                "likeCount": "0",
+                "createTime": 1792166531000,
+                "ipLocation": "山东",
+                "liked": false,
+                "userInfo": {
+                  "userId": "64ce6be4000000000b00b7f8",
+                  "nickname": "Ryan",
+                  "nickName": "",
+                  "avatar": ""
+                },
+                "subCommentCount": "",
+                "subComments": null,
+                "showTags": [
+                  "is_author"
+                ]
+              }
+            ],
+            "showTags": []
+          },
+          {
+            "id": "6ad21711000000001202ba19",
+            "noteId": "6ad215a2000000001800473f",
+            "content": "请问啥时候递的简历呀[皱眉R]",
+            "likeCount": "0",
+            "createTime": 1792153362000,
+            "ipLocation": "贵州",
+            "liked": false,
+            "userInfo": {
+              "userId": "5bfd1ee551783a0f5ba17138",
+              "nickname": "🌟",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "1",
+            "subComments": [
+              {
+                "id": "6ad21743000000000702dd6e",
+                "noteId": "6ad215a2000000001800473f",
+                "content": "9. 24",
+                "likeCount": "0",
+                "createTime": 1792153411000,
+                "ipLocation": "山东",
+                "liked": false,
+                "userInfo": {
+                  "userId": "64ce6be4000000000b00b7f8",
+                  "nickname": "Ryan",
+                  "nickName": "",
+                  "avatar": ""
+                },
+                "subCommentCount": "",
+                "subComments": null,
+                "showTags": [
+                  "is_author"
+                ]
+              }
+            ],
+            "showTags": []
+          },
+          {
+            "id": "6ad2336b000000001103b58b",
+            "noteId": "6ad215a2000000001800473f",
+            "content": "佬之前有实习经历吗",
+            "likeCount": "0",
+            "createTime": 1792160620000,
+            "ipLocation": "黑龙江",
+            "liked": false,
+            "userInfo": {
+              "userId": "5b1efa934eacab4db97b8bc3",
+              "nickname": "Veranair",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "1",
+            "subComments": [
+              {
+                "id": "6ad24a9a00000000070115f4",
+                "noteId": "6ad215a2000000001800473f",
+                "content": "三段，简历上只写了对口的两段",
+                "likeCount": "1",
+                "createTime": 1792166554000,
+                "ipLocation": "山东",
+                "liked": false,
+                "userInfo": {
+                  "userId": "64ce6be4000000000b00b7f8",
+                  "nickname": "Ryan",
+                  "nickName": "",
+                  "avatar": ""
+                },
+                "subCommentCount": "",
+                "subComments": null,
+                "showTags": [
+                  "is_author"
+                ]
+              }
+            ],
+            "showTags": []
+          },
+          {
+            "id": "6ad250b00000000008003db7",
+            "noteId": "6ad215a2000000001800473f",
+            "content": "佬太强了，我也是neu软件研二，刚开始准备实习[doge]",
+            "likeCount": "0",
+            "createTime": 1792168112000,
+            "ipLocation": "辽宁",
+            "liked": false,
+            "userInfo": {
+              "userId": "651c38d4000000002402c624",
+              "nickname": "M0M0",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "1",
+            "subComments": [
+              {
+                "id": "6ad2a5b30000000008032cad",
+                "noteId": "6ad215a2000000001800473f",
+                "content": "一起加油[微笑R]",
+                "likeCount": "0",
+                "createTime": 1792189876000,
+                "ipLocation": "山东",
+                "liked": false,
+                "userInfo": {
+                  "userId": "64ce6be4000000000b00b7f8",
+                  "nickname": "Ryan",
+                  "nickName": "",
+                  "avatar": ""
+                },
+                "subCommentCount": "",
+                "subComments": null,
+                "showTags": [
+                  "is_author"
+                ]
+              }
+            ],
+            "showTags": []
+          },
+          {
+            "id": "6ad220c8000000001103255b",
+            "noteId": "6ad215a2000000001800473f",
+            "content": "没有手撕吗",
+            "likeCount": "0",
+            "createTime": 1792155849000,
+            "ipLocation": "浙江",
+            "liked": false,
+            "userInfo": {
+              "userId": "6890b9950000000028034d3a",
+              "nickname": "enaz",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "1",
+            "subComments": [
+              {
+                "id": "6ad223180000000011038a11",
+                "noteId": "6ad215a2000000001800473f",
+                "content": "没有",
+                "likeCount": "0",
+                "createTime": 1792156440000,
+                "ipLocation": "山东",
+                "liked": false,
+                "userInfo": {
+                  "userId": "64ce6be4000000000b00b7f8",
+                  "nickname": "Ryan",
+                  "nickName": "",
+                  "avatar": ""
+                },
+                "subCommentCount": "",
+                "subComments": null,
+                "showTags": [
+                  "is_author"
+                ]
+              }
+            ],
+            "showTags": []
+          },
+          {
+            "id": "6ae9e6ac000000000f02c3ec",
+            "noteId": "6ad215a2000000001800473f",
+            "content": "日常实习是双机位还是单机位呀",
+            "likeCount": "0",
+            "createTime": 1793713837000,
+            "ipLocation": "陕西",
+            "liked": false,
+            "userInfo": {
+              "userId": "5d0e1edb00000000110098ae",
+              "nickname": "InXx",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "1",
+            "subComments": [
+              {
+                "id": "6aea7d850000000012032672",
+                "noteId": "6ad215a2000000001800473f",
+                "content": "单",
+                "likeCount": "0",
+                "createTime": 1793752453000,
+                "ipLocation": "山东",
+                "liked": false,
+                "userInfo": {
+                  "userId": "64ce6be4000000000b00b7f8",
+                  "nickname": "Ryan",
+                  "nickName": "",
+                  "avatar": ""
+                },
+                "subCommentCount": "",
+                "subComments": null,
+                "showTags": [
+                  "is_author"
+                ]
+              }
+            ],
+            "showTags": []
+          },
+          {
+            "id": "6aed66f0000000000202b439",
+            "noteId": "6ad215a2000000001800473f",
+            "content": "你这一面和我一个面试官吗",
+            "likeCount": "0",
+            "createTime": 1793943281000,
+            "ipLocation": "湖南",
+            "liked": false,
+            "userInfo": {
+              "userId": "613b492c000000000201c8aa",
+              "nickname": "夕夕如环🌙",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "0",
+            "subComments": [],
+            "showTags": []
+          },
+          {
+            "id": "6ad62f79000000000b01e4b3",
+            "noteId": "6ad215a2000000001800473f",
+            "content": "太强了",
+            "likeCount": "0",
+            "createTime": 1792421754000,
+            "ipLocation": "广东",
+            "liked": false,
+            "userInfo": {
+              "userId": "5ccaae3c000000001101c3ed",
+              "nickname": "JYFUN",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "0",
+            "subComments": [],
+            "showTags": []
+          }
+        ],
+        "cursor": "6ad62f79000000000b01e4b3",
+        "hasMore": true
+      }
+    }
+  }
+}

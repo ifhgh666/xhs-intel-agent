@@ -1,0 +1,41 @@
+{
+  "sample_id": "sample_01",
+  "annotated": true,
+  "note": {
+    "feed_id": "6afdc5df000000002c00cff2",
+    "source_url": "https://www.xiaohongshu.com/explore/6afdc5df000000002c00cff2",
+    "title": "招Ai agent产品实习生 | 广州",
+    "author": "我是屁屁🐱",
+    "published_at": 1795016159000,
+    "image_count": 1,
+    "desc": "【岗位职责】\n1. 参与微信小微中ai调用一方能力&小程序 产品体验设计，定义用户场景、任务边界和交互体验；\n2. 搭建 Agent 评估指标与题集，基于线上数据和 badcase 归因推动效果迭代。\n\t\n【任职要求】\n1. 2028届及以后毕业的本科或硕士在读生，专业不限，计算机、人工智能、心理学、交互设计等相关专业优先；\n2. 每周至少到岗 4 天，连续实习 3 个月以上；\n3. 了解 Agent Loop、Tool Use 等基本概念；有 Agent 评测、数据标注或 Prompt 调优经验的优先；\n4. 逻辑清晰，有产品sense，深度使用个人助理类产品；\n5. 对新事物有好奇心，学习快，不怕难，能独立推进事情。\n\t\n【加分项】\n有用 AI 工具搭建的Bot 或小程序等作品。\n\t\n投递方式：腾讯官网投递简历并发送简历至susiesun124@gmail.com\n#人工智能[话题]# #产品经理[话题]# #大厂[话题]# #实习生[话题]# #实习生内推[话题]# #找实习[话题]# #互联网大厂实习[话题]# #大模型[话题]# #微信[话题]# #令人心动的实习日记[话题]#"
+  },
+  "expected": {
+    "is_job_post": true,
+    "needs_image": false,
+    "jobs": [
+      {
+        "company": "腾讯",
+        "position": "AI Agent产品实习生",
+        "city": "广州",
+        "education": "本科或硕士在读生",
+        "graduation_year": "2028届及以后",
+        "skills": [
+          "Agent Loop",
+          "Tool Use",
+          "Agent 评测",
+          "数据标注",
+          "Prompt 调优"
+        ],
+        "internship_duration": "3个月以上",
+        "attendance_days": "每周至少到岗4天",
+        "salary": null,
+        "deadline": null,
+        "apply_method": "腾讯官网投递简历并发送简历至susiesun124@gmail.com",
+        "application_url": null,
+        "evidence": "2028届及以后毕业的本科或硕士在读生，专业不限"
+      }
+    ]
+  },
+  "notes": "一手微信小微团队直招，字段非常完整。"
+}

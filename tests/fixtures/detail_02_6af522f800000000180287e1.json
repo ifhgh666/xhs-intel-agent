@@ -1,0 +1,205 @@
+{
+  "captured_at": "2026-11-20T18:24:11.232987+00:00",
+  "mcp_url": "http://localhost:18060/mcp",
+  "tool": "get_feed_detail",
+  "arguments": {
+    "feed_id": "6af522f800000000180287e1",
+    "xsec_token": "ABc3OvoufZcqky9oKMmpRXzrQ30dH4UPYGdriACn_z5-A="
+  },
+  "candidate": {
+    "feed_id": "6af522f800000000180287e1",
+    "xsec_token": "ABc3OvoufZcqky9oKMmpRXzrQ30dH4UPYGdriACn_z5-A=",
+    "title": "急招",
+    "author": "梓墨",
+    "published_at": "",
+    "liked_count": "13",
+    "type": "normal",
+    "source_keyword": "广州 AI实习",
+    "source_fixture": "search_01_广州_AI实习.json"
+  },
+  "is_error": false,
+  "raw_text": "{\n  \"feed_id\": \"6af522f800000000180287e1\",\n  \"data\": {\n    \"note\": {\n      \"noteId\": \"6af522f800000000180287e1\",\n      \"xsecToken\": \"ABc3OvoufZcqky9oKMmpRXzrQ30dH4UPYGdriACn_z5-A=\",\n      \"title\": \"急招\",\n      \"desc\": \"岗位名称：AI医疗算法大模型实习生\\n投递方式：实习僧和智联搜索科大讯飞“AI医疗算法大模型实习生”岗位投递即可\\n学历要求：本科及以上\\n工作地点：广州南沙区\\n工作时长：一周五天/3个月以上\\n工作要求如图\\n#找实习[话题]# #招人[话题]# #互联网大厂实习[话题]# #科大讯飞实习[话题]# #大学生实习[话题]# #令人心动的实习日记[话题]# #\",\n      \"type\": \"normal\",\n      \"time\": 1794450168000,\n      \"ipLocation\": \"安徽\",\n      \"user\": {\n        \"userId\": \"6486533000000000120375a5\",\n        \"nickname\": \"梓墨\",\n        \"nickName\": \"\",\n        \"avatar\": \"https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo31pqttmr0kk6g5p46aco4mtd5hbdmti0\"\n      },\n      \"interactInfo\": {\n        \"liked\": false,\n        \"likedCount\": \"13\",\n        \"sharedCount\": \"\",\n        \"commentCount\": \"10\",\n        \"collectedCount\": \"14\",\n        \"collected\": false\n      },\n      \"imageList\": [\n        {\n          \"width\": 1200,\n          \"height\": 1600,\n          \"urlDefault\": \"http://sns-webpic-qc.xhscdn.com/202611210223/54041af6cebb6864b81b4643d5b8cc3f/1040g2sg327f1mcat76i05p46aco4mtd58v8pqf0!nd_dft_wlteh_webp_3\",\n          \"urlPre\": \"http://sns-webpic-qc.xhscdn.com/202611210223/180868731589f852302783352915214d/1040g2sg327f1mcat76i05p46aco4mtd58v8pqf0!nd_prv_wlteh_webp_3\"\n        },\n        {\n          \"width\": 1440,\n          \"height\": 1080,\n          \"urlDefault\": \"http://sns-webpic-qc.xhscdn.com/202611210223/0932d0bef3b4e997ff2cbb3200cc334a/1040g2sg327f1mcat76hg5p46aco4mtd50219o8g!nd_dft_wgth_webp_3\",\n          \"urlPre\": \"http://sns-webpic-qc.xhscdn.com/202611210223/c802b4ae34a2bf049d8e601845aed0d0/1040g2sg327f1mcat76hg5p46aco4mtd50219o8g!nd_prv_wgth_webp_3\"\n        }\n      ]\n    },\n    \"comments\": {\n      \"list\": [\n        {\n          \"id\": \"6af5484b000000001301af56\",\n          \"noteId\": \"6af522f800000000180287e1\",\n          \"content\": \"怎么投递\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1794459724000,\n          \"ipLocation\": \"江西\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"5fd8bbeb0000000001006bec\",\n            \"nickname\": \"半tour废\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"2\",\n          \"subComments\": [\n            {\n              \"id\": \"6af563ff0000000002011cd4\",\n              \"noteId\": \"6af522f800000000180287e1\",\n              \"content\": \"文案上写了哦，实习僧和智联搜索科大讯飞“AI医疗算法大模型实习生”岗位投递就可以啦\",\n              \"likeCount\": \"1\",\n              \"createTime\": 1794466815000,\n              \"ipLocation\": \"安徽\",\n              \"liked\": false,\n              \"userInfo\": {\n                \"userId\": \"6486533000000000120375a5\",\n                \"nickname\": \"梓墨\",\n                \"nickName\": \"\",\n                \"avatar\": \"\"\n              },\n              \"subCommentCount\": \"\",\n              \"subComments\": null,\n              \"showTags\": [\n                \"is_author\"\n              ]\n            }\n          ],\n          \"showTags\": []\n        },\n        {\n          \"id\": \"6af52bc40000000013016709\",\n          \"noteId\": \"6af522f800000000180287e1\",\n          \"content\": \"有学历要求吗[害羞R][害羞R]\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1794452420000,\n          \"ipLocation\": \"重庆\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"69d32395000000003203504c\",\n            \"nickname\": \"麦 Queen\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"2\",\n          \"subComments\": [\n            {\n              \"id\": \"6af52c01000000000b0156c7\",\n              \"noteId\": \"6af522f800000000180287e1\",\n              \"content\": \"本科及以上哦\",\n              \"likeCount\": \"1\",\n              \"createTime\": 1794452482000,\n              \"ipLocation\": \"安徽\",\n              \"liked\": false,\n              \"userInfo\": {\n                \"userId\": \"6486533000000000120375a5\",\n                \"nickname\": \"梓墨\",\n                \"nickName\": \"\",\n                \"avatar\": \"\"\n              },\n              \"subCommentCount\": \"\",\n              \"subComments\": null,\n              \"showTags\": [\n                \"is_author\"\n              ]\n            }\n          ],\n          \"showTags\": []\n        },\n        {\n          \"id\": \"6af5261f000000000a01f1e9\",\n          \"noteId\": \"6af522f800000000180287e1\",\n          \"content\": \"合肥有吗\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1794450976000,\n          \"ipLocation\": \"安徽\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"6665d7040000000003032295\",\n            \"nickname\": \"璐宝\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"2\",\n          \"subComments\": [\n            {\n              \"id\": \"6af52bfa0000000002012c62\",\n              \"noteId\": \"6af522f800000000180287e1\",\n              \"content\": \"我负责的合肥的目前岗位满了哦，同学也可以去智联，boss猎聘，实习僧看看有没有其他部门的嘞\",\n              \"likeCount\": \"0\",\n              \"createTime\": 1794452475000,\n              \"ipLocation\": \"安徽\",\n              \"liked\": false,\n              \"userInfo\": {\n                \"userId\": \"6486533000000000120375a5\",\n                \"nickname\": \"梓墨\",\n                \"nickName\": \"\",\n                \"avatar\": \"\"\n              },\n              \"subCommentCount\": \"\",\n              \"subComments\": null,\n              \"showTags\": [\n                \"is_author\"\n              ]\n            }\n          ],\n          \"showTags\": []\n        },\n        {\n          \"id\": \"6af5935c000000000b01bd92\",\n          \"noteId\": \"6af522f800000000180287e1\",\n          \"content\": \"已投递！\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1794478941000,\n          \"ipLocation\": \"广东\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"6686aa540000000003031ea8\",\n            \"nickname\": \"tomato\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"0\",\n          \"subComments\": [],\n          \"showTags\": []\n        }\n      ],\n      \"cursor\": \"6af5935c000000000b01bd92\",\n      \"hasMore\": false\n    }\n  }\n}",
+  "parsed": {
+    "feed_id": "6af522f800000000180287e1",
+    "data": {
+      "note": {
+        "noteId": "6af522f800000000180287e1",
+        "xsecToken": "ABc3OvoufZcqky9oKMmpRXzrQ30dH4UPYGdriACn_z5-A=",
+        "title": "急招",
+        "desc": "岗位名称：AI医疗算法大模型实习生\n投递方式：实习僧和智联搜索科大讯飞“AI医疗算法大模型实习生”岗位投递即可\n学历要求：本科及以上\n工作地点：广州南沙区\n工作时长：一周五天/3个月以上\n工作要求如图\n#找实习[话题]# #招人[话题]# #互联网大厂实习[话题]# #科大讯飞实习[话题]# #大学生实习[话题]# #令人心动的实习日记[话题]# #",
+        "type": "normal",
+        "time": 1794450168000,
+        "ipLocation": "安徽",
+        "user": {
+          "userId": "6486533000000000120375a5",
+          "nickname": "梓墨",
+          "nickName": "",
+          "avatar": "https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo31pqttmr0kk6g5p46aco4mtd5hbdmti0"
+        },
+        "interactInfo": {
+          "liked": false,
+          "likedCount": "13",
+          "sharedCount": "",
+          "commentCount": "10",
+          "collectedCount": "14",
+          "collected": false
+        },
+        "imageList": [
+          {
+            "width": 1200,
+            "height": 1600,
+            "urlDefault": "http://sns-webpic-qc.xhscdn.com/202611210223/54041af6cebb6864b81b4643d5b8cc3f/1040g2sg327f1mcat76i05p46aco4mtd58v8pqf0!nd_dft_wlteh_webp_3",
+            "urlPre": "http://sns-webpic-qc.xhscdn.com/202611210223/180868731589f852302783352915214d/1040g2sg327f1mcat76i05p46aco4mtd58v8pqf0!nd_prv_wlteh_webp_3"
+          },
+          {
+            "width": 1440,
+            "height": 1080,
+            "urlDefault": "http://sns-webpic-qc.xhscdn.com/202611210223/0932d0bef3b4e997ff2cbb3200cc334a/1040g2sg327f1mcat76hg5p46aco4mtd50219o8g!nd_dft_wgth_webp_3",
+            "urlPre": "http://sns-webpic-qc.xhscdn.com/202611210223/c802b4ae34a2bf049d8e601845aed0d0/1040g2sg327f1mcat76hg5p46aco4mtd50219o8g!nd_prv_wgth_webp_3"
+          }
+        ]
+      },
+      "comments": {
+        "list": [
+          {
+            "id": "6af5484b000000001301af56",
+            "noteId": "6af522f800000000180287e1",
+            "content": "怎么投递",
+            "likeCount": "0",
+            "createTime": 1794459724000,
+            "ipLocation": "江西",
+            "liked": false,
+            "userInfo": {
+              "userId": "5fd8bbeb0000000001006bec",
+              "nickname": "半tour废",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "2",
+            "subComments": [
+              {
+                "id": "6af563ff0000000002011cd4",
+                "noteId": "6af522f800000000180287e1",
+                "content": "文案上写了哦，实习僧和智联搜索科大讯飞“AI医疗算法大模型实习生”岗位投递就可以啦",
+                "likeCount": "1",
+                "createTime": 1794466815000,
+                "ipLocation": "安徽",
+                "liked": false,
+                "userInfo": {
+                  "userId": "6486533000000000120375a5",
+                  "nickname": "梓墨",
+                  "nickName": "",
+                  "avatar": ""
+                },
+                "subCommentCount": "",
+                "subComments": null,
+                "showTags": [
+                  "is_author"
+                ]
+              }
+            ],
+            "showTags": []
+          },
+          {
+            "id": "6af52bc40000000013016709",
+            "noteId": "6af522f800000000180287e1",
+            "content": "有学历要求吗[害羞R][害羞R]",
+            "likeCount": "0",
+            "createTime": 1794452420000,
+            "ipLocation": "重庆",
+            "liked": false,
+            "userInfo": {
+              "userId": "69d32395000000003203504c",
+              "nickname": "麦 Queen",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "2",
+            "subComments": [
+              {
+                "id": "6af52c01000000000b0156c7",
+                "noteId": "6af522f800000000180287e1",
+                "content": "本科及以上哦",
+                "likeCount": "1",
+                "createTime": 1794452482000,
+                "ipLocation": "安徽",
+                "liked": false,
+                "userInfo": {
+                  "userId": "6486533000000000120375a5",
+                  "nickname": "梓墨",
+                  "nickName": "",
+                  "avatar": ""
+                },
+                "subCommentCount": "",
+                "subComments": null,
+                "showTags": [
+                  "is_author"
+                ]
+              }
+            ],
+            "showTags": []
+          },
+          {
+            "id": "6af5261f000000000a01f1e9",
+            "noteId": "6af522f800000000180287e1",
+            "content": "合肥有吗",
+            "likeCount": "0",
+            "createTime": 1794450976000,
+            "ipLocation": "安徽",
+            "liked": false,
+            "userInfo": {
+              "userId": "6665d7040000000003032295",
+              "nickname": "璐宝",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "2",
+            "subComments": [
+              {
+                "id": "6af52bfa0000000002012c62",
+                "noteId": "6af522f800000000180287e1",
+                "content": "我负责的合肥的目前岗位满了哦，同学也可以去智联，boss猎聘，实习僧看看有没有其他部门的嘞",
+                "likeCount": "0",
+                "createTime": 1794452475000,
+                "ipLocation": "安徽",
+                "liked": false,
+                "userInfo": {
+                  "userId": "6486533000000000120375a5",
+                  "nickname": "梓墨",
+                  "nickName": "",
+                  "avatar": ""
+                },
+                "subCommentCount": "",
+                "subComments": null,
+                "showTags": [
+                  "is_author"
+                ]
+              }
+            ],
+            "showTags": []
+          },
+          {
+            "id": "6af5935c000000000b01bd92",
+            "noteId": "6af522f800000000180287e1",
+            "content": "已投递！",
+            "likeCount": "0",
+            "createTime": 1794478941000,
+            "ipLocation": "广东",
+            "liked": false,
+            "userInfo": {
+              "userId": "6686aa540000000003031ea8",
+              "nickname": "tomato",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "0",
+            "subComments": [],
+            "showTags": []
+          }
+        ],
+        "cursor": "6af5935c000000000b01bd92",
+        "hasMore": false
+      }
+    }
+  }
+}

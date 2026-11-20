@@ -1,0 +1,150 @@
+{
+  "captured_at": "2026-11-20T18:27:08.238852+00:00",
+  "mcp_url": "http://localhost:18060/mcp",
+  "tool": "get_feed_detail",
+  "arguments": {
+    "feed_id": "6ace556e000000001500bd0c",
+    "xsec_token": "ABHa3HJdPAqgFc6a5xCnpP8RBKjheCUc051VOAN61PBAY="
+  },
+  "candidate": {
+    "feed_id": "6ace556e000000001500bd0c",
+    "xsec_token": "ABHa3HJdPAqgFc6a5xCnpP8RBKjheCUc051VOAN61PBAY=",
+    "title": "05 大三暨大AI应用开发实习第13-14天Vlog",
+    "author": "JIOJIO",
+    "published_at": "",
+    "liked_count": "29",
+    "type": "normal",
+    "source_keyword": "广州 AI实习",
+    "source_fixture": "search_01_广州_AI实习.json"
+  },
+  "is_error": false,
+  "raw_text": "{\n  \"feed_id\": \"6ace556e000000001500bd0c\",\n  \"data\": {\n    \"note\": {\n      \"noteId\": \"6ace556e000000001500bd0c\",\n      \"xsecToken\": \"ABHa3HJdPAqgFc6a5xCnpP8RBKjheCUc051VOAN61PBAY=\",\n      \"title\": \"05 大三暨大AI应用开发实习第13-14天Vlog\",\n      \"desc\": \"自上次mentor的任务，近两天也是梳理的头昏脑胀（项目是java学的，主力语言是python和go的我有些吃不消，还有很多框架以及各种基础设施\\u0026分布式微服务相关的，也是学不完了，梳理起来有些困难）\\n梳理了接上篇的主要链路，从前端调用接口到后端返回，经过的业务逻辑及其数据库交互，数据流通等等内容，至少整个链路是比较清晰的，兴致勃勃把自己的方案比如多相连数据表增加返回字段以供前端展示等给mentor生成了个实施文档，mentor告诉我理解错了（应该是纯依据他给的文档梳理需要做什么需求，不用扎入到代码中去[失望R][失望R][失望R]，也是没谁了，单纯培养我提炼需求、理解业务场景、需求规则等等上层的内容，还没有到具体的技术方案阶段[失望R][失望R][失望R]（不过最开始我问他标准，给我发了个前后端节后调用+业务场景的示范，也是我开始分析接口的原因[偷笑R]）），如果纯上层提炼应该很简单，不过我准备按照业务场景-参与角色-当前现状-需求目标-具体需求（可能包含子需求）-需求边界-业务规则-触发条件-验收标准-待确认问题这些字段进行梳理，当然每个字段不是必须的，且在ai帮助下应该手拿把掐[偷笑R][偷笑R][偷笑R]。\\n周四上班应该就能交付，到时候再找mentor确认一下～\\n\\t\\n晚安😴宝子们[飞吻R][飞吻R][飞吻R]\\n#大学生实习[话题]# #实习[话题]# #实习生[话题]# #令人心动的实习日记[话题]# #当代大学生打工[话题]#\",\n      \"type\": \"normal\",\n      \"time\": 1791907182000,\n      \"ipLocation\": \"\",\n      \"user\": {\n        \"userId\": \"62a0aee3000000001b025c9b\",\n        \"nickname\": \"JIOJIO\",\n        \"nickName\": \"\",\n        \"avatar\": \"https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo31c6g3a1g08605ol0lrhmsn4r3qfnkgg\"\n      },\n      \"interactInfo\": {\n        \"liked\": false,\n        \"likedCount\": \"29\",\n        \"sharedCount\": \"\",\n        \"commentCount\": \"7\",\n        \"collectedCount\": \"14\",\n        \"collected\": false\n      },\n      \"imageList\": [\n        {\n          \"width\": 1920,\n          \"height\": 2560,\n          \"urlDefault\": \"http://sns-webpic-qc.xhscdn.com/202611210226/402990b34ac63d10ded2c4c4a155babb/1040g00832695nprak4005ol0lrhmsn4rbt26nlo!nd_dft_wlteh_webp_3\",\n          \"urlPre\": \"http://sns-webpic-qc.xhscdn.com/202611210226/3b9bf7aa03f6d209ba59cf10a5a9ebab/1040g00832695nprak4005ol0lrhmsn4rbt26nlo!nd_prv_wlteh_webp_3\",\n          \"livePhoto\": true\n        },\n        {\n          \"width\": 2560,\n          \"height\": 1920,\n          \"urlDefault\": \"http://sns-webpic-qc.xhscdn.com/202611210226/d5a7e06134d1980c60b5013c78a0d90f/1040g00832695nprak40g5ol0lrhmsn4robbi75g!nd_dft_wgth_webp_3\",\n          \"urlPre\": \"http://sns-webpic-qc.xhscdn.com/202611210226/733b85c09b385ea909fd146fd0e133d7/1040g00832695nprak40g5ol0lrhmsn4robbi75g!nd_prv_wgth_webp_3\",\n          \"livePhoto\": true\n        }\n      ]\n    },\n    \"comments\": {\n      \"list\": [\n        {\n          \"id\": \"6ace57e40000000008037ccf\",\n          \"noteId\": \"6ace556e000000001500bd0c\",\n          \"content\": \"居然是芳禾[doge]\",\n          \"likeCount\": \"1\",\n          \"createTime\": 1791907813000,\n          \"ipLocation\": \"广东\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"5f06ad6500000000010072bb\",\n            \"nickname\": \"小叮做事小叮当\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"4\",\n          \"subComments\": [\n            {\n              \"id\": \"6acee5d7000000001103dafb\",\n              \"noteId\": \"6ace556e000000001500bd0c\",\n              \"content\": \"难道说？[飞吻R]\",\n              \"likeCount\": \"0\",\n              \"createTime\": 1791944152000,\n              \"ipLocation\": \"广东\",\n              \"liked\": false,\n              \"userInfo\": {\n                \"userId\": \"62a0aee3000000001b025c9b\",\n                \"nickname\": \"JIOJIO\",\n                \"nickName\": \"\",\n                \"avatar\": \"\"\n              },\n              \"subCommentCount\": \"\",\n              \"subComments\": null,\n              \"showTags\": [\n                \"is_author\"\n              ]\n            }\n          ],\n          \"showTags\": []\n        },\n        {\n          \"id\": \"6ace594f00000000070118c2\",\n          \"noteId\": \"6ace556e000000001500bd0c\",\n          \"content\": \"想问下主播，实习是怎么找到的，面试难不难，同大三想找ai开发岗一直没面试\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1791908176000,\n          \"ipLocation\": \"广东\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"6999b773000000001d004fb9\",\n            \"nickname\": \"哇哈哈\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"1\",\n          \"subComments\": [\n            {\n              \"id\": \"6acee61f0000000012001bdb\",\n              \"noteId\": \"6ace556e000000001500bd0c\",\n              \"content\": \"人家现在在忙秋招，没功夫搭理非应届呢[失望R]，再等等，后面投递再看看～[飞吻R]\",\n              \"likeCount\": \"0\",\n              \"createTime\": 1791944223000,\n              \"ipLocation\": \"广东\",\n              \"liked\": false,\n              \"userInfo\": {\n                \"userId\": \"62a0aee3000000001b025c9b\",\n                \"nickname\": \"JIOJIO\",\n                \"nickName\": \"\",\n                \"avatar\": \"\"\n              },\n              \"subCommentCount\": \"\",\n              \"subComments\": null,\n              \"showTags\": [\n                \"is_author\"\n              ]\n            }\n          ],\n          \"showTags\": []\n        }\n      ],\n      \"cursor\": \"6ace594f00000000070118c2\",\n      \"hasMore\": false\n    }\n  }\n}",
+  "parsed": {
+    "feed_id": "6ace556e000000001500bd0c",
+    "data": {
+      "note": {
+        "noteId": "6ace556e000000001500bd0c",
+        "xsecToken": "ABHa3HJdPAqgFc6a5xCnpP8RBKjheCUc051VOAN61PBAY=",
+        "title": "05 大三暨大AI应用开发实习第13-14天Vlog",
+        "desc": "自上次mentor的任务，近两天也是梳理的头昏脑胀（项目是java学的，主力语言是python和go的我有些吃不消，还有很多框架以及各种基础设施&分布式微服务相关的，也是学不完了，梳理起来有些困难）\n梳理了接上篇的主要链路，从前端调用接口到后端返回，经过的业务逻辑及其数据库交互，数据流通等等内容，至少整个链路是比较清晰的，兴致勃勃把自己的方案比如多相连数据表增加返回字段以供前端展示等给mentor生成了个实施文档，mentor告诉我理解错了（应该是纯依据他给的文档梳理需要做什么需求，不用扎入到代码中去[失望R][失望R][失望R]，也是没谁了，单纯培养我提炼需求、理解业务场景、需求规则等等上层的内容，还没有到具体的技术方案阶段[失望R][失望R][失望R]（不过最开始我问他标准，给我发了个前后端节后调用+业务场景的示范，也是我开始分析接口的原因[偷笑R]）），如果纯上层提炼应该很简单，不过我准备按照业务场景-参与角色-当前现状-需求目标-具体需求（可能包含子需求）-需求边界-业务规则-触发条件-验收标准-待确认问题这些字段进行梳理，当然每个字段不是必须的，且在ai帮助下应该手拿把掐[偷笑R][偷笑R][偷笑R]。\n周四上班应该就能交付，到时候再找mentor确认一下～\n\t\n晚安😴宝子们[飞吻R][飞吻R][飞吻R]\n#大学生实习[话题]# #实习[话题]# #实习生[话题]# #令人心动的实习日记[话题]# #当代大学生打工[话题]#",
+        "type": "normal",
+        "time": 1791907182000,
+        "ipLocation": "",
+        "user": {
+          "userId": "62a0aee3000000001b025c9b",
+          "nickname": "JIOJIO",
+          "nickName": "",
+          "avatar": "https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo31c6g3a1g08605ol0lrhmsn4r3qfnkgg"
+        },
+        "interactInfo": {
+          "liked": false,
+          "likedCount": "29",
+          "sharedCount": "",
+          "commentCount": "7",
+          "collectedCount": "14",
+          "collected": false
+        },
+        "imageList": [
+          {
+            "width": 1920,
+            "height": 2560,
+            "urlDefault": "http://sns-webpic-qc.xhscdn.com/202611210226/402990b34ac63d10ded2c4c4a155babb/1040g00832695nprak4005ol0lrhmsn4rbt26nlo!nd_dft_wlteh_webp_3",
+            "urlPre": "http://sns-webpic-qc.xhscdn.com/202611210226/3b9bf7aa03f6d209ba59cf10a5a9ebab/1040g00832695nprak4005ol0lrhmsn4rbt26nlo!nd_prv_wlteh_webp_3",
+            "livePhoto": true
+          },
+          {
+            "width": 2560,
+            "height": 1920,
+            "urlDefault": "http://sns-webpic-qc.xhscdn.com/202611210226/d5a7e06134d1980c60b5013c78a0d90f/1040g00832695nprak40g5ol0lrhmsn4robbi75g!nd_dft_wgth_webp_3",
+            "urlPre": "http://sns-webpic-qc.xhscdn.com/202611210226/733b85c09b385ea909fd146fd0e133d7/1040g00832695nprak40g5ol0lrhmsn4robbi75g!nd_prv_wgth_webp_3",
+            "livePhoto": true
+          }
+        ]
+      },
+      "comments": {
+        "list": [
+          {
+            "id": "6ace57e40000000008037ccf",
+            "noteId": "6ace556e000000001500bd0c",
+            "content": "居然是芳禾[doge]",
+            "likeCount": "1",
+            "createTime": 1791907813000,
+            "ipLocation": "广东",
+            "liked": false,
+            "userInfo": {
+              "userId": "5f06ad6500000000010072bb",
+              "nickname": "小叮做事小叮当",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "4",
+            "subComments": [
+              {
+                "id": "6acee5d7000000001103dafb",
+                "noteId": "6ace556e000000001500bd0c",
+                "content": "难道说？[飞吻R]",
+                "likeCount": "0",
+                "createTime": 1791944152000,
+                "ipLocation": "广东",
+                "liked": false,
+                "userInfo": {
+                  "userId": "62a0aee3000000001b025c9b",
+                  "nickname": "JIOJIO",
+                  "nickName": "",
+                  "avatar": ""
+                },
+                "subCommentCount": "",
+                "subComments": null,
+                "showTags": [
+                  "is_author"
+                ]
+              }
+            ],
+            "showTags": []
+          },
+          {
+            "id": "6ace594f00000000070118c2",
+            "noteId": "6ace556e000000001500bd0c",
+            "content": "想问下主播，实习是怎么找到的，面试难不难，同大三想找ai开发岗一直没面试",
+            "likeCount": "0",
+            "createTime": 1791908176000,
+            "ipLocation": "广东",
+            "liked": false,
+            "userInfo": {
+              "userId": "6999b773000000001d004fb9",
+              "nickname": "哇哈哈",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "1",
+            "subComments": [
+              {
+                "id": "6acee61f0000000012001bdb",
+                "noteId": "6ace556e000000001500bd0c",
+                "content": "人家现在在忙秋招，没功夫搭理非应届呢[失望R]，再等等，后面投递再看看～[飞吻R]",
+                "likeCount": "0",
+                "createTime": 1791944223000,
+                "ipLocation": "广东",
+                "liked": false,
+                "userInfo": {
+                  "userId": "62a0aee3000000001b025c9b",
+                  "nickname": "JIOJIO",
+                  "nickName": "",
+                  "avatar": ""
+                },
+                "subCommentCount": "",
+                "subComments": null,
+                "showTags": [
+                  "is_author"
+                ]
+              }
+            ],
+            "showTags": []
+          }
+        ],
+        "cursor": "6ace594f00000000070118c2",
+        "hasMore": false
+      }
+    }
+  }
+}

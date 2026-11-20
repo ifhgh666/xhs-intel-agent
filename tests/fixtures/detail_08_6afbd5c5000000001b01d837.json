@@ -1,0 +1,120 @@
+{
+  "captured_at": "2026-11-20T18:26:28.692839+00:00",
+  "mcp_url": "http://localhost:18060/mcp",
+  "tool": "get_feed_detail",
+  "arguments": {
+    "feed_id": "6afbd5c5000000001b01d837",
+    "xsec_token": "ABELvW59hsG8foXAQPELwILjN45G-ccqmavux8b7lvA7c="
+  },
+  "candidate": {
+    "feed_id": "6afbd5c5000000001b01d837",
+    "xsec_token": "ABELvW59hsG8foXAQPELwILjN45G-ccqmavux8b7lvA7c=",
+    "title": "广州初创AI公司：join us（接受无经验背景",
+    "author": "万万没想到之白雪公主与七个小矮人竟然是池夜中介（上进版）",
+    "published_at": "",
+    "liked_count": "5",
+    "type": "normal",
+    "source_keyword": "广州 AI实习",
+    "source_fixture": "search_01_广州_AI实习.json"
+  },
+  "is_error": false,
+  "raw_text": "{\n  \"feed_id\": \"6afbd5c5000000001b01d837\",\n  \"data\": {\n    \"note\": {\n      \"noteId\": \"6afbd5c5000000001b01d837\",\n      \"xsecToken\": \"ABELvW59hsG8foXAQPELwILjN45G-ccqmavux8b7lvA7c=\",\n      \"title\": \"广州初创AI公司：join us（接受无经验背景\",\n      \"desc\": \"广州初创AI公司：join us（接受无经验背景 公司背景是一家做AI应用的初创，创始团队大都是前Google、Amazon、Pinterest的大佬，技术背景强、Scope一直在扩大，目前整体项目已经实现了稳定营收～\\n· 在startup里属于“小而稳”的那一类！因为组里有新项目开展，所以想拉点靠谱的新同事一起干活~欢迎resume~\\n· 📚Now opening：Data Analyst / Data Scientist / Software Engineer / FE-frontend / BE-backend，intern都有\\n· Base在广州，主要是intern，接受无经验小白~在校可以协商remote，需要26-30届本科及以上留学生\\n· 专业最好和CS、数据、数学、软件工程等沾边，不要求有经验，但如果有项目经历 or coursework扎实是优势，全流程清晰\\n· 虽然是初创，但浮力待🐟都挺完善的，还有各种节假日浮力，免费下午🍵，免费健身房等等~ · 整体工作节奏比较灵活，没有特别重的KPI或报表汇报，项目以落地为导向，新人也很快能跟着mentor上手实际项目，很适合ng\\n· 现在流程推进快，1~2 week就能出结果 感兴趣来 看到都会share～ #留学生找工作[话题]# #人工智能就业[话题]# #留学生求职[话题]# #初创公司[话题]# #神仙外企[话题]# #留学生实习[话题]# #美国留学生[话题]# #英国留学生[话题]# #留学生校招[话题]# #令人心动的工作[话题]# 仅作信息分享，不涉及具体招聘\",\n      \"type\": \"normal\",\n      \"time\": 1794889157000,\n      \"ipLocation\": \"四川\",\n      \"user\": {\n        \"userId\": \"6a9645e30000000013021002\",\n        \"nickname\": \"万万没想到之白雪公主与七个小矮人竟然是池夜中介（上进版）\",\n        \"nickName\": \"\",\n        \"avatar\": \"https://sns-avatar-qc.xhscdn.com/avatar/cd56a9cd-1ae6-3ad9-8f02-e19f92f9239b\"\n      },\n      \"interactInfo\": {\n        \"liked\": false,\n        \"likedCount\": \"5\",\n        \"sharedCount\": \"\",\n        \"commentCount\": \"3\",\n        \"collectedCount\": \"6\",\n        \"collected\": false\n      },\n      \"imageList\": [\n        {\n          \"width\": 1080,\n          \"height\": 1599,\n          \"urlDefault\": \"http://sns-webpic-qc.xhscdn.com/202611210226/0af37f6d29ea0b2fb3b1128d763d1a21/notes_pre_post/1040g3k0327lk1bjs6g005qkm8nhks4023i9hp38!nd_dft_wlteh_webp_3\",\n          \"urlPre\": \"http://sns-webpic-qc.xhscdn.com/202611210226/97d82afb28a9bb52f723c08eda3eac44/notes_pre_post/1040g3k0327lk1bjs6g005qkm8nhks4023i9hp38!nd_prv_wlteh_webp_3\"\n        }\n      ]\n    },\n    \"comments\": {\n      \"list\": [\n        {\n          \"id\": \"6afbdfd7000000003100deaa\",\n          \"noteId\": \"6afbd5c5000000001b01d837\",\n          \"content\": \"怎么投递\",\n          \"likeCount\": \"1\",\n          \"createTime\": 1794891735000,\n          \"ipLocation\": \"广东\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"5f046384000000000101f391\",\n            \"nickname\": \"小狗爱吃维生素\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"0\",\n          \"subComments\": [],\n          \"showTags\": []\n        },\n        {\n          \"id\": \"6afbd5d6000000002d030fab\",\n          \"noteId\": \"6afbd5c5000000001b01d837\",\n          \"content\": \"ai\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1794889174000,\n          \"ipLocation\": \"四川\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"6a9645e30000000013021002\",\n            \"nickname\": \"万万没想到之白雪公主与七个小矮人竟然是池夜中介（上进版）\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"0\",\n          \"subComments\": [],\n          \"showTags\": [\n            \"is_author\"\n          ]\n        },\n        {\n          \"id\": \"6b000a93000000001a002f1e\",\n          \"noteId\": \"6afbd5c5000000001b01d837\",\n          \"content\": \"请问还招人吗\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1795164819000,\n          \"ipLocation\": \"广东\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"5979324c6a6a6978ca19d50c\",\n            \"nickname\": \"Jessica\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"0\",\n          \"subComments\": [],\n          \"showTags\": []\n        }\n      ],\n      \"cursor\": \"6b000a93000000001a002f1e\",\n      \"hasMore\": false\n    }\n  }\n}",
+  "parsed": {
+    "feed_id": "6afbd5c5000000001b01d837",
+    "data": {
+      "note": {
+        "noteId": "6afbd5c5000000001b01d837",
+        "xsecToken": "ABELvW59hsG8foXAQPELwILjN45G-ccqmavux8b7lvA7c=",
+        "title": "广州初创AI公司：join us（接受无经验背景",
+        "desc": "广州初创AI公司：join us（接受无经验背景 公司背景是一家做AI应用的初创，创始团队大都是前Google、Amazon、Pinterest的大佬，技术背景强、Scope一直在扩大，目前整体项目已经实现了稳定营收～\n· 在startup里属于“小而稳”的那一类！因为组里有新项目开展，所以想拉点靠谱的新同事一起干活~欢迎resume~\n· 📚Now opening：Data Analyst / Data Scientist / Software Engineer / FE-frontend / BE-backend，intern都有\n· Base在广州，主要是intern，接受无经验小白~在校可以协商remote，需要26-30届本科及以上留学生\n· 专业最好和CS、数据、数学、软件工程等沾边，不要求有经验，但如果有项目经历 or coursework扎实是优势，全流程清晰\n· 虽然是初创，但浮力待🐟都挺完善的，还有各种节假日浮力，免费下午🍵，免费健身房等等~ · 整体工作节奏比较灵活，没有特别重的KPI或报表汇报，项目以落地为导向，新人也很快能跟着mentor上手实际项目，很适合ng\n· 现在流程推进快，1~2 week就能出结果 感兴趣来 看到都会share～ #留学生找工作[话题]# #人工智能就业[话题]# #留学生求职[话题]# #初创公司[话题]# #神仙外企[话题]# #留学生实习[话题]# #美国留学生[话题]# #英国留学生[话题]# #留学生校招[话题]# #令人心动的工作[话题]# 仅作信息分享，不涉及具体招聘",
+        "type": "normal",
+        "time": 1794889157000,
+        "ipLocation": "四川",
+        "user": {
+          "userId": "6a9645e30000000013021002",
+          "nickname": "万万没想到之白雪公主与七个小矮人竟然是池夜中介（上进版）",
+          "nickName": "",
+          "avatar": "https://sns-avatar-qc.xhscdn.com/avatar/cd56a9cd-1ae6-3ad9-8f02-e19f92f9239b"
+        },
+        "interactInfo": {
+          "liked": false,
+          "likedCount": "5",
+          "sharedCount": "",
+          "commentCount": "3",
+          "collectedCount": "6",
+          "collected": false
+        },
+        "imageList": [
+          {
+            "width": 1080,
+            "height": 1599,
+            "urlDefault": "http://sns-webpic-qc.xhscdn.com/202611210226/0af37f6d29ea0b2fb3b1128d763d1a21/notes_pre_post/1040g3k0327lk1bjs6g005qkm8nhks4023i9hp38!nd_dft_wlteh_webp_3",
+            "urlPre": "http://sns-webpic-qc.xhscdn.com/202611210226/97d82afb28a9bb52f723c08eda3eac44/notes_pre_post/1040g3k0327lk1bjs6g005qkm8nhks4023i9hp38!nd_prv_wlteh_webp_3"
+          }
+        ]
+      },
+      "comments": {
+        "list": [
+          {
+            "id": "6afbdfd7000000003100deaa",
+            "noteId": "6afbd5c5000000001b01d837",
+            "content": "怎么投递",
+            "likeCount": "1",
+            "createTime": 1794891735000,
+            "ipLocation": "广东",
+            "liked": false,
+            "userInfo": {
+              "userId": "5f046384000000000101f391",
+              "nickname": "小狗爱吃维生素",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "0",
+            "subComments": [],
+            "showTags": []
+          },
+          {
+            "id": "6afbd5d6000000002d030fab",
+            "noteId": "6afbd5c5000000001b01d837",
+            "content": "ai",
+            "likeCount": "0",
+            "createTime": 1794889174000,
+            "ipLocation": "四川",
+            "liked": false,
+            "userInfo": {
+              "userId": "6a9645e30000000013021002",
+              "nickname": "万万没想到之白雪公主与七个小矮人竟然是池夜中介（上进版）",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "0",
+            "subComments": [],
+            "showTags": [
+              "is_author"
+            ]
+          },
+          {
+            "id": "6b000a93000000001a002f1e",
+            "noteId": "6afbd5c5000000001b01d837",
+            "content": "请问还招人吗",
+            "likeCount": "0",
+            "createTime": 1795164819000,
+            "ipLocation": "广东",
+            "liked": false,
+            "userInfo": {
+              "userId": "5979324c6a6a6978ca19d50c",
+              "nickname": "Jessica",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "0",
+            "subComments": [],
+            "showTags": []
+          }
+        ],
+        "cursor": "6b000a93000000001a002f1e",
+        "hasMore": false
+      }
+    }
+  }
+}

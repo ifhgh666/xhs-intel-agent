@@ -1,0 +1,675 @@
+{
+  "captured_at": "2026-11-20T18:22:45.930537+00:00",
+  "mcp_url": "http://localhost:18060/mcp",
+  "tool": "search_feeds",
+  "arguments": {
+    "keyword": "RAG 实习"
+  },
+  "is_error": false,
+  "raw_text": "{\n  \"feeds\": [\n    {\n      \"xsecToken\": \"ABMMWhXUCRZtLfuQ-sb7yTtcdZ43ojJZ0YPTB8XaSeEAc=\",\n      \"id\": \"6ab6554500000000150012e8\",\n      \"modelType\": \"note\",\n      \"noteCard\": {\n        \"type\": \"normal\",\n        \"displayTitle\": \"找agent实习rag项目如何不烂大街\",\n        \"user\": {\n          \"userId\": \"6309ff54000000001200ef08\",\n          \"nickname\": \"Harrrry\",\n          \"nickName\": \"Harrrry\",\n          \"avatar\": \"https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo31grf1ffl3o005oo9vta4hro8kcubn7g?imageView2/2/w/80/format/jpg\"\n        },\n        \"interactInfo\": {\n          \"liked\": false,\n          \"likedCount\": \"529\",\n          \"sharedCount\": \"88\",\n          \"commentCount\": \"28\",\n          \"collectedCount\": \"721\",\n          \"collected\": false\n        },\n        \"cover\": {\n          \"width\": 1440,\n          \"height\": 2400,\n          \"url\": \"\",\n          \"fileId\": \"\",\n          \"urlPre\": \"http://sns-webpic-qc.xhscdn.com/202611210222/5e2b31c071cf07e8040fce0307c904eb/notes_pre_post/1040g3k8325hniilckq8g5oo9vta4hro8g38ihdg!nc_n_webp_prv_1\",\n          \"urlDefault\": \"http://sns-webpic-qc.xhscdn.com/202611210222/ba27261d76af0927a0ab17295ac7bda2/notes_pre_post/1040g3k8325hniilckq8g5oo9vta4hro8g38ihdg!nc_n_webp_mw_1\",\n          \"infoList\": null\n        }\n      },\n      \"index\": 0\n    },\n    {\n      \"xsecToken\": \"ABXQn4XMtR_6BdY3AYU9BK7eWh572hG3k0bwlJetmsTTY=\",\n      \"id\": \"6acde06e000000001b0230cd\",\n      \"modelType\": \"note\",\n      \"noteCard\": {\n        \"type\": \"normal\",\n        \"displayTitle\": \"RAG实习面试必问10题，附答题思路\",\n        \"user\": {\n          \"userId\": \"69e5d9110000000002000002\",\n          \"nickname\": \"AI实习手记\",\n          \"nickName\": \"AI实习手记\",\n          \"avatar\": \"https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo3265313oqkq505qf5r48gg002abo0j6g?imageView2/2/w/80/format/jpg\"\n        },\n        \"interactInfo\": {\n          \"liked\": false,\n          \"likedCount\": \"40\",\n          \"sharedCount\": \"1\",\n          \"commentCount\": \"0\",\n          \"collectedCount\": \"47\",\n          \"collected\": false\n        },\n        \"cover\": {\n          \"width\": 1242,\n          \"height\": 1660,\n          \"url\": \"\",\n          \"fileId\": \"\",\n          \"urlPre\": \"http://sns-webpic-qc.xhscdn.com/202611210222/a2f0bf7fc4aa3f61c706f8bec4e23446/spectrum/1040g0k03268nob7vka005qf5r48gg002lubp58o!nc_n_webp_prv_1\",\n          \"urlDefault\": \"http://sns-webpic-qc.xhscdn.com/202611210222/88274291cd9e162a1f48ec5d8f740df6/spectrum/1040g0k03268nob7vka005qf5r48gg002lubp58o!nc_n_webp_mw_1\",\n          \"infoList\": null\n        }\n      },\n      \"index\": 1\n    },\n    {\n      \"xsecToken\": \"ABXXiNe3wNlHuSiVSJIPz55-i4qcdjVe6mr__TlpPX6_0=\",\n      \"id\": \"6aa3bd18000000001203fa37\",\n      \"modelType\": \"note\",\n      \"noteCard\": {\n        \"type\": \"normal\",\n        \"displayTitle\": \"Agent实习分享-RAG（上）\",\n        \"user\": {\n          \"userId\": \"69f2f1cc0000000002002005\",\n          \"nickname\": \"农民日记\",\n          \"nickName\": \"农民日记\",\n          \"avatar\": \"https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo320ggpo07lc005qfiu760g805o8sisqo?imageView2/2/w/80/format/jpg\"\n        },\n        \"interactInfo\": {\n          \"liked\": false,\n          \"likedCount\": \"93\",\n          \"sharedCount\": \"7\",\n          \"commentCount\": \"10\",\n          \"collectedCount\": \"85\",\n          \"collected\": false\n        },\n        \"cover\": {\n          \"width\": 1280,\n          \"height\": 1280,\n          \"url\": \"\",\n          \"fileId\": \"\",\n          \"urlPre\": \"http://sns-webpic-qc.xhscdn.com/202611210222/627c9413888ff78041aae4c28a818e55/spectrum/1040g0k0324viufftj4005qfiu760g805mqfbda8!nc_n_webp_prv_1\",\n          \"urlDefault\": \"http://sns-webpic-qc.xhscdn.com/202611210222/d99719e52fa4a9148067ef8d1252ee51/spectrum/1040g0k0324viufftj4005qfiu760g805mqfbda8!nc_n_webp_mw_1\",\n          \"infoList\": null\n        }\n      },\n      \"index\": 2\n    },\n    {\n      \"xsecToken\": \"ABCjnibTEhk6vBc-9hJ23rek9KfSE_K-6u_uMGtl6FgIU=\",\n      \"id\": \"6ac65977000000001403b979\",\n      \"modelType\": \"note\",\n      \"noteCard\": {\n        \"type\": \"normal\",\n        \"displayTitle\": \"备战agent开发实习day4\",\n        \"user\": {\n          \"userId\": \"68f7559700000000370038a2\",\n          \"nickname\": \"日记本\",\n          \"nickName\": \"日记本\",\n          \"avatar\": \"https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo31nt7fq7cg66g5q7nambtoe529b9sk78?imageView2/2/w/80/format/jpg\"\n        },\n        \"interactInfo\": {\n          \"liked\": false,\n          \"likedCount\": \"5\",\n          \"sharedCount\": \"0\",\n          \"commentCount\": \"3\",\n          \"collectedCount\": \"3\",\n          \"collected\": false\n        },\n        \"cover\": {\n          \"width\": 1140,\n          \"height\": 752,\n          \"url\": \"\",\n          \"fileId\": \"\",\n          \"urlPre\": \"http://sns-webpic-qc.xhscdn.com/202611210222/385bf9aaae19277456f18b45b96b2d1d/1040g0083261cgm615g005q7nambtoe5263poc0o!nc_n_webp_prv_1\",\n          \"urlDefault\": \"http://sns-webpic-qc.xhscdn.com/202611210222/35ce093cc02e764ec2b24f4308229945/1040g0083261cgm615g005q7nambtoe5263poc0o!nc_n_webp_mw_1\",\n          \"infoList\": null\n        }\n      },\n      \"index\": 3\n    },\n    {\n      \"xsecToken\": \"ABb-MiqQa01UeaP_y_2WS-rQj7THWrCxlxEE2LOaiPgyA=\",\n      \"id\": \"6ab51f8f000000001a032ae4\",\n      \"modelType\": \"note\",\n      \"noteCard\": {\n        \"type\": \"normal\",\n        \"displayTitle\": \"Agent开发三周实习速成路线\",\n        \"user\": {\n          \"userId\": \"6309ff54000000001200ef08\",\n          \"nickname\": \"Harrrry\",\n          \"nickName\": \"Harrrry\",\n          \"avatar\": \"https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo31grf1ffl3o005oo9vta4hro8kcubn7g?imageView2/2/w/80/format/jpg\"\n        },\n        \"interactInfo\": {\n          \"liked\": true,\n          \"likedCount\": \"5838\",\n          \"sharedCount\": \"1188\",\n          \"commentCount\": \"339\",\n          \"collectedCount\": \"9318\",\n          \"collected\": false\n        },\n        \"cover\": {\n          \"width\": 2940,\n          \"height\": 1642,\n          \"url\": \"\",\n          \"fileId\": \"\",\n          \"urlPre\": \"http://sns-webpic-qc.xhscdn.com/202611210222/2a812c67dad6b05710bea1ed239dcd4d/notes_pre_post/1040g3k0325gi02b650005oo9vta4hro8vo04ug8!nc_n_webp_prv_1\",\n          \"urlDefault\": \"http://sns-webpic-qc.xhscdn.com/202611210222/fdc293fe7defc5a47bfa15f1ef70befd/notes_pre_post/1040g3k0325gi02b650005oo9vta4hro8vo04ug8!nc_n_webp_mw_1\",\n          \"infoList\": null\n        }\n      },\n      \"index\": 4\n    },\n    {\n      \"xsecToken\": \"ABRGa2XvfHyI-heyd6DgxzQzvt1cLqPQcNG5XD8IZ9-7c=\",\n      \"id\": \"69ba2245000000001a02fb6d\",\n      \"modelType\": \"note\",\n      \"noteCard\": {\n        \"type\": \"normal\",\n        \"displayTitle\": \"agent/rag开发简历求锐评\",\n        \"user\": {\n          \"userId\": \"5d19758c0000000016028e9d\",\n          \"nickname\": \"狂踹瘸子好腿\",\n          \"nickName\": \"狂踹瘸子好腿\",\n          \"avatar\": \"https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo31veuue59jq005n8pem65l3kthmkskuo?imageView2/2/w/80/format/jpg\"\n        },\n        \"interactInfo\": {\n          \"liked\": false,\n          \"likedCount\": \"637\",\n          \"sharedCount\": \"93\",\n          \"commentCount\": \"164\",\n          \"collectedCount\": \"1043\",\n          \"collected\": false\n        },\n        \"cover\": {\n          \"width\": 1180,\n          \"height\": 1288,\n          \"url\": \"\",\n          \"fileId\": \"\",\n          \"urlPre\": \"http://sns-webpic-qc.xhscdn.com/202611210222/71564a5a656a9558f8d09873a84b93fc/notes_pre_post/1040g3k831treq73m6u705n8pem65l3kt62fgv08!nc_n_webp_prv_1\",\n          \"urlDefault\": \"http://sns-webpic-qc.xhscdn.com/202611210222/cc85c104127f2a40bb5308c4bc540c7d/notes_pre_post/1040g3k831treq73m6u705n8pem65l3kt62fgv08!nc_n_webp_mw_1\",\n          \"infoList\": null\n        }\n      },\n      \"index\": 5\n    },\n    {\n      \"xsecToken\": \"ABs4kaZ9jlwq1kp7P8AFlRI4lAACes6lNbiQ19I8o90rA=\",\n      \"id\": \"6a05dc0a0000000008033d40\",\n      \"modelType\": \"note\",\n      \"noteCard\": {\n        \"type\": \"normal\",\n        \"displayTitle\": \"AI Agent 实习项目：工业 RAG 运维知识助手\",\n        \"user\": {\n          \"userId\": \"60be376f0000000001006ea3\",\n          \"nickname\": \"若浦若浦\",\n          \"nickName\": \"若浦若浦\",\n          \"avatar\": \"https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo311va958130005o5u6tng8rl3c5jd8o0?imageView2/2/w/80/format/jpg\"\n        },\n        \"interactInfo\": {\n          \"liked\": false,\n          \"likedCount\": \"200\",\n          \"sharedCount\": \"33\",\n          \"commentCount\": \"20\",\n          \"collectedCount\": \"235\",\n          \"collected\": false\n        },\n        \"cover\": {\n          \"width\": 2864,\n          \"height\": 1536,\n          \"url\": \"\",\n          \"fileId\": \"\",\n          \"urlPre\": \"http://sns-webpic-qc.xhscdn.com/202611210222/083f976f6f8c6c8614247b7752f1d5a2/notes_pre_post/1040g3k03205d5rueig005o5u6tng8rl3abig8b8!nc_n_webp_prv_1\",\n          \"urlDefault\": \"http://sns-webpic-qc.xhscdn.com/202611210222/c4dc64bce02d5a95e94f273d05f876da/notes_pre_post/1040g3k03205d5rueig005o5u6tng8rl3abig8b8!nc_n_webp_mw_1\",\n          \"infoList\": null\n        }\n      },\n      \"index\": 7\n    },\n    {\n      \"xsecToken\": \"ABC940RS3L1PbmM6nbUwWH7e0BIMWrnmk75CumSFah7rA=\",\n      \"id\": \"6ad5e46600000000250373a6\",\n      \"modelType\": \"note\",\n      \"noteCard\": {\n        \"type\": \"normal\",\n        \"displayTitle\": \"阿里agent实习一面\",\n        \"user\": {\n          \"userId\": \"67553a04000000001d02e2a1\",\n          \"nickname\": \"兔头\",\n          \"nickName\": \"兔头\",\n          \"avatar\": \"https://sns-avatar-qc.xhscdn.com/avatar/645b80521e6a57c3bdb8f301.jpg?imageView2/2/w/80/format/jpg\"\n        },\n        \"interactInfo\": {\n          \"liked\": false,\n          \"likedCount\": \"151\",\n          \"sharedCount\": \"23\",\n          \"commentCount\": \"26\",\n          \"collectedCount\": \"212\",\n          \"collected\": false\n        },\n        \"cover\": {\n          \"width\": 1440,\n          \"height\": 2400,\n          \"url\": \"\",\n          \"fileId\": \"\",\n          \"urlPre\": \"http://sns-webpic-qc.xhscdn.com/202611210222/0191277b5e103dd44f7ab2292e2d4503/1040g008326giakcs586g5pql7827dol1b5ofjq0!nc_n_webp_prv_1\",\n          \"urlDefault\": \"http://sns-webpic-qc.xhscdn.com/202611210222/97f3fcc55f92610b2136d7f119f4b641/1040g008326giakcs586g5pql7827dol1b5ofjq0!nc_n_webp_mw_1\",\n          \"infoList\": null\n        }\n      },\n      \"index\": 8\n    },\n    {\n      \"xsecToken\": \"ABhtXNWQDXOTvcKXYKw8_DoC0sER50rN9l9Uv3eOSpvmM=\",\n      \"id\": \"69626cee000000002200b688\",\n      \"modelType\": \"note\",\n      \"noteCard\": {\n        \"type\": \"normal\",\n        \"displayTitle\": \"大厂RAG项目必考面试题（实战干货）\",\n        \"user\": {\n          \"userId\": \"662a732e0000000003032bc1\",\n          \"nickname\": \"小白\",\n          \"nickName\": \"小白\",\n          \"avatar\": \"https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo325ukdp12l6005phaecn0uau1ds4vc98?imageView2/2/w/80/format/jpg\"\n        },\n        \"interactInfo\": {\n          \"liked\": false,\n          \"likedCount\": \"726\",\n          \"sharedCount\": \"180\",\n          \"commentCount\": \"19\",\n          \"collectedCount\": \"1346\",\n          \"collected\": false\n        },\n        \"cover\": {\n          \"width\": 1440,\n          \"height\": 2400,\n          \"url\": \"\",\n          \"fileId\": \"\",\n          \"urlPre\": \"http://sns-webpic-qc.xhscdn.com/202611210222/a5481e6cffde5a9a2d4e75a4b8f23fd8/1040g00831r5d1get7v005phaecn0uau17ej01og!nc_n_webp_prv_1\",\n          \"urlDefault\": \"http://sns-webpic-qc.xhscdn.com/202611210222/24efa0f0bbd6c2048aaef1463b278896/1040g00831r5d1get7v005phaecn0uau17ej01og!nc_n_webp_mw_1\",\n          \"infoList\": null\n        }\n      },\n      \"index\": 9\n    },\n    {\n      \"xsecToken\": \"ABmH_G84KFUllZszDafaaPx2xY5bHFyaTmBwrpoorZQZA=\",\n      \"id\": \"6aba3b5c000000001800590f\",\n      \"modelType\": \"note\",\n      \"noteCard\": {\n        \"type\": \"normal\",\n        \"displayTitle\": \"一个月速成Agent 实习 Day3｜RAG实操\",\n        \"user\": {\n          \"userId\": \"6665b24700000000030329d2\",\n          \"nickname\": \"榆榆\",\n          \"nickName\": \"榆榆\",\n          \"avatar\": \"https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo325iq8vpo4e6g5pj5m93guaeimp13hbg?imageView2/2/w/80/format/jpg\"\n        },\n        \"interactInfo\": {\n          \"liked\": false,\n          \"likedCount\": \"163\",\n          \"sharedCount\": \"13\",\n          \"commentCount\": \"16\",\n          \"collectedCount\": \"167\",\n          \"collected\": false\n        },\n        \"cover\": {\n          \"width\": 1588,\n          \"height\": 1317,\n          \"url\": \"\",\n          \"fileId\": \"\",\n          \"urlPre\": \"http://sns-webpic-qc.xhscdn.com/202611210222/f0706d54f38ab433877381714e2c349e/1040g2sg325mknbc9keg05pj5m93guaeirstlmng!nc_n_webp_prv_1\",\n          \"urlDefault\": \"http://sns-webpic-qc.xhscdn.com/202611210222/5035d6b1cb1a84d6377ee55cd80d3ca9/1040g2sg325mknbc9keg05pj5m93guaeirstlmng!nc_n_webp_mw_1\",\n          \"infoList\": null\n        }\n      },\n      \"index\": 10\n    },\n    {\n      \"xsecToken\": \"ABY7pYQBE7RYg_gK9lXH2JlAatDYjv5ZuTHkWcDdBD4HI=\",\n      \"id\": \"6a7a9a0a0000000025002d07\",\n      \"modelType\": \"note\",\n      \"noteCard\": {\n        \"type\": \"normal\",\n        \"displayTitle\": \"\",\n        \"user\": {\n          \"userId\": \"5ff090d1000000000101f90c\",\n          \"nickname\": \"monopoly7h1\",\n          \"nickName\": \"monopoly7h1\",\n          \"avatar\": \"https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo31ilskqv10o6g5nvgi38gbu8cnvjgnag?imageView2/2/w/80/format/jpg\"\n        },\n        \"interactInfo\": {\n          \"liked\": false,\n          \"likedCount\": \"93\",\n          \"sharedCount\": \"5\",\n          \"commentCount\": \"31\",\n          \"collectedCount\": \"62\",\n          \"collected\": false\n        },\n        \"cover\": {\n          \"width\": 1200,\n          \"height\": 1600,\n          \"url\": \"\",\n          \"fileId\": \"\",\n          \"urlPre\": \"http://sns-webpic-qc.xhscdn.com/202611210222/5535505502202b08a5100e5461e85351/1040g2sg323ndgct46ukg5nvgi38gbu8cdo986bo!nc_n_webp_prv_1\",\n          \"urlDefault\": \"http://sns-webpic-qc.xhscdn.com/202611210222/3d49a621e070261d4e2bbbf96fdcbf54/1040g2sg323ndgct46ukg5nvgi38gbu8cdo986bo!nc_n_webp_mw_1\",\n          \"infoList\": null\n        }\n      },\n      \"index\": 11\n    },\n    {\n      \"xsecToken\": \"ABqHsyogupUf2colc1-tT-G5o04knMY_ufzaumvaURBxM=\",\n      \"id\": \"6a96a928000000002603a3b8\",\n      \"modelType\": \"note\",\n      \"noteCard\": {\n        \"type\": \"normal\",\n        \"displayTitle\": \"实习真正做RAG，我终于搞懂“检索增强”\",\n        \"user\": {\n          \"userId\": \"61fcf0bb000000001000f390\",\n          \"nickname\": \"小木同学（AI飞升版）\",\n          \"nickName\": \"小木同学（AI飞升版）\",\n          \"avatar\": \"https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo325hfqvpkkq6g5ofsu2tk1ssgkeb3loo?imageView2/2/w/80/format/jpg\"\n        },\n        \"interactInfo\": {\n          \"liked\": false,\n          \"likedCount\": \"122\",\n          \"sharedCount\": \"14\",\n          \"commentCount\": \"0\",\n          \"collectedCount\": \"131\",\n          \"collected\": false\n        },\n        \"cover\": {\n          \"width\": 1440,\n          \"height\": 2400,\n          \"url\": \"\",\n          \"fileId\": \"\",\n          \"urlPre\": \"http://sns-webpic-qc.xhscdn.com/202611210222/9c696ae951ed8393d0e33d15dfdcc583/spectrum/1040g34o324iqac5772a05ofsu2tk1ssgmt2dpc8!nc_n_webp_prv_1\",\n          \"urlDefault\": \"http://sns-webpic-qc.xhscdn.com/202611210222/9ae80f4a865334441ea14adcc6120045/spectrum/1040g34o324iqac5772a05ofsu2tk1ssgmt2dpc8!nc_n_webp_mw_1\",\n          \"infoList\": null\n        }\n      },\n      \"index\": 12\n    },\n    {\n      \"xsecToken\": \"ABwxvNZLYGvy52-PU98gi3ftylZwEHF8w_KRo8Ofwir2M=\",\n      \"id\": \"6ac71bca000000001501717c\",\n      \"modelType\": \"note\",\n      \"noteCard\": {\n        \"type\": \"normal\",\n        \"displayTitle\": \"agent面试问答-RAG与知识库检索\",\n        \"user\": {\n          \"userId\": \"64f5406a00000000040262ca\",\n          \"nickname\": \"yunhe\",\n          \"nickName\": \"yunhe\",\n          \"avatar\": \"https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo31shi7abtl8jg5p7l81l14omakocp788?imageView2/2/w/80/format/jpg\"\n        },\n        \"interactInfo\": {\n          \"liked\": false,\n          \"likedCount\": \"63\",\n          \"sharedCount\": \"8\",\n          \"commentCount\": \"1\",\n          \"collectedCount\": \"82\",\n          \"collected\": false\n        },\n        \"cover\": {\n          \"width\": 1228,\n          \"height\": 2700,\n          \"url\": \"\",\n          \"fileId\": \"\",\n          \"urlPre\": \"http://sns-webpic-qc.xhscdn.com/202611210222/6d5e1289248136a73cb1c19c61c27834/1040g2sg32624af724aj05p7l81l14oma9nd3638!nc_n_webp_prv_1\",\n          \"urlDefault\": \"http://sns-webpic-qc.xhscdn.com/202611210222/38f8a965b36a86fdb9179ae35f0ae2fb/1040g2sg32624af724aj05p7l81l14oma9nd3638!nc_n_webp_mw_1\",\n          \"infoList\": null\n        }\n      },\n      \"index\": 13\n    },\n    {\n      \"xsecToken\": \"ABCNM_gW5Gg4SlGbhUL55MH-Vb_XUAP6f2yQqM4jIiJmA=\",\n      \"id\": \"6ad8d5a9000000002c0125c8\",\n      \"modelType\": \"note\",\n      \"noteCard\": {\n        \"type\": \"normal\",\n        \"displayTitle\": \"30场日常实习面经汇总（二）\",\n        \"user\": {\n          \"userId\": \"60c1eac70000000001004305\",\n          \"nickname\": \"momo\",\n          \"nickName\": \"momo\",\n          \"avatar\": \"https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo31opdl28tmm5g5o61tb3g8go5lhicf9g?imageView2/2/w/80/format/jpg\"\n        },\n        \"interactInfo\": {\n          \"liked\": false,\n          \"likedCount\": \"128\",\n          \"sharedCount\": \"17\",\n          \"commentCount\": \"12\",\n          \"collectedCount\": \"201\",\n          \"collected\": false\n        },\n        \"cover\": {\n          \"width\": 1080,\n          \"height\": 1440,\n          \"url\": \"\",\n          \"fileId\": \"\",\n          \"urlPre\": \"http://sns-webpic-qc.xhscdn.com/202611210222/a8ae2b1479fb610a24763cfd156efcfb/1040g008326jeacugl0705o61tb3g8go5ib7pns8!nc_n_webp_prv_1\",\n          \"urlDefault\": \"http://sns-webpic-qc.xhscdn.com/202611210222/c9ad04cdf159623d9d2f85bdaf009557/1040g008326jeacugl0705o61tb3g8go5ib7pns8!nc_n_webp_mw_1\",\n          \"infoList\": null\n        }\n      },\n      \"index\": 14\n    },\n    {\n      \"xsecToken\": \"ABjmrDHNNdWSAA8huiJo4gCJYSvUCrL6E-E4XayonAqic=\",\n      \"id\": \"6a7c8cee0000000022032b91\",\n      \"modelType\": \"note\",\n      \"noteCard\": {\n        \"type\": \"normal\",\n        \"displayTitle\": \"Agent实习简历常见加分项与槽，附自查清单\",\n        \"user\": {\n          \"userId\": \"6915a6c4000000000903e6fa\",\n          \"nickname\": \"秃头续命\",\n          \"nickName\": \"秃头续命\",\n          \"avatar\": \"https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo31p2q5t3p326g5q8lkr22fpnqgg34hkg?imageView2/2/w/80/format/jpg\"\n        },\n        \"interactInfo\": {\n          \"liked\": false,\n          \"likedCount\": \"39\",\n          \"sharedCount\": \"10\",\n          \"commentCount\": \"0\",\n          \"collectedCount\": \"59\",\n          \"collected\": false\n        },\n        \"cover\": {\n          \"width\": 1536,\n          \"height\": 2169,\n          \"url\": \"\",\n          \"fileId\": \"\",\n          \"urlPre\": \"http://sns-webpic-qc.xhscdn.com/202611210222/dd93683aa0708eba76b7bb97f5f090cb/notes_pre_post/1040g3k0323pa7ed5nu6g5q8lkr22fpnq0kshuug!nc_n_webp_prv_1\",\n          \"urlDefault\": \"http://sns-webpic-qc.xhscdn.com/202611210222/a1003a8fa9fbae4e306dd0a1aedbc9d7/notes_pre_post/1040g3k0323pa7ed5nu6g5q8lkr22fpnq0kshuug!nc_n_webp_mw_1\",\n          \"infoList\": null\n        }\n      },\n      \"index\": 15\n    },\n    {\n      \"xsecToken\": \"ABJ5Pv4jWGrTp3vkAbioqPEAEr2YRX-UYAV4Fpwpturf4=\",\n      \"id\": \"6acf2370000000001303e7d3\",\n      \"modelType\": \"note\",\n      \"noteCard\": {\n        \"type\": \"normal\",\n        \"displayTitle\": \"大厂面试官喜欢看的工业级Agentic RAG项目\",\n        \"user\": {\n          \"userId\": \"6127b5c2000000002002fdee\",\n          \"nickname\": \"哈基米学AI\",\n          \"nickName\": \"哈基米学AI\",\n          \"avatar\": \"https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo327hvugof6g605o97mn185vfe1fcdo4g?imageView2/2/w/80/format/jpg\"\n        },\n        \"interactInfo\": {\n          \"liked\": false,\n          \"likedCount\": \"290\",\n          \"sharedCount\": \"38\",\n          \"commentCount\": \"76\",\n          \"collectedCount\": \"405\",\n          \"collected\": false\n        },\n        \"cover\": {\n          \"width\": 1200,\n          \"height\": 1600,\n          \"url\": \"\",\n          \"fileId\": \"\",\n          \"urlPre\": \"http://sns-webpic-qc.xhscdn.com/202611210222/8d33c2514d5aa9a23e5371e8950413c7/spectrum/1040g0k03269v92j044005o97mn185vfe8r4svvg!nc_n_webp_prv_1\",\n          \"urlDefault\": \"http://sns-webpic-qc.xhscdn.com/202611210222/5a1276ebc5d6d665ca6b29429f4870ce/spectrum/1040g0k03269v92j044005o97mn185vfe8r4svvg!nc_n_webp_mw_1\",\n          \"infoList\": null\n        }\n      },\n      \"index\": 17\n    },\n    {\n      \"xsecToken\": \"ABZ-kdvQQVDQ7yAfcjtPSI5V83S2r_vHYfPl9X9m_C430=\",\n      \"id\": \"6a64a3ab0000000010028ae4\",\n      \"modelType\": \"note\",\n      \"noteCard\": {\n        \"type\": \"normal\",\n        \"displayTitle\": \"Agent开发岗，RAG项目有必要写在简历上吗？\",\n        \"user\": {\n          \"userId\": \"66a9f084000000001d02112c\",\n          \"nickname\": \"冷丶\",\n          \"nickName\": \"冷丶\",\n          \"avatar\": \"https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo31j6hfsba32605pl9u227c49cmaerd88?imageView2/2/w/80/format/jpg\"\n        },\n        \"interactInfo\": {\n          \"liked\": false,\n          \"likedCount\": \"66\",\n          \"sharedCount\": \"6\",\n          \"commentCount\": \"36\",\n          \"collectedCount\": \"61\",\n          \"collected\": false\n        },\n        \"cover\": {\n          \"width\": 1200,\n          \"height\": 1600,\n          \"url\": \"\",\n          \"fileId\": \"\",\n          \"urlPre\": \"http://sns-webpic-qc.xhscdn.com/202611210222/30c4b1b6a7f882f44026d288238cadf0/1040g0083231v3kkp7u6g5pl9u227c49cppep2l0!nc_n_webp_prv_1\",\n          \"urlDefault\": \"http://sns-webpic-qc.xhscdn.com/202611210222/58b2c518140dc0e9562933da98b8997f/1040g0083231v3kkp7u6g5pl9u227c49cppep2l0!nc_n_webp_mw_1\",\n          \"infoList\": null\n        }\n      },\n      \"index\": 18\n    },\n    {\n      \"xsecToken\": \"ABwxvNZLYGvy52-PU98gi3fsw5PjDrQEOaQ9XfxKnaWYc=\",\n      \"id\": \"6ac7ae03000000000a02492d\",\n      \"modelType\": \"note\",\n      \"noteCard\": {\n        \"type\": \"normal\",\n        \"displayTitle\": \"一个月速成Agent 实习 Day12【项目1】\",\n        \"user\": {\n          \"userId\": \"6665b24700000000030329d2\",\n          \"nickname\": \"榆榆\",\n          \"nickName\": \"榆榆\",\n          \"avatar\": \"https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo325iq8vpo4e6g5pj5m93guaeimp13hbg?imageView2/2/w/80/format/jpg\"\n        },\n        \"interactInfo\": {\n          \"liked\": false,\n          \"likedCount\": \"56\",\n          \"sharedCount\": \"0\",\n          \"commentCount\": \"10\",\n          \"collectedCount\": \"49\",\n          \"collected\": false\n        },\n        \"cover\": {\n          \"width\": 1588,\n          \"height\": 1317,\n          \"url\": \"\",\n          \"fileId\": \"\",\n          \"urlPre\": \"http://sns-webpic-qc.xhscdn.com/202611210222/1c7913e9baf79d8101ffb6dff93243a2/1040g2sg3262go1rckqf05pj5m93guaeid03gc3o!nc_n_webp_prv_1\",\n          \"urlDefault\": \"http://sns-webpic-qc.xhscdn.com/202611210222/2755926a539d62a2e03934223bf86aaf/1040g2sg3262go1rckqf05pj5m93guaeid03gc3o!nc_n_webp_mw_1\",\n          \"infoList\": null\n        }\n      },\n      \"index\": 19\n    },\n    {\n      \"xsecToken\": \"ABldWKcnxIXgkQLPQkR0QFm3L-7eW5eYbrljNT7pDmXLM=\",\n      \"id\": \"6ae0c144000000002a03e595\",\n      \"modelType\": \"note\",\n      \"noteCard\": {\n        \"type\": \"normal\",\n        \"displayTitle\": \"京东后端实习面经｜会话存储与RAG\",\n        \"user\": {\n          \"userId\": \"6acbae29000000000d036400\",\n          \"nickname\": \"阿青叽里呱啦\",\n          \"nickName\": \"阿青叽里呱啦\",\n          \"avatar\": \"https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo326tl92f05g6g5qmblokjep00koc1o4o?imageView2/2/w/80/format/jpg\"\n        },\n        \"interactInfo\": {\n          \"liked\": false,\n          \"likedCount\": \"2\",\n          \"sharedCount\": \"0\",\n          \"commentCount\": \"0\",\n          \"collectedCount\": \"3\",\n          \"collected\": false\n        },\n        \"cover\": {\n          \"width\": 1080,\n          \"height\": 1440,\n          \"url\": \"\",\n          \"fileId\": \"\",\n          \"urlPre\": \"http://sns-webpic-qc.xhscdn.com/202611210222/d6178283709c7ae09885552845eb164b/spectrum/1040g34o326r5pcpgl8105qmblokjep002edp0s8!nc_n_webp_prv_1\",\n          \"urlDefault\": \"http://sns-webpic-qc.xhscdn.com/202611210222/ef97477fe72a2557f6188235e76be55c/spectrum/1040g34o326r5pcpgl8105qmblokjep002edp0s8!nc_n_webp_mw_1\",\n          \"infoList\": null\n        }\n      },\n      \"index\": 20\n    },\n    {\n      \"xsecToken\": \"ABs3tKpHTJ8s5T2mII-p0kcXjnVcXpZDsVSHEWQ2YGAZ4=\",\n      \"id\": \"6aab893700000000280023ac\",\n      \"modelType\": \"note\",\n      \"noteCard\": {\n        \"type\": \"normal\",\n        \"displayTitle\": \"Agent面试-【RAG篇】-速通面试版‼️\",\n        \"user\": {\n          \"userId\": \"6a6c64ce0000000013030401\",\n          \"nickname\": \"基米基米南北绿豆\",\n          \"nickName\": \"基米基米南北绿豆\",\n          \"avatar\": \"https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo323mb39senu605qjccj74u101m9vif38?imageView2/2/w/80/format/jpg\"\n        },\n        \"interactInfo\": {\n          \"liked\": false,\n          \"likedCount\": \"13\",\n          \"sharedCount\": \"0\",\n          \"commentCount\": \"0\",\n          \"collectedCount\": \"23\",\n          \"collected\": false\n        },\n        \"cover\": {\n          \"width\": 1440,\n          \"height\": 2400,\n          \"url\": \"\",\n          \"fileId\": \"\",\n          \"urlPre\": \"http://sns-webpic-qc.xhscdn.com/202611210222/97740833056274f15b1e8a2065a19c14/spectrum/1040g0k032576no3ukc005qjccj74u101dlg5qd0!nc_n_webp_prv_1\",\n          \"urlDefault\": \"http://sns-webpic-qc.xhscdn.com/202611210222/e478936dcfa401c5e91b7a81ef16007f/spectrum/1040g0k032576no3ukc005qjccj74u101dlg5qd0!nc_n_webp_mw_1\",\n          \"infoList\": null\n        }\n      },\n      \"index\": 21\n    }\n  ],\n  \"count\": 20\n}",
+  "parsed": {
+    "feeds": [
+      {
+        "xsecToken": "ABMMWhXUCRZtLfuQ-sb7yTtcdZ43ojJZ0YPTB8XaSeEAc=",
+        "id": "6ab6554500000000150012e8",
+        "modelType": "note",
+        "noteCard": {
+          "type": "normal",
+          "displayTitle": "找agent实习rag项目如何不烂大街",
+          "user": {
+            "userId": "6309ff54000000001200ef08",
+            "nickname": "Harrrry",
+            "nickName": "Harrrry",
+            "avatar": "https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo31grf1ffl3o005oo9vta4hro8kcubn7g?imageView2/2/w/80/format/jpg"
+          },
+          "interactInfo": {
+            "liked": false,
+            "likedCount": "529",
+            "sharedCount": "88",
+            "commentCount": "28",
+            "collectedCount": "721",
+            "collected": false
+          },
+          "cover": {
+            "width": 1440,
+            "height": 2400,
+            "url": "",
+            "fileId": "",
+            "urlPre": "http://sns-webpic-qc.xhscdn.com/202611210222/5e2b31c071cf07e8040fce0307c904eb/notes_pre_post/1040g3k8325hniilckq8g5oo9vta4hro8g38ihdg!nc_n_webp_prv_1",
+            "urlDefault": "http://sns-webpic-qc.xhscdn.com/202611210222/ba27261d76af0927a0ab17295ac7bda2/notes_pre_post/1040g3k8325hniilckq8g5oo9vta4hro8g38ihdg!nc_n_webp_mw_1",
+            "infoList": null
+          }
+        },
+        "index": 0
+      },
+      {
+        "xsecToken": "ABXQn4XMtR_6BdY3AYU9BK7eWh572hG3k0bwlJetmsTTY=",
+        "id": "6acde06e000000001b0230cd",
+        "modelType": "note",
+        "noteCard": {
+          "type": "normal",
+          "displayTitle": "RAG实习面试必问10题，附答题思路",
+          "user": {
+            "userId": "69e5d9110000000002000002",
+            "nickname": "AI实习手记",
+            "nickName": "AI实习手记",
+            "avatar": "https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo3265313oqkq505qf5r48gg002abo0j6g?imageView2/2/w/80/format/jpg"
+          },
+          "interactInfo": {
+            "liked": false,
+            "likedCount": "40",
+            "sharedCount": "1",
+            "commentCount": "0",
+            "collectedCount": "47",
+            "collected": false
+          },
+          "cover": {
+            "width": 1242,
+            "height": 1660,
+            "url": "",
+            "fileId": "",
+            "urlPre": "http://sns-webpic-qc.xhscdn.com/202611210222/a2f0bf7fc4aa3f61c706f8bec4e23446/spectrum/1040g0k03268nob7vka005qf5r48gg002lubp58o!nc_n_webp_prv_1",
+            "urlDefault": "http://sns-webpic-qc.xhscdn.com/202611210222/88274291cd9e162a1f48ec5d8f740df6/spectrum/1040g0k03268nob7vka005qf5r48gg002lubp58o!nc_n_webp_mw_1",
+            "infoList": null
+          }
+        },
+        "index": 1
+      },
+      {
+        "xsecToken": "ABXXiNe3wNlHuSiVSJIPz55-i4qcdjVe6mr__TlpPX6_0=",
+        "id": "6aa3bd18000000001203fa37",
+        "modelType": "note",
+        "noteCard": {
+          "type": "normal",
+          "displayTitle": "Agent实习分享-RAG（上）",
+          "user": {
+            "userId": "69f2f1cc0000000002002005",
+            "nickname": "农民日记",
+            "nickName": "农民日记",
+            "avatar": "https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo320ggpo07lc005qfiu760g805o8sisqo?imageView2/2/w/80/format/jpg"
+          },
+          "interactInfo": {
+            "liked": false,
+            "likedCount": "93",
+            "sharedCount": "7",
+            "commentCount": "10",
+            "collectedCount": "85",
+            "collected": false
+          },
+          "cover": {
+            "width": 1280,
+            "height": 1280,
+            "url": "",
+            "fileId": "",
+            "urlPre": "http://sns-webpic-qc.xhscdn.com/202611210222/627c9413888ff78041aae4c28a818e55/spectrum/1040g0k0324viufftj4005qfiu760g805mqfbda8!nc_n_webp_prv_1",
+            "urlDefault": "http://sns-webpic-qc.xhscdn.com/202611210222/d99719e52fa4a9148067ef8d1252ee51/spectrum/1040g0k0324viufftj4005qfiu760g805mqfbda8!nc_n_webp_mw_1",
+            "infoList": null
+          }
+        },
+        "index": 2
+      },
+      {
+        "xsecToken": "ABCjnibTEhk6vBc-9hJ23rek9KfSE_K-6u_uMGtl6FgIU=",
+        "id": "6ac65977000000001403b979",
+        "modelType": "note",
+        "noteCard": {
+          "type": "normal",
+          "displayTitle": "备战agent开发实习day4",
+          "user": {
+            "userId": "68f7559700000000370038a2",
+            "nickname": "日记本",
+            "nickName": "日记本",
+            "avatar": "https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo31nt7fq7cg66g5q7nambtoe529b9sk78?imageView2/2/w/80/format/jpg"
+          },
+          "interactInfo": {
+            "liked": false,
+            "likedCount": "5",
+            "sharedCount": "0",
+            "commentCount": "3",
+            "collectedCount": "3",
+            "collected": false
+          },
+          "cover": {
+            "width": 1140,
+            "height": 752,
+            "url": "",
+            "fileId": "",
+            "urlPre": "http://sns-webpic-qc.xhscdn.com/202611210222/385bf9aaae19277456f18b45b96b2d1d/1040g0083261cgm615g005q7nambtoe5263poc0o!nc_n_webp_prv_1",
+            "urlDefault": "http://sns-webpic-qc.xhscdn.com/202611210222/35ce093cc02e764ec2b24f4308229945/1040g0083261cgm615g005q7nambtoe5263poc0o!nc_n_webp_mw_1",
+            "infoList": null
+          }
+        },
+        "index": 3
+      },
+      {
+        "xsecToken": "ABb-MiqQa01UeaP_y_2WS-rQj7THWrCxlxEE2LOaiPgyA=",
+        "id": "6ab51f8f000000001a032ae4",
+        "modelType": "note",
+        "noteCard": {
+          "type": "normal",
+          "displayTitle": "Agent开发三周实习速成路线",
+          "user": {
+            "userId": "6309ff54000000001200ef08",
+            "nickname": "Harrrry",
+            "nickName": "Harrrry",
+            "avatar": "https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo31grf1ffl3o005oo9vta4hro8kcubn7g?imageView2/2/w/80/format/jpg"
+          },
+          "interactInfo": {
+            "liked": true,
+            "likedCount": "5838",
+            "sharedCount": "1188",
+            "commentCount": "339",
+            "collectedCount": "9318",
+            "collected": false
+          },
+          "cover": {
+            "width": 2940,
+            "height": 1642,
+            "url": "",
+            "fileId": "",
+            "urlPre": "http://sns-webpic-qc.xhscdn.com/202611210222/2a812c67dad6b05710bea1ed239dcd4d/notes_pre_post/1040g3k0325gi02b650005oo9vta4hro8vo04ug8!nc_n_webp_prv_1",
+            "urlDefault": "http://sns-webpic-qc.xhscdn.com/202611210222/fdc293fe7defc5a47bfa15f1ef70befd/notes_pre_post/1040g3k0325gi02b650005oo9vta4hro8vo04ug8!nc_n_webp_mw_1",
+            "infoList": null
+          }
+        },
+        "index": 4
+      },
+      {
+        "xsecToken": "ABRGa2XvfHyI-heyd6DgxzQzvt1cLqPQcNG5XD8IZ9-7c=",
+        "id": "69ba2245000000001a02fb6d",
+        "modelType": "note",
+        "noteCard": {
+          "type": "normal",
+          "displayTitle": "agent/rag开发简历求锐评",
+          "user": {
+            "userId": "5d19758c0000000016028e9d",
+            "nickname": "狂踹瘸子好腿",
+            "nickName": "狂踹瘸子好腿",
+            "avatar": "https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo31veuue59jq005n8pem65l3kthmkskuo?imageView2/2/w/80/format/jpg"
+          },
+          "interactInfo": {
+            "liked": false,
+            "likedCount": "637",
+            "sharedCount": "93",
+            "commentCount": "164",
+            "collectedCount": "1043",
+            "collected": false
+          },
+          "cover": {
+            "width": 1180,
+            "height": 1288,
+            "url": "",
+            "fileId": "",
+            "urlPre": "http://sns-webpic-qc.xhscdn.com/202611210222/71564a5a656a9558f8d09873a84b93fc/notes_pre_post/1040g3k831treq73m6u705n8pem65l3kt62fgv08!nc_n_webp_prv_1",
+            "urlDefault": "http://sns-webpic-qc.xhscdn.com/202611210222/cc85c104127f2a40bb5308c4bc540c7d/notes_pre_post/1040g3k831treq73m6u705n8pem65l3kt62fgv08!nc_n_webp_mw_1",
+            "infoList": null
+          }
+        },
+        "index": 5
+      },
+      {
+        "xsecToken": "ABs4kaZ9jlwq1kp7P8AFlRI4lAACes6lNbiQ19I8o90rA=",
+        "id": "6a05dc0a0000000008033d40",
+        "modelType": "note",
+        "noteCard": {
+          "type": "normal",
+          "displayTitle": "AI Agent 实习项目：工业 RAG 运维知识助手",
+          "user": {
+            "userId": "60be376f0000000001006ea3",
+            "nickname": "若浦若浦",
+            "nickName": "若浦若浦",
+            "avatar": "https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo311va958130005o5u6tng8rl3c5jd8o0?imageView2/2/w/80/format/jpg"
+          },
+          "interactInfo": {
+            "liked": false,
+            "likedCount": "200",
+            "sharedCount": "33",
+            "commentCount": "20",
+            "collectedCount": "235",
+            "collected": false
+          },
+          "cover": {
+            "width": 2864,
+            "height": 1536,
+            "url": "",
+            "fileId": "",
+            "urlPre": "http://sns-webpic-qc.xhscdn.com/202611210222/083f976f6f8c6c8614247b7752f1d5a2/notes_pre_post/1040g3k03205d5rueig005o5u6tng8rl3abig8b8!nc_n_webp_prv_1",
+            "urlDefault": "http://sns-webpic-qc.xhscdn.com/202611210222/c4dc64bce02d5a95e94f273d05f876da/notes_pre_post/1040g3k03205d5rueig005o5u6tng8rl3abig8b8!nc_n_webp_mw_1",
+            "infoList": null
+          }
+        },
+        "index": 7
+      },
+      {
+        "xsecToken": "ABC940RS3L1PbmM6nbUwWH7e0BIMWrnmk75CumSFah7rA=",
+        "id": "6ad5e46600000000250373a6",
+        "modelType": "note",
+        "noteCard": {
+          "type": "normal",
+          "displayTitle": "阿里agent实习一面",
+          "user": {
+            "userId": "67553a04000000001d02e2a1",
+            "nickname": "兔头",
+            "nickName": "兔头",
+            "avatar": "https://sns-avatar-qc.xhscdn.com/avatar/645b80521e6a57c3bdb8f301.jpg?imageView2/2/w/80/format/jpg"
+          },
+          "interactInfo": {
+            "liked": false,
+            "likedCount": "151",
+            "sharedCount": "23",
+            "commentCount": "26",
+            "collectedCount": "212",
+            "collected": false
+          },
+          "cover": {
+            "width": 1440,
+            "height": 2400,
+            "url": "",
+            "fileId": "",
+            "urlPre": "http://sns-webpic-qc.xhscdn.com/202611210222/0191277b5e103dd44f7ab2292e2d4503/1040g008326giakcs586g5pql7827dol1b5ofjq0!nc_n_webp_prv_1",
+            "urlDefault": "http://sns-webpic-qc.xhscdn.com/202611210222/97f3fcc55f92610b2136d7f119f4b641/1040g008326giakcs586g5pql7827dol1b5ofjq0!nc_n_webp_mw_1",
+            "infoList": null
+          }
+        },
+        "index": 8
+      },
+      {
+        "xsecToken": "ABhtXNWQDXOTvcKXYKw8_DoC0sER50rN9l9Uv3eOSpvmM=",
+        "id": "69626cee000000002200b688",
+        "modelType": "note",
+        "noteCard": {
+          "type": "normal",
+          "displayTitle": "大厂RAG项目必考面试题（实战干货）",
+          "user": {
+            "userId": "662a732e0000000003032bc1",
+            "nickname": "小白",
+            "nickName": "小白",
+            "avatar": "https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo325ukdp12l6005phaecn0uau1ds4vc98?imageView2/2/w/80/format/jpg"
+          },
+          "interactInfo": {
+            "liked": false,
+            "likedCount": "726",
+            "sharedCount": "180",
+            "commentCount": "19",
+            "collectedCount": "1346",
+            "collected": false
+          },
+          "cover": {
+            "width": 1440,
+            "height": 2400,
+            "url": "",
+            "fileId": "",
+            "urlPre": "http://sns-webpic-qc.xhscdn.com/202611210222/a5481e6cffde5a9a2d4e75a4b8f23fd8/1040g00831r5d1get7v005phaecn0uau17ej01og!nc_n_webp_prv_1",
+            "urlDefault": "http://sns-webpic-qc.xhscdn.com/202611210222/24efa0f0bbd6c2048aaef1463b278896/1040g00831r5d1get7v005phaecn0uau17ej01og!nc_n_webp_mw_1",
+            "infoList": null
+          }
+        },
+        "index": 9
+      },
+      {
+        "xsecToken": "ABmH_G84KFUllZszDafaaPx2xY5bHFyaTmBwrpoorZQZA=",
+        "id": "6aba3b5c000000001800590f",
+        "modelType": "note",
+        "noteCard": {
+          "type": "normal",
+          "displayTitle": "一个月速成Agent 实习 Day3｜RAG实操",
+          "user": {
+            "userId": "6665b24700000000030329d2",
+            "nickname": "榆榆",
+            "nickName": "榆榆",
+            "avatar": "https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo325iq8vpo4e6g5pj5m93guaeimp13hbg?imageView2/2/w/80/format/jpg"
+          },
+          "interactInfo": {
+            "liked": false,
+            "likedCount": "163",
+            "sharedCount": "13",
+            "commentCount": "16",
+            "collectedCount": "167",
+            "collected": false
+          },
+          "cover": {
+            "width": 1588,
+            "height": 1317,
+            "url": "",
+            "fileId": "",
+            "urlPre": "http://sns-webpic-qc.xhscdn.com/202611210222/f0706d54f38ab433877381714e2c349e/1040g2sg325mknbc9keg05pj5m93guaeirstlmng!nc_n_webp_prv_1",
+            "urlDefault": "http://sns-webpic-qc.xhscdn.com/202611210222/5035d6b1cb1a84d6377ee55cd80d3ca9/1040g2sg325mknbc9keg05pj5m93guaeirstlmng!nc_n_webp_mw_1",
+            "infoList": null
+          }
+        },
+        "index": 10
+      },
+      {
+        "xsecToken": "ABY7pYQBE7RYg_gK9lXH2JlAatDYjv5ZuTHkWcDdBD4HI=",
+        "id": "6a7a9a0a0000000025002d07",
+        "modelType": "note",
+        "noteCard": {
+          "type": "normal",
+          "displayTitle": "",
+          "user": {
+            "userId": "5ff090d1000000000101f90c",
+            "nickname": "monopoly7h1",
+            "nickName": "monopoly7h1",
+            "avatar": "https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo31ilskqv10o6g5nvgi38gbu8cnvjgnag?imageView2/2/w/80/format/jpg"
+          },
+          "interactInfo": {
+            "liked": false,
+            "likedCount": "93",
+            "sharedCount": "5",
+            "commentCount": "31",
+            "collectedCount": "62",
+            "collected": false
+          },
+          "cover": {
+            "width": 1200,
+            "height": 1600,
+            "url": "",
+            "fileId": "",
+            "urlPre": "http://sns-webpic-qc.xhscdn.com/202611210222/5535505502202b08a5100e5461e85351/1040g2sg323ndgct46ukg5nvgi38gbu8cdo986bo!nc_n_webp_prv_1",
+            "urlDefault": "http://sns-webpic-qc.xhscdn.com/202611210222/3d49a621e070261d4e2bbbf96fdcbf54/1040g2sg323ndgct46ukg5nvgi38gbu8cdo986bo!nc_n_webp_mw_1",
+            "infoList": null
+          }
+        },
+        "index": 11
+      },
+      {
+        "xsecToken": "ABqHsyogupUf2colc1-tT-G5o04knMY_ufzaumvaURBxM=",
+        "id": "6a96a928000000002603a3b8",
+        "modelType": "note",
+        "noteCard": {
+          "type": "normal",
+          "displayTitle": "实习真正做RAG，我终于搞懂“检索增强”",
+          "user": {
+            "userId": "61fcf0bb000000001000f390",
+            "nickname": "小木同学（AI飞升版）",
+            "nickName": "小木同学（AI飞升版）",
+            "avatar": "https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo325hfqvpkkq6g5ofsu2tk1ssgkeb3loo?imageView2/2/w/80/format/jpg"
+          },
+          "interactInfo": {
+            "liked": false,
+            "likedCount": "122",
+            "sharedCount": "14",
+            "commentCount": "0",
+            "collectedCount": "131",
+            "collected": false
+          },
+          "cover": {
+            "width": 1440,
+            "height": 2400,
+            "url": "",
+            "fileId": "",
+            "urlPre": "http://sns-webpic-qc.xhscdn.com/202611210222/9c696ae951ed8393d0e33d15dfdcc583/spectrum/1040g34o324iqac5772a05ofsu2tk1ssgmt2dpc8!nc_n_webp_prv_1",
+            "urlDefault": "http://sns-webpic-qc.xhscdn.com/202611210222/9ae80f4a865334441ea14adcc6120045/spectrum/1040g34o324iqac5772a05ofsu2tk1ssgmt2dpc8!nc_n_webp_mw_1",
+            "infoList": null
+          }
+        },
+        "index": 12
+      },
+      {
+        "xsecToken": "ABwxvNZLYGvy52-PU98gi3ftylZwEHF8w_KRo8Ofwir2M=",
+        "id": "6ac71bca000000001501717c",
+        "modelType": "note",
+        "noteCard": {
+          "type": "normal",
+          "displayTitle": "agent面试问答-RAG与知识库检索",
+          "user": {
+            "userId": "64f5406a00000000040262ca",
+            "nickname": "yunhe",
+            "nickName": "yunhe",
+            "avatar": "https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo31shi7abtl8jg5p7l81l14omakocp788?imageView2/2/w/80/format/jpg"
+          },
+          "interactInfo": {
+            "liked": false,
+            "likedCount": "63",
+            "sharedCount": "8",
+            "commentCount": "1",
+            "collectedCount": "82",
+            "collected": false
+          },
+          "cover": {
+            "width": 1228,
+            "height": 2700,
+            "url": "",
+            "fileId": "",
+            "urlPre": "http://sns-webpic-qc.xhscdn.com/202611210222/6d5e1289248136a73cb1c19c61c27834/1040g2sg32624af724aj05p7l81l14oma9nd3638!nc_n_webp_prv_1",
+            "urlDefault": "http://sns-webpic-qc.xhscdn.com/202611210222/38f8a965b36a86fdb9179ae35f0ae2fb/1040g2sg32624af724aj05p7l81l14oma9nd3638!nc_n_webp_mw_1",
+            "infoList": null
+          }
+        },
+        "index": 13
+      },
+      {
+        "xsecToken": "ABCNM_gW5Gg4SlGbhUL55MH-Vb_XUAP6f2yQqM4jIiJmA=",
+        "id": "6ad8d5a9000000002c0125c8",
+        "modelType": "note",
+        "noteCard": {
+          "type": "normal",
+          "displayTitle": "30场日常实习面经汇总（二）",
+          "user": {
+            "userId": "60c1eac70000000001004305",
+            "nickname": "momo",
+            "nickName": "momo",
+            "avatar": "https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo31opdl28tmm5g5o61tb3g8go5lhicf9g?imageView2/2/w/80/format/jpg"
+          },
+          "interactInfo": {
+            "liked": false,
+            "likedCount": "128",
+            "sharedCount": "17",
+            "commentCount": "12",
+            "collectedCount": "201",
+            "collected": false
+          },
+          "cover": {
+            "width": 1080,
+            "height": 1440,
+            "url": "",
+            "fileId": "",
+            "urlPre": "http://sns-webpic-qc.xhscdn.com/202611210222/a8ae2b1479fb610a24763cfd156efcfb/1040g008326jeacugl0705o61tb3g8go5ib7pns8!nc_n_webp_prv_1",
+            "urlDefault": "http://sns-webpic-qc.xhscdn.com/202611210222/c9ad04cdf159623d9d2f85bdaf009557/1040g008326jeacugl0705o61tb3g8go5ib7pns8!nc_n_webp_mw_1",
+            "infoList": null
+          }
+        },
+        "index": 14
+      },
+      {
+        "xsecToken": "ABjmrDHNNdWSAA8huiJo4gCJYSvUCrL6E-E4XayonAqic=",
+        "id": "6a7c8cee0000000022032b91",
+        "modelType": "note",
+        "noteCard": {
+          "type": "normal",
+          "displayTitle": "Agent实习简历常见加分项与槽，附自查清单",
+          "user": {
+            "userId": "6915a6c4000000000903e6fa",
+            "nickname": "秃头续命",
+            "nickName": "秃头续命",
+            "avatar": "https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo31p2q5t3p326g5q8lkr22fpnqgg34hkg?imageView2/2/w/80/format/jpg"
+          },
+          "interactInfo": {
+            "liked": false,
+            "likedCount": "39",
+            "sharedCount": "10",
+            "commentCount": "0",
+            "collectedCount": "59",
+            "collected": false
+          },
+          "cover": {
+            "width": 1536,
+            "height": 2169,
+            "url": "",
+            "fileId": "",
+            "urlPre": "http://sns-webpic-qc.xhscdn.com/202611210222/dd93683aa0708eba76b7bb97f5f090cb/notes_pre_post/1040g3k0323pa7ed5nu6g5q8lkr22fpnq0kshuug!nc_n_webp_prv_1",
+            "urlDefault": "http://sns-webpic-qc.xhscdn.com/202611210222/a1003a8fa9fbae4e306dd0a1aedbc9d7/notes_pre_post/1040g3k0323pa7ed5nu6g5q8lkr22fpnq0kshuug!nc_n_webp_mw_1",
+            "infoList": null
+          }
+        },
+        "index": 15
+      },
+      {
+        "xsecToken": "ABJ5Pv4jWGrTp3vkAbioqPEAEr2YRX-UYAV4Fpwpturf4=",
+        "id": "6acf2370000000001303e7d3",
+        "modelType": "note",
+        "noteCard": {
+          "type": "normal",
+          "displayTitle": "大厂面试官喜欢看的工业级Agentic RAG项目",
+          "user": {
+            "userId": "6127b5c2000000002002fdee",
+            "nickname": "哈基米学AI",
+            "nickName": "哈基米学AI",
+            "avatar": "https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo327hvugof6g605o97mn185vfe1fcdo4g?imageView2/2/w/80/format/jpg"
+          },
+          "interactInfo": {
+            "liked": false,
+            "likedCount": "290",
+            "sharedCount": "38",
+            "commentCount": "76",
+            "collectedCount": "405",
+            "collected": false
+          },
+          "cover": {
+            "width": 1200,
+            "height": 1600,
+            "url": "",
+            "fileId": "",
+            "urlPre": "http://sns-webpic-qc.xhscdn.com/202611210222/8d33c2514d5aa9a23e5371e8950413c7/spectrum/1040g0k03269v92j044005o97mn185vfe8r4svvg!nc_n_webp_prv_1",
+            "urlDefault": "http://sns-webpic-qc.xhscdn.com/202611210222/5a1276ebc5d6d665ca6b29429f4870ce/spectrum/1040g0k03269v92j044005o97mn185vfe8r4svvg!nc_n_webp_mw_1",
+            "infoList": null
+          }
+        },
+        "index": 17
+      },
+      {
+        "xsecToken": "ABZ-kdvQQVDQ7yAfcjtPSI5V83S2r_vHYfPl9X9m_C430=",
+        "id": "6a64a3ab0000000010028ae4",
+        "modelType": "note",
+        "noteCard": {
+          "type": "normal",
+          "displayTitle": "Agent开发岗，RAG项目有必要写在简历上吗？",
+          "user": {
+            "userId": "66a9f084000000001d02112c",
+            "nickname": "冷丶",
+            "nickName": "冷丶",
+            "avatar": "https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo31j6hfsba32605pl9u227c49cmaerd88?imageView2/2/w/80/format/jpg"
+          },
+          "interactInfo": {
+            "liked": false,
+            "likedCount": "66",
+            "sharedCount": "6",
+            "commentCount": "36",
+            "collectedCount": "61",
+            "collected": false
+          },
+          "cover": {
+            "width": 1200,
+            "height": 1600,
+            "url": "",
+            "fileId": "",
+            "urlPre": "http://sns-webpic-qc.xhscdn.com/202611210222/30c4b1b6a7f882f44026d288238cadf0/1040g0083231v3kkp7u6g5pl9u227c49cppep2l0!nc_n_webp_prv_1",
+            "urlDefault": "http://sns-webpic-qc.xhscdn.com/202611210222/58b2c518140dc0e9562933da98b8997f/1040g0083231v3kkp7u6g5pl9u227c49cppep2l0!nc_n_webp_mw_1",
+            "infoList": null
+          }
+        },
+        "index": 18
+      },
+      {
+        "xsecToken": "ABwxvNZLYGvy52-PU98gi3fsw5PjDrQEOaQ9XfxKnaWYc=",
+        "id": "6ac7ae03000000000a02492d",
+        "modelType": "note",
+        "noteCard": {
+          "type": "normal",
+          "displayTitle": "一个月速成Agent 实习 Day12【项目1】",
+          "user": {
+            "userId": "6665b24700000000030329d2",
+            "nickname": "榆榆",
+            "nickName": "榆榆",
+            "avatar": "https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo325iq8vpo4e6g5pj5m93guaeimp13hbg?imageView2/2/w/80/format/jpg"
+          },
+          "interactInfo": {
+            "liked": false,
+            "likedCount": "56",
+            "sharedCount": "0",
+            "commentCount": "10",
+            "collectedCount": "49",
+            "collected": false
+          },
+          "cover": {
+            "width": 1588,
+            "height": 1317,
+            "url": "",
+            "fileId": "",
+            "urlPre": "http://sns-webpic-qc.xhscdn.com/202611210222/1c7913e9baf79d8101ffb6dff93243a2/1040g2sg3262go1rckqf05pj5m93guaeid03gc3o!nc_n_webp_prv_1",
+            "urlDefault": "http://sns-webpic-qc.xhscdn.com/202611210222/2755926a539d62a2e03934223bf86aaf/1040g2sg3262go1rckqf05pj5m93guaeid03gc3o!nc_n_webp_mw_1",
+            "infoList": null
+          }
+        },
+        "index": 19
+      },
+      {
+        "xsecToken": "ABldWKcnxIXgkQLPQkR0QFm3L-7eW5eYbrljNT7pDmXLM=",
+        "id": "6ae0c144000000002a03e595",
+        "modelType": "note",
+        "noteCard": {
+          "type": "normal",
+          "displayTitle": "京东后端实习面经｜会话存储与RAG",
+          "user": {
+            "userId": "6acbae29000000000d036400",
+            "nickname": "阿青叽里呱啦",
+            "nickName": "阿青叽里呱啦",
+            "avatar": "https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo326tl92f05g6g5qmblokjep00koc1o4o?imageView2/2/w/80/format/jpg"
+          },
+          "interactInfo": {
+            "liked": false,
+            "likedCount": "2",
+            "sharedCount": "0",
+            "commentCount": "0",
+            "collectedCount": "3",
+            "collected": false
+          },
+          "cover": {
+            "width": 1080,
+            "height": 1440,
+            "url": "",
+            "fileId": "",
+            "urlPre": "http://sns-webpic-qc.xhscdn.com/202611210222/d6178283709c7ae09885552845eb164b/spectrum/1040g34o326r5pcpgl8105qmblokjep002edp0s8!nc_n_webp_prv_1",
+            "urlDefault": "http://sns-webpic-qc.xhscdn.com/202611210222/ef97477fe72a2557f6188235e76be55c/spectrum/1040g34o326r5pcpgl8105qmblokjep002edp0s8!nc_n_webp_mw_1",
+            "infoList": null
+          }
+        },
+        "index": 20
+      },
+      {
+        "xsecToken": "ABs3tKpHTJ8s5T2mII-p0kcXjnVcXpZDsVSHEWQ2YGAZ4=",
+        "id": "6aab893700000000280023ac",
+        "modelType": "note",
+        "noteCard": {
+          "type": "normal",
+          "displayTitle": "Agent面试-【RAG篇】-速通面试版‼️",
+          "user": {
+            "userId": "6a6c64ce0000000013030401",
+            "nickname": "基米基米南北绿豆",
+            "nickName": "基米基米南北绿豆",
+            "avatar": "https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo323mb39senu605qjccj74u101m9vif38?imageView2/2/w/80/format/jpg"
+          },
+          "interactInfo": {
+            "liked": false,
+            "likedCount": "13",
+            "sharedCount": "0",
+            "commentCount": "0",
+            "collectedCount": "23",
+            "collected": false
+          },
+          "cover": {
+            "width": 1440,
+            "height": 2400,
+            "url": "",
+            "fileId": "",
+            "urlPre": "http://sns-webpic-qc.xhscdn.com/202611210222/97740833056274f15b1e8a2065a19c14/spectrum/1040g0k032576no3ukc005qjccj74u101dlg5qd0!nc_n_webp_prv_1",
+            "urlDefault": "http://sns-webpic-qc.xhscdn.com/202611210222/e478936dcfa401c5e91b7a81ef16007f/spectrum/1040g0k032576no3ukc005qjccj74u101dlg5qd0!nc_n_webp_mw_1",
+            "infoList": null
+          }
+        },
+        "index": 21
+      }
+    ],
+    "count": 20
+  }
+}

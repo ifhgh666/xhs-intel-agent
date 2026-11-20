@@ -1,0 +1,247 @@
+{
+  "captured_at": "2026-11-20T18:24:47.939348+00:00",
+  "mcp_url": "http://localhost:18060/mcp",
+  "tool": "get_feed_detail",
+  "arguments": {
+    "feed_id": "6af979c7000000002a01e6e1",
+    "xsec_token": "ABrzshxX6oRyf4yIUw0xLPJRfJZvCOJ3nZGEry5WHL8gE="
+  },
+  "candidate": {
+    "feed_id": "6af979c7000000002a01e6e1",
+    "xsec_token": "ABrzshxX6oRyf4yIUw0xLPJRfJZvCOJ3nZGEry5WHL8gE=",
+    "title": "招 AI Agent 产品实习生，广州天河",
+    "author": "Pop",
+    "published_at": "",
+    "liked_count": "42",
+    "type": "normal",
+    "source_keyword": "广州 AI实习",
+    "source_fixture": "search_01_广州_AI实习.json"
+  },
+  "is_error": false,
+  "raw_text": "{\n  \"feed_id\": \"6af979c7000000002a01e6e1\",\n  \"data\": {\n    \"note\": {\n      \"noteId\": \"6af979c7000000002a01e6e1\",\n      \"xsecToken\": \"ABrzshxX6oRyf4yIUw0xLPJRfJZvCOJ3nZGEry5WHL8gE=\",\n      \"title\": \"招 AI Agent 产品实习生，广州天河\",\n      \"desc\": \"我们是谁：\\n✨ 一群从大厂和实验室汇集到一起的团队，做了一款 AI 产品叫：趣丸千音（All Voice Lab）\\n\\t\\n我们在做什么：\\n🎬 用 AI 拆掉语言的墙，让一部中国短剧/漫剧出海时，翻译配音不是生硬的\\\"机翻腔\\\"，而是有情绪、有本土味、有活人感的声音\\n🚢 不止懂译配，更懂运营，让内容出海与社媒运营，变得更简单、直观、专业\\n🧑‍💻 我们目标不是做 AI 工具，是做让用户用完会 WOW 的产品。base 广州，但用户在全球\\n\\t\\n岗位职责：\\n- 协助产品行业调研、相关产品调研及体验分析\\n- 协助产品需求设计、交互开发、推进上线、验收复盘\\n- 协助产品运营、对接用户群、收集反馈并主动跟进\\n\\t\\n任职要求：\\n- 本科及以上在读，计算机/人工智能相关专业优先\\n- 熟悉使用 Codex Coding，有基础的产品审美，逻辑清晰\\n- 看过短剧/AI剧，了解 AI 翻译/配音、个人 Agent 产品\\n- 每周可实习 5 天，持续 4 个月以上\\n\\t\\n#实习生内推[话题]# #找实习[话题]# #产品实习[话题]# #AI产品[话题]# #产品经理[话题]# #AI产品经理[话题]# #广州实习[话题]# #找工作[话题]# #互联网实习[话题]# #agent[话题]#\",\n      \"type\": \"normal\",\n      \"time\": 1794734535000,\n      \"ipLocation\": \"广东\",\n      \"user\": {\n        \"userId\": \"5c39d99d00000000060008a2\",\n        \"nickname\": \"Pop\",\n        \"nickName\": \"\",\n        \"avatar\": \"https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo322jt3vfsn4kg5n1pr6ehg252m9n9slo\"\n      },\n      \"interactInfo\": {\n        \"liked\": false,\n        \"likedCount\": \"42\",\n        \"sharedCount\": \"\",\n        \"commentCount\": \"12\",\n        \"collectedCount\": \"37\",\n        \"collected\": false\n      },\n      \"imageList\": [\n        {\n          \"width\": 1200,\n          \"height\": 1600,\n          \"urlDefault\": \"http://sns-webpic-qc.xhscdn.com/202611210224/50b32d533c2f4a830479f1798b27d2ad/1040g008327ja61qema3g5n1pr6ehg2520862feo!nd_dft_wlteh_webp_3\",\n          \"urlPre\": \"http://sns-webpic-qc.xhscdn.com/202611210224/e6ec9997a802bf6ad3556cb1b696d9ea/1040g008327ja61qema3g5n1pr6ehg2520862feo!nd_prv_wlteh_webp_3\"\n        }\n      ]\n    },\n    \"comments\": {\n      \"list\": [\n        {\n          \"id\": \"6af9905b000000002d032500\",\n          \"noteId\": \"6af979c7000000002a01e6e1\",\n          \"content\": \"后台私我哈\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1794740315000,\n          \"ipLocation\": \"广东\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"5c39d99d00000000060008a2\",\n            \"nickname\": \"Pop\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"0\",\n          \"subComments\": [],\n          \"showTags\": [\n            \"is_author\",\n            \"user_top\"\n          ]\n        },\n        {\n          \"id\": \"6afee858000000002f00ea22\",\n          \"noteId\": \"6af979c7000000002a01e6e1\",\n          \"content\": \"配音有情绪这点太戳了，出海就该这么干\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1795090521000,\n          \"ipLocation\": \"美国\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"61f3560a0000000002020d3b\",\n            \"nickname\": \"AI 超个体孵化器（招远程实习）\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"0\",\n          \"subComments\": [],\n          \"showTags\": []\n        },\n        {\n          \"id\": \"6af98dd3000000002d00e9d7\",\n          \"noteId\": \"6af979c7000000002a01e6e1\",\n          \"content\": \"dd 26届计算机专业 在华为干过半年市场营销 熟悉Codex coding 有自己ai生成漫剧经验 有作品集可以参考\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1794739668000,\n          \"ipLocation\": \"广东\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"633968240000000018028a3f\",\n            \"nickname\": \"布蕾脆脆奶芙\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"0\",\n          \"subComments\": [],\n          \"showTags\": []\n        },\n        {\n          \"id\": \"6af97b4e0000000030004304\",\n          \"noteId\": \"6af979c7000000002a01e6e1\",\n          \"content\": \"有具体要求吗\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1794734926000,\n          \"ipLocation\": \"江苏\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"66c83959000000001d033aea\",\n            \"nickname\": \"我是你的十一\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"0\",\n          \"subComments\": [],\n          \"showTags\": []\n        },\n        {\n          \"id\": \"6af98154000000003101bffe\",\n          \"noteId\": \"6af979c7000000002a01e6e1\",\n          \"content\": \"蹲蹲投递方式\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1794736468000,\n          \"ipLocation\": \"湖北\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"602aa9910000000001003263\",\n            \"nickname\": \"Yvette\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"0\",\n          \"subComments\": [],\n          \"showTags\": []\n        },\n        {\n          \"id\": \"6af9929400000000320172f9\",\n          \"noteId\": \"6af979c7000000002a01e6e1\",\n          \"content\": \"27还招么\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1794740885000,\n          \"ipLocation\": \"广东\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"5f55ab4f00000000010006af\",\n            \"nickname\": \"mo族长\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"0\",\n          \"subComments\": [],\n          \"showTags\": []\n        },\n        {\n          \"id\": \"6af9998100000000310002ed\",\n          \"noteId\": \"6af979c7000000002a01e6e1\",\n          \"content\": \"24的呢\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1794742658000,\n          \"ipLocation\": \"广东\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"68ac55c6000000001a00e58e\",\n            \"nickname\": \"Crease\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"0\",\n          \"subComments\": [],\n          \"showTags\": []\n        },\n        {\n          \"id\": \"6af98454000000003201418c\",\n          \"noteId\": \"6af979c7000000002a01e6e1\",\n          \"content\": \"🙋🏻‍♀️[立马暴富][立马暴富][立马暴富]\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1794737237000,\n          \"ipLocation\": \"广东\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"60364a2e0000000001007a82\",\n            \"nickname\": \"一种野菜\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"0\",\n          \"subComments\": [],\n          \"showTags\": []\n        },\n        {\n          \"id\": \"6af98906000000002d0154a8\",\n          \"noteId\": \"6af979c7000000002a01e6e1\",\n          \"content\": \"蹲\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1794738439000,\n          \"ipLocation\": \"广东\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"5a3e459b11be10500ceb3775\",\n            \"nickname\": \"快乐Gg瑕🤓\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"0\",\n          \"subComments\": [],\n          \"showTags\": []\n        },\n        {\n          \"id\": \"6af98c5a000000003102ffe9\",\n          \"noteId\": \"6af979c7000000002a01e6e1\",\n          \"content\": \"蹲\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1794739291000,\n          \"ipLocation\": \"广东\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"60229d2d000000000101d89c\",\n            \"nickname\": \"momo\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"0\",\n          \"subComments\": [],\n          \"showTags\": []\n        }\n      ],\n      \"cursor\": \"6af98c5a000000003102ffe9\",\n      \"hasMore\": true\n    }\n  }\n}",
+  "parsed": {
+    "feed_id": "6af979c7000000002a01e6e1",
+    "data": {
+      "note": {
+        "noteId": "6af979c7000000002a01e6e1",
+        "xsecToken": "ABrzshxX6oRyf4yIUw0xLPJRfJZvCOJ3nZGEry5WHL8gE=",
+        "title": "招 AI Agent 产品实习生，广州天河",
+        "desc": "我们是谁：\n✨ 一群从大厂和实验室汇集到一起的团队，做了一款 AI 产品叫：趣丸千音（All Voice Lab）\n\t\n我们在做什么：\n🎬 用 AI 拆掉语言的墙，让一部中国短剧/漫剧出海时，翻译配音不是生硬的\"机翻腔\"，而是有情绪、有本土味、有活人感的声音\n🚢 不止懂译配，更懂运营，让内容出海与社媒运营，变得更简单、直观、专业\n🧑‍💻 我们目标不是做 AI 工具，是做让用户用完会 WOW 的产品。base 广州，但用户在全球\n\t\n岗位职责：\n- 协助产品行业调研、相关产品调研及体验分析\n- 协助产品需求设计、交互开发、推进上线、验收复盘\n- 协助产品运营、对接用户群、收集反馈并主动跟进\n\t\n任职要求：\n- 本科及以上在读，计算机/人工智能相关专业优先\n- 熟悉使用 Codex Coding，有基础的产品审美，逻辑清晰\n- 看过短剧/AI剧，了解 AI 翻译/配音、个人 Agent 产品\n- 每周可实习 5 天，持续 4 个月以上\n\t\n#实习生内推[话题]# #找实习[话题]# #产品实习[话题]# #AI产品[话题]# #产品经理[话题]# #AI产品经理[话题]# #广州实习[话题]# #找工作[话题]# #互联网实习[话题]# #agent[话题]#",
+        "type": "normal",
+        "time": 1794734535000,
+        "ipLocation": "广东",
+        "user": {
+          "userId": "5c39d99d00000000060008a2",
+          "nickname": "Pop",
+          "nickName": "",
+          "avatar": "https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo322jt3vfsn4kg5n1pr6ehg252m9n9slo"
+        },
+        "interactInfo": {
+          "liked": false,
+          "likedCount": "42",
+          "sharedCount": "",
+          "commentCount": "12",
+          "collectedCount": "37",
+          "collected": false
+        },
+        "imageList": [
+          {
+            "width": 1200,
+            "height": 1600,
+            "urlDefault": "http://sns-webpic-qc.xhscdn.com/202611210224/50b32d533c2f4a830479f1798b27d2ad/1040g008327ja61qema3g5n1pr6ehg2520862feo!nd_dft_wlteh_webp_3",
+            "urlPre": "http://sns-webpic-qc.xhscdn.com/202611210224/e6ec9997a802bf6ad3556cb1b696d9ea/1040g008327ja61qema3g5n1pr6ehg2520862feo!nd_prv_wlteh_webp_3"
+          }
+        ]
+      },
+      "comments": {
+        "list": [
+          {
+            "id": "6af9905b000000002d032500",
+            "noteId": "6af979c7000000002a01e6e1",
+            "content": "后台私我哈",
+            "likeCount": "0",
+            "createTime": 1794740315000,
+            "ipLocation": "广东",
+            "liked": false,
+            "userInfo": {
+              "userId": "5c39d99d00000000060008a2",
+              "nickname": "Pop",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "0",
+            "subComments": [],
+            "showTags": [
+              "is_author",
+              "user_top"
+            ]
+          },
+          {
+            "id": "6afee858000000002f00ea22",
+            "noteId": "6af979c7000000002a01e6e1",
+            "content": "配音有情绪这点太戳了，出海就该这么干",
+            "likeCount": "0",
+            "createTime": 1795090521000,
+            "ipLocation": "美国",
+            "liked": false,
+            "userInfo": {
+              "userId": "61f3560a0000000002020d3b",
+              "nickname": "AI 超个体孵化器（招远程实习）",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "0",
+            "subComments": [],
+            "showTags": []
+          },
+          {
+            "id": "6af98dd3000000002d00e9d7",
+            "noteId": "6af979c7000000002a01e6e1",
+            "content": "dd 26届计算机专业 在华为干过半年市场营销 熟悉Codex coding 有自己ai生成漫剧经验 有作品集可以参考",
+            "likeCount": "0",
+            "createTime": 1794739668000,
+            "ipLocation": "广东",
+            "liked": false,
+            "userInfo": {
+              "userId": "633968240000000018028a3f",
+              "nickname": "布蕾脆脆奶芙",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "0",
+            "subComments": [],
+            "showTags": []
+          },
+          {
+            "id": "6af97b4e0000000030004304",
+            "noteId": "6af979c7000000002a01e6e1",
+            "content": "有具体要求吗",
+            "likeCount": "0",
+            "createTime": 1794734926000,
+            "ipLocation": "江苏",
+            "liked": false,
+            "userInfo": {
+              "userId": "66c83959000000001d033aea",
+              "nickname": "我是你的十一",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "0",
+            "subComments": [],
+            "showTags": []
+          },
+          {
+            "id": "6af98154000000003101bffe",
+            "noteId": "6af979c7000000002a01e6e1",
+            "content": "蹲蹲投递方式",
+            "likeCount": "0",
+            "createTime": 1794736468000,
+            "ipLocation": "湖北",
+            "liked": false,
+            "userInfo": {
+              "userId": "602aa9910000000001003263",
+              "nickname": "Yvette",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "0",
+            "subComments": [],
+            "showTags": []
+          },
+          {
+            "id": "6af9929400000000320172f9",
+            "noteId": "6af979c7000000002a01e6e1",
+            "content": "27还招么",
+            "likeCount": "0",
+            "createTime": 1794740885000,
+            "ipLocation": "广东",
+            "liked": false,
+            "userInfo": {
+              "userId": "5f55ab4f00000000010006af",
+              "nickname": "mo族长",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "0",
+            "subComments": [],
+            "showTags": []
+          },
+          {
+            "id": "6af9998100000000310002ed",
+            "noteId": "6af979c7000000002a01e6e1",
+            "content": "24的呢",
+            "likeCount": "0",
+            "createTime": 1794742658000,
+            "ipLocation": "广东",
+            "liked": false,
+            "userInfo": {
+              "userId": "68ac55c6000000001a00e58e",
+              "nickname": "Crease",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "0",
+            "subComments": [],
+            "showTags": []
+          },
+          {
+            "id": "6af98454000000003201418c",
+            "noteId": "6af979c7000000002a01e6e1",
+            "content": "🙋🏻‍♀️[立马暴富][立马暴富][立马暴富]",
+            "likeCount": "0",
+            "createTime": 1794737237000,
+            "ipLocation": "广东",
+            "liked": false,
+            "userInfo": {
+              "userId": "60364a2e0000000001007a82",
+              "nickname": "一种野菜",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "0",
+            "subComments": [],
+            "showTags": []
+          },
+          {
+            "id": "6af98906000000002d0154a8",
+            "noteId": "6af979c7000000002a01e6e1",
+            "content": "蹲",
+            "likeCount": "0",
+            "createTime": 1794738439000,
+            "ipLocation": "广东",
+            "liked": false,
+            "userInfo": {
+              "userId": "5a3e459b11be10500ceb3775",
+              "nickname": "快乐Gg瑕🤓",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "0",
+            "subComments": [],
+            "showTags": []
+          },
+          {
+            "id": "6af98c5a000000003102ffe9",
+            "noteId": "6af979c7000000002a01e6e1",
+            "content": "蹲",
+            "likeCount": "0",
+            "createTime": 1794739291000,
+            "ipLocation": "广东",
+            "liked": false,
+            "userInfo": {
+              "userId": "60229d2d000000000101d89c",
+              "nickname": "momo",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "0",
+            "subComments": [],
+            "showTags": []
+          }
+        ],
+        "cursor": "6af98c5a000000003102ffe9",
+        "hasMore": true
+      }
+    }
+  }
+}

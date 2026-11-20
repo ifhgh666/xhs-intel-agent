@@ -1,0 +1,50 @@
+{
+  "sample_id": "sample_08",
+  "annotated": true,
+  "note": {
+    "feed_id": "6afbd5c5000000001b01d837",
+    "source_url": "https://www.xiaohongshu.com/explore/6afbd5c5000000001b01d837",
+    "title": "广州初创AI公司：join us（接受无经验背景",
+    "author": "万万没想到之白雪公主与七个小矮人竟然是池夜中介（上进版）",
+    "published_at": 1794889157000,
+    "image_count": 1,
+    "desc": "广州初创AI公司：join us（接受无经验背景 公司背景是一家做AI应用的初创，创始团队大都是前Google、Amazon、Pinterest的大佬，技术背景强、Scope一直在扩大，目前整体项目已经实现了稳定营收～\n· 在startup里属于“小而稳”的那一类！因为组里有新项目开展，所以想拉点靠谱的新同事一起干活~欢迎resume~\n· 📚Now opening：Data Analyst / Data Scientist / Software Engineer / FE-frontend / BE-backend，intern都有\n· Base在广州，主要是intern，接受无经验小白~在校可以协商remote，需要26-30届本科及以上留学生\n· 专业最好和CS、数据、数学、软件工程等沾边，不要求有经验，但如果有项目经历 or coursework扎实是优势，全流程清晰\n· 虽然是初创，但浮力待🐟都挺完善的，还有各种节假日浮力，免费下午🍵，免费健身房等等~ · 整体工作节奏比较灵活，没有特别重的KPI或报表汇报，项目以落地为导向，新人也很快能跟着mentor上手实际项目，很适合ng\n· 现在流程推进快，1~2 week就能出结果 感兴趣来 看到都会share～ #留学生找工作[话题]# #人工智能就业[话题]# #留学生求职[话题]# #初创公司[话题]# #神仙外企[话题]# #留学生实习[话题]# #美国留学生[话题]# #英国留学生[话题]# #留学生校招[话题]# #令人心动的工作[话题]# 仅作信息分享，不涉及具体招聘"
+  },
+  "expected": {
+    "is_job_post": true,
+    "needs_image": false,
+    "jobs": [
+      {
+        "company": null,
+        "position": "Software Engineer Intern",
+        "city": "广州",
+        "education": "本科及以上",
+        "graduation_year": "26-30届",
+        "skills": [],
+        "internship_duration": null,
+        "attendance_days": null,
+        "salary": null,
+        "deadline": null,
+        "apply_method": "感兴趣来 看到都会share",
+        "application_url": null,
+        "evidence": "Now opening：Data Analyst / Data Scientist / Software Engineer / FE-frontend / BE-backend，intern都有"
+      },
+      {
+        "company": null,
+        "position": "Data Scientist Intern",
+        "city": "广州",
+        "education": "本科及以上",
+        "graduation_year": "26-30届",
+        "skills": [],
+        "internship_duration": null,
+        "attendance_days": null,
+        "salary": null,
+        "deadline": null,
+        "apply_method": "感兴趣来 看到都会share",
+        "application_url": null,
+        "evidence": "Base在广州，主要是intern，接受无经验小白~在校可以协商remote，需要26-30届本科及以上留学生"
+      }
+    ]
+  },
+  "notes": "广州 AI 初创公司招聘信息分享（面向 26-30 届留学生，包含 DA/DS/SWE/FE/BE 多岗，此处列举核心技术岗示例）。"
+}

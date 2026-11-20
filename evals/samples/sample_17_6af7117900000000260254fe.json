@@ -1,0 +1,35 @@
+{
+  "sample_id": "sample_17",
+  "annotated": true,
+  "note": {
+    "feed_id": "6af7117900000000260254fe",
+    "source_url": "https://www.xiaohongshu.com/explore/6af7117900000000260254fe",
+    "title": "小米捞实习继任(可寒假到岗） 300/d",
+    "author": "爱吃火锅的蝈蝈🥘",
+    "published_at": 1794576761000,
+    "image_count": 3,
+    "desc": "要求：\n1.可连续实习满1个月，支持全职在岗\n2.26/27届本科及以上在读，应届生、研究生不限专业，配备专属导师全程带教\n3.工作踏实细致，具备主动学习意识 热招岗位 策划、人力资源、数据分析、市场运营、财务、广告投放、AI产品经理、项目管理、用户研究 实习地点 石家庄、杭州、北京、天津、厦门、合肥、深圳、上海、重庆、武汉、广州、成都 实习待遇\n1.本科生300/天，研究生薪资可洽谈\n2.三餐+全天不限量下午茶供应\n3.导师主动跟进答疑，开具官方正规实习证明\n4.团队以90后为主，沟通氛围轻松无压力\n#找实习[话题]##互联网大厂实习[话题]##留学生实习[话题]##人生第一个[话题]# offer#令人心动的实习日记[话题]##新媒体运营面试[话题]##神仙工作[话题]##小米实习[话题]##实习生日常[话题]##26届秋招[话题]#"
+  },
+  "expected": {
+    "is_job_post": true,
+    "needs_image": false,
+    "jobs": [
+      {
+        "company": "小米",
+        "position": "AI产品经理实习生",
+        "city": "广州",
+        "education": "本科及以上",
+        "graduation_year": "26/27届",
+        "skills": [],
+        "internship_duration": "连续实习满1个月",
+        "attendance_days": null,
+        "salary": "本科生300/天，研究生薪资可洽谈",
+        "deadline": null,
+        "apply_method": null,
+        "application_url": null,
+        "evidence": "热招岗位 策划、人力资源、数据分析、市场运营、财务、广告投放、AI产品经理、项目管理、用户研究"
+      }
+    ]
+  },
+  "notes": "小米全国多城多岗汇总引流帖，与 sample_11、sample_19 高度重复。"
+}

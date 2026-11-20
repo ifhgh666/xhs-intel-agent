@@ -1,0 +1,432 @@
+{
+  "captured_at": "2026-11-20T18:25:05.820790+00:00",
+  "mcp_url": "http://localhost:18060/mcp",
+  "tool": "get_feed_detail",
+  "arguments": {
+    "feed_id": "6afbff63000000002a02ac95",
+    "xsec_token": "ABELvW59hsG8foXAQPELwILqaBse18MbmSovqQ_Fsz3xs="
+  },
+  "candidate": {
+    "feed_id": "6afbff63000000002a02ac95",
+    "xsec_token": "ABELvW59hsG8foXAQPELwILqaBse18MbmSovqQ_Fsz3xs=",
+    "title": "腾讯捞实习生，接受无经验，可寒假",
+    "author": "offer助手",
+    "published_at": "",
+    "liked_count": "110",
+    "type": "normal",
+    "source_keyword": "广州 AI实习",
+    "source_fixture": "search_01_广州_AI实习.json"
+  },
+  "is_error": false,
+  "raw_text": "{\n  \"feed_id\": \"6afbff63000000002a02ac95\",\n  \"data\": {\n    \"note\": {\n      \"noteId\": \"6afbff63000000002a02ac95\",\n      \"xsecToken\": \"ABELvW59hsG8foXAQPELwILqaBse18MbmSovqQ_Fsz3xs=\",\n      \"title\": \"腾讯捞实习生，接受无经验，可寒假\",\n      \"desc\": \"腾讯实习找(25-29届本科及以上)秋季，寒假实习，可接受到岗也可远程\\n，腾讯招募实习生了，岗位缺口大，可接受無经验\\n腾讯的氛围真的很好，同事，mentor和leader人都非常好，伙食和福利也是没得说，随处可见小企鹅\\n核心福利待遇:提供餐补+美味下午茶/实习期满可获得正式实习证\\n实习岗位:AI人工智能算法/视频运营/市场/产品经理/用户研究/数据分析等\\n面向人群:25-29届本科及以上学历在校生/应届生/留学生/海归\\n中蹲。base:深圳，北京，成都，上海，广州等地，可远程办公\\n蹲实习时间:秋季/实习要求:实习期1个月零门槛机会:特别欢迎低年级同学申请!无相关经验者亦可投递，我们提供完善的岗前培训与指导\\n#实习生内推[话题]# #内推[话题]# #找实习[话题]# #互联网大厂实习[话题]# #秋招有路子[话题]# #寒假实习[话题]##年轻人向往的好公司[话题]# #985[话题]##211[话题]##27届[话题]#\",\n      \"type\": \"normal\",\n      \"time\": 1794899811000,\n      \"ipLocation\": \"广东\",\n      \"user\": {\n        \"userId\": \"67f8c055000000000a03fdcf\",\n        \"nickname\": \"offer助手\",\n        \"nickName\": \"\",\n        \"avatar\": \"https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo325s7c44v5g6g5pvoo1ainvef4kh0d70\"\n      },\n      \"interactInfo\": {\n        \"liked\": false,\n        \"likedCount\": \"110\",\n        \"sharedCount\": \"\",\n        \"commentCount\": \"132\",\n        \"collectedCount\": \"93\",\n        \"collected\": false\n      },\n      \"imageList\": [\n        {\n          \"width\": 1080,\n          \"height\": 1338,\n          \"urlDefault\": \"http://sns-webpic-qc.xhscdn.com/202611210224/ab59c3b8224d12a5cde3930f32a1b3a0/1040g008327lp4kvg706g5pvoo1ainvefffo2d98!nd_dft_wlteh_webp_3\",\n          \"urlPre\": \"http://sns-webpic-qc.xhscdn.com/202611210224/ba0aae2a4af4bb881624cbaaaa2e172b/1040g008327lp4kvg706g5pvoo1ainvefffo2d98!nd_prv_wlteh_webp_3\"\n        }\n      ]\n    },\n    \"comments\": {\n      \"list\": [\n        {\n          \"id\": \"6afbff6c000000002f030ec1\",\n          \"noteId\": \"6afbff63000000002a02ac95\",\n          \"content\": \"三连我（记得带上学历➕毕业时间）🈚尝的(大家不用担心收费，免费!)   ps:除了我本人回复一律不要信！！\",\n          \"likeCount\": \"1\",\n          \"createTime\": 1794899820000,\n          \"ipLocation\": \"广东\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"67f8c055000000000a03fdcf\",\n            \"nickname\": \"offer助手\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"1\",\n          \"subComments\": [\n            {\n              \"id\": \"6afd94930000000031039667\",\n              \"noteId\": \"6afbff63000000002a02ac95\",\n              \"content\": \"工牌配色挺好看，鹅厂氛围羡慕了\",\n              \"likeCount\": \"0\",\n              \"createTime\": 1795003540000,\n              \"ipLocation\": \"美国\",\n              \"liked\": false,\n              \"userInfo\": {\n                \"userId\": \"61f3560a0000000002020d3b\",\n                \"nickname\": \"AI 超个体孵化器（招远程实习）\",\n                \"nickName\": \"\",\n                \"avatar\": \"\"\n              },\n              \"subCommentCount\": \"\",\n              \"subComments\": null,\n              \"showTags\": []\n            }\n          ],\n          \"showTags\": [\n            \"is_author\",\n            \"user_top\"\n          ]\n        },\n        {\n          \"id\": \"6afdd9df000000002f034cd6\",\n          \"noteId\": \"6afbff63000000002a02ac95\",\n          \"content\": \"28 服装设计 本科\",\n          \"likeCount\": \"1\",\n          \"createTime\": 1795021279000,\n          \"ipLocation\": \"陕西\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"6534caf3000000000d007323\",\n            \"nickname\": \"JJ\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"1\",\n          \"subComments\": [\n            {\n              \"id\": \"6afe4d65000000002f02b6e6\",\n              \"noteId\": \"6afbff63000000002a02ac95\",\n              \"content\": \"\",\n              \"likeCount\": \"0\",\n              \"createTime\": 1795050854000,\n              \"ipLocation\": \"广东\",\n              \"liked\": false,\n              \"userInfo\": {\n                \"userId\": \"67f8c055000000000a03fdcf\",\n                \"nickname\": \"offer助手\",\n                \"nickName\": \"\",\n                \"avatar\": \"\"\n              },\n              \"subCommentCount\": \"\",\n              \"subComments\": null,\n              \"showTags\": [\n                \"is_author\"\n              ]\n            }\n          ],\n          \"showTags\": []\n        },\n        {\n          \"id\": \"6afe473d000000002d00c4fd\",\n          \"noteId\": \"6afbff63000000002a02ac95\",\n          \"content\": \"29本211软工\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1795049277000,\n          \"ipLocation\": \"广东\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"6632e55400000000070070e7\",\n            \"nickname\": \"Aoko\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"1\",\n          \"subComments\": [\n            {\n              \"id\": \"6afe4d51000000002f02b3e8\",\n              \"noteId\": \"6afbff63000000002a02ac95\",\n              \"content\": \"\",\n              \"likeCount\": \"0\",\n              \"createTime\": 1795050833000,\n              \"ipLocation\": \"广东\",\n              \"liked\": false,\n              \"userInfo\": {\n                \"userId\": \"67f8c055000000000a03fdcf\",\n                \"nickname\": \"offer助手\",\n                \"nickName\": \"\",\n                \"avatar\": \"\"\n              },\n              \"subCommentCount\": \"\",\n              \"subComments\": null,\n              \"showTags\": [\n                \"is_author\"\n              ]\n            }\n          ],\n          \"showTags\": []\n        },\n        {\n          \"id\": \"6afe8b1d00000000310001b0\",\n          \"noteId\": \"6afbff63000000002a02ac95\",\n          \"content\": \"27本 汉语言文学\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1795066653000,\n          \"ipLocation\": \"四川\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"601fbfa60000000001006e3c\",\n            \"nickname\": \"lllllllllllll\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"1\",\n          \"subComments\": [\n            {\n              \"id\": \"6afe9fba000000002d018306\",\n              \"noteId\": \"6afbff63000000002a02ac95\",\n              \"content\": \"\",\n              \"likeCount\": \"0\",\n              \"createTime\": 1795071931000,\n              \"ipLocation\": \"广东\",\n              \"liked\": false,\n              \"userInfo\": {\n                \"userId\": \"67f8c055000000000a03fdcf\",\n                \"nickname\": \"offer助手\",\n                \"nickName\": \"\",\n                \"avatar\": \"\"\n              },\n              \"subCommentCount\": \"\",\n              \"subComments\": null,\n              \"showTags\": [\n                \"is_author\"\n              ]\n            }\n          ],\n          \"showTags\": []\n        },\n        {\n          \"id\": \"6afdd1c9000000002d0113ea\",\n          \"noteId\": \"6afbff63000000002a02ac95\",\n          \"content\": \"29研\",\n          \"likeCount\": \"1\",\n          \"createTime\": 1795019209000,\n          \"ipLocation\": \"天津\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"6353a416000000001802e336\",\n            \"nickname\": \"后来.\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"1\",\n          \"subComments\": [\n            {\n              \"id\": \"6afe4d6d00000000310136c6\",\n              \"noteId\": \"6afbff63000000002a02ac95\",\n              \"content\": \"\",\n              \"likeCount\": \"0\",\n              \"createTime\": 1795050862000,\n              \"ipLocation\": \"广东\",\n              \"liked\": false,\n              \"userInfo\": {\n                \"userId\": \"67f8c055000000000a03fdcf\",\n                \"nickname\": \"offer助手\",\n                \"nickName\": \"\",\n                \"avatar\": \"\"\n              },\n              \"subCommentCount\": \"\",\n              \"subComments\": null,\n              \"showTags\": [\n                \"is_author\"\n              ]\n            }\n          ],\n          \"showTags\": []\n        },\n        {\n          \"id\": \"6b0067760000000031009a42\",\n          \"noteId\": \"6afbff63000000002a02ac95\",\n          \"content\": \"ddd\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1795188598000,\n          \"ipLocation\": \"吉林\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"6623ad300000000003030117\",\n            \"nickname\": \"小红薯66247E2D\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"1\",\n          \"subComments\": [\n            {\n              \"id\": \"6b006783000000003102fd16\",\n              \"noteId\": \"6afbff63000000002a02ac95\",\n              \"content\": \"985本28届\",\n              \"likeCount\": \"0\",\n              \"createTime\": 1795188611000,\n              \"ipLocation\": \"吉林\",\n              \"liked\": false,\n              \"userInfo\": {\n                \"userId\": \"6623ad300000000003030117\",\n                \"nickname\": \"小红薯66247E2D\",\n                \"nickName\": \"\",\n                \"avatar\": \"\"\n              },\n              \"subCommentCount\": \"\",\n              \"subComments\": null,\n              \"showTags\": []\n            }\n          ],\n          \"showTags\": []\n        },\n        {\n          \"id\": \"6afdcaee00000000310057ca\",\n          \"noteId\": \"6afbff63000000002a02ac95\",\n          \"content\": \"dd[哭惹R]\",\n          \"likeCount\": \"1\",\n          \"createTime\": 1795017454000,\n          \"ipLocation\": \"四川\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"620b0705000000001000507f\",\n            \"nickname\": \"i IE\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"1\",\n          \"subComments\": [\n            {\n              \"id\": \"6afe4d77000000002d012ac3\",\n              \"noteId\": \"6afbff63000000002a02ac95\",\n              \"content\": \"\",\n              \"likeCount\": \"0\",\n              \"createTime\": 1795050872000,\n              \"ipLocation\": \"广东\",\n              \"liked\": false,\n              \"userInfo\": {\n                \"userId\": \"67f8c055000000000a03fdcf\",\n                \"nickname\": \"offer助手\",\n                \"nickName\": \"\",\n                \"avatar\": \"\"\n              },\n              \"subCommentCount\": \"\",\n              \"subComments\": null,\n              \"showTags\": [\n                \"is_author\"\n              ]\n            }\n          ],\n          \"showTags\": []\n        },\n        {\n          \"id\": \"6b004f84000000002f02b077\",\n          \"noteId\": \"6afbff63000000002a02ac95\",\n          \"content\": \"dd\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1795182468000,\n          \"ipLocation\": \"四川\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"630c3421000000000f005e74\",\n            \"nickname\": \"泡泡不打烊（再学一分钟上岸）\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"1\",\n          \"subComments\": [\n            {\n              \"id\": \"6b00508d000000002d011f2b\",\n              \"noteId\": \"6afbff63000000002a02ac95\",\n              \"content\": \"\",\n              \"likeCount\": \"0\",\n              \"createTime\": 1795182735000,\n              \"ipLocation\": \"广东\",\n              \"liked\": false,\n              \"userInfo\": {\n                \"userId\": \"67f8c055000000000a03fdcf\",\n                \"nickname\": \"offer助手\",\n                \"nickName\": \"\",\n                \"avatar\": \"\"\n              },\n              \"subCommentCount\": \"\",\n              \"subComments\": null,\n              \"showTags\": [\n                \"is_author\"\n              ]\n            }\n          ],\n          \"showTags\": []\n        },\n        {\n          \"id\": \"6afd1954000000003101831b\",\n          \"noteId\": \"6afbff63000000002a02ac95\",\n          \"content\": \"28届硕\",\n          \"likeCount\": \"1\",\n          \"createTime\": 1794971988000,\n          \"ipLocation\": \"中国澳门\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"649e8918000000002a035dd7\",\n            \"nickname\": \"momo\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"1\",\n          \"subComments\": [\n            {\n              \"id\": \"6afd1b350000000031012731\",\n              \"noteId\": \"6afbff63000000002a02ac95\",\n              \"content\": \"\",\n              \"likeCount\": \"0\",\n              \"createTime\": 1794972470000,\n              \"ipLocation\": \"广东\",\n              \"liked\": false,\n              \"userInfo\": {\n                \"userId\": \"67f8c055000000000a03fdcf\",\n                \"nickname\": \"offer助手\",\n                \"nickName\": \"\",\n                \"avatar\": \"\"\n              },\n              \"subCommentCount\": \"\",\n              \"subComments\": null,\n              \"showTags\": [\n                \"is_author\"\n              ]\n            }\n          ],\n          \"showTags\": []\n        },\n        {\n          \"id\": \"6b00455600000000320165ee\",\n          \"noteId\": \"6afbff63000000002a02ac95\",\n          \"content\": \"27届本法学\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1795179862000,\n          \"ipLocation\": \"贵州\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"6570a6b10000000020033755\",\n            \"nickname\": \"哦耶哦耶\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"0\",\n          \"subComments\": [],\n          \"showTags\": []\n        }\n      ],\n      \"cursor\": \"6b00455600000000320165ee\",\n      \"hasMore\": true\n    }\n  }\n}",
+  "parsed": {
+    "feed_id": "6afbff63000000002a02ac95",
+    "data": {
+      "note": {
+        "noteId": "6afbff63000000002a02ac95",
+        "xsecToken": "ABELvW59hsG8foXAQPELwILqaBse18MbmSovqQ_Fsz3xs=",
+        "title": "腾讯捞实习生，接受无经验，可寒假",
+        "desc": "腾讯实习找(25-29届本科及以上)秋季，寒假实习，可接受到岗也可远程\n，腾讯招募实习生了，岗位缺口大，可接受無经验\n腾讯的氛围真的很好，同事，mentor和leader人都非常好，伙食和福利也是没得说，随处可见小企鹅\n核心福利待遇:提供餐补+美味下午茶/实习期满可获得正式实习证\n实习岗位:AI人工智能算法/视频运营/市场/产品经理/用户研究/数据分析等\n面向人群:25-29届本科及以上学历在校生/应届生/留学生/海归\n中蹲。base:深圳，北京，成都，上海，广州等地，可远程办公\n蹲实习时间:秋季/实习要求:实习期1个月零门槛机会:特别欢迎低年级同学申请!无相关经验者亦可投递，我们提供完善的岗前培训与指导\n#实习生内推[话题]# #内推[话题]# #找实习[话题]# #互联网大厂实习[话题]# #秋招有路子[话题]# #寒假实习[话题]##年轻人向往的好公司[话题]# #985[话题]##211[话题]##27届[话题]#",
+        "type": "normal",
+        "time": 1794899811000,
+        "ipLocation": "广东",
+        "user": {
+          "userId": "67f8c055000000000a03fdcf",
+          "nickname": "offer助手",
+          "nickName": "",
+          "avatar": "https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo325s7c44v5g6g5pvoo1ainvef4kh0d70"
+        },
+        "interactInfo": {
+          "liked": false,
+          "likedCount": "110",
+          "sharedCount": "",
+          "commentCount": "132",
+          "collectedCount": "93",
+          "collected": false
+        },
+        "imageList": [
+          {
+            "width": 1080,
+            "height": 1338,
+            "urlDefault": "http://sns-webpic-qc.xhscdn.com/202611210224/ab59c3b8224d12a5cde3930f32a1b3a0/1040g008327lp4kvg706g5pvoo1ainvefffo2d98!nd_dft_wlteh_webp_3",
+            "urlPre": "http://sns-webpic-qc.xhscdn.com/202611210224/ba0aae2a4af4bb881624cbaaaa2e172b/1040g008327lp4kvg706g5pvoo1ainvefffo2d98!nd_prv_wlteh_webp_3"
+          }
+        ]
+      },
+      "comments": {
+        "list": [
+          {
+            "id": "6afbff6c000000002f030ec1",
+            "noteId": "6afbff63000000002a02ac95",
+            "content": "三连我（记得带上学历➕毕业时间）🈚尝的(大家不用担心收费，免费!)   ps:除了我本人回复一律不要信！！",
+            "likeCount": "1",
+            "createTime": 1794899820000,
+            "ipLocation": "广东",
+            "liked": false,
+            "userInfo": {
+              "userId": "67f8c055000000000a03fdcf",
+              "nickname": "offer助手",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "1",
+            "subComments": [
+              {
+                "id": "6afd94930000000031039667",
+                "noteId": "6afbff63000000002a02ac95",
+                "content": "工牌配色挺好看，鹅厂氛围羡慕了",
+                "likeCount": "0",
+                "createTime": 1795003540000,
+                "ipLocation": "美国",
+                "liked": false,
+                "userInfo": {
+                  "userId": "61f3560a0000000002020d3b",
+                  "nickname": "AI 超个体孵化器（招远程实习）",
+                  "nickName": "",
+                  "avatar": ""
+                },
+                "subCommentCount": "",
+                "subComments": null,
+                "showTags": []
+              }
+            ],
+            "showTags": [
+              "is_author",
+              "user_top"
+            ]
+          },
+          {
+            "id": "6afdd9df000000002f034cd6",
+            "noteId": "6afbff63000000002a02ac95",
+            "content": "28 服装设计 本科",
+            "likeCount": "1",
+            "createTime": 1795021279000,
+            "ipLocation": "陕西",
+            "liked": false,
+            "userInfo": {
+              "userId": "6534caf3000000000d007323",
+              "nickname": "JJ",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "1",
+            "subComments": [
+              {
+                "id": "6afe4d65000000002f02b6e6",
+                "noteId": "6afbff63000000002a02ac95",
+                "content": "",
+                "likeCount": "0",
+                "createTime": 1795050854000,
+                "ipLocation": "广东",
+                "liked": false,
+                "userInfo": {
+                  "userId": "67f8c055000000000a03fdcf",
+                  "nickname": "offer助手",
+                  "nickName": "",
+                  "avatar": ""
+                },
+                "subCommentCount": "",
+                "subComments": null,
+                "showTags": [
+                  "is_author"
+                ]
+              }
+            ],
+            "showTags": []
+          },
+          {
+            "id": "6afe473d000000002d00c4fd",
+            "noteId": "6afbff63000000002a02ac95",
+            "content": "29本211软工",
+            "likeCount": "0",
+            "createTime": 1795049277000,
+            "ipLocation": "广东",
+            "liked": false,
+            "userInfo": {
+              "userId": "6632e55400000000070070e7",
+              "nickname": "Aoko",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "1",
+            "subComments": [
+              {
+                "id": "6afe4d51000000002f02b3e8",
+                "noteId": "6afbff63000000002a02ac95",
+                "content": "",
+                "likeCount": "0",
+                "createTime": 1795050833000,
+                "ipLocation": "广东",
+                "liked": false,
+                "userInfo": {
+                  "userId": "67f8c055000000000a03fdcf",
+                  "nickname": "offer助手",
+                  "nickName": "",
+                  "avatar": ""
+                },
+                "subCommentCount": "",
+                "subComments": null,
+                "showTags": [
+                  "is_author"
+                ]
+              }
+            ],
+            "showTags": []
+          },
+          {
+            "id": "6afe8b1d00000000310001b0",
+            "noteId": "6afbff63000000002a02ac95",
+            "content": "27本 汉语言文学",
+            "likeCount": "0",
+            "createTime": 1795066653000,
+            "ipLocation": "四川",
+            "liked": false,
+            "userInfo": {
+              "userId": "601fbfa60000000001006e3c",
+              "nickname": "lllllllllllll",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "1",
+            "subComments": [
+              {
+                "id": "6afe9fba000000002d018306",
+                "noteId": "6afbff63000000002a02ac95",
+                "content": "",
+                "likeCount": "0",
+                "createTime": 1795071931000,
+                "ipLocation": "广东",
+                "liked": false,
+                "userInfo": {
+                  "userId": "67f8c055000000000a03fdcf",
+                  "nickname": "offer助手",
+                  "nickName": "",
+                  "avatar": ""
+                },
+                "subCommentCount": "",
+                "subComments": null,
+                "showTags": [
+                  "is_author"
+                ]
+              }
+            ],
+            "showTags": []
+          },
+          {
+            "id": "6afdd1c9000000002d0113ea",
+            "noteId": "6afbff63000000002a02ac95",
+            "content": "29研",
+            "likeCount": "1",
+            "createTime": 1795019209000,
+            "ipLocation": "天津",
+            "liked": false,
+            "userInfo": {
+              "userId": "6353a416000000001802e336",
+              "nickname": "后来.",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "1",
+            "subComments": [
+              {
+                "id": "6afe4d6d00000000310136c6",
+                "noteId": "6afbff63000000002a02ac95",
+                "content": "",
+                "likeCount": "0",
+                "createTime": 1795050862000,
+                "ipLocation": "广东",
+                "liked": false,
+                "userInfo": {
+                  "userId": "67f8c055000000000a03fdcf",
+                  "nickname": "offer助手",
+                  "nickName": "",
+                  "avatar": ""
+                },
+                "subCommentCount": "",
+                "subComments": null,
+                "showTags": [
+                  "is_author"
+                ]
+              }
+            ],
+            "showTags": []
+          },
+          {
+            "id": "6b0067760000000031009a42",
+            "noteId": "6afbff63000000002a02ac95",
+            "content": "ddd",
+            "likeCount": "0",
+            "createTime": 1795188598000,
+            "ipLocation": "吉林",
+            "liked": false,
+            "userInfo": {
+              "userId": "6623ad300000000003030117",
+              "nickname": "小红薯66247E2D",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "1",
+            "subComments": [
+              {
+                "id": "6b006783000000003102fd16",
+                "noteId": "6afbff63000000002a02ac95",
+                "content": "985本28届",
+                "likeCount": "0",
+                "createTime": 1795188611000,
+                "ipLocation": "吉林",
+                "liked": false,
+                "userInfo": {
+                  "userId": "6623ad300000000003030117",
+                  "nickname": "小红薯66247E2D",
+                  "nickName": "",
+                  "avatar": ""
+                },
+                "subCommentCount": "",
+                "subComments": null,
+                "showTags": []
+              }
+            ],
+            "showTags": []
+          },
+          {
+            "id": "6afdcaee00000000310057ca",
+            "noteId": "6afbff63000000002a02ac95",
+            "content": "dd[哭惹R]",
+            "likeCount": "1",
+            "createTime": 1795017454000,
+            "ipLocation": "四川",
+            "liked": false,
+            "userInfo": {
+              "userId": "620b0705000000001000507f",
+              "nickname": "i IE",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "1",
+            "subComments": [
+              {
+                "id": "6afe4d77000000002d012ac3",
+                "noteId": "6afbff63000000002a02ac95",
+                "content": "",
+                "likeCount": "0",
+                "createTime": 1795050872000,
+                "ipLocation": "广东",
+                "liked": false,
+                "userInfo": {
+                  "userId": "67f8c055000000000a03fdcf",
+                  "nickname": "offer助手",
+                  "nickName": "",
+                  "avatar": ""
+                },
+                "subCommentCount": "",
+                "subComments": null,
+                "showTags": [
+                  "is_author"
+                ]
+              }
+            ],
+            "showTags": []
+          },
+          {
+            "id": "6b004f84000000002f02b077",
+            "noteId": "6afbff63000000002a02ac95",
+            "content": "dd",
+            "likeCount": "0",
+            "createTime": 1795182468000,
+            "ipLocation": "四川",
+            "liked": false,
+            "userInfo": {
+              "userId": "630c3421000000000f005e74",
+              "nickname": "泡泡不打烊（再学一分钟上岸）",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "1",
+            "subComments": [
+              {
+                "id": "6b00508d000000002d011f2b",
+                "noteId": "6afbff63000000002a02ac95",
+                "content": "",
+                "likeCount": "0",
+                "createTime": 1795182735000,
+                "ipLocation": "广东",
+                "liked": false,
+                "userInfo": {
+                  "userId": "67f8c055000000000a03fdcf",
+                  "nickname": "offer助手",
+                  "nickName": "",
+                  "avatar": ""
+                },
+                "subCommentCount": "",
+                "subComments": null,
+                "showTags": [
+                  "is_author"
+                ]
+              }
+            ],
+            "showTags": []
+          },
+          {
+            "id": "6afd1954000000003101831b",
+            "noteId": "6afbff63000000002a02ac95",
+            "content": "28届硕",
+            "likeCount": "1",
+            "createTime": 1794971988000,
+            "ipLocation": "中国澳门",
+            "liked": false,
+            "userInfo": {
+              "userId": "649e8918000000002a035dd7",
+              "nickname": "momo",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "1",
+            "subComments": [
+              {
+                "id": "6afd1b350000000031012731",
+                "noteId": "6afbff63000000002a02ac95",
+                "content": "",
+                "likeCount": "0",
+                "createTime": 1794972470000,
+                "ipLocation": "广东",
+                "liked": false,
+                "userInfo": {
+                  "userId": "67f8c055000000000a03fdcf",
+                  "nickname": "offer助手",
+                  "nickName": "",
+                  "avatar": ""
+                },
+                "subCommentCount": "",
+                "subComments": null,
+                "showTags": [
+                  "is_author"
+                ]
+              }
+            ],
+            "showTags": []
+          },
+          {
+            "id": "6b00455600000000320165ee",
+            "noteId": "6afbff63000000002a02ac95",
+            "content": "27届本法学",
+            "likeCount": "0",
+            "createTime": 1795179862000,
+            "ipLocation": "贵州",
+            "liked": false,
+            "userInfo": {
+              "userId": "6570a6b10000000020033755",
+              "nickname": "哦耶哦耶",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "0",
+            "subComments": [],
+            "showTags": []
+          }
+        ],
+        "cursor": "6b00455600000000320165ee",
+        "hasMore": true
+      }
+    }
+  }
+}

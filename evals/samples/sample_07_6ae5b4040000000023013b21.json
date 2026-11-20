@@ -1,0 +1,40 @@
+{
+  "sample_id": "sample_07",
+  "annotated": true,
+  "note": {
+    "feed_id": "6ae5b4040000000023013b21",
+    "source_url": "https://www.xiaohongshu.com/explore/6ae5b4040000000023013b21",
+    "title": "🔥广州线下 | 招AI技术实习生啦！",
+    "author": "考拉的慢成长日记",
+    "published_at": 1793438724000,
+    "image_count": 1,
+    "desc": "想把做过的AI项目用到实际业务中？欢迎加入我们，参与面向医疗行业的AI应用项目[斜眼R][斜眼R]\n\t\n🔍 涉及三个方向，根据你的经验和兴趣选择[赞R][赞R]\n① 检索与评测：搭建RAG问答，让回答有出处、效果可检验。\n② 多模态解析与数据：把文档、扫描件和视频整理成可检索的知识。\n③ 智能体应用：开发AI工具，对接企业系统，参与项目交付。\n\t\n🙋 希望你~\n相关专业，大专及以上，在校生或应届毕业生均可；有Python或相关开发基础，熟悉AI辅助编程，并有对应方向的项目实践。\n\t\n📍地点：广州海珠\n\t\n有兴趣朋友们欢迎私信~~"
+  },
+  "expected": {
+    "is_job_post": true,
+    "needs_image": false,
+    "jobs": [
+      {
+        "company": null,
+        "position": "AI技术实习生",
+        "city": "广州",
+        "education": "大专及以上",
+        "graduation_year": "在校生或应届毕业生",
+        "skills": [
+          "Python",
+          "RAG",
+          "多模态",
+          "智能体"
+        ],
+        "internship_duration": null,
+        "attendance_days": null,
+        "salary": null,
+        "deadline": null,
+        "apply_method": "私信",
+        "application_url": null,
+        "evidence": "搭建RAG问答，让回答有出处、效果可检验。"
+      }
+    ]
+  },
+  "notes": "广州海珠医疗行业 AI 应用团队直招，未具名公司，含 RAG/多模态/智能体 3 方向。"
+}

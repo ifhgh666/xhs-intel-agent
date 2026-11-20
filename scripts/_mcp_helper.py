@@ -164,6 +164,20 @@ def extract_feed_items(payload: Any) -> list[dict[str, Any]]:
     return []
 
 
+def decode_feed_id_timestamp(feed_id: str | None) -> int | None:
+    """小红书 24 位 hex feed_id 的前 8 位即发布时间（Unix 秒级时间戳，实测误差 0s）。"""
+    if not feed_id or len(feed_id) < 8:
+        return None
+    prefix = feed_id[:8]
+    if not re.fullmatch(r"[0-9a-fA-F]{8}", prefix):
+        return None
+    ts = int(prefix, 16)
+    # 合理区间校验：2015-01-01 ~ 2035-01-01
+    if 1_420_070_400 <= ts <= 2_051_222_400:
+        return ts
+    return None
+
+
 def extract_feed_summary(item: dict[str, Any]) -> dict[str, Any]:
     """从单条搜索结果中提取核心字段（兼容顶层字段与 noteCard 嵌套结构）。"""
     note_card = item.get("noteCard") or item.get("note_card") or {}
@@ -211,6 +225,7 @@ def extract_feed_summary(item: dict[str, Any]) -> dict[str, Any]:
         or item.get("published_at")
         or note_card.get("time")
         or note_card.get("lastUpdateTime")
+        or decode_feed_id_timestamp(str(feed_id) if feed_id is not None else None)
         or ""
     )
     liked_count = interact.get("likedCount") or interact.get("liked_count") or item.get("liked_count")

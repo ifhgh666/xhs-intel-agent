@@ -1,0 +1,37 @@
+{
+  "sample_id": "sample_12",
+  "annotated": true,
+  "note": {
+    "feed_id": "6adf12c2000000001b01da71",
+    "source_url": "https://www.xiaohongshu.com/explore/6adf12c2000000001b01da71",
+    "title": "招agent开发实习生",
+    "author": "Auber Packaging",
+    "published_at": 1793004226000,
+    "image_count": 1,
+    "desc": "公司地点在广州设计之都附近\n\t\n要求可以实习六个月以上；计算机科学，人工智能等专业背景。\n\t\n#广州工作[话题]# #广州实习[话题]# #agent开发[话题]# #计算机科学[话题]# #人工智能[话题]#"
+  },
+  "expected": {
+    "is_job_post": true,
+    "needs_image": true,
+    "jobs": [
+      {
+        "company": null,
+        "position": "Agent开发实习生",
+        "city": "广州",
+        "education": null,
+        "graduation_year": null,
+        "skills": [
+          "Agent开发"
+        ],
+        "internship_duration": "六个月以上",
+        "attendance_days": null,
+        "salary": null,
+        "deadline": null,
+        "apply_method": null,
+        "application_url": null,
+        "evidence": "公司地点在广州设计之都附近"
+      }
+    ]
+  },
+  "notes": "正文仅两句话，详细职责与投递方式缺失/可能在图片中，标记 needs_image=true。"
+}

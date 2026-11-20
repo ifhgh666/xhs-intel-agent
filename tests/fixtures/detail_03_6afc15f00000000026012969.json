@@ -1,0 +1,103 @@
+{
+  "captured_at": "2026-11-20T18:24:30.554127+00:00",
+  "mcp_url": "http://localhost:18060/mcp",
+  "tool": "get_feed_detail",
+  "arguments": {
+    "feed_id": "6afc15f00000000026012969",
+    "xsec_token": "ABv4Yv26-5SEzO7Y-5FLZczVR2FjzA0q1A8XN9paNVs1U="
+  },
+  "candidate": {
+    "feed_id": "6afc15f00000000026012969",
+    "xsec_token": "ABv4Yv26-5SEzO7Y-5FLZczVR2FjzA0q1A8XN9paNVs1U=",
+    "title": "有道||内容运营实习（AI）",
+    "author": "请把offer们扔进我的邮箱",
+    "published_at": "",
+    "liked_count": "0",
+    "type": "normal",
+    "source_keyword": "广州 AI实习",
+    "source_fixture": "search_01_广州_AI实习.json"
+  },
+  "is_error": false,
+  "raw_text": "{\n  \"feed_id\": \"6afc15f00000000026012969\",\n  \"data\": {\n    \"note\": {\n      \"noteId\": \"6afc15f00000000026012969\",\n      \"xsecToken\": \"ABv4Yv26-5SEzO7Y-5FLZczVR2FjzA0q1A8XN9paNVs1U=\",\n      \"title\": \"有道||内容运营实习（AI）\",\n      \"desc\": \"工作内容:\\n您将会参与有道词典及旗下产品核心板块各语种查词、翻译、AIGC内容的编辑及运营工作。主要职责:\\n1.参与轮流值班，及时响应处理词典、翻译相关报错;\\n2.结合AIGC，进行多语种语言学习相关内容的编写、翻译、校对、评测;\\n3.查词翻译内容质量提升工作,如编辑优化释义、音标、发音、例句等内容;\\n4.挖掘时下热点,添加双语新词释义\\n5.参与词典全语种内容相关项目的运营管理工作,如内容安全建设、产品调研、数据统计等。\\n职位要求:\\n1.语言类专业，要求英语水平在雅思7分/专八以上，且至少掌握一门小语种;\\n2.外语读写能力强,请在简历中注明语言相关考试分数,及成绩排名情况;\\n3对互联网感兴趣热爱语言学习有接触过AI产品\\n4.每周坐班3.5天及以上\\nbase广州\\n⚠️免费🆓提供内推渠道！免费免费免费！\\n有需要评论区dd我\\n#热点[话题]# #内推[话题]# #实习生内推[话题]# #令人心动的实习日记[话题]# #实习日记[话题]#\",\n      \"type\": \"normal\",\n      \"time\": 1794905584000,\n      \"ipLocation\": \"北京\",\n      \"user\": {\n        \"userId\": \"6034c2e1000000000101e6ac\",\n        \"nickname\": \"请把offer们扔进我的邮箱\",\n        \"nickName\": \"\",\n        \"avatar\": \"https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo31vpfhrf2hm6g5o1kobggbplc3cbdeeo\"\n      },\n      \"interactInfo\": {\n        \"liked\": false,\n        \"likedCount\": \"\",\n        \"sharedCount\": \"\",\n        \"commentCount\": \"2\",\n        \"collectedCount\": \"\",\n        \"collected\": false\n      },\n      \"imageList\": [\n        {\n          \"width\": 3072,\n          \"height\": 4096,\n          \"urlDefault\": \"http://sns-webpic-qc.xhscdn.com/202611210224/caec54ebb3c2e6d89f9f397c20c24d34/1040g2sg327koa4ofmigg5o1kobggbplcblhr5j0!nd_dft_wlteh_webp_3\",\n          \"urlPre\": \"http://sns-webpic-qc.xhscdn.com/202611210224/4bbb35220735f7ccfe455e481489ab14/1040g2sg327koa4ofmigg5o1kobggbplcblhr5j0!nd_prv_wlteh_webp_3\"\n        }\n      ]\n    },\n    \"comments\": {\n      \"list\": [\n        {\n          \"id\": \"6afe4ced000000002f032875\",\n          \"noteId\": \"6afc15f00000000026012969\",\n          \"content\": \"dd\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1795050733000,\n          \"ipLocation\": \"宁夏\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"5d172aff000000001001d5f2\",\n            \"nickname\": \"空腹同学\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"1\",\n          \"subComments\": [\n            {\n              \"id\": \"6afe6b36000000003003ebad\",\n              \"noteId\": \"6afc15f00000000026012969\",\n              \"content\": \"🉑关注并且dd我[害羞R]\",\n              \"likeCount\": \"0\",\n              \"createTime\": 1795058487000,\n              \"ipLocation\": \"北京\",\n              \"liked\": false,\n              \"userInfo\": {\n                \"userId\": \"6034c2e1000000000101e6ac\",\n                \"nickname\": \"请把offer们扔进我的邮箱\",\n                \"nickName\": \"\",\n                \"avatar\": \"\"\n              },\n              \"subCommentCount\": \"\",\n              \"subComments\": null,\n              \"showTags\": [\n                \"is_author\"\n              ]\n            }\n          ],\n          \"showTags\": []\n        }\n      ],\n      \"cursor\": \"6afe4ced000000002f032875\",\n      \"hasMore\": false\n    }\n  }\n}",
+  "parsed": {
+    "feed_id": "6afc15f00000000026012969",
+    "data": {
+      "note": {
+        "noteId": "6afc15f00000000026012969",
+        "xsecToken": "ABv4Yv26-5SEzO7Y-5FLZczVR2FjzA0q1A8XN9paNVs1U=",
+        "title": "有道||内容运营实习（AI）",
+        "desc": "工作内容:\n您将会参与有道词典及旗下产品核心板块各语种查词、翻译、AIGC内容的编辑及运营工作。主要职责:\n1.参与轮流值班，及时响应处理词典、翻译相关报错;\n2.结合AIGC，进行多语种语言学习相关内容的编写、翻译、校对、评测;\n3.查词翻译内容质量提升工作,如编辑优化释义、音标、发音、例句等内容;\n4.挖掘时下热点,添加双语新词释义\n5.参与词典全语种内容相关项目的运营管理工作,如内容安全建设、产品调研、数据统计等。\n职位要求:\n1.语言类专业，要求英语水平在雅思7分/专八以上，且至少掌握一门小语种;\n2.外语读写能力强,请在简历中注明语言相关考试分数,及成绩排名情况;\n3对互联网感兴趣热爱语言学习有接触过AI产品\n4.每周坐班3.5天及以上\nbase广州\n⚠️免费🆓提供内推渠道！免费免费免费！\n有需要评论区dd我\n#热点[话题]# #内推[话题]# #实习生内推[话题]# #令人心动的实习日记[话题]# #实习日记[话题]#",
+        "type": "normal",
+        "time": 1794905584000,
+        "ipLocation": "北京",
+        "user": {
+          "userId": "6034c2e1000000000101e6ac",
+          "nickname": "请把offer们扔进我的邮箱",
+          "nickName": "",
+          "avatar": "https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo31vpfhrf2hm6g5o1kobggbplc3cbdeeo"
+        },
+        "interactInfo": {
+          "liked": false,
+          "likedCount": "",
+          "sharedCount": "",
+          "commentCount": "2",
+          "collectedCount": "",
+          "collected": false
+        },
+        "imageList": [
+          {
+            "width": 3072,
+            "height": 4096,
+            "urlDefault": "http://sns-webpic-qc.xhscdn.com/202611210224/caec54ebb3c2e6d89f9f397c20c24d34/1040g2sg327koa4ofmigg5o1kobggbplcblhr5j0!nd_dft_wlteh_webp_3",
+            "urlPre": "http://sns-webpic-qc.xhscdn.com/202611210224/4bbb35220735f7ccfe455e481489ab14/1040g2sg327koa4ofmigg5o1kobggbplcblhr5j0!nd_prv_wlteh_webp_3"
+          }
+        ]
+      },
+      "comments": {
+        "list": [
+          {
+            "id": "6afe4ced000000002f032875",
+            "noteId": "6afc15f00000000026012969",
+            "content": "dd",
+            "likeCount": "0",
+            "createTime": 1795050733000,
+            "ipLocation": "宁夏",
+            "liked": false,
+            "userInfo": {
+              "userId": "5d172aff000000001001d5f2",
+              "nickname": "空腹同学",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "1",
+            "subComments": [
+              {
+                "id": "6afe6b36000000003003ebad",
+                "noteId": "6afc15f00000000026012969",
+                "content": "🉑关注并且dd我[害羞R]",
+                "likeCount": "0",
+                "createTime": 1795058487000,
+                "ipLocation": "北京",
+                "liked": false,
+                "userInfo": {
+                  "userId": "6034c2e1000000000101e6ac",
+                  "nickname": "请把offer们扔进我的邮箱",
+                  "nickName": "",
+                  "avatar": ""
+                },
+                "subCommentCount": "",
+                "subComments": null,
+                "showTags": [
+                  "is_author"
+                ]
+              }
+            ],
+            "showTags": []
+          }
+        ],
+        "cursor": "6afe4ced000000002f032875",
+        "hasMore": false
+      }
+    }
+  }
+}

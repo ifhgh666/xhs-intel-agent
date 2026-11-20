@@ -1,0 +1,226 @@
+{
+  "captured_at": "2026-11-20T18:23:52.100963+00:00",
+  "mcp_url": "http://localhost:18060/mcp",
+  "tool": "get_feed_detail",
+  "arguments": {
+    "feed_id": "6afdc5df000000002c00cff2",
+    "xsec_token": "ABNmthylnpi8I3DfWEuGXTAejG7b8wf6S1gTWfMVWkYtQ="
+  },
+  "candidate": {
+    "feed_id": "6afdc5df000000002c00cff2",
+    "xsec_token": "ABNmthylnpi8I3DfWEuGXTAejG7b8wf6S1gTWfMVWkYtQ=",
+    "title": "招Ai agent产品实习生 | 广州",
+    "author": "我是屁屁🐱",
+    "published_at": "",
+    "liked_count": "78",
+    "type": "normal",
+    "source_keyword": "广州 AI实习",
+    "source_fixture": "search_01_广州_AI实习.json"
+  },
+  "is_error": false,
+  "raw_text": "{\n  \"feed_id\": \"6afdc5df000000002c00cff2\",\n  \"data\": {\n    \"note\": {\n      \"noteId\": \"6afdc5df000000002c00cff2\",\n      \"xsecToken\": \"ABNmthylnpi8I3DfWEuGXTAejG7b8wf6S1gTWfMVWkYtQ=\",\n      \"title\": \"招Ai agent产品实习生 | 广州\",\n      \"desc\": \"【岗位职责】\\n1. 参与微信小微中ai调用一方能力\\u0026小程序 产品体验设计，定义用户场景、任务边界和交互体验；\\n2. 搭建 Agent 评估指标与题集，基于线上数据和 badcase 归因推动效果迭代。\\n\\t\\n【任职要求】\\n1. 2028届及以后毕业的本科或硕士在读生，专业不限，计算机、人工智能、心理学、交互设计等相关专业优先；\\n2. 每周至少到岗 4 天，连续实习 3 个月以上；\\n3. 了解 Agent Loop、Tool Use 等基本概念；有 Agent 评测、数据标注或 Prompt 调优经验的优先；\\n4. 逻辑清晰，有产品sense，深度使用个人助理类产品；\\n5. 对新事物有好奇心，学习快，不怕难，能独立推进事情。\\n\\t\\n【加分项】\\n有用 AI 工具搭建的Bot 或小程序等作品。\\n\\t\\n投递方式：腾讯官网投递简历并发送简历至susiesun124@gmail.com\\n#人工智能[话题]# #产品经理[话题]# #大厂[话题]# #实习生[话题]# #实习生内推[话题]# #找实习[话题]# #互联网大厂实习[话题]# #大模型[话题]# #微信[话题]# #令人心动的实习日记[话题]#\",\n      \"type\": \"normal\",\n      \"time\": 1795016159000,\n      \"ipLocation\": \"广东\",\n      \"user\": {\n        \"userId\": \"66a7a4ed000000001d032bff\",\n        \"nickname\": \"我是屁屁🐱\",\n        \"nickName\": \"\",\n        \"avatar\": \"https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo31t4vdti6m2005pl7kjmneavvn8lqrt0\"\n      },\n      \"interactInfo\": {\n        \"liked\": false,\n        \"likedCount\": \"78\",\n        \"sharedCount\": \"\",\n        \"commentCount\": \"9\",\n        \"collectedCount\": \"70\",\n        \"collected\": false\n      },\n      \"imageList\": [\n        {\n          \"width\": 1200,\n          \"height\": 1600,\n          \"urlDefault\": \"http://sns-webpic-qc.xhscdn.com/202611210223/538913c61d22d1607f2cb25c28eccba8/notes_pre_post/1040g3k0327ng5imdn8005pl7kjmneavvcft2ifg!nd_dft_wlteh_webp_3\",\n          \"urlPre\": \"http://sns-webpic-qc.xhscdn.com/202611210223/6f1cb6b3ab8985c8bd42e2861cbf33bb/notes_pre_post/1040g3k0327ng5imdn8005pl7kjmneavvcft2ifg!nd_prv_wlteh_webp_3\"\n        }\n      ]\n    },\n    \"comments\": {\n      \"list\": [\n        {\n          \"id\": \"6affb65a000000002d02235a\",\n          \"noteId\": \"6afdc5df000000002c00cff2\",\n          \"content\": \"dd\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1795143259000,\n          \"ipLocation\": \"广东\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"6714d02a000000001d0301cc\",\n            \"nickname\": \"大白伟\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"0\",\n          \"subComments\": [],\n          \"showTags\": []\n        },\n        {\n          \"id\": \"6afff870000000002d010f95\",\n          \"noteId\": \"6afdc5df000000002c00cff2\",\n          \"content\": \"官网投哪个岗呢\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1795160176000,\n          \"ipLocation\": \"广东\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"64842830000000002a037302\",\n            \"nickname\": \"转码日记\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"0\",\n          \"subComments\": [],\n          \"showTags\": []\n        },\n        {\n          \"id\": \"6b007353000000003100f62b\",\n          \"noteId\": \"6afdc5df000000002c00cff2\",\n          \"content\": \"好奇这个是基础微信团队吗\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1795191635000,\n          \"ipLocation\": \"广东\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"68f0ae400000000037008595\",\n            \"nickname\": \"Folish小惘\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"0\",\n          \"subComments\": [],\n          \"showTags\": []\n        },\n        {\n          \"id\": \"6afeea890000000032021649\",\n          \"noteId\": \"6afdc5df000000002c00cff2\",\n          \"content\": \"dd\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1795091082000,\n          \"ipLocation\": \"美国\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"60facdf40000000001006ecf\",\n            \"nickname\": \"童琪涵\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"0\",\n          \"subComments\": [],\n          \"showTags\": []\n        },\n        {\n          \"id\": \"6afecb96000000002d02081d\",\n          \"noteId\": \"6afdc5df000000002c00cff2\",\n          \"content\": \"屁屁老师可以带带我吗\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1795083159000,\n          \"ipLocation\": \"广东\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"5b210d40e8ac2b61cf545d07\",\n            \"nickname\": \"忌廉应援会\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"0\",\n          \"subComments\": [],\n          \"showTags\": []\n        },\n        {\n          \"id\": \"6afdcc2d000000002f0383c6\",\n          \"noteId\": \"6afdc5df000000002c00cff2\",\n          \"content\": \"可以求个官方邮箱投递方式吗？谢谢\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1795017773000,\n          \"ipLocation\": \"北京\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"60f2d9cd000000000100bbe6\",\n            \"nickname\": \"momo\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"0\",\n          \"subComments\": [],\n          \"showTags\": []\n        },\n        {\n          \"id\": \"6afdca33000000002f03588b\",\n          \"noteId\": \"6afdc5df000000002c00cff2\",\n          \"content\": \"27届有搭建产品内ai助手的可以接受吗（不参加秋招）\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1795017267000,\n          \"ipLocation\": \"广东\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"672b5486000000001d02d602\",\n            \"nickname\": \"失禁的大便（接offer版）\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"0\",\n          \"subComments\": [],\n          \"showTags\": []\n        },\n        {\n          \"id\": \"6afe6993000000003100b2ca\",\n          \"noteId\": \"6afdc5df000000002c00cff2\",\n          \"content\": \"求一个官方邮箱地址，谢谢[玫瑰R][玫瑰R]\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1795058067000,\n          \"ipLocation\": \"中国香港\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"62a4a801000000001902b576\",\n            \"nickname\": \"梵希\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"0\",\n          \"subComments\": [],\n          \"showTags\": []\n        },\n        {\n          \"id\": \"6afdc9a1000000003102f3de\",\n          \"noteId\": \"6afdc5df000000002c00cff2\",\n          \"content\": \"d d\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1795017121000,\n          \"ipLocation\": \"广东\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"6a1c1af20000000002000c03\",\n            \"nickname\": \"忘年.\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"0\",\n          \"subComments\": [],\n          \"showTags\": []\n        }\n      ],\n      \"cursor\": \"6afdc9a1000000003102f3de\",\n      \"hasMore\": false\n    }\n  }\n}",
+  "parsed": {
+    "feed_id": "6afdc5df000000002c00cff2",
+    "data": {
+      "note": {
+        "noteId": "6afdc5df000000002c00cff2",
+        "xsecToken": "ABNmthylnpi8I3DfWEuGXTAejG7b8wf6S1gTWfMVWkYtQ=",
+        "title": "招Ai agent产品实习生 | 广州",
+        "desc": "【岗位职责】\n1. 参与微信小微中ai调用一方能力&小程序 产品体验设计，定义用户场景、任务边界和交互体验；\n2. 搭建 Agent 评估指标与题集，基于线上数据和 badcase 归因推动效果迭代。\n\t\n【任职要求】\n1. 2028届及以后毕业的本科或硕士在读生，专业不限，计算机、人工智能、心理学、交互设计等相关专业优先；\n2. 每周至少到岗 4 天，连续实习 3 个月以上；\n3. 了解 Agent Loop、Tool Use 等基本概念；有 Agent 评测、数据标注或 Prompt 调优经验的优先；\n4. 逻辑清晰，有产品sense，深度使用个人助理类产品；\n5. 对新事物有好奇心，学习快，不怕难，能独立推进事情。\n\t\n【加分项】\n有用 AI 工具搭建的Bot 或小程序等作品。\n\t\n投递方式：腾讯官网投递简历并发送简历至susiesun124@gmail.com\n#人工智能[话题]# #产品经理[话题]# #大厂[话题]# #实习生[话题]# #实习生内推[话题]# #找实习[话题]# #互联网大厂实习[话题]# #大模型[话题]# #微信[话题]# #令人心动的实习日记[话题]#",
+        "type": "normal",
+        "time": 1795016159000,
+        "ipLocation": "广东",
+        "user": {
+          "userId": "66a7a4ed000000001d032bff",
+          "nickname": "我是屁屁🐱",
+          "nickName": "",
+          "avatar": "https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo31t4vdti6m2005pl7kjmneavvn8lqrt0"
+        },
+        "interactInfo": {
+          "liked": false,
+          "likedCount": "78",
+          "sharedCount": "",
+          "commentCount": "9",
+          "collectedCount": "70",
+          "collected": false
+        },
+        "imageList": [
+          {
+            "width": 1200,
+            "height": 1600,
+            "urlDefault": "http://sns-webpic-qc.xhscdn.com/202611210223/538913c61d22d1607f2cb25c28eccba8/notes_pre_post/1040g3k0327ng5imdn8005pl7kjmneavvcft2ifg!nd_dft_wlteh_webp_3",
+            "urlPre": "http://sns-webpic-qc.xhscdn.com/202611210223/6f1cb6b3ab8985c8bd42e2861cbf33bb/notes_pre_post/1040g3k0327ng5imdn8005pl7kjmneavvcft2ifg!nd_prv_wlteh_webp_3"
+          }
+        ]
+      },
+      "comments": {
+        "list": [
+          {
+            "id": "6affb65a000000002d02235a",
+            "noteId": "6afdc5df000000002c00cff2",
+            "content": "dd",
+            "likeCount": "0",
+            "createTime": 1795143259000,
+            "ipLocation": "广东",
+            "liked": false,
+            "userInfo": {
+              "userId": "6714d02a000000001d0301cc",
+              "nickname": "大白伟",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "0",
+            "subComments": [],
+            "showTags": []
+          },
+          {
+            "id": "6afff870000000002d010f95",
+            "noteId": "6afdc5df000000002c00cff2",
+            "content": "官网投哪个岗呢",
+            "likeCount": "0",
+            "createTime": 1795160176000,
+            "ipLocation": "广东",
+            "liked": false,
+            "userInfo": {
+              "userId": "64842830000000002a037302",
+              "nickname": "转码日记",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "0",
+            "subComments": [],
+            "showTags": []
+          },
+          {
+            "id": "6b007353000000003100f62b",
+            "noteId": "6afdc5df000000002c00cff2",
+            "content": "好奇这个是基础微信团队吗",
+            "likeCount": "0",
+            "createTime": 1795191635000,
+            "ipLocation": "广东",
+            "liked": false,
+            "userInfo": {
+              "userId": "68f0ae400000000037008595",
+              "nickname": "Folish小惘",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "0",
+            "subComments": [],
+            "showTags": []
+          },
+          {
+            "id": "6afeea890000000032021649",
+            "noteId": "6afdc5df000000002c00cff2",
+            "content": "dd",
+            "likeCount": "0",
+            "createTime": 1795091082000,
+            "ipLocation": "美国",
+            "liked": false,
+            "userInfo": {
+              "userId": "60facdf40000000001006ecf",
+              "nickname": "童琪涵",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "0",
+            "subComments": [],
+            "showTags": []
+          },
+          {
+            "id": "6afecb96000000002d02081d",
+            "noteId": "6afdc5df000000002c00cff2",
+            "content": "屁屁老师可以带带我吗",
+            "likeCount": "0",
+            "createTime": 1795083159000,
+            "ipLocation": "广东",
+            "liked": false,
+            "userInfo": {
+              "userId": "5b210d40e8ac2b61cf545d07",
+              "nickname": "忌廉应援会",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "0",
+            "subComments": [],
+            "showTags": []
+          },
+          {
+            "id": "6afdcc2d000000002f0383c6",
+            "noteId": "6afdc5df000000002c00cff2",
+            "content": "可以求个官方邮箱投递方式吗？谢谢",
+            "likeCount": "0",
+            "createTime": 1795017773000,
+            "ipLocation": "北京",
+            "liked": false,
+            "userInfo": {
+              "userId": "60f2d9cd000000000100bbe6",
+              "nickname": "momo",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "0",
+            "subComments": [],
+            "showTags": []
+          },
+          {
+            "id": "6afdca33000000002f03588b",
+            "noteId": "6afdc5df000000002c00cff2",
+            "content": "27届有搭建产品内ai助手的可以接受吗（不参加秋招）",
+            "likeCount": "0",
+            "createTime": 1795017267000,
+            "ipLocation": "广东",
+            "liked": false,
+            "userInfo": {
+              "userId": "672b5486000000001d02d602",
+              "nickname": "失禁的大便（接offer版）",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "0",
+            "subComments": [],
+            "showTags": []
+          },
+          {
+            "id": "6afe6993000000003100b2ca",
+            "noteId": "6afdc5df000000002c00cff2",
+            "content": "求一个官方邮箱地址，谢谢[玫瑰R][玫瑰R]",
+            "likeCount": "0",
+            "createTime": 1795058067000,
+            "ipLocation": "中国香港",
+            "liked": false,
+            "userInfo": {
+              "userId": "62a4a801000000001902b576",
+              "nickname": "梵希",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "0",
+            "subComments": [],
+            "showTags": []
+          },
+          {
+            "id": "6afdc9a1000000003102f3de",
+            "noteId": "6afdc5df000000002c00cff2",
+            "content": "d d",
+            "likeCount": "0",
+            "createTime": 1795017121000,
+            "ipLocation": "广东",
+            "liked": false,
+            "userInfo": {
+              "userId": "6a1c1af20000000002000c03",
+              "nickname": "忘年.",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "0",
+            "subComments": [],
+            "showTags": []
+          }
+        ],
+        "cursor": "6afdc9a1000000003102f3de",
+        "hasMore": false
+      }
+    }
+  }
+}

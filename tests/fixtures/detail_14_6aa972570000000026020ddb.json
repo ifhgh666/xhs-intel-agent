@@ -1,0 +1,349 @@
+{
+  "captured_at": "2026-11-20T18:28:27.343423+00:00",
+  "mcp_url": "http://localhost:18060/mcp",
+  "tool": "get_feed_detail",
+  "arguments": {
+    "feed_id": "6aa972570000000026020ddb",
+    "xsec_token": "ABZRrWDfy67UqBzyDlEdqppKmw-l0ivitaxOiVdtIo1Nc="
+  },
+  "candidate": {
+    "feed_id": "6aa972570000000026020ddb",
+    "xsec_token": "ABZRrWDfy67UqBzyDlEdqppKmw-l0ivitaxOiVdtIo1Nc=",
+    "title": "05大三暨大AI应用开发实习第二天Vlog",
+    "author": "JIOJIO",
+    "published_at": "",
+    "liked_count": "64",
+    "type": "normal",
+    "source_keyword": "广州 AI实习",
+    "source_fixture": "search_01_广州_AI实习.json"
+  },
+  "is_error": false,
+  "raw_text": "{\n  \"feed_id\": \"6aa972570000000026020ddb\",\n  \"data\": {\n    \"note\": {\n      \"noteId\": \"6aa972570000000026020ddb\",\n      \"xsecToken\": \"ABZRrWDfy67UqBzyDlEdqppKmw-l0ivitaxOiVdtIo1Nc=\",\n      \"title\": \"05大三暨大AI应用开发实习第二天Vlog\",\n      \"desc\": \"实习第二天#大学生勇闯职场[话题]# #大学生实习[话题]##当代大学生打工[话题]# #实习[话题]# #实习生[话题]#\\n1. 一早到公司匆匆忙忙赶mentor布置梳理的业务流程图和功能时序图（开玩笑，入职小白根本看不懂需求文档、技术文档，更别说整理流程图了[失望R][失望R][失望R]） 让AI帮忙梳理之后马马虎虎知道了基础流程 下午mentor把我留下来单独批斗了半个小时，总结问题如下\\n1.  项目中不知道的技术应该提前学 不能说不知道（尤其是上级问你的时候，千万别说没学不知道）\\n2. 不懂的地方多问同事（我天，才第二天，根本都不知道谁是做什么的 有什么问题该找谁[失望R] 好吧，这也是我没问的原因[失望R][失望R][失望R]）\\n3. 我怀疑mentor门都喜欢能产生输出的，像我这样只知道看文档，不能转换成输出汇报，他们根本不知道你什么进度了，做事的时候留点心眼转换成输出（在输入（阅读文档、开会等）之后加入自己的思考，然后生成第四条，时不时温习一下输出就应该很自然了）\\n4. 做事留痕 最好使用电子文档或者流程图等等生成可复用的经验，对第三条也有帮助。自己也能学会归纳总结，做事留痕。\\n5.当然还有个人能力方面的一些思考（有时间了单独写写贴子）\\n当然还有一些事情如图，不过不能再熬夜了，明天还有早八（本人周三不去实习，在学校上课嗷因为体育课要点名[石化R][石化R][失望R]） 晚安宝子们，早点睡，明天又是美好的一天！但想想那么多文档要看且周四要汇报进度，头都大了，不过mentor挺负责的，很喜欢😘\",\n      \"type\": \"normal\",\n      \"time\": 1789489751000,\n      \"ipLocation\": \"\",\n      \"user\": {\n        \"userId\": \"62a0aee3000000001b025c9b\",\n        \"nickname\": \"JIOJIO\",\n        \"nickName\": \"\",\n        \"avatar\": \"https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo31c6g3a1g08605ol0lrhmsn4r3qfnkgg\"\n      },\n      \"interactInfo\": {\n        \"liked\": false,\n        \"likedCount\": \"64\",\n        \"sharedCount\": \"\",\n        \"commentCount\": \"14\",\n        \"collectedCount\": \"9\",\n        \"collected\": false\n      },\n      \"imageList\": [\n        {\n          \"width\": 1920,\n          \"height\": 2560,\n          \"urlDefault\": \"http://sns-webpic-qc.xhscdn.com/202611210228/4400d2772c854f774c6ee1ab9e18c406/1040g2sg32554tfut48eg5ol0lrhmsn4rkmotv38!nd_dft_wlteh_webp_3\",\n          \"urlPre\": \"http://sns-webpic-qc.xhscdn.com/202611210228/f3eff7ae1926928c4a0e7a08969c5a9b/1040g2sg32554tfut48eg5ol0lrhmsn4rkmotv38!nd_prv_wlteh_webp_3\",\n          \"livePhoto\": true\n        },\n        {\n          \"width\": 1206,\n          \"height\": 2622,\n          \"urlDefault\": \"http://sns-webpic-qc.xhscdn.com/202611210228/a4c7697fc3af6be89d223cf197f65a48/1040g2sg32554tfut48f05ol0lrhmsn4rhhic0ho!nd_dft_wlteh_webp_3\",\n          \"urlPre\": \"http://sns-webpic-qc.xhscdn.com/202611210228/5d20ff13ec87c41b4cc79672c12edb8d/1040g2sg32554tfut48f05ol0lrhmsn4rhhic0ho!nd_prv_wlteh_webp_3\"\n        },\n        {\n          \"width\": 1920,\n          \"height\": 2560,\n          \"urlDefault\": \"http://sns-webpic-qc.xhscdn.com/202611210228/f6b0c4998bbfc3c5a3c2a34bf6b6cb03/1040g2sg32554tfut48fg5ol0lrhmsn4rujjbppo!nd_dft_wlteh_webp_3\",\n          \"urlPre\": \"http://sns-webpic-qc.xhscdn.com/202611210228/7d5f14613b2bb38c6749e61e43cabdf2/1040g2sg32554tfut48fg5ol0lrhmsn4rujjbppo!nd_prv_wlteh_webp_3\",\n          \"livePhoto\": true\n        },\n        {\n          \"width\": 1920,\n          \"height\": 2560,\n          \"urlDefault\": \"http://sns-webpic-qc.xhscdn.com/202611210228/1e3c603fff9549a85d39244b9bd7be28/1040g2sg32554tfut48g05ol0lrhmsn4r49tfds0!nd_dft_wlteh_webp_3\",\n          \"urlPre\": \"http://sns-webpic-qc.xhscdn.com/202611210228/1bc5694d0f84059295b0bda5044c1839/1040g2sg32554tfut48g05ol0lrhmsn4r49tfds0!nd_prv_wlteh_webp_3\",\n          \"livePhoto\": true\n        },\n        {\n          \"width\": 1206,\n          \"height\": 2622,\n          \"urlDefault\": \"http://sns-webpic-qc.xhscdn.com/202611210228/4add74849f164b46e59ace8e03893e49/1040g2sg32554tfut48gg5ol0lrhmsn4rfivf09o!nd_dft_wlteh_webp_3\",\n          \"urlPre\": \"http://sns-webpic-qc.xhscdn.com/202611210228/7e56d7af669ae008d1881988cb089867/1040g2sg32554tfut48gg5ol0lrhmsn4rfivf09o!nd_prv_wlteh_webp_3\"\n        },\n        {\n          \"width\": 1920,\n          \"height\": 2560,\n          \"urlDefault\": \"http://sns-webpic-qc.xhscdn.com/202611210228/e559bf630434b2c996d945b4c2776f42/1040g2sg32554tfut48hg5ol0lrhmsn4r9nhp910!nd_dft_wlteh_webp_3\",\n          \"urlPre\": \"http://sns-webpic-qc.xhscdn.com/202611210228/b97c0bfe22aeec547d4723dfc97137b9/1040g2sg32554tfut48hg5ol0lrhmsn4r9nhp910!nd_prv_wlteh_webp_3\"\n        },\n        {\n          \"width\": 1920,\n          \"height\": 2560,\n          \"urlDefault\": \"http://sns-webpic-qc.xhscdn.com/202611210228/5bf408772ae996d15b32ef74dc0da70d/1040g2sg32554tfut48jg5ol0lrhmsn4rfuvd210!nd_dft_wlteh_webp_3\",\n          \"urlPre\": \"http://sns-webpic-qc.xhscdn.com/202611210228/13da5777ee61630f7a4c15f968eb6605/1040g2sg32554tfut48jg5ol0lrhmsn4rfuvd210!nd_prv_wlteh_webp_3\",\n          \"livePhoto\": true\n        },\n        {\n          \"width\": 1920,\n          \"height\": 2560,\n          \"urlDefault\": \"http://sns-webpic-qc.xhscdn.com/202611210228/5f12b55e771567e1917541d1d081a901/1040g2sg32554tfut48kg5ol0lrhmsn4reib75sg!nd_dft_wlteh_webp_3\",\n          \"urlPre\": \"http://sns-webpic-qc.xhscdn.com/202611210228/5b5cf3ccfb33ff2fb934552529c347b0/1040g2sg32554tfut48kg5ol0lrhmsn4reib75sg!nd_prv_wlteh_webp_3\",\n          \"livePhoto\": true\n        },\n        {\n          \"width\": 1920,\n          \"height\": 2560,\n          \"urlDefault\": \"http://sns-webpic-qc.xhscdn.com/202611210228/a69dc7458a888649724ab976f15aca5a/1040g2sg32554tfut48lg5ol0lrhmsn4rumqgld0!nd_dft_wlteh_webp_3\",\n          \"urlPre\": \"http://sns-webpic-qc.xhscdn.com/202611210228/c768899b23936f2350b32245e09844de/1040g2sg32554tfut48lg5ol0lrhmsn4rumqgld0!nd_prv_wlteh_webp_3\",\n          \"livePhoto\": true\n        },\n        {\n          \"width\": 1080,\n          \"height\": 1920,\n          \"urlDefault\": \"http://sns-webpic-qc.xhscdn.com/202611210228/31c9dae0a44b9de6cd523ed034f4e3ef/1040g2sg32554tfut48mg5ol0lrhmsn4rf4outqg!nd_dft_wlteh_webp_3\",\n          \"urlPre\": \"http://sns-webpic-qc.xhscdn.com/202611210228/b39edf71f015d69ca975ce160044f929/1040g2sg32554tfut48mg5ol0lrhmsn4rf4outqg!nd_prv_wlteh_webp_3\"\n        },\n        {\n          \"width\": 1920,\n          \"height\": 2560,\n          \"urlDefault\": \"http://sns-webpic-qc.xhscdn.com/202611210228/86586490f3961065dbb584fe85ddf361/1040g2sg32554tfut48ng5ol0lrhmsn4rah0coco!nd_dft_wlteh_webp_3\",\n          \"urlPre\": \"http://sns-webpic-qc.xhscdn.com/202611210228/7718b4e23ceafa67885b5b9299416280/1040g2sg32554tfut48ng5ol0lrhmsn4rah0coco!nd_prv_wlteh_webp_3\"\n        },\n        {\n          \"width\": 1920,\n          \"height\": 2560,\n          \"urlDefault\": \"http://sns-webpic-qc.xhscdn.com/202611210228/93588169cc70b63265bebf8e12013685/1040g2sg32554tfut48p05ol0lrhmsn4rdjft8l0!nd_dft_wlteh_webp_3\",\n          \"urlPre\": \"http://sns-webpic-qc.xhscdn.com/202611210228/681cbe84252ae6beb63c73ed81b1f991/1040g2sg32554tfut48p05ol0lrhmsn4rdjft8l0!nd_prv_wlteh_webp_3\"\n        }\n      ]\n    },\n    \"comments\": {\n      \"list\": [\n        {\n          \"id\": \"6aaa936c000000000200f5f7\",\n          \"noteId\": \"6aa972570000000026020ddb\",\n          \"content\": \"校友什么专业的[害羞R]\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1789563756000,\n          \"ipLocation\": \"广东\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"67f16122000000000d009f23\",\n            \"nickname\": \"小红书昵称\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"3\",\n          \"subComments\": [\n            {\n              \"id\": \"6aaa95df000000001402d77a\",\n              \"noteId\": \"6aa972570000000026020ddb\",\n              \"content\": \"网络空间安全嗷\",\n              \"likeCount\": \"0\",\n              \"createTime\": 1789564384000,\n              \"ipLocation\": \"广东\",\n              \"liked\": false,\n              \"userInfo\": {\n                \"userId\": \"62a0aee3000000001b025c9b\",\n                \"nickname\": \"JIOJIO\",\n                \"nickName\": \"\",\n                \"avatar\": \"\"\n              },\n              \"subCommentCount\": \"\",\n              \"subComments\": null,\n              \"showTags\": [\n                \"is_author\"\n              ]\n            }\n          ],\n          \"showTags\": []\n        },\n        {\n          \"id\": \"6aaa940f000000001500f8c6\",\n          \"noteId\": \"6aa972570000000026020ddb\",\n          \"content\": \"好强 想问一下学校的课程怎么办呀 全部找代嘛\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1789563920000,\n          \"ipLocation\": \"广东\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"674dd737000000001d02d539\",\n            \"nickname\": \"栖栖栖~\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"2\",\n          \"subComments\": [\n            {\n              \"id\": \"6aaa96d1000000000b015102\",\n              \"noteId\": \"6aa972570000000026020ddb\",\n              \"content\": \"大部分旷掉了 不过旷之前做好看一下老师的点名情况，特别点名或者签到的最好找代课或者自己回来上课比如体育课这种 有些老师得点名确实不好糊弄[失望R][失望R][失望R]\",\n              \"likeCount\": \"2\",\n              \"createTime\": 1789564626000,\n              \"ipLocation\": \"广东\",\n              \"liked\": false,\n              \"userInfo\": {\n                \"userId\": \"62a0aee3000000001b025c9b\",\n                \"nickname\": \"JIOJIO\",\n                \"nickName\": \"\",\n                \"avatar\": \"\"\n              },\n              \"subCommentCount\": \"\",\n              \"subComments\": null,\n              \"showTags\": [\n                \"is_author\"\n              ]\n            }\n          ],\n          \"showTags\": []\n        },\n        {\n          \"id\": \"6aa9ef9c0000000014039826\",\n          \"noteId\": \"6aa972570000000026020ddb\",\n          \"content\": \"好强 可以问一下实习是怎么找的吗？\",\n          \"likeCount\": \"1\",\n          \"createTime\": 1789521820000,\n          \"ipLocation\": \"广东\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"5f226b23000000000101cc16\",\n            \"nickname\": \"momo\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"1\",\n          \"subComments\": [\n            {\n              \"id\": \"6aa9ff5a000000000a01c68c\",\n              \"noteId\": \"6aa972570000000026020ddb\",\n              \"content\": \"找实习挺难的 ，尤其是当下很多公司都不招实习生 ，招了也大概率是“压榨” ，找实习我觉得内推（内推形式很多种 比如某些老师就是CTO或者CEO那么如果你能够攀上 随便插个实习生的权利还是有的 其次是师兄师姐以及周围可用的一切内推资源（不局限于一个内推码，说实话作用不是很大））效力比较高，如果要自己投简历，优先官网招聘投递，其次是招聘软件（比如boss），海投大概率石沉大海，做好有针对性得投递，不断迭代简历，多改几版甚至改符合不同岗位jd的不同类型的简历，最后就是多投都面试多总结经验，不会的就去补，再改简历等等不断迭代，到后面上岸的概率自然就上去了\",\n              \"likeCount\": \"7\",\n              \"createTime\": 1789525851000,\n              \"ipLocation\": \"广东\",\n              \"liked\": false,\n              \"userInfo\": {\n                \"userId\": \"62a0aee3000000001b025c9b\",\n                \"nickname\": \"JIOJIO\",\n                \"nickName\": \"\",\n                \"avatar\": \"\"\n              },\n              \"subCommentCount\": \"\",\n              \"subComments\": null,\n              \"showTags\": [\n                \"is_author\"\n              ]\n            }\n          ],\n          \"showTags\": []\n        },\n        {\n          \"id\": \"6aabd2cd0000000001009ea8\",\n          \"noteId\": \"6aa972570000000026020ddb\",\n          \"content\": \"注意不要涉密啊⚠️\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1789645518000,\n          \"ipLocation\": \"广东\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"669b60d400000000240229cf\",\n            \"nickname\": \"Zain\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"1\",\n          \"subComments\": [\n            {\n              \"id\": \"6aabedd7000000001500404f\",\n              \"noteId\": \"6aa972570000000026020ddb\",\n              \"content\": \"好的 我后续会注意打码的，感谢提醒🙏\",\n              \"likeCount\": \"1\",\n              \"createTime\": 1789652439000,\n              \"ipLocation\": \"广东\",\n              \"liked\": false,\n              \"userInfo\": {\n                \"userId\": \"62a0aee3000000001b025c9b\",\n                \"nickname\": \"JIOJIO\",\n                \"nickName\": \"\",\n                \"avatar\": \"\"\n              },\n              \"subCommentCount\": \"\",\n              \"subComments\": null,\n              \"showTags\": [\n                \"is_author\"\n              ]\n            }\n          ],\n          \"showTags\": []\n        },\n        {\n          \"id\": \"6aaa2d470000000014032e12\",\n          \"noteId\": \"6aa972570000000026020ddb\",\n          \"content\": \"主播好强[赞R]关注了[赞R]\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1789537608000,\n          \"ipLocation\": \"广东\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"6489677b000000000d01951d\",\n            \"nickname\": \"Umiko.O\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"1\",\n          \"subComments\": [\n            {\n              \"id\": \"6aaa307a00000000140039a1\",\n              \"noteId\": \"6aa972570000000026020ddb\",\n              \"content\": \"谢谢宝子～ 一起加油呀[飞吻R][飞吻R][飞吻R]\",\n              \"likeCount\": \"0\",\n              \"createTime\": 1789538426000,\n              \"ipLocation\": \"广东\",\n              \"liked\": false,\n              \"userInfo\": {\n                \"userId\": \"62a0aee3000000001b025c9b\",\n                \"nickname\": \"JIOJIO\",\n                \"nickName\": \"\",\n                \"avatar\": \"\"\n              },\n              \"subCommentCount\": \"\",\n              \"subComments\": null,\n              \"showTags\": [\n                \"is_author\"\n              ]\n            }\n          ],\n          \"showTags\": []\n        },\n        {\n          \"id\": \"6aaa77bb000000001501411b\",\n          \"noteId\": \"6aa972570000000026020ddb\",\n          \"content\": \"楼主强[点赞R]\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1789556667000,\n          \"ipLocation\": \"广东\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"640c8a5a000000001400fb09\",\n            \"nickname\": \"跺呢个蜜\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"0\",\n          \"subComments\": [],\n          \"showTags\": []\n        }\n      ],\n      \"cursor\": \"6aaa77bb000000001501411b\",\n      \"hasMore\": false\n    }\n  }\n}",
+  "parsed": {
+    "feed_id": "6aa972570000000026020ddb",
+    "data": {
+      "note": {
+        "noteId": "6aa972570000000026020ddb",
+        "xsecToken": "ABZRrWDfy67UqBzyDlEdqppKmw-l0ivitaxOiVdtIo1Nc=",
+        "title": "05大三暨大AI应用开发实习第二天Vlog",
+        "desc": "实习第二天#大学生勇闯职场[话题]# #大学生实习[话题]##当代大学生打工[话题]# #实习[话题]# #实习生[话题]#\n1. 一早到公司匆匆忙忙赶mentor布置梳理的业务流程图和功能时序图（开玩笑，入职小白根本看不懂需求文档、技术文档，更别说整理流程图了[失望R][失望R][失望R]） 让AI帮忙梳理之后马马虎虎知道了基础流程 下午mentor把我留下来单独批斗了半个小时，总结问题如下\n1.  项目中不知道的技术应该提前学 不能说不知道（尤其是上级问你的时候，千万别说没学不知道）\n2. 不懂的地方多问同事（我天，才第二天，根本都不知道谁是做什么的 有什么问题该找谁[失望R] 好吧，这也是我没问的原因[失望R][失望R][失望R]）\n3. 我怀疑mentor门都喜欢能产生输出的，像我这样只知道看文档，不能转换成输出汇报，他们根本不知道你什么进度了，做事的时候留点心眼转换成输出（在输入（阅读文档、开会等）之后加入自己的思考，然后生成第四条，时不时温习一下输出就应该很自然了）\n4. 做事留痕 最好使用电子文档或者流程图等等生成可复用的经验，对第三条也有帮助。自己也能学会归纳总结，做事留痕。\n5.当然还有个人能力方面的一些思考（有时间了单独写写贴子）\n当然还有一些事情如图，不过不能再熬夜了，明天还有早八（本人周三不去实习，在学校上课嗷因为体育课要点名[石化R][石化R][失望R]） 晚安宝子们，早点睡，明天又是美好的一天！但想想那么多文档要看且周四要汇报进度，头都大了，不过mentor挺负责的，很喜欢😘",
+        "type": "normal",
+        "time": 1789489751000,
+        "ipLocation": "",
+        "user": {
+          "userId": "62a0aee3000000001b025c9b",
+          "nickname": "JIOJIO",
+          "nickName": "",
+          "avatar": "https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo31c6g3a1g08605ol0lrhmsn4r3qfnkgg"
+        },
+        "interactInfo": {
+          "liked": false,
+          "likedCount": "64",
+          "sharedCount": "",
+          "commentCount": "14",
+          "collectedCount": "9",
+          "collected": false
+        },
+        "imageList": [
+          {
+            "width": 1920,
+            "height": 2560,
+            "urlDefault": "http://sns-webpic-qc.xhscdn.com/202611210228/4400d2772c854f774c6ee1ab9e18c406/1040g2sg32554tfut48eg5ol0lrhmsn4rkmotv38!nd_dft_wlteh_webp_3",
+            "urlPre": "http://sns-webpic-qc.xhscdn.com/202611210228/f3eff7ae1926928c4a0e7a08969c5a9b/1040g2sg32554tfut48eg5ol0lrhmsn4rkmotv38!nd_prv_wlteh_webp_3",
+            "livePhoto": true
+          },
+          {
+            "width": 1206,
+            "height": 2622,
+            "urlDefault": "http://sns-webpic-qc.xhscdn.com/202611210228/a4c7697fc3af6be89d223cf197f65a48/1040g2sg32554tfut48f05ol0lrhmsn4rhhic0ho!nd_dft_wlteh_webp_3",
+            "urlPre": "http://sns-webpic-qc.xhscdn.com/202611210228/5d20ff13ec87c41b4cc79672c12edb8d/1040g2sg32554tfut48f05ol0lrhmsn4rhhic0ho!nd_prv_wlteh_webp_3"
+          },
+          {
+            "width": 1920,
+            "height": 2560,
+            "urlDefault": "http://sns-webpic-qc.xhscdn.com/202611210228/f6b0c4998bbfc3c5a3c2a34bf6b6cb03/1040g2sg32554tfut48fg5ol0lrhmsn4rujjbppo!nd_dft_wlteh_webp_3",
+            "urlPre": "http://sns-webpic-qc.xhscdn.com/202611210228/7d5f14613b2bb38c6749e61e43cabdf2/1040g2sg32554tfut48fg5ol0lrhmsn4rujjbppo!nd_prv_wlteh_webp_3",
+            "livePhoto": true
+          },
+          {
+            "width": 1920,
+            "height": 2560,
+            "urlDefault": "http://sns-webpic-qc.xhscdn.com/202611210228/1e3c603fff9549a85d39244b9bd7be28/1040g2sg32554tfut48g05ol0lrhmsn4r49tfds0!nd_dft_wlteh_webp_3",
+            "urlPre": "http://sns-webpic-qc.xhscdn.com/202611210228/1bc5694d0f84059295b0bda5044c1839/1040g2sg32554tfut48g05ol0lrhmsn4r49tfds0!nd_prv_wlteh_webp_3",
+            "livePhoto": true
+          },
+          {
+            "width": 1206,
+            "height": 2622,
+            "urlDefault": "http://sns-webpic-qc.xhscdn.com/202611210228/4add74849f164b46e59ace8e03893e49/1040g2sg32554tfut48gg5ol0lrhmsn4rfivf09o!nd_dft_wlteh_webp_3",
+            "urlPre": "http://sns-webpic-qc.xhscdn.com/202611210228/7e56d7af669ae008d1881988cb089867/1040g2sg32554tfut48gg5ol0lrhmsn4rfivf09o!nd_prv_wlteh_webp_3"
+          },
+          {
+            "width": 1920,
+            "height": 2560,
+            "urlDefault": "http://sns-webpic-qc.xhscdn.com/202611210228/e559bf630434b2c996d945b4c2776f42/1040g2sg32554tfut48hg5ol0lrhmsn4r9nhp910!nd_dft_wlteh_webp_3",
+            "urlPre": "http://sns-webpic-qc.xhscdn.com/202611210228/b97c0bfe22aeec547d4723dfc97137b9/1040g2sg32554tfut48hg5ol0lrhmsn4r9nhp910!nd_prv_wlteh_webp_3"
+          },
+          {
+            "width": 1920,
+            "height": 2560,
+            "urlDefault": "http://sns-webpic-qc.xhscdn.com/202611210228/5bf408772ae996d15b32ef74dc0da70d/1040g2sg32554tfut48jg5ol0lrhmsn4rfuvd210!nd_dft_wlteh_webp_3",
+            "urlPre": "http://sns-webpic-qc.xhscdn.com/202611210228/13da5777ee61630f7a4c15f968eb6605/1040g2sg32554tfut48jg5ol0lrhmsn4rfuvd210!nd_prv_wlteh_webp_3",
+            "livePhoto": true
+          },
+          {
+            "width": 1920,
+            "height": 2560,
+            "urlDefault": "http://sns-webpic-qc.xhscdn.com/202611210228/5f12b55e771567e1917541d1d081a901/1040g2sg32554tfut48kg5ol0lrhmsn4reib75sg!nd_dft_wlteh_webp_3",
+            "urlPre": "http://sns-webpic-qc.xhscdn.com/202611210228/5b5cf3ccfb33ff2fb934552529c347b0/1040g2sg32554tfut48kg5ol0lrhmsn4reib75sg!nd_prv_wlteh_webp_3",
+            "livePhoto": true
+          },
+          {
+            "width": 1920,
+            "height": 2560,
+            "urlDefault": "http://sns-webpic-qc.xhscdn.com/202611210228/a69dc7458a888649724ab976f15aca5a/1040g2sg32554tfut48lg5ol0lrhmsn4rumqgld0!nd_dft_wlteh_webp_3",
+            "urlPre": "http://sns-webpic-qc.xhscdn.com/202611210228/c768899b23936f2350b32245e09844de/1040g2sg32554tfut48lg5ol0lrhmsn4rumqgld0!nd_prv_wlteh_webp_3",
+            "livePhoto": true
+          },
+          {
+            "width": 1080,
+            "height": 1920,
+            "urlDefault": "http://sns-webpic-qc.xhscdn.com/202611210228/31c9dae0a44b9de6cd523ed034f4e3ef/1040g2sg32554tfut48mg5ol0lrhmsn4rf4outqg!nd_dft_wlteh_webp_3",
+            "urlPre": "http://sns-webpic-qc.xhscdn.com/202611210228/b39edf71f015d69ca975ce160044f929/1040g2sg32554tfut48mg5ol0lrhmsn4rf4outqg!nd_prv_wlteh_webp_3"
+          },
+          {
+            "width": 1920,
+            "height": 2560,
+            "urlDefault": "http://sns-webpic-qc.xhscdn.com/202611210228/86586490f3961065dbb584fe85ddf361/1040g2sg32554tfut48ng5ol0lrhmsn4rah0coco!nd_dft_wlteh_webp_3",
+            "urlPre": "http://sns-webpic-qc.xhscdn.com/202611210228/7718b4e23ceafa67885b5b9299416280/1040g2sg32554tfut48ng5ol0lrhmsn4rah0coco!nd_prv_wlteh_webp_3"
+          },
+          {
+            "width": 1920,
+            "height": 2560,
+            "urlDefault": "http://sns-webpic-qc.xhscdn.com/202611210228/93588169cc70b63265bebf8e12013685/1040g2sg32554tfut48p05ol0lrhmsn4rdjft8l0!nd_dft_wlteh_webp_3",
+            "urlPre": "http://sns-webpic-qc.xhscdn.com/202611210228/681cbe84252ae6beb63c73ed81b1f991/1040g2sg32554tfut48p05ol0lrhmsn4rdjft8l0!nd_prv_wlteh_webp_3"
+          }
+        ]
+      },
+      "comments": {
+        "list": [
+          {
+            "id": "6aaa936c000000000200f5f7",
+            "noteId": "6aa972570000000026020ddb",
+            "content": "校友什么专业的[害羞R]",
+            "likeCount": "0",
+            "createTime": 1789563756000,
+            "ipLocation": "广东",
+            "liked": false,
+            "userInfo": {
+              "userId": "67f16122000000000d009f23",
+              "nickname": "小红书昵称",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "3",
+            "subComments": [
+              {
+                "id": "6aaa95df000000001402d77a",
+                "noteId": "6aa972570000000026020ddb",
+                "content": "网络空间安全嗷",
+                "likeCount": "0",
+                "createTime": 1789564384000,
+                "ipLocation": "广东",
+                "liked": false,
+                "userInfo": {
+                  "userId": "62a0aee3000000001b025c9b",
+                  "nickname": "JIOJIO",
+                  "nickName": "",
+                  "avatar": ""
+                },
+                "subCommentCount": "",
+                "subComments": null,
+                "showTags": [
+                  "is_author"
+                ]
+              }
+            ],
+            "showTags": []
+          },
+          {
+            "id": "6aaa940f000000001500f8c6",
+            "noteId": "6aa972570000000026020ddb",
+            "content": "好强 想问一下学校的课程怎么办呀 全部找代嘛",
+            "likeCount": "0",
+            "createTime": 1789563920000,
+            "ipLocation": "广东",
+            "liked": false,
+            "userInfo": {
+              "userId": "674dd737000000001d02d539",
+              "nickname": "栖栖栖~",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "2",
+            "subComments": [
+              {
+                "id": "6aaa96d1000000000b015102",
+                "noteId": "6aa972570000000026020ddb",
+                "content": "大部分旷掉了 不过旷之前做好看一下老师的点名情况，特别点名或者签到的最好找代课或者自己回来上课比如体育课这种 有些老师得点名确实不好糊弄[失望R][失望R][失望R]",
+                "likeCount": "2",
+                "createTime": 1789564626000,
+                "ipLocation": "广东",
+                "liked": false,
+                "userInfo": {
+                  "userId": "62a0aee3000000001b025c9b",
+                  "nickname": "JIOJIO",
+                  "nickName": "",
+                  "avatar": ""
+                },
+                "subCommentCount": "",
+                "subComments": null,
+                "showTags": [
+                  "is_author"
+                ]
+              }
+            ],
+            "showTags": []
+          },
+          {
+            "id": "6aa9ef9c0000000014039826",
+            "noteId": "6aa972570000000026020ddb",
+            "content": "好强 可以问一下实习是怎么找的吗？",
+            "likeCount": "1",
+            "createTime": 1789521820000,
+            "ipLocation": "广东",
+            "liked": false,
+            "userInfo": {
+              "userId": "5f226b23000000000101cc16",
+              "nickname": "momo",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "1",
+            "subComments": [
+              {
+                "id": "6aa9ff5a000000000a01c68c",
+                "noteId": "6aa972570000000026020ddb",
+                "content": "找实习挺难的 ，尤其是当下很多公司都不招实习生 ，招了也大概率是“压榨” ，找实习我觉得内推（内推形式很多种 比如某些老师就是CTO或者CEO那么如果你能够攀上 随便插个实习生的权利还是有的 其次是师兄师姐以及周围可用的一切内推资源（不局限于一个内推码，说实话作用不是很大））效力比较高，如果要自己投简历，优先官网招聘投递，其次是招聘软件（比如boss），海投大概率石沉大海，做好有针对性得投递，不断迭代简历，多改几版甚至改符合不同岗位jd的不同类型的简历，最后就是多投都面试多总结经验，不会的就去补，再改简历等等不断迭代，到后面上岸的概率自然就上去了",
+                "likeCount": "7",
+                "createTime": 1789525851000,
+                "ipLocation": "广东",
+                "liked": false,
+                "userInfo": {
+                  "userId": "62a0aee3000000001b025c9b",
+                  "nickname": "JIOJIO",
+                  "nickName": "",
+                  "avatar": ""
+                },
+                "subCommentCount": "",
+                "subComments": null,
+                "showTags": [
+                  "is_author"
+                ]
+              }
+            ],
+            "showTags": []
+          },
+          {
+            "id": "6aabd2cd0000000001009ea8",
+            "noteId": "6aa972570000000026020ddb",
+            "content": "注意不要涉密啊⚠️",
+            "likeCount": "0",
+            "createTime": 1789645518000,
+            "ipLocation": "广东",
+            "liked": false,
+            "userInfo": {
+              "userId": "669b60d400000000240229cf",
+              "nickname": "Zain",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "1",
+            "subComments": [
+              {
+                "id": "6aabedd7000000001500404f",
+                "noteId": "6aa972570000000026020ddb",
+                "content": "好的 我后续会注意打码的，感谢提醒🙏",
+                "likeCount": "1",
+                "createTime": 1789652439000,
+                "ipLocation": "广东",
+                "liked": false,
+                "userInfo": {
+                  "userId": "62a0aee3000000001b025c9b",
+                  "nickname": "JIOJIO",
+                  "nickName": "",
+                  "avatar": ""
+                },
+                "subCommentCount": "",
+                "subComments": null,
+                "showTags": [
+                  "is_author"
+                ]
+              }
+            ],
+            "showTags": []
+          },
+          {
+            "id": "6aaa2d470000000014032e12",
+            "noteId": "6aa972570000000026020ddb",
+            "content": "主播好强[赞R]关注了[赞R]",
+            "likeCount": "0",
+            "createTime": 1789537608000,
+            "ipLocation": "广东",
+            "liked": false,
+            "userInfo": {
+              "userId": "6489677b000000000d01951d",
+              "nickname": "Umiko.O",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "1",
+            "subComments": [
+              {
+                "id": "6aaa307a00000000140039a1",
+                "noteId": "6aa972570000000026020ddb",
+                "content": "谢谢宝子～ 一起加油呀[飞吻R][飞吻R][飞吻R]",
+                "likeCount": "0",
+                "createTime": 1789538426000,
+                "ipLocation": "广东",
+                "liked": false,
+                "userInfo": {
+                  "userId": "62a0aee3000000001b025c9b",
+                  "nickname": "JIOJIO",
+                  "nickName": "",
+                  "avatar": ""
+                },
+                "subCommentCount": "",
+                "subComments": null,
+                "showTags": [
+                  "is_author"
+                ]
+              }
+            ],
+            "showTags": []
+          },
+          {
+            "id": "6aaa77bb000000001501411b",
+            "noteId": "6aa972570000000026020ddb",
+            "content": "楼主强[点赞R]",
+            "likeCount": "0",
+            "createTime": 1789556667000,
+            "ipLocation": "广东",
+            "liked": false,
+            "userInfo": {
+              "userId": "640c8a5a000000001400fb09",
+              "nickname": "跺呢个蜜",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "0",
+            "subComments": [],
+            "showTags": []
+          }
+        ],
+        "cursor": "6aaa77bb000000001501411b",
+        "hasMore": false
+      }
+    }
+  }
+}

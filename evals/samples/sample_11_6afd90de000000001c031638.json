@@ -1,0 +1,35 @@
+{
+  "sample_id": "sample_11",
+  "annotated": true,
+  "note": {
+    "feed_id": "6afd90de000000001c031638",
+    "source_url": "https://www.xiaohongshu.com/explore/6afd90de000000001c031638",
+    "title": "小米实习捞人，接受无经验，双休",
+    "author": "H、（接offer）",
+    "published_at": 1795002590000,
+    "image_count": 2,
+    "desc": "小米实习捞继任 可约寒假 300/d\n📋要求\n1. 实习至少1个月，接受寒假短期实习\n2. 26-28届本科及以上在读，应届生、研究生均可，专业不限，0经验可投递（24-26届工科也有技术岗社招）\n3. 做事认真，愿意主动学习\n💰待遇福利\n本科生300/天，研究生薪资可谈\n免费三餐+下午茶\n实习证明可开具\n团队氛围轻松，mentor会带教\n📌岗位\n人力资源、用户研究、ai产品经理、数据分析、策划、广告投放、财务、项目管理、市场运营等\n📍Base\n上海、天津、杭州、重庆、武汉、广州、厦门、石家庄、深圳、北京、合肥等多地可选\n#实习[话题]# #寒假实习[话题]# #小米实习[话题]# #应届生求职[话题]# #大学生实习生[话题]# #互联网大厂实习[话题]# #互联网大厂[话题]# #实习生内推[话题]# #找实习[话题]# #秋招[话题]#"
+  },
+  "expected": {
+    "is_job_post": true,
+    "needs_image": false,
+    "jobs": [
+      {
+        "company": "小米",
+        "position": "AI产品经理实习生",
+        "city": "广州",
+        "education": "本科及以上",
+        "graduation_year": "26-28届",
+        "skills": [],
+        "internship_duration": "至少1个月",
+        "attendance_days": null,
+        "salary": "本科生300/天，研究生薪资可谈",
+        "deadline": null,
+        "apply_method": null,
+        "application_url": null,
+        "evidence": "人力资源、用户研究、ai产品经理、数据分析、策划、广告投放、财务、项目管理、市场运营等"
+      }
+    ]
+  },
+  "notes": "小米全国多城多岗汇总引流帖，与 sample_17、sample_19 高度重复。"
+}

@@ -1,0 +1,142 @@
+{
+  "captured_at": "2026-11-20T18:25:44.373956+00:00",
+  "mcp_url": "http://localhost:18060/mcp",
+  "tool": "get_feed_detail",
+  "arguments": {
+    "feed_id": "6abbe43d000000001802c3d9",
+    "xsec_token": "ABTSpmDJ8iuTwiRUb7fKP_BJCbxizB1ysQuLcFU1fiDrY="
+  },
+  "candidate": {
+    "feed_id": "6abbe43d000000001802c3d9",
+    "xsec_token": "ABTSpmDJ8iuTwiRUb7fKP_BJCbxizB1ysQuLcFU1fiDrY=",
+    "title": "05大三暨大AI应用开发实习第十天Vlog",
+    "author": "JIOJIO",
+    "published_at": "",
+    "liked_count": "14",
+    "type": "normal",
+    "source_keyword": "广州 AI实习",
+    "source_fixture": "search_01_广州_AI实习.json"
+  },
+  "is_error": false,
+  "raw_text": "{\n  \"feed_id\": \"6abbe43d000000001802c3d9\",\n  \"data\": {\n    \"note\": {\n      \"noteId\": \"6abbe43d000000001802c3d9\",\n      \"xsecToken\": \"ABTSpmDJ8iuTwiRUb7fKP_BJCbxizB1ysQuLcFU1fiDrY=\",\n      \"title\": \"05大三暨大AI应用开发实习第十天Vlog\",\n      \"desc\": \"今天也是lang系列教程完成收尾了，绝大部分使用及其原理都有深究过，但是很多部分后面大概率会忘记，需要时能够及时找到位置温习就可以了\\n其次就是中午本来点了外卖的，看到mentor出去吃饭，想着跟他汇报一下最近的工作以及索要一点任务，就跟着他去吃饭了，外卖都没拿（交学费了哈哈哈😂）：\\n首先回报了一下工作以及表达了以后走技术方向和他一样想成为架构师，发现AI带来的巨大能力并非自身真实能力，个人一种你会（ai会）的错觉，比如代码模块分工，数据流向，模块设计等等层面虽然现在对于大多数开发来说都不需要手写代码。但是对于项目的掌控是不够的，尤其是开发基本功，在之前还手敲代码，虽然慢，却能够夯实基本功。逐渐成基础开发工作开始积累经验（从功能开发到模块开发再到设计层面一步一步慢慢积累）\\nAI能够放大能力，但是很有可能自身就不具备该能力。业务理解，数据流向，代码模块分工等这些基础初级工程师不足会造成对项目掌控感不足，对AI所做的代码更改，建议等等没有很好的内生判断能力（而这些需要在初期就应该培养的基础素养，尤其是作为初级开发，更要脚踏实地），虽然最终都是从架构上方案上去设计一个系统/指挥AI干活，但是底层基础能力会就像是地基，不能构建空中楼阁（觉得只学技术设计/上层理解，本质还是Ai和技术快速迭代造成的心浮气躁/一位追求毕业就是架构师等等，几乎不可能）\\n其次就是mentor提到为什么不给我派活，考虑到项目需要快速交付以及对于我来讲，最多只能完成极小模块可能还会出错，双重因素下暂时没有给我派活（挺坦诚相待的，真心欣赏），没关系，后续慢慢熟悉项目以及夯实基本功也不会说不给活。\\n\\t\\n对了，mentor也提到了一般公司招人也只会招中级开发（能够独立完成模块设计和开发的），大概率也是上述原因，所以，同志们，我们需要清晰地知道未来的路（不同阶段需要何种能力，多多找对应的人沟通），对自己当前定位有认知，脚踏实地的不断积累，提高自身能力，一步一脚印，才能抵达远方。（哈哈哈，又感性了[失望R]）\\n\\t\\n晚安😴宝子们 在这里提前祝各位国庆快乐🎉\\n#高效生产力[话题]# #实习[话题]##开发[话题]# #大学生实习[话题]# #晋升述职[话题]#\",\n      \"type\": \"normal\",\n      \"time\": 1790698557000,\n      \"ipLocation\": \"\",\n      \"user\": {\n        \"userId\": \"62a0aee3000000001b025c9b\",\n        \"nickname\": \"JIOJIO\",\n        \"nickName\": \"\",\n        \"avatar\": \"https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo31c6g3a1g08605ol0lrhmsn4r3qfnkgg\"\n      },\n      \"interactInfo\": {\n        \"liked\": false,\n        \"likedCount\": \"14\",\n        \"sharedCount\": \"\",\n        \"commentCount\": \"8\",\n        \"collectedCount\": \"9\",\n        \"collected\": false\n      },\n      \"imageList\": [\n        {\n          \"width\": 1920,\n          \"height\": 2560,\n          \"urlDefault\": \"http://sns-webpic-qc.xhscdn.com/202611210225/b0e1eb785e45140f857b5735a5535e7e/1040g008325n55kgn46005ol0lrhmsn4rrp9pfm0!nd_dft_wlteh_webp_3\",\n          \"urlPre\": \"http://sns-webpic-qc.xhscdn.com/202611210225/514e01d62ca588272ce39c11af4b07e6/1040g008325n55kgn46005ol0lrhmsn4rrp9pfm0!nd_prv_wlteh_webp_3\"\n        }\n      ]\n    },\n    \"comments\": {\n      \"list\": [\n        {\n          \"id\": \"6ad650d6000000001303fdd4\",\n          \"noteId\": \"6abbe43d000000001802c3d9\",\n          \"content\": \"我的理解就是现在的AI虽然强，但公司仍然需要你具有普通的开发常识，也就是虽然ai能够独立完成项目了，但还需要你具有一两个手敲的项目。因为这一两个手敲的项目是自己做的，这和你读AI写的代码，他给你的感觉和你获得的经验是完全不同的。[飞吻R]\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1792430294000,\n          \"ipLocation\": \"安徽\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"6535aaca00000000040096f5\",\n            \"nickname\": \"MARS\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"3\",\n          \"subComments\": [\n            {\n              \"id\": \"6ad6ba25000000001303f0ee\",\n              \"noteId\": \"6abbe43d000000001802c3d9\",\n              \"content\": \"主要是对自己代码做的事有理解，并对其负责。不要沉溺于代码的实现，应该沉溺于业务，即代码想要完成的目标，有了深刻理解之后对ai编码也能更好地描述，同时不需要对ai所改的每一行代码都研读，也能知道ai修改是否满足上层需求；开发常识是必备的（模块如何定义、边界、编码格式要求等等），不然让ai写个需求给你建1000个文件夹（极端），如果只会vibe coding按照目标描述需求，只能说是个会用ai编码的产品经理；第三，你得对代码负责，尤其是公司代码，不止你一个人开发，你负责的模块应该怎样？是否影响其他模块？必须对ai 产生的代码负责，最后上线出问题了 领导找的还是你而不是ai[失望R]\",\n              \"likeCount\": \"0\",\n              \"createTime\": 1792457254000,\n              \"ipLocation\": \"广东\",\n              \"liked\": false,\n              \"userInfo\": {\n                \"userId\": \"62a0aee3000000001b025c9b\",\n                \"nickname\": \"JIOJIO\",\n                \"nickName\": \"\",\n                \"avatar\": \"\"\n              },\n              \"subCommentCount\": \"\",\n              \"subComments\": null,\n              \"showTags\": [\n                \"is_author\"\n              ]\n            }\n          ],\n          \"showTags\": []\n        },\n        {\n          \"id\": \"6acc1e260000000008026541\",\n          \"noteId\": \"6abbe43d000000001802c3d9\",\n          \"content\": \"哥，这个东西咋入门呀\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1791761959000,\n          \"ipLocation\": \"广东\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"644362720000000010024082\",\n            \"nickname\": \"darling\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"3\",\n          \"subComments\": [\n            {\n              \"id\": \"6acc4266000000000702b5a0\",\n              \"noteId\": \"6abbe43d000000001802c3d9\",\n              \"content\": \"虽然炒得很火 实际大概率再项目中稍微添加一点模型的能力，本质后端开发，学好后端就比较重要了，不知道路径的，可以参考一下（国内暂时没找到，国外有个roadmap网站挺好的，里面就有ai工程师和后端开发等等学习路径可以参考，至少知道自己需要学什么，有地图，不过需要魔法嗷）\",\n              \"likeCount\": \"1\",\n              \"createTime\": 1791771238000,\n              \"ipLocation\": \"广东\",\n              \"liked\": false,\n              \"userInfo\": {\n                \"userId\": \"62a0aee3000000001b025c9b\",\n                \"nickname\": \"JIOJIO\",\n                \"nickName\": \"\",\n                \"avatar\": \"\"\n              },\n              \"subCommentCount\": \"\",\n              \"subComments\": null,\n              \"showTags\": [\n                \"is_author\"\n              ]\n            }\n          ],\n          \"showTags\": []\n        }\n      ],\n      \"cursor\": \"6acc1e260000000008026541\",\n      \"hasMore\": false\n    }\n  }\n}",
+  "parsed": {
+    "feed_id": "6abbe43d000000001802c3d9",
+    "data": {
+      "note": {
+        "noteId": "6abbe43d000000001802c3d9",
+        "xsecToken": "ABTSpmDJ8iuTwiRUb7fKP_BJCbxizB1ysQuLcFU1fiDrY=",
+        "title": "05大三暨大AI应用开发实习第十天Vlog",
+        "desc": "今天也是lang系列教程完成收尾了，绝大部分使用及其原理都有深究过，但是很多部分后面大概率会忘记，需要时能够及时找到位置温习就可以了\n其次就是中午本来点了外卖的，看到mentor出去吃饭，想着跟他汇报一下最近的工作以及索要一点任务，就跟着他去吃饭了，外卖都没拿（交学费了哈哈哈😂）：\n首先回报了一下工作以及表达了以后走技术方向和他一样想成为架构师，发现AI带来的巨大能力并非自身真实能力，个人一种你会（ai会）的错觉，比如代码模块分工，数据流向，模块设计等等层面虽然现在对于大多数开发来说都不需要手写代码。但是对于项目的掌控是不够的，尤其是开发基本功，在之前还手敲代码，虽然慢，却能够夯实基本功。逐渐成基础开发工作开始积累经验（从功能开发到模块开发再到设计层面一步一步慢慢积累）\nAI能够放大能力，但是很有可能自身就不具备该能力。业务理解，数据流向，代码模块分工等这些基础初级工程师不足会造成对项目掌控感不足，对AI所做的代码更改，建议等等没有很好的内生判断能力（而这些需要在初期就应该培养的基础素养，尤其是作为初级开发，更要脚踏实地），虽然最终都是从架构上方案上去设计一个系统/指挥AI干活，但是底层基础能力会就像是地基，不能构建空中楼阁（觉得只学技术设计/上层理解，本质还是Ai和技术快速迭代造成的心浮气躁/一位追求毕业就是架构师等等，几乎不可能）\n其次就是mentor提到为什么不给我派活，考虑到项目需要快速交付以及对于我来讲，最多只能完成极小模块可能还会出错，双重因素下暂时没有给我派活（挺坦诚相待的，真心欣赏），没关系，后续慢慢熟悉项目以及夯实基本功也不会说不给活。\n\t\n对了，mentor也提到了一般公司招人也只会招中级开发（能够独立完成模块设计和开发的），大概率也是上述原因，所以，同志们，我们需要清晰地知道未来的路（不同阶段需要何种能力，多多找对应的人沟通），对自己当前定位有认知，脚踏实地的不断积累，提高自身能力，一步一脚印，才能抵达远方。（哈哈哈，又感性了[失望R]）\n\t\n晚安😴宝子们 在这里提前祝各位国庆快乐🎉\n#高效生产力[话题]# #实习[话题]##开发[话题]# #大学生实习[话题]# #晋升述职[话题]#",
+        "type": "normal",
+        "time": 1790698557000,
+        "ipLocation": "",
+        "user": {
+          "userId": "62a0aee3000000001b025c9b",
+          "nickname": "JIOJIO",
+          "nickName": "",
+          "avatar": "https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo31c6g3a1g08605ol0lrhmsn4r3qfnkgg"
+        },
+        "interactInfo": {
+          "liked": false,
+          "likedCount": "14",
+          "sharedCount": "",
+          "commentCount": "8",
+          "collectedCount": "9",
+          "collected": false
+        },
+        "imageList": [
+          {
+            "width": 1920,
+            "height": 2560,
+            "urlDefault": "http://sns-webpic-qc.xhscdn.com/202611210225/b0e1eb785e45140f857b5735a5535e7e/1040g008325n55kgn46005ol0lrhmsn4rrp9pfm0!nd_dft_wlteh_webp_3",
+            "urlPre": "http://sns-webpic-qc.xhscdn.com/202611210225/514e01d62ca588272ce39c11af4b07e6/1040g008325n55kgn46005ol0lrhmsn4rrp9pfm0!nd_prv_wlteh_webp_3"
+          }
+        ]
+      },
+      "comments": {
+        "list": [
+          {
+            "id": "6ad650d6000000001303fdd4",
+            "noteId": "6abbe43d000000001802c3d9",
+            "content": "我的理解就是现在的AI虽然强，但公司仍然需要你具有普通的开发常识，也就是虽然ai能够独立完成项目了，但还需要你具有一两个手敲的项目。因为这一两个手敲的项目是自己做的，这和你读AI写的代码，他给你的感觉和你获得的经验是完全不同的。[飞吻R]",
+            "likeCount": "0",
+            "createTime": 1792430294000,
+            "ipLocation": "安徽",
+            "liked": false,
+            "userInfo": {
+              "userId": "6535aaca00000000040096f5",
+              "nickname": "MARS",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "3",
+            "subComments": [
+              {
+                "id": "6ad6ba25000000001303f0ee",
+                "noteId": "6abbe43d000000001802c3d9",
+                "content": "主要是对自己代码做的事有理解，并对其负责。不要沉溺于代码的实现，应该沉溺于业务，即代码想要完成的目标，有了深刻理解之后对ai编码也能更好地描述，同时不需要对ai所改的每一行代码都研读，也能知道ai修改是否满足上层需求；开发常识是必备的（模块如何定义、边界、编码格式要求等等），不然让ai写个需求给你建1000个文件夹（极端），如果只会vibe coding按照目标描述需求，只能说是个会用ai编码的产品经理；第三，你得对代码负责，尤其是公司代码，不止你一个人开发，你负责的模块应该怎样？是否影响其他模块？必须对ai 产生的代码负责，最后上线出问题了 领导找的还是你而不是ai[失望R]",
+                "likeCount": "0",
+                "createTime": 1792457254000,
+                "ipLocation": "广东",
+                "liked": false,
+                "userInfo": {
+                  "userId": "62a0aee3000000001b025c9b",
+                  "nickname": "JIOJIO",
+                  "nickName": "",
+                  "avatar": ""
+                },
+                "subCommentCount": "",
+                "subComments": null,
+                "showTags": [
+                  "is_author"
+                ]
+              }
+            ],
+            "showTags": []
+          },
+          {
+            "id": "6acc1e260000000008026541",
+            "noteId": "6abbe43d000000001802c3d9",
+            "content": "哥，这个东西咋入门呀",
+            "likeCount": "0",
+            "createTime": 1791761959000,
+            "ipLocation": "广东",
+            "liked": false,
+            "userInfo": {
+              "userId": "644362720000000010024082",
+              "nickname": "darling",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "3",
+            "subComments": [
+              {
+                "id": "6acc4266000000000702b5a0",
+                "noteId": "6abbe43d000000001802c3d9",
+                "content": "虽然炒得很火 实际大概率再项目中稍微添加一点模型的能力，本质后端开发，学好后端就比较重要了，不知道路径的，可以参考一下（国内暂时没找到，国外有个roadmap网站挺好的，里面就有ai工程师和后端开发等等学习路径可以参考，至少知道自己需要学什么，有地图，不过需要魔法嗷）",
+                "likeCount": "1",
+                "createTime": 1791771238000,
+                "ipLocation": "广东",
+                "liked": false,
+                "userInfo": {
+                  "userId": "62a0aee3000000001b025c9b",
+                  "nickname": "JIOJIO",
+                  "nickName": "",
+                  "avatar": ""
+                },
+                "subCommentCount": "",
+                "subComments": null,
+                "showTags": [
+                  "is_author"
+                ]
+              }
+            ],
+            "showTags": []
+          }
+        ],
+        "cursor": "6acc1e260000000008026541",
+        "hasMore": false
+      }
+    }
+  }
+}

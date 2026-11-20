@@ -1,0 +1,39 @@
+{
+  "sample_id": "sample_18",
+  "annotated": true,
+  "note": {
+    "feed_id": "6a98ffa1000000002700b8f1",
+    "source_url": "https://www.xiaohongshu.com/explore/6a98ffa1000000002700b8f1",
+    "title": "广州AI公司实习内推",
+    "author": "嘻嘻嘻🦁",
+    "published_at": 1788411809000,
+    "image_count": 1,
+    "desc": "base广州，一支 AI  Agent初创公司，快速扩张阶段\n实习内容\n✅ 跟着市场部做内容、做活动、做客户沟通——不打杂，能碰核心\n✅ 用 ChatGPT / Cursor / Gemini 这类海外 AI 工具帮团队提速：写文案、做调研、搞创意都行。没有编程经验没关系，都是用AI\n✅ 参与从0到1的全过程，这段经历能真写进简历\n找这样的你\n✅ 会用至少一个国外 AI 工具（ChatGPT  / Gemini …都算），知道怎么让它帮你干活\n✅ 有创新意识——不爱按部就班，看到问题会想\"有没有更简单的搞法\"\n✅ 在校生优先，每周能来几天就行，远程 / 线下都可以聊\n✅ 不要求你的经历，但得是个爱表达、网感在线的人\n\t\n⏰ 不打卡，9点半到6点\n🍱 福利实在：定期奶茶下午茶\n💰 实习补贴\n🚀 表现好直接留用，比在大厂当工具人学得多\n\t\n直接私信发我简历，附上：\n学校 + 每周能来几天 + 你平时用哪些 AI 工具 + 简单两句想法\n有作品集的直接甩链接\n#实习生内推[话题]# #找实习[话题]# #年轻人向往的好公司[话题]# #广州实习[话题]# #我这行的AI路[话题]#"
+  },
+  "expected": {
+    "is_job_post": true,
+    "needs_image": false,
+    "jobs": [
+      {
+        "company": null,
+        "position": "市场部AI实习生",
+        "city": "广州",
+        "education": null,
+        "graduation_year": "在校生优先",
+        "skills": [
+          "ChatGPT",
+          "Cursor",
+          "Gemini"
+        ],
+        "internship_duration": null,
+        "attendance_days": "每周能来几天就行，远程/线下都可以聊",
+        "salary": "实习补贴",
+        "deadline": null,
+        "apply_method": "直接私信发我简历",
+        "application_url": null,
+        "evidence": "base广州，一支 AI  Agent初创公司，快速扩张阶段"
+      }
+    ]
+  },
+  "notes": "发布于 2026-09-02（距今 79 天 > 60 天），可用于测试时效过期提醒。"
+}

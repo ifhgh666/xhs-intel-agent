@@ -1,0 +1,289 @@
+{
+  "captured_at": "2026-11-20T18:29:52.164824+00:00",
+  "mcp_url": "http://localhost:18060/mcp",
+  "tool": "get_feed_detail",
+  "arguments": {
+    "feed_id": "6a98ffa1000000002700b8f1",
+    "xsec_token": "ABhJpj8zDzXNgt7FzehCnrV0e2q2vbZnHbHa-ArCpWQbw="
+  },
+  "candidate": {
+    "feed_id": "6a98ffa1000000002700b8f1",
+    "xsec_token": "ABhJpj8zDzXNgt7FzehCnrV0e2q2vbZnHbHa-ArCpWQbw=",
+    "title": "广州AI公司实习内推",
+    "author": "嘻嘻嘻🦁",
+    "published_at": "",
+    "liked_count": "23",
+    "type": "normal",
+    "source_keyword": "广州 AI实习",
+    "source_fixture": "search_01_广州_AI实习.json"
+  },
+  "is_error": false,
+  "raw_text": "{\n  \"feed_id\": \"6a98ffa1000000002700b8f1\",\n  \"data\": {\n    \"note\": {\n      \"noteId\": \"6a98ffa1000000002700b8f1\",\n      \"xsecToken\": \"ABhJpj8zDzXNgt7FzehCnrV0e2q2vbZnHbHa-ArCpWQbw=\",\n      \"title\": \"广州AI公司实习内推\",\n      \"desc\": \"base广州，一支 AI  Agent初创公司，快速扩张阶段\\n实习内容\\n✅ 跟着市场部做内容、做活动、做客户沟通——不打杂，能碰核心\\n✅ 用 ChatGPT / Cursor / Gemini 这类海外 AI 工具帮团队提速：写文案、做调研、搞创意都行。没有编程经验没关系，都是用AI\\n✅ 参与从0到1的全过程，这段经历能真写进简历\\n找这样的你\\n✅ 会用至少一个国外 AI 工具（ChatGPT  / Gemini …都算），知道怎么让它帮你干活\\n✅ 有创新意识——不爱按部就班，看到问题会想\\\"有没有更简单的搞法\\\"\\n✅ 在校生优先，每周能来几天就行，远程 / 线下都可以聊\\n✅ 不要求你的经历，但得是个爱表达、网感在线的人\\n\\t\\n⏰ 不打卡，9点半到6点\\n🍱 福利实在：定期奶茶下午茶\\n💰 实习补贴\\n🚀 表现好直接留用，比在大厂当工具人学得多\\n\\t\\n直接私信发我简历，附上：\\n学校 + 每周能来几天 + 你平时用哪些 AI 工具 + 简单两句想法\\n有作品集的直接甩链接\\n#实习生内推[话题]# #找实习[话题]# #年轻人向往的好公司[话题]# #广州实习[话题]# #我这行的AI路[话题]#\",\n      \"type\": \"normal\",\n      \"time\": 1788411809000,\n      \"ipLocation\": \"\",\n      \"user\": {\n        \"userId\": \"5ce26cc4000000001000be74\",\n        \"nickname\": \"嘻嘻嘻🦁\",\n        \"nickName\": \"\",\n        \"avatar\": \"https://sns-avatar-qc.xhscdn.com/avatar/6467a1ce16a2dc6748dc49fe.jpg\"\n      },\n      \"interactInfo\": {\n        \"liked\": false,\n        \"likedCount\": \"23\",\n        \"sharedCount\": \"\",\n        \"commentCount\": \"13\",\n        \"collectedCount\": \"14\",\n        \"collected\": false\n      },\n      \"imageList\": [\n        {\n          \"width\": 1200,\n          \"height\": 1600,\n          \"urlDefault\": \"http://sns-webpic-qc.xhscdn.com/202611210229/84e907f57eb422513454d3fbcceb6c37/1040g2sg324l36i48n46g5n72dj241fjkhn9dn2g!nd_dft_wlteh_webp_3\",\n          \"urlPre\": \"http://sns-webpic-qc.xhscdn.com/202611210229/89a69680d5108e50ffa14f512aaa79a3/1040g2sg324l36i48n46g5n72dj241fjkhn9dn2g!nd_prv_wlteh_webp_3\"\n        }\n      ]\n    },\n    \"comments\": {\n      \"list\": [\n        {\n          \"id\": \"6a9926f70000000002011bbb\",\n          \"noteId\": \"6a98ffa1000000002700b8f1\",\n          \"content\": \"有学历要求吗\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1788421880000,\n          \"ipLocation\": \"广东\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"5c3c3cf80000000005022556\",\n            \"nickname\": \"番茄酱酱\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"2\",\n          \"subComments\": [\n            {\n              \"id\": \"6a992c4d0000000014000cc0\",\n              \"noteId\": \"6a98ffa1000000002700b8f1\",\n              \"content\": \"没有哦\",\n              \"likeCount\": \"0\",\n              \"createTime\": 1788423245000,\n              \"ipLocation\": \"广东\",\n              \"liked\": false,\n              \"userInfo\": {\n                \"userId\": \"5ce26cc4000000001000be74\",\n                \"nickname\": \"嘻嘻嘻🦁\",\n                \"nickName\": \"\",\n                \"avatar\": \"\"\n              },\n              \"subCommentCount\": \"\",\n              \"subComments\": null,\n              \"showTags\": [\n                \"is_author\"\n              ]\n            }\n          ],\n          \"showTags\": []\n        },\n        {\n          \"id\": \"6a990083000000001500bc33\",\n          \"noteId\": \"6a98ffa1000000002700b8f1\",\n          \"content\": \"问问薪资呢[害羞R]\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1788412036000,\n          \"ipLocation\": \"广东\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"65260e8f000000002b0013a4\",\n            \"nickname\": \"（？\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"1\",\n          \"subComments\": [\n            {\n              \"id\": \"6a990450000000001402e6fe\",\n              \"noteId\": \"6a98ffa1000000002700b8f1\",\n              \"content\": \"比一般广州实习工资高一点哦，具体私聊\",\n              \"likeCount\": \"1\",\n              \"createTime\": 1788413009000,\n              \"ipLocation\": \"广东\",\n              \"liked\": false,\n              \"userInfo\": {\n                \"userId\": \"5ce26cc4000000001000be74\",\n                \"nickname\": \"嘻嘻嘻🦁\",\n                \"nickName\": \"\",\n                \"avatar\": \"\"\n              },\n              \"subCommentCount\": \"\",\n              \"subComments\": null,\n              \"showTags\": [\n                \"is_author\"\n              ]\n            }\n          ],\n          \"showTags\": []\n        },\n        {\n          \"id\": \"6a99244e0000000002029190\",\n          \"noteId\": \"6a98ffa1000000002700b8f1\",\n          \"content\": \"看看我呢\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1788421199000,\n          \"ipLocation\": \"广东\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"5c4eaaee000000001103f407\",\n            \"nickname\": \"土豆轰炸鸡\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"1\",\n          \"subComments\": [\n            {\n              \"id\": \"6a992be0000000001402c084\",\n              \"noteId\": \"6a98ffa1000000002700b8f1\",\n              \"content\": \"发下简历哦\",\n              \"likeCount\": \"0\",\n              \"createTime\": 1788423137000,\n              \"ipLocation\": \"广东\",\n              \"liked\": false,\n              \"userInfo\": {\n                \"userId\": \"5ce26cc4000000001000be74\",\n                \"nickname\": \"嘻嘻嘻🦁\",\n                \"nickName\": \"\",\n                \"avatar\": \"\"\n              },\n              \"subCommentCount\": \"\",\n              \"subComments\": null,\n              \"showTags\": [\n                \"is_author\"\n              ]\n            }\n          ],\n          \"showTags\": []\n        },\n        {\n          \"id\": \"6a9918ee000000000b0155cb\",\n          \"noteId\": \"6a98ffa1000000002700b8f1\",\n          \"content\": \"招产品经理吗[害羞R]\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1788418287000,\n          \"ipLocation\": \"广东\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"6214cf49000000001000b005\",\n            \"nickname\": \"OKIE\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"0\",\n          \"subComments\": [],\n          \"showTags\": []\n        },\n        {\n          \"id\": \"6a9a16e90000000002028c2c\",\n          \"noteId\": \"6a98ffa1000000002700b8f1\",\n          \"content\": \"您好，已私聊您了\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1788483305000,\n          \"ipLocation\": \"广东\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"68f10b2c00000000370072d5\",\n            \"nickname\": \"空余大飞鱼\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"0\",\n          \"subComments\": [],\n          \"showTags\": []\n        },\n        {\n          \"id\": \"6aed595f000000000a022f9e\",\n          \"noteId\": \"6a98ffa1000000002700b8f1\",\n          \"content\": \"招开发实习生吗\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1793939808000,\n          \"ipLocation\": \"广东\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"622885b0000000001000e535\",\n            \"nickname\": \"...\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"0\",\n          \"subComments\": [],\n          \"showTags\": []\n        },\n        {\n          \"id\": \"6a999d3d00000000150175eb\",\n          \"noteId\": \"6a98ffa1000000002700b8f1\",\n          \"content\": \"我可以吗？hh\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1788452158000,\n          \"ipLocation\": \"广东\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"61fe046b000000001000fa26\",\n            \"nickname\": \"摄影师三辈\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"0\",\n          \"subComments\": [],\n          \"showTags\": []\n        },\n        {\n          \"id\": \"6a99093c0000000015010357\",\n          \"noteId\": \"6a98ffa1000000002700b8f1\",\n          \"content\": \"我可以吗\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1788414268000,\n          \"ipLocation\": \"湖南\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"5f65ff6e0000000001006843\",\n            \"nickname\": \"伊利不是牛奶啦🐢\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"0\",\n          \"subComments\": [],\n          \"showTags\": []\n        },\n        {\n          \"id\": \"6a994486000000000b013a6c\",\n          \"noteId\": \"6a98ffa1000000002700b8f1\",\n          \"content\": \"111\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1788429447000,\n          \"ipLocation\": \"广东\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"5a4a503fe8ac2b65c29c7b84\",\n            \"nickname\": \"番茄炒笨蛋\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"0\",\n          \"subComments\": [],\n          \"showTags\": []\n        }\n      ],\n      \"cursor\": \"6a994486000000000b013a6c\",\n      \"hasMore\": false\n    }\n  }\n}",
+  "parsed": {
+    "feed_id": "6a98ffa1000000002700b8f1",
+    "data": {
+      "note": {
+        "noteId": "6a98ffa1000000002700b8f1",
+        "xsecToken": "ABhJpj8zDzXNgt7FzehCnrV0e2q2vbZnHbHa-ArCpWQbw=",
+        "title": "广州AI公司实习内推",
+        "desc": "base广州，一支 AI  Agent初创公司，快速扩张阶段\n实习内容\n✅ 跟着市场部做内容、做活动、做客户沟通——不打杂，能碰核心\n✅ 用 ChatGPT / Cursor / Gemini 这类海外 AI 工具帮团队提速：写文案、做调研、搞创意都行。没有编程经验没关系，都是用AI\n✅ 参与从0到1的全过程，这段经历能真写进简历\n找这样的你\n✅ 会用至少一个国外 AI 工具（ChatGPT  / Gemini …都算），知道怎么让它帮你干活\n✅ 有创新意识——不爱按部就班，看到问题会想\"有没有更简单的搞法\"\n✅ 在校生优先，每周能来几天就行，远程 / 线下都可以聊\n✅ 不要求你的经历，但得是个爱表达、网感在线的人\n\t\n⏰ 不打卡，9点半到6点\n🍱 福利实在：定期奶茶下午茶\n💰 实习补贴\n🚀 表现好直接留用，比在大厂当工具人学得多\n\t\n直接私信发我简历，附上：\n学校 + 每周能来几天 + 你平时用哪些 AI 工具 + 简单两句想法\n有作品集的直接甩链接\n#实习生内推[话题]# #找实习[话题]# #年轻人向往的好公司[话题]# #广州实习[话题]# #我这行的AI路[话题]#",
+        "type": "normal",
+        "time": 1788411809000,
+        "ipLocation": "",
+        "user": {
+          "userId": "5ce26cc4000000001000be74",
+          "nickname": "嘻嘻嘻🦁",
+          "nickName": "",
+          "avatar": "https://sns-avatar-qc.xhscdn.com/avatar/6467a1ce16a2dc6748dc49fe.jpg"
+        },
+        "interactInfo": {
+          "liked": false,
+          "likedCount": "23",
+          "sharedCount": "",
+          "commentCount": "13",
+          "collectedCount": "14",
+          "collected": false
+        },
+        "imageList": [
+          {
+            "width": 1200,
+            "height": 1600,
+            "urlDefault": "http://sns-webpic-qc.xhscdn.com/202611210229/84e907f57eb422513454d3fbcceb6c37/1040g2sg324l36i48n46g5n72dj241fjkhn9dn2g!nd_dft_wlteh_webp_3",
+            "urlPre": "http://sns-webpic-qc.xhscdn.com/202611210229/89a69680d5108e50ffa14f512aaa79a3/1040g2sg324l36i48n46g5n72dj241fjkhn9dn2g!nd_prv_wlteh_webp_3"
+          }
+        ]
+      },
+      "comments": {
+        "list": [
+          {
+            "id": "6a9926f70000000002011bbb",
+            "noteId": "6a98ffa1000000002700b8f1",
+            "content": "有学历要求吗",
+            "likeCount": "0",
+            "createTime": 1788421880000,
+            "ipLocation": "广东",
+            "liked": false,
+            "userInfo": {
+              "userId": "5c3c3cf80000000005022556",
+              "nickname": "番茄酱酱",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "2",
+            "subComments": [
+              {
+                "id": "6a992c4d0000000014000cc0",
+                "noteId": "6a98ffa1000000002700b8f1",
+                "content": "没有哦",
+                "likeCount": "0",
+                "createTime": 1788423245000,
+                "ipLocation": "广东",
+                "liked": false,
+                "userInfo": {
+                  "userId": "5ce26cc4000000001000be74",
+                  "nickname": "嘻嘻嘻🦁",
+                  "nickName": "",
+                  "avatar": ""
+                },
+                "subCommentCount": "",
+                "subComments": null,
+                "showTags": [
+                  "is_author"
+                ]
+              }
+            ],
+            "showTags": []
+          },
+          {
+            "id": "6a990083000000001500bc33",
+            "noteId": "6a98ffa1000000002700b8f1",
+            "content": "问问薪资呢[害羞R]",
+            "likeCount": "0",
+            "createTime": 1788412036000,
+            "ipLocation": "广东",
+            "liked": false,
+            "userInfo": {
+              "userId": "65260e8f000000002b0013a4",
+              "nickname": "（？",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "1",
+            "subComments": [
+              {
+                "id": "6a990450000000001402e6fe",
+                "noteId": "6a98ffa1000000002700b8f1",
+                "content": "比一般广州实习工资高一点哦，具体私聊",
+                "likeCount": "1",
+                "createTime": 1788413009000,
+                "ipLocation": "广东",
+                "liked": false,
+                "userInfo": {
+                  "userId": "5ce26cc4000000001000be74",
+                  "nickname": "嘻嘻嘻🦁",
+                  "nickName": "",
+                  "avatar": ""
+                },
+                "subCommentCount": "",
+                "subComments": null,
+                "showTags": [
+                  "is_author"
+                ]
+              }
+            ],
+            "showTags": []
+          },
+          {
+            "id": "6a99244e0000000002029190",
+            "noteId": "6a98ffa1000000002700b8f1",
+            "content": "看看我呢",
+            "likeCount": "0",
+            "createTime": 1788421199000,
+            "ipLocation": "广东",
+            "liked": false,
+            "userInfo": {
+              "userId": "5c4eaaee000000001103f407",
+              "nickname": "土豆轰炸鸡",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "1",
+            "subComments": [
+              {
+                "id": "6a992be0000000001402c084",
+                "noteId": "6a98ffa1000000002700b8f1",
+                "content": "发下简历哦",
+                "likeCount": "0",
+                "createTime": 1788423137000,
+                "ipLocation": "广东",
+                "liked": false,
+                "userInfo": {
+                  "userId": "5ce26cc4000000001000be74",
+                  "nickname": "嘻嘻嘻🦁",
+                  "nickName": "",
+                  "avatar": ""
+                },
+                "subCommentCount": "",
+                "subComments": null,
+                "showTags": [
+                  "is_author"
+                ]
+              }
+            ],
+            "showTags": []
+          },
+          {
+            "id": "6a9918ee000000000b0155cb",
+            "noteId": "6a98ffa1000000002700b8f1",
+            "content": "招产品经理吗[害羞R]",
+            "likeCount": "0",
+            "createTime": 1788418287000,
+            "ipLocation": "广东",
+            "liked": false,
+            "userInfo": {
+              "userId": "6214cf49000000001000b005",
+              "nickname": "OKIE",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "0",
+            "subComments": [],
+            "showTags": []
+          },
+          {
+            "id": "6a9a16e90000000002028c2c",
+            "noteId": "6a98ffa1000000002700b8f1",
+            "content": "您好，已私聊您了",
+            "likeCount": "0",
+            "createTime": 1788483305000,
+            "ipLocation": "广东",
+            "liked": false,
+            "userInfo": {
+              "userId": "68f10b2c00000000370072d5",
+              "nickname": "空余大飞鱼",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "0",
+            "subComments": [],
+            "showTags": []
+          },
+          {
+            "id": "6aed595f000000000a022f9e",
+            "noteId": "6a98ffa1000000002700b8f1",
+            "content": "招开发实习生吗",
+            "likeCount": "0",
+            "createTime": 1793939808000,
+            "ipLocation": "广东",
+            "liked": false,
+            "userInfo": {
+              "userId": "622885b0000000001000e535",
+              "nickname": "...",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "0",
+            "subComments": [],
+            "showTags": []
+          },
+          {
+            "id": "6a999d3d00000000150175eb",
+            "noteId": "6a98ffa1000000002700b8f1",
+            "content": "我可以吗？hh",
+            "likeCount": "0",
+            "createTime": 1788452158000,
+            "ipLocation": "广东",
+            "liked": false,
+            "userInfo": {
+              "userId": "61fe046b000000001000fa26",
+              "nickname": "摄影师三辈",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "0",
+            "subComments": [],
+            "showTags": []
+          },
+          {
+            "id": "6a99093c0000000015010357",
+            "noteId": "6a98ffa1000000002700b8f1",
+            "content": "我可以吗",
+            "likeCount": "0",
+            "createTime": 1788414268000,
+            "ipLocation": "湖南",
+            "liked": false,
+            "userInfo": {
+              "userId": "5f65ff6e0000000001006843",
+              "nickname": "伊利不是牛奶啦🐢",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "0",
+            "subComments": [],
+            "showTags": []
+          },
+          {
+            "id": "6a994486000000000b013a6c",
+            "noteId": "6a98ffa1000000002700b8f1",
+            "content": "111",
+            "likeCount": "0",
+            "createTime": 1788429447000,
+            "ipLocation": "广东",
+            "liked": false,
+            "userInfo": {
+              "userId": "5a4a503fe8ac2b65c29c7b84",
+              "nickname": "番茄炒笨蛋",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "0",
+            "subComments": [],
+            "showTags": []
+          }
+        ],
+        "cursor": "6a994486000000000b013a6c",
+        "hasMore": false
+      }
+    }
+  }
+}

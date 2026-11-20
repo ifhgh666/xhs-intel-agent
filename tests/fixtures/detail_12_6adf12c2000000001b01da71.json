@@ -1,0 +1,312 @@
+{
+  "captured_at": "2026-11-20T18:27:47.518402+00:00",
+  "mcp_url": "http://localhost:18060/mcp",
+  "tool": "get_feed_detail",
+  "arguments": {
+    "feed_id": "6adf12c2000000001b01da71",
+    "xsec_token": "ABBd5zXclaNuqJdTy_p-gJWWFwc8apHTQpNu0YFvHxNaM="
+  },
+  "candidate": {
+    "feed_id": "6adf12c2000000001b01da71",
+    "xsec_token": "ABBd5zXclaNuqJdTy_p-gJWWFwc8apHTQpNu0YFvHxNaM=",
+    "title": "招agent开发实习生",
+    "author": "Auber Packaging",
+    "published_at": "",
+    "liked_count": "19",
+    "type": "normal",
+    "source_keyword": "广州 AI实习",
+    "source_fixture": "search_01_广州_AI实习.json"
+  },
+  "is_error": false,
+  "raw_text": "{\n  \"feed_id\": \"6adf12c2000000001b01da71\",\n  \"data\": {\n    \"note\": {\n      \"noteId\": \"6adf12c2000000001b01da71\",\n      \"xsecToken\": \"ABBd5zXclaNuqJdTy_p-gJWWFwc8apHTQpNu0YFvHxNaM=\",\n      \"title\": \"招agent开发实习生\",\n      \"desc\": \"公司地点在广州设计之都附近\\n\\t\\n要求可以实习六个月以上；计算机科学，人工智能等专业背景。\\n\\t\\n#广州工作[话题]# #广州实习[话题]# #agent开发[话题]# #计算机科学[话题]# #人工智能[话题]#\",\n      \"type\": \"normal\",\n      \"time\": 1793004226000,\n      \"ipLocation\": \"广东\",\n      \"user\": {\n        \"userId\": \"6690e53500000000030314d7\",\n        \"nickname\": \"Auber Packaging\",\n        \"nickName\": \"\",\n        \"avatar\": \"https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo3206gu4v3lm005pkgskqgu56nd4f1dn8\"\n      },\n      \"interactInfo\": {\n        \"liked\": false,\n        \"likedCount\": \"19\",\n        \"sharedCount\": \"\",\n        \"commentCount\": \"14\",\n        \"collectedCount\": \"18\",\n        \"collected\": false\n      },\n      \"imageList\": [\n        {\n          \"width\": 1200,\n          \"height\": 1600,\n          \"urlDefault\": \"http://sns-webpic-qc.xhscdn.com/202611210227/e716b3a1955f6dd6b0b58fdfd9411e31/notes_pre_post/1040g3k0326ph6fvclg005pkgskqgu56nnh9j1eo!nd_dft_wlteh_webp_3\",\n          \"urlPre\": \"http://sns-webpic-qc.xhscdn.com/202611210227/13883bea9d829d106dc9ca49443c1e84/notes_pre_post/1040g3k0326ph6fvclg005pkgskqgu56nnh9j1eo!nd_prv_wlteh_webp_3\"\n        }\n      ]\n    },\n    \"comments\": {\n      \"list\": [\n        {\n          \"id\": \"6adf1bab000000000b010bb5\",\n          \"noteId\": \"6adf12c2000000001b01da71\",\n          \"content\": \"📌 岗位信息\\n\\n* 岗位：AI 自动化项目实习生\\n* 实习周期：6个月\\n* 招募对象：计算机、软件工程、人工智能、信息管理等 IT 相关专业在读学生\\n* 到岗时间：面议\\n\\n💻 你将参与什么？\\n\\n* 梳理外贸企业的业务流程，识别适合 AI 自动化的工作环节\\n* 探索并搭建 AI 工作流、Agent 及自动化工具\\n* 参与企业内部知识库、业务信息处理、营销运营等场景的 AI 应用实践\\n* 与业务团队协作，推动方案从想法、原型到实际应用\\n\\n具体项目将结合企业真实需求逐步推进。\\n\\n如果你做过 AI 应用 Demo、自动化工作流、个人项目或开源项目，欢迎展示；没有丰富的项目经历也可以，只要你愿意动手实践\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1793006508000,\n          \"ipLocation\": \"广东\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"6690e53500000000030314d7\",\n            \"nickname\": \"Auber Packaging\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"0\",\n          \"subComments\": [],\n          \"showTags\": [\n            \"is_author\",\n            \"user_top\"\n          ]\n        },\n        {\n          \"id\": \"6adf19850000000012026196\",\n          \"noteId\": \"6adf12c2000000001b01da71\",\n          \"content\": \"岗位信息都没有呢\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1793005957000,\n          \"ipLocation\": \"广东\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"64b3a0970000000011001de5\",\n            \"nickname\": \"Coke.\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"1\",\n          \"subComments\": [\n            {\n              \"id\": \"6adf19dd00000000130149d7\",\n              \"noteId\": \"6adf12c2000000001b01da71\",\n              \"content\": \"boss有具体的JD\",\n              \"likeCount\": \"0\",\n              \"createTime\": 1793006045000,\n              \"ipLocation\": \"广东\",\n              \"liked\": false,\n              \"userInfo\": {\n                \"userId\": \"6690e53500000000030314d7\",\n                \"nickname\": \"Auber Packaging\",\n                \"nickName\": \"\",\n                \"avatar\": \"\"\n              },\n              \"subCommentCount\": \"\",\n              \"subComments\": null,\n              \"showTags\": [\n                \"is_author\"\n              ]\n            }\n          ],\n          \"showTags\": []\n        },\n        {\n          \"id\": \"6adf3568000000000b0156bc\",\n          \"noteId\": \"6adf12c2000000001b01da71\",\n          \"content\": \"直接后台投简历吗？[微笑R]\",\n          \"likeCount\": \"1\",\n          \"createTime\": 1793013097000,\n          \"ipLocation\": \"广东\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"611472ba000000000101eab0\",\n            \"nickname\": \"shano\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"1\",\n          \"subComments\": [\n            {\n              \"id\": \"6adf3cbc000000000b01c809\",\n              \"noteId\": \"6adf12c2000000001b01da71\",\n              \"content\": \"对\",\n              \"likeCount\": \"0\",\n              \"createTime\": 1793014973000,\n              \"ipLocation\": \"广东\",\n              \"liked\": false,\n              \"userInfo\": {\n                \"userId\": \"6690e53500000000030314d7\",\n                \"nickname\": \"Auber Packaging\",\n                \"nickName\": \"\",\n                \"avatar\": \"\"\n              },\n              \"subCommentCount\": \"\",\n              \"subComments\": null,\n              \"showTags\": [\n                \"is_author\"\n              ]\n            }\n          ],\n          \"showTags\": []\n        },\n        {\n          \"id\": \"6adf17bd000000000b0187d1\",\n          \"noteId\": \"6adf12c2000000001b01da71\",\n          \"content\": \"还要人吗，计算机专业\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1793005501000,\n          \"ipLocation\": \"广东\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"601798630000000001003ba5\",\n            \"nickname\": \"大狗疯狂嚼\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"0\",\n          \"subComments\": [],\n          \"showTags\": []\n        },\n        {\n          \"id\": \"6adf3bbf000000001301a093\",\n          \"noteId\": \"6adf12c2000000001b01da71\",\n          \"content\": \"dd可以的\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1793014720000,\n          \"ipLocation\": \"广东\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"5ef61d410000000001004b15\",\n            \"nickname\": \"淋雨\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"1\",\n          \"subComments\": [\n            {\n              \"id\": \"6adf3cc8000000000200cbeb\",\n              \"noteId\": \"6adf12c2000000001b01da71\",\n              \"content\": \"dm后台\",\n              \"likeCount\": \"0\",\n              \"createTime\": 1793014985000,\n              \"ipLocation\": \"广东\",\n              \"liked\": false,\n              \"userInfo\": {\n                \"userId\": \"6690e53500000000030314d7\",\n                \"nickname\": \"Auber Packaging\",\n                \"nickName\": \"\",\n                \"avatar\": \"\"\n              },\n              \"subCommentCount\": \"\",\n              \"subComments\": null,\n              \"showTags\": [\n                \"is_author\"\n              ]\n            }\n          ],\n          \"showTags\": []\n        },\n        {\n          \"id\": \"6affecde000000002d022e1f\",\n          \"noteId\": \"6adf12c2000000001b01da71\",\n          \"content\": \"dd现在还缺吗\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1795157215000,\n          \"ipLocation\": \"广东\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"696b51820000000003013b28\",\n            \"nickname\": \"小木桩zzjzj\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"0\",\n          \"subComments\": [],\n          \"showTags\": []\n        },\n        {\n          \"id\": \"6adf155a0000000013015466\",\n          \"noteId\": \"6adf12c2000000001b01da71\",\n          \"content\": \"能全职吗\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1793004891000,\n          \"ipLocation\": \"广东\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"5d09b4a30000000012008dc9\",\n            \"nickname\": \"Longtemps\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"0\",\n          \"subComments\": [],\n          \"showTags\": []\n        },\n        {\n          \"id\": \"6ae1b2670000000014003abf\",\n          \"noteId\": \"6adf12c2000000001b01da71\",\n          \"content\": \"专业提供it人力外包，按需匹配，全国一二线城市均可驻场，欢迎找我咨询！\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1793176168000,\n          \"ipLocation\": \"河南\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"6842395c000000000703064d\",\n            \"nickname\": \"沐沐\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"0\",\n          \"subComments\": [],\n          \"showTags\": []\n        },\n        {\n          \"id\": \"6adf151f000000000b017a9a\",\n          \"noteId\": \"6adf12c2000000001b01da71\",\n          \"content\": \"现在还要人吗\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1793004832000,\n          \"ipLocation\": \"广东\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"65d08798000000000503288b\",\n            \"nickname\": \"西鱼徐aaa\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"0\",\n          \"subComments\": [],\n          \"showTags\": []\n        },\n        {\n          \"id\": \"6adf18fa000000000f033674\",\n          \"noteId\": \"6adf12c2000000001b01da71\",\n          \"content\": \"这个岗位只要在校学生\",\n          \"likeCount\": \"0\",\n          \"createTime\": 1793005818000,\n          \"ipLocation\": \"广东\",\n          \"liked\": false,\n          \"userInfo\": {\n            \"userId\": \"6690e53500000000030314d7\",\n            \"nickname\": \"Auber Packaging\",\n            \"nickName\": \"\",\n            \"avatar\": \"\"\n          },\n          \"subCommentCount\": \"0\",\n          \"subComments\": [],\n          \"showTags\": [\n            \"is_author\"\n          ]\n        }\n      ],\n      \"cursor\": \"6adf18fa000000000f033674\",\n      \"hasMore\": true\n    }\n  }\n}",
+  "parsed": {
+    "feed_id": "6adf12c2000000001b01da71",
+    "data": {
+      "note": {
+        "noteId": "6adf12c2000000001b01da71",
+        "xsecToken": "ABBd5zXclaNuqJdTy_p-gJWWFwc8apHTQpNu0YFvHxNaM=",
+        "title": "招agent开发实习生",
+        "desc": "公司地点在广州设计之都附近\n\t\n要求可以实习六个月以上；计算机科学，人工智能等专业背景。\n\t\n#广州工作[话题]# #广州实习[话题]# #agent开发[话题]# #计算机科学[话题]# #人工智能[话题]#",
+        "type": "normal",
+        "time": 1793004226000,
+        "ipLocation": "广东",
+        "user": {
+          "userId": "6690e53500000000030314d7",
+          "nickname": "Auber Packaging",
+          "nickName": "",
+          "avatar": "https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo3206gu4v3lm005pkgskqgu56nd4f1dn8"
+        },
+        "interactInfo": {
+          "liked": false,
+          "likedCount": "19",
+          "sharedCount": "",
+          "commentCount": "14",
+          "collectedCount": "18",
+          "collected": false
+        },
+        "imageList": [
+          {
+            "width": 1200,
+            "height": 1600,
+            "urlDefault": "http://sns-webpic-qc.xhscdn.com/202611210227/e716b3a1955f6dd6b0b58fdfd9411e31/notes_pre_post/1040g3k0326ph6fvclg005pkgskqgu56nnh9j1eo!nd_dft_wlteh_webp_3",
+            "urlPre": "http://sns-webpic-qc.xhscdn.com/202611210227/13883bea9d829d106dc9ca49443c1e84/notes_pre_post/1040g3k0326ph6fvclg005pkgskqgu56nnh9j1eo!nd_prv_wlteh_webp_3"
+          }
+        ]
+      },
+      "comments": {
+        "list": [
+          {
+            "id": "6adf1bab000000000b010bb5",
+            "noteId": "6adf12c2000000001b01da71",
+            "content": "📌 岗位信息\n\n* 岗位：AI 自动化项目实习生\n* 实习周期：6个月\n* 招募对象：计算机、软件工程、人工智能、信息管理等 IT 相关专业在读学生\n* 到岗时间：面议\n\n💻 你将参与什么？\n\n* 梳理外贸企业的业务流程，识别适合 AI 自动化的工作环节\n* 探索并搭建 AI 工作流、Agent 及自动化工具\n* 参与企业内部知识库、业务信息处理、营销运营等场景的 AI 应用实践\n* 与业务团队协作，推动方案从想法、原型到实际应用\n\n具体项目将结合企业真实需求逐步推进。\n\n如果你做过 AI 应用 Demo、自动化工作流、个人项目或开源项目，欢迎展示；没有丰富的项目经历也可以，只要你愿意动手实践",
+            "likeCount": "0",
+            "createTime": 1793006508000,
+            "ipLocation": "广东",
+            "liked": false,
+            "userInfo": {
+              "userId": "6690e53500000000030314d7",
+              "nickname": "Auber Packaging",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "0",
+            "subComments": [],
+            "showTags": [
+              "is_author",
+              "user_top"
+            ]
+          },
+          {
+            "id": "6adf19850000000012026196",
+            "noteId": "6adf12c2000000001b01da71",
+            "content": "岗位信息都没有呢",
+            "likeCount": "0",
+            "createTime": 1793005957000,
+            "ipLocation": "广东",
+            "liked": false,
+            "userInfo": {
+              "userId": "64b3a0970000000011001de5",
+              "nickname": "Coke.",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "1",
+            "subComments": [
+              {
+                "id": "6adf19dd00000000130149d7",
+                "noteId": "6adf12c2000000001b01da71",
+                "content": "boss有具体的JD",
+                "likeCount": "0",
+                "createTime": 1793006045000,
+                "ipLocation": "广东",
+                "liked": false,
+                "userInfo": {
+                  "userId": "6690e53500000000030314d7",
+                  "nickname": "Auber Packaging",
+                  "nickName": "",
+                  "avatar": ""
+                },
+                "subCommentCount": "",
+                "subComments": null,
+                "showTags": [
+                  "is_author"
+                ]
+              }
+            ],
+            "showTags": []
+          },
+          {
+            "id": "6adf3568000000000b0156bc",
+            "noteId": "6adf12c2000000001b01da71",
+            "content": "直接后台投简历吗？[微笑R]",
+            "likeCount": "1",
+            "createTime": 1793013097000,
+            "ipLocation": "广东",
+            "liked": false,
+            "userInfo": {
+              "userId": "611472ba000000000101eab0",
+              "nickname": "shano",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "1",
+            "subComments": [
+              {
+                "id": "6adf3cbc000000000b01c809",
+                "noteId": "6adf12c2000000001b01da71",
+                "content": "对",
+                "likeCount": "0",
+                "createTime": 1793014973000,
+                "ipLocation": "广东",
+                "liked": false,
+                "userInfo": {
+                  "userId": "6690e53500000000030314d7",
+                  "nickname": "Auber Packaging",
+                  "nickName": "",
+                  "avatar": ""
+                },
+                "subCommentCount": "",
+                "subComments": null,
+                "showTags": [
+                  "is_author"
+                ]
+              }
+            ],
+            "showTags": []
+          },
+          {
+            "id": "6adf17bd000000000b0187d1",
+            "noteId": "6adf12c2000000001b01da71",
+            "content": "还要人吗，计算机专业",
+            "likeCount": "0",
+            "createTime": 1793005501000,
+            "ipLocation": "广东",
+            "liked": false,
+            "userInfo": {
+              "userId": "601798630000000001003ba5",
+              "nickname": "大狗疯狂嚼",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "0",
+            "subComments": [],
+            "showTags": []
+          },
+          {
+            "id": "6adf3bbf000000001301a093",
+            "noteId": "6adf12c2000000001b01da71",
+            "content": "dd可以的",
+            "likeCount": "0",
+            "createTime": 1793014720000,
+            "ipLocation": "广东",
+            "liked": false,
+            "userInfo": {
+              "userId": "5ef61d410000000001004b15",
+              "nickname": "淋雨",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "1",
+            "subComments": [
+              {
+                "id": "6adf3cc8000000000200cbeb",
+                "noteId": "6adf12c2000000001b01da71",
+                "content": "dm后台",
+                "likeCount": "0",
+                "createTime": 1793014985000,
+                "ipLocation": "广东",
+                "liked": false,
+                "userInfo": {
+                  "userId": "6690e53500000000030314d7",
+                  "nickname": "Auber Packaging",
+                  "nickName": "",
+                  "avatar": ""
+                },
+                "subCommentCount": "",
+                "subComments": null,
+                "showTags": [
+                  "is_author"
+                ]
+              }
+            ],
+            "showTags": []
+          },
+          {
+            "id": "6affecde000000002d022e1f",
+            "noteId": "6adf12c2000000001b01da71",
+            "content": "dd现在还缺吗",
+            "likeCount": "0",
+            "createTime": 1795157215000,
+            "ipLocation": "广东",
+            "liked": false,
+            "userInfo": {
+              "userId": "696b51820000000003013b28",
+              "nickname": "小木桩zzjzj",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "0",
+            "subComments": [],
+            "showTags": []
+          },
+          {
+            "id": "6adf155a0000000013015466",
+            "noteId": "6adf12c2000000001b01da71",
+            "content": "能全职吗",
+            "likeCount": "0",
+            "createTime": 1793004891000,
+            "ipLocation": "广东",
+            "liked": false,
+            "userInfo": {
+              "userId": "5d09b4a30000000012008dc9",
+              "nickname": "Longtemps",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "0",
+            "subComments": [],
+            "showTags": []
+          },
+          {
+            "id": "6ae1b2670000000014003abf",
+            "noteId": "6adf12c2000000001b01da71",
+            "content": "专业提供it人力外包，按需匹配，全国一二线城市均可驻场，欢迎找我咨询！",
+            "likeCount": "0",
+            "createTime": 1793176168000,
+            "ipLocation": "河南",
+            "liked": false,
+            "userInfo": {
+              "userId": "6842395c000000000703064d",
+              "nickname": "沐沐",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "0",
+            "subComments": [],
+            "showTags": []
+          },
+          {
+            "id": "6adf151f000000000b017a9a",
+            "noteId": "6adf12c2000000001b01da71",
+            "content": "现在还要人吗",
+            "likeCount": "0",
+            "createTime": 1793004832000,
+            "ipLocation": "广东",
+            "liked": false,
+            "userInfo": {
+              "userId": "65d08798000000000503288b",
+              "nickname": "西鱼徐aaa",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "0",
+            "subComments": [],
+            "showTags": []
+          },
+          {
+            "id": "6adf18fa000000000f033674",
+            "noteId": "6adf12c2000000001b01da71",
+            "content": "这个岗位只要在校学生",
+            "likeCount": "0",
+            "createTime": 1793005818000,
+            "ipLocation": "广东",
+            "liked": false,
+            "userInfo": {
+              "userId": "6690e53500000000030314d7",
+              "nickname": "Auber Packaging",
+              "nickName": "",
+              "avatar": ""
+            },
+            "subCommentCount": "0",
+            "subComments": [],
+            "showTags": [
+              "is_author"
+            ]
+          }
+        ],
+        "cursor": "6adf18fa000000000f033674",
+        "hasMore": true
+      }
+    }
+  }
+}

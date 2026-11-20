@@ -1,0 +1,40 @@
+{
+  "sample_id": "sample_04",
+  "annotated": true,
+  "note": {
+    "feed_id": "6af979c7000000002a01e6e1",
+    "source_url": "https://www.xiaohongshu.com/explore/6af979c7000000002a01e6e1",
+    "title": "招 AI Agent 产品实习生，广州天河",
+    "author": "Pop",
+    "published_at": 1794734535000,
+    "image_count": 1,
+    "desc": "我们是谁：\n✨ 一群从大厂和实验室汇集到一起的团队，做了一款 AI 产品叫：趣丸千音（All Voice Lab）\n\t\n我们在做什么：\n🎬 用 AI 拆掉语言的墙，让一部中国短剧/漫剧出海时，翻译配音不是生硬的\"机翻腔\"，而是有情绪、有本土味、有活人感的声音\n🚢 不止懂译配，更懂运营，让内容出海与社媒运营，变得更简单、直观、专业\n🧑‍💻 我们目标不是做 AI 工具，是做让用户用完会 WOW 的产品。base 广州，但用户在全球\n\t\n岗位职责：\n- 协助产品行业调研、相关产品调研及体验分析\n- 协助产品需求设计、交互开发、推进上线、验收复盘\n- 协助产品运营、对接用户群、收集反馈并主动跟进\n\t\n任职要求：\n- 本科及以上在读，计算机/人工智能相关专业优先\n- 熟悉使用 Codex Coding，有基础的产品审美，逻辑清晰\n- 看过短剧/AI剧，了解 AI 翻译/配音、个人 Agent 产品\n- 每周可实习 5 天，持续 4 个月以上\n\t\n#实习生内推[话题]# #找实习[话题]# #产品实习[话题]# #AI产品[话题]# #产品经理[话题]# #AI产品经理[话题]# #广州实习[话题]# #找工作[话题]# #互联网实习[话题]# #agent[话题]#"
+  },
+  "expected": {
+    "is_job_post": true,
+    "needs_image": false,
+    "jobs": [
+      {
+        "company": "趣丸千音（All Voice Lab）",
+        "position": "AI Agent 产品实习生",
+        "city": "广州",
+        "education": "本科及以上在读",
+        "graduation_year": null,
+        "skills": [
+          "Codex Coding",
+          "AI 翻译",
+          "AI 配音",
+          "Agent 产品"
+        ],
+        "internship_duration": "4个月以上",
+        "attendance_days": "每周可实习5天",
+        "salary": null,
+        "deadline": null,
+        "apply_method": null,
+        "application_url": null,
+        "evidence": "招 AI Agent 产品实习生，广州天河"
+      }
+    ]
+  },
+  "notes": "一手团队直招，正文未写具体投递邮箱或链接。"
+}

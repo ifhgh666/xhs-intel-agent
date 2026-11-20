@@ -1,0 +1,18 @@
+{
+  "captured_at": "2026-11-20T18:21:55.474646+00:00",
+  "mcp_url": "http://localhost:18060/mcp",
+  "tool": "check_login_status",
+  "result": {
+    "is_error": false,
+    "text": "✅ 已登录\n用户名: if\n\n你可以使用其他功能了。",
+    "parsed": null,
+    "raw_content": [
+      {
+        "type": "text",
+        "text": "✅ 已登录\n用户名: if\n\n你可以使用其他功能了。",
+        "annotations": null,
+        "meta": null
+      }
+    ]
+  }
+}

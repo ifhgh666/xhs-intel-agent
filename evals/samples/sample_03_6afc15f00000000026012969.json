@@ -1,0 +1,40 @@
+{
+  "sample_id": "sample_03",
+  "annotated": true,
+  "note": {
+    "feed_id": "6afc15f00000000026012969",
+    "source_url": "https://www.xiaohongshu.com/explore/6afc15f00000000026012969",
+    "title": "有道||内容运营实习（AI）",
+    "author": "请把offer们扔进我的邮箱",
+    "published_at": 1794905584000,
+    "image_count": 1,
+    "desc": "工作内容:\n您将会参与有道词典及旗下产品核心板块各语种查词、翻译、AIGC内容的编辑及运营工作。主要职责:\n1.参与轮流值班，及时响应处理词典、翻译相关报错;\n2.结合AIGC，进行多语种语言学习相关内容的编写、翻译、校对、评测;\n3.查词翻译内容质量提升工作,如编辑优化释义、音标、发音、例句等内容;\n4.挖掘时下热点,添加双语新词释义\n5.参与词典全语种内容相关项目的运营管理工作,如内容安全建设、产品调研、数据统计等。\n职位要求:\n1.语言类专业，要求英语水平在雅思7分/专八以上，且至少掌握一门小语种;\n2.外语读写能力强,请在简历中注明语言相关考试分数,及成绩排名情况;\n3对互联网感兴趣热爱语言学习有接触过AI产品\n4.每周坐班3.5天及以上\nbase广州\n⚠️免费🆓提供内推渠道！免费免费免费！\n有需要评论区dd我\n#热点[话题]# #内推[话题]# #实习生内推[话题]# #令人心动的实习日记[话题]# #实习日记[话题]#"
+  },
+  "expected": {
+    "is_job_post": true,
+    "needs_image": false,
+    "jobs": [
+      {
+        "company": "有道",
+        "position": "内容运营实习（AI）",
+        "city": "广州",
+        "education": null,
+        "graduation_year": null,
+        "skills": [
+          "AIGC",
+          "英语",
+          "小语种",
+          "内容运营"
+        ],
+        "internship_duration": null,
+        "attendance_days": "每周坐班3.5天及以上",
+        "salary": null,
+        "deadline": null,
+        "apply_method": "评论区dd我（免费提供内推渠道）",
+        "application_url": null,
+        "evidence": "您将会参与有道词典及旗下产品核心板块各语种查词、翻译、AIGC内容的编辑及运营工作。"
+      }
+    ]
+  },
+  "notes": "有道广州 AI 内容运营实习，偏向语言类专业。"
+}

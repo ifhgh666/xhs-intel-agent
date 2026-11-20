@@ -1,0 +1,35 @@
+{
+  "sample_id": "sample_16",
+  "annotated": true,
+  "note": {
+    "feed_id": "6aec770f000000000e02cc14",
+    "source_url": "https://www.xiaohongshu.com/explore/6aec770f000000000e02cc14",
+    "title": "有无想来科大讯飞实习的宝？",
+    "author": "小鱼的乌托邦（实习版）",
+    "published_at": 1793881871000,
+    "image_count": 1,
+    "desc": "科大讯飞招实习生啦！支持寒假实习，0经验也可\n✅招募要求\n本科及以上，专业不设限制，在校生、应届生均可，优先2026–2028届同学\n✅实习待遇\n本科生150–250元/天，硕士生180–400元/天\n研发岗薪资上浮，根据具体岗位调整\n园区配套齐全，提供三餐、健身房、茶水间\n✅开放岗位\n研发、产品、AI研发、算法研究、测试、大数据、设计、营销、资源、医学、教育、交付、工程、职能等多类岗位\n✅工作地点\n北京、上海、南京、武汉、合肥、广州、苏州、青岛、西安、沈阳、深圳、香港岛、石家庄、南昌、济南、成都、长沙、杭州、乌鲁木齐、昆明等多地可选\n#找实习[话题]#  #互联网大厂实习[话题]#  #令人心动的实习日记[话题]# #求职季[话题]# #实习[话题]#"
+  },
+  "expected": {
+    "is_job_post": true,
+    "needs_image": false,
+    "jobs": [
+      {
+        "company": "科大讯飞",
+        "position": "AI研发实习生",
+        "city": "广州",
+        "education": "本科及以上",
+        "graduation_year": "2026–2028届",
+        "skills": [],
+        "internship_duration": null,
+        "attendance_days": null,
+        "salary": "本科生150–250元/天，硕士生180–400元/天",
+        "deadline": null,
+        "apply_method": null,
+        "application_url": null,
+        "evidence": "研发、产品、AI研发、算法研究、测试、大数据、设计、营销、资源、医学、教育、交付、工程、职能等多类岗位"
+      }
+    ]
+  },
+  "notes": "科大讯飞全国多城多岗汇总引流帖，与 sample_09 同质重复。"
+}

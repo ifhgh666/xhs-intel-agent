@@ -1,0 +1,35 @@
+{
+  "sample_id": "sample_09",
+  "annotated": true,
+  "note": {
+    "feed_id": "6ada1c76000000003101ff04",
+    "source_url": "https://www.xiaohongshu.com/explore/6ada1c76000000003101ff04",
+    "title": "有人要来科大讯飞实习吗？可寒假，零经验",
+    "author": "黄油小月",
+    "published_at": 1792679030000,
+    "image_count": 5,
+    "desc": "要求：26届-28届本科及以上学历在校生、应届生，27届优先考虑，985/211优先\n\t\n待🐟：本科生150-250/d，硕士生180-400/d，研发类岗位更高，具体视岗位而定~有三餐、健身房和茶水间等。\n\t\n全国工作城市如下：青岛、长沙、香港岛、武汉、乌鲁木齐、石家庄、上海、昆明、合肥、济南、北京、苏州、南昌、广州、成都、南京、深圳、西安、杭州、沈阳等\n\t\n岗位需求：医学类、测试类、职能类、AI研发类、营销类、工程类、研究算法类、资源类、研发类、教育类、设计类、交付类、产品类、大数据类等岗位都需要@职场薯\n\t\n#秋招有路子[话题]# #27届秋招[话题]# #求职季[话题]# #内推[话题]# #年轻人向往的好公司[话题]# #互联网大厂实习[话题]# #秋招每日一投[话题]# #令人心动的实习日记[话题]# #应届生[话题]# #27届[话题]#"
+  },
+  "expected": {
+    "is_job_post": true,
+    "needs_image": false,
+    "jobs": [
+      {
+        "company": "科大讯飞",
+        "position": "AI研发类实习生",
+        "city": "广州",
+        "education": "本科及以上",
+        "graduation_year": "26届-28届",
+        "skills": [],
+        "internship_duration": null,
+        "attendance_days": null,
+        "salary": "本科生150-250/d，硕士生180-400/d",
+        "deadline": null,
+        "apply_method": null,
+        "application_url": null,
+        "evidence": "岗位需求：医学类、测试类、职能类、AI研发类、营销类、工程类、研究算法类"
+      }
+    ]
+  },
+  "notes": "科大讯飞全国多城多岗汇总引流帖，与 sample_16 同质重复。"
+}

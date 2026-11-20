@@ -1,0 +1,38 @@
+{
+  "sample_id": "sample_02",
+  "annotated": true,
+  "note": {
+    "feed_id": "6af522f800000000180287e1",
+    "source_url": "https://www.xiaohongshu.com/explore/6af522f800000000180287e1",
+    "title": "急招",
+    "author": "梓墨",
+    "published_at": 1794450168000,
+    "image_count": 2,
+    "desc": "岗位名称：AI医疗算法大模型实习生\n投递方式：实习僧和智联搜索科大讯飞“AI医疗算法大模型实习生”岗位投递即可\n学历要求：本科及以上\n工作地点：广州南沙区\n工作时长：一周五天/3个月以上\n工作要求如图\n#找实习[话题]# #招人[话题]# #互联网大厂实习[话题]# #科大讯飞实习[话题]# #大学生实习[话题]# #令人心动的实习日记[话题]# #"
+  },
+  "expected": {
+    "is_job_post": true,
+    "needs_image": true,
+    "jobs": [
+      {
+        "company": "科大讯飞",
+        "position": "AI医疗算法大模型实习生",
+        "city": "广州",
+        "education": "本科及以上",
+        "graduation_year": null,
+        "skills": [
+          "AI医疗算法",
+          "大模型"
+        ],
+        "internship_duration": "3个月以上",
+        "attendance_days": "一周五天",
+        "salary": null,
+        "deadline": null,
+        "apply_method": "实习僧和智联搜索科大讯飞“AI医疗算法大模型实习生”岗位投递即可",
+        "application_url": null,
+        "evidence": "岗位名称：AI医疗算法大模型实习生"
+      }
+    ]
+  },
+  "notes": "正文明确写“工作要求如图”，需标记 needs_image=true。"
+}

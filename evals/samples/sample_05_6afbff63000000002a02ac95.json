@@ -1,0 +1,35 @@
+{
+  "sample_id": "sample_05",
+  "annotated": true,
+  "note": {
+    "feed_id": "6afbff63000000002a02ac95",
+    "source_url": "https://www.xiaohongshu.com/explore/6afbff63000000002a02ac95",
+    "title": "腾讯捞实习生，接受无经验，可寒假",
+    "author": "offer助手",
+    "published_at": 1794899811000,
+    "image_count": 1,
+    "desc": "腾讯实习找(25-29届本科及以上)秋季，寒假实习，可接受到岗也可远程\n，腾讯招募实习生了，岗位缺口大，可接受無经验\n腾讯的氛围真的很好，同事，mentor和leader人都非常好，伙食和福利也是没得说，随处可见小企鹅\n核心福利待遇:提供餐补+美味下午茶/实习期满可获得正式实习证\n实习岗位:AI人工智能算法/视频运营/市场/产品经理/用户研究/数据分析等\n面向人群:25-29届本科及以上学历在校生/应届生/留学生/海归\n中蹲。base:深圳，北京，成都，上海，广州等地，可远程办公\n蹲实习时间:秋季/实习要求:实习期1个月零门槛机会:特别欢迎低年级同学申请!无相关经验者亦可投递，我们提供完善的岗前培训与指导\n#实习生内推[话题]# #内推[话题]# #找实习[话题]# #互联网大厂实习[话题]# #秋招有路子[话题]# #寒假实习[话题]##年轻人向往的好公司[话题]# #985[话题]##211[话题]##27届[话题]#"
+  },
+  "expected": {
+    "is_job_post": true,
+    "needs_image": false,
+    "jobs": [
+      {
+        "company": "腾讯",
+        "position": "AI人工智能算法实习生",
+        "city": "广州",
+        "education": "本科及以上",
+        "graduation_year": "25-29届",
+        "skills": [],
+        "internship_duration": "1个月",
+        "attendance_days": null,
+        "salary": null,
+        "deadline": null,
+        "apply_method": null,
+        "application_url": null,
+        "evidence": "实习岗位:AI人工智能算法/视频运营/市场/产品经理/用户研究/数据分析等"
+      }
+    ]
+  },
+  "notes": "全国多城多岗汇总引流帖（含广州、深圳、北京、成都、上海等及远程），核心技术岗为 AI人工智能算法。"
+}
