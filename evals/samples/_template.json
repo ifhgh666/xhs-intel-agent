@@ -1,0 +1,39 @@
+{
+  "sample_id": "sample_00_template",
+  "annotated": false,
+  "note": {
+    "feed_id": "替换为真实 feed_id",
+    "source_url": "https://www.xiaohongshu.com/explore/替换为真实 feed_id",
+    "title": "笔记标题",
+    "author": "作者昵称",
+    "published_at": "2026-11-01 12:00",
+    "image_count": 0,
+    "desc": "笔记正文全文"
+  },
+  "expected": {
+    "is_job_post": true,
+    "needs_image": false,
+    "jobs": [
+      {
+        "company": "某科技有限公司",
+        "position": "AI Agent 开发实习生",
+        "city": "广州",
+        "education": "本科及以上",
+        "graduation_year": "2028届",
+        "skills": [
+          "Python",
+          "LLM",
+          "RAG"
+        ],
+        "internship_duration": "3个月以上",
+        "attendance_days": "每周至少4天",
+        "salary": "300元/天",
+        "deadline": null,
+        "apply_method": "hr@example.com",
+        "application_url": null,
+        "evidence": "必须摘自正文的原文片段，用于防编造校验"
+      }
+    ]
+  },
+  "notes": "模板文件，不会被 evals/run_eval.py 计入评估。"
+}

@@ -1,0 +1,23 @@
+[llm]
+base_url = "https://api.deepseek.com"
+agent_model = "deepseek-chat"
+extract_model = "deepseek-chat"
+temperature_agent = 0.3
+temperature_extract = 0.0     # 抽取要稳定，用 0
+timeout_sec = 60
+# API Key 放在 .env：DEEPSEEK_API_KEY=sk-xxx
+
+[mcp]
+url = "http://localhost:18060/mcp"
+
+[rate_limit]
+min_interval_sec = 3
+jitter_sec = 5
+daily_search_limit = 50
+daily_detail_limit = 150
+
+[budget]
+max_steps = 25
+max_search_calls = 6
+max_detail_calls = 30
+max_consecutive_errors = 3
