@@ -20,7 +20,7 @@ export const EXP_CATEGORY_META: Record<
   roadmap: { label: '学习路线', bg: 'bg-indigo-50', text: 'text-indigo-700', ring: 'ring-indigo-200' },
   project: { label: '项目实战', bg: 'bg-violet-50', text: 'text-violet-700', ring: 'ring-violet-200' },
   interview: { label: '面试真题', bg: 'bg-rose-50', text: 'text-rose-700', ring: 'ring-rose-200' },
-  tips: { label: '避坑复盘', bg: 'bg-amber-50', text: 'text-amber-700', ring: 'ring-amber-200' },
+  tips: { label: '技巧避坑', bg: 'bg-amber-50', text: 'text-amber-700', ring: 'ring-amber-200' },
 }
 
 export const EXP_STATUS_META: Record<

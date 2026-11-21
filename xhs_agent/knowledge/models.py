@@ -15,7 +15,7 @@ CATEGORY_LABELS: dict[ExperienceCategory, str] = {
     "roadmap": "学习路线",
     "project": "项目实战",
     "interview": "面试真题",
-    "tips": "避坑复盘",
+    "tips": "技巧避坑",
 }
 
 

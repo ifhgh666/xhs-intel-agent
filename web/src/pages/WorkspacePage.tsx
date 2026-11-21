@@ -41,6 +41,11 @@ const STARTER_PROMPTS: { mode: AgentMode; tag: string; text: string }[] = [
     text: '帮我搜索 AI Agent 与 RAG 的学习路线、高赞实战项目和面试准备经验，入库经验知识库并导出 Markdown 笔记。',
   },
   {
+    mode: 'experience',
+    tag: '工具技巧',
+    text: '帮我搜索 OpenAI Codex CLI 的使用技巧、AGENTS.md 配置最佳实践和避坑经验，抽取入经验库并总结核心工作流。',
+  },
+  {
     mode: 'jobs',
     tag: '实习岗位',
     text: '帮我搜索广州的 AI Agent、RAG 实习岗位，优先找适合 2028 届本科生的岗位，入库后导出 Excel。',

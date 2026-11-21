@@ -31,7 +31,7 @@ _VALID_EXP_STATUSES = ["unread", "reading", "starred", "archived"]
 
 MODE_PREFIX_HINTS: dict[str, str] = {
     "jobs": "[当前模式：仅岗位情报模式 — 请专注搜索招聘帖并使用 extract_and_save_jobs / query_jobs / export_jobs，不要抽取学习经验]\n",
-    "experience": "[当前模式：仅经验知识模式 — 请专注搜索学习路线/项目/面经/避坑干货（优先按最多收藏或最多点赞排序），使用 extract_and_save_experience / query_experiences / export_experiences，不要调用 extract_and_save_jobs]\n",
+    "experience": "[当前模式：仅经验知识模式 — 请专注搜索学习路线/项目实战/工具使用技巧/面经/避坑干货（优先按最多收藏或最多点赞排序），使用 extract_and_save_experience / query_experiences / export_experiences，不要调用 extract_and_save_jobs]\n",
 }
 
 
@@ -256,7 +256,7 @@ def build_v1_registry(
             ToolSpec(
                 name="extract_and_save_experience",
                 description=(
-                    "经验知识入库管道：自动获取笔记详情（优先走本地缓存）、独立抽取学习路线/项目实战/面经真题/避坑经验、"
+                    "经验知识入库管道：自动获取笔记详情（优先走本地缓存）、独立抽取学习路线/项目实战/工具使用技巧/面经真题/避坑经验、"
                     "做原文防编造校验并写入本地 SQLite experiences 表，仅返回一行精简摘要（不暴露全文给主上下文）。"
                 ),
                 parameters={
@@ -283,7 +283,7 @@ def build_v1_registry(
             "category": {
                 "type": "string",
                 "enum": _VALID_EXP_CATEGORIES,
-                "description": "经验分类：roadmap(学习路线) / project(项目实战) / interview(面试真题) / tips(避坑复盘)",
+                "description": "经验分类：roadmap(学习路线) / project(项目实战) / interview(面试真题) / tips(技巧避坑)",
             },
             "topic": {"type": "string", "description": "主题关键词，如 'AI Agent'、'RAG'、'MCP'"},
             "keyword": {"type": "string", "description": "全文检索关键词（匹配标题、要点、技术栈与总结）"},

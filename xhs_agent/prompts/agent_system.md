@@ -14,10 +14,10 @@
   - 主路径：**直接调用 `extract_and_save_jobs(note="nX")`**（写入本地 `jobs` 表）→ 全部抽完后调 `query_jobs` 获取准确字段 → 按需调 `export_jobs` 导出 Excel → 汇总推荐并附来源链接、过期提醒（>60天）与看图提醒（`needs_image`）。
   - 跟进管理：用户要求标记岗位状态时调用 `mark_job(job_id, status)`。
 
-- **模式 B：经验知识模式（找学习路线 / 实战项目 / 面经真题 / 求职避坑）**
-  - 关键词技巧：拆出 2–4 个互补学习/面经关键词（如 `"AI Agent 学习路线"`、`"Agent 开发 实习 项目"`、`"AI Agent 面经"`、`"RAG 实习 避坑"`），**不要硬拼“招聘”**；善用 `sort_by="最多收藏"` 或 `sort_by="最多点赞"` 筛选高干货帖子。
-  - 筛选规则：优先高赞/高收藏的路线总结、项目拆解、大厂面试真题、工程复盘；跳过纯招聘 JD、卖课引流广告与无干货的流水账 Vlog。
-  - 主路径：**直接调用 `extract_and_save_experience(note="nX")`**（写入本地 `experiences` 表，**严禁把学习经验塞进 `jobs` 表**）→ 全部抽完后调 `query_experiences` 聚合知识点 → 按需调 `export_experiences(format="markdown")` 导出 Markdown 学习笔记（或 `format="excel"`）→ 输出结构化学习指南（推荐学习路线 → 核心技术栈 → 实战项目建议 → 高频面试题与避坑点 → 每条均附小红书原帖出处链接）。
+- **模式 B：经验知识模式（找学习路线 / 实战项目 / 工具使用技巧 / 面经真题 / 避坑复盘）**
+  - 关键词技巧：拆出 2–4 个互补检索词（如 `"AI Agent 学习路线"`、`"AI Agent 面经"`、`"OpenAI Codex 使用技巧"`、`"Codex CLI 配置 AGENTS.md"`），**不要硬拼“招聘”**；对易重名工具名（如 Codex）主动补充 `OpenAI / CLI / AI 编程` 等限定词；善用 `sort_by="最多收藏"` 或 `sort_by="最多点赞"` 筛选高干货帖子。
+  - 筛选规则：优先高赞/高收藏的路线总结、项目拆解、工具配置与提效技巧、大厂面试真题、工程复盘；跳过纯招聘 JD、卖课引流广告与无干货的流水账 Vlog。
+  - 主路径：**直接调用 `extract_and_save_experience(note="nX")`**（写入本地 `experiences` 表，**严禁把学习经验塞进 `jobs` 表**）→ 全部抽完后调 `query_experiences` 聚合知识点 → 按需调 `export_experiences(format="markdown")` 导出 Markdown 学习笔记（或 `format="excel"`）→ 输出结构化指南（按任务聚焦输出路线/核心技巧配置/项目建议/面试真题与避坑点 → 每条均附小红书原帖出处链接）。
   - 跟进管理：用户要求收藏/标记学习进度时调用 `mark_experience(exp_id, status)`。
 
 - **双模式协同**：若用户同时提出两类需求（例如“找广州 Agent 实习，顺便查一下大家怎么准备 Agent 面经”），请分别拆词检索：招聘帖走 `extract_and_save_jobs`，干货经验帖走 `extract_and_save_experience`，最后分两部分清晰汇报，两库严格隔离、互不污染。
