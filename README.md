@@ -114,6 +114,77 @@ flowchart TB
 | [trace.py](xhs_agent/harness/trace.py) | `TraceLogger` | 将每次运行的 `turn_start`、`llm_request/response`、`tool_call/result`、`budget_exhausted`、`cancelled`、`turn_complete` 实时追加写入 `traces/<session_id>.jsonl`，直接支撑 Web「监控与 Trace 回放」视图。 |
 | [pricing.py](xhs_agent/harness/pricing.py) | `CostEstimate`、`estimate_cost` | 读取 `config.toml` 的 `[pricing]` 费率表，拆分计算缓存命中费用、未命中费用、输出费用与缓存节省金额（CNY）。 |
 
+### 上下文压缩机制（两层防膨胀）
+
+为了在多轮检索中同时做到 **低 Token 成本、高前缀缓存命中率、不破坏 `tool_calls` 协议**，上下文治理分为**源头降噪**与**两阶段安全压缩**两层：
+
+1. **源头降噪（进上下文之前就瘦身）**
+   - **搜索载荷裁剪 -85.8%**：`search_notes` 过滤掉头像/封面签名 URL、推荐埋点与长 `xsec_token`，只把短编号（`n1/n2...`）与标题/作者/发布时间/赞评数 6 个字段返给主模型；
+   - **子抽取器上下文隔离**：`extract_and_save_jobs` 与 `extract_and_save_experience` 在内部起独立的 JSON 抽取 LLM 处理笔记全文，**正文原文绝不塞进主 Agent 上下文**，主模型只收到一行入库摘要（`note=n3 status=saved created=1`）。
+2. **两阶段安全压缩（[context.py](xhs_agent/harness/context.py)）**
+   - 正常运行时消息**只向后追加**（System Prompt 固定置顶），不做原地改写，最大化 DeepSeek 前缀缓存命中率；
+   - 仅当总字符超过阈值 `max_chars = 48,000` 时触发裁剪，始终锁定保留头部（System Prompt + 首轮需求）与最近 `keep_recent_turns = 6` 组原子轮次：
+     - **阶段一（工具结果摘要替换）**：把较早轮次的 `role="tool"` 大段 JSON 替换为一行合法紧凑 JSON 摘要（`{"ok": true, "summary": "..."}`），完整保留 `assistant(tool_calls) → tool` 配对关系；
+     - **阶段二（原子轮次整组淘汰）**：若仍超 `48,000` 字符，则按「`assistant(tool_calls)` + 对应全部 `tool` 消息」**整组**丢弃最早轮次，杜绝孤立 `tool_call_id` 导致 API 报错。
+
+### 记忆机制（三层分层）
+
+| 记忆层 | 载体 | 生命周期 | 作用 |
+| --- | --- | --- | --- |
+| **短期工作记忆** | `ContextManager` + `NoteCache`（内存） | 单次会话内（支持 CLI `-i` 与 Web 多轮追问） | 保存多轮对话上下文、以及短编号 `n1/n2...` 到真实 `(feed_id, xsec_token, detail)` 的映射。 |
+| **长期结构化记忆** | 本地 SQLite `data/xhs_jobs.db`（WAL 模式） | 跨会话永久持久化 | 4 张核心表：`notes`（原帖全文缓存 + `processed_at`/`exp_processed_at` 双去重标记）、`jobs`（岗位库）、`experiences`（经验库）、`daily_usage`（每日限流计数）。新会话可直接调 `query_jobs` / `query_experiences` 检索历史沉淀，无需重搜小红书。 |
+| **审计回放记忆** | `traces/<session_id>.jsonl` | 永久持久化 | 逐事件记录每次 LLM 与工具调用、耗时、Token 与费用，供 Web「监控与 Trace 回放」页复盘。 |
+
+> **当前边界说明**：长期记忆目前采用**确定性结构化存储（SQLite + SQL 筛选）**，暂未引入跨会话聊天记录持久化或向量语义记忆；Web 重启后内存中的旧聊天上下文会清空，但所有已入库的岗位、经验、原帖缓存与 Trace 轨迹均完整留存。
+
+### Tool 清单（全部 10 个注册工具）
+
+全部注册于 [runtime.py](xhs_agent/harness/runtime.py) 的 `ToolRegistry`，供 DeepSeek 通过原生 Function Calling 调度：
+
+| 分组 | 工具名 | 读写 | 超时 / 预算组 | 职责说明 |
+| --- | --- | --- | --- | --- |
+| **公共检索** | `search_notes` | 只读 | `35s` / `search` | 调 MCP 搜索小红书，按 `sort_by` / `publish_time` / `note_type` 过滤，裁剪返回短编号列表（`n1/n2...`） |
+| **公共检索** | `get_note_detail` | 只读 | `95s` / `detail` | 可选正文预览（仅标题极模糊时使用，优先命中本地缓存） |
+| **岗位管道** | `extract_and_save_jobs` | 写本地库 | `150s` / `detail` | 独立岗位抽取 LLM + `verify_evidence()` 原文核验 + 双层去重写入 `jobs` 表 |
+| **岗位管道** | `query_jobs` | 只读 | `15s` / 不限 | 按城市、关键词、届别、状态、60 天时效查询本地 `jobs` 表 |
+| **岗位管道** | `mark_job` | 写本地库 | `15s` / 不限 | 更新岗位跟进状态（`new / interested / applied / rejected / expired`） |
+| **岗位管道** | `export_jobs` | 写本地文件 | `30s` / 不限 | 导出规范化岗位情报 Excel（`.xlsx`） |
+| **经验管道** | `extract_and_save_experience` | 写本地库 | `150s` / `detail` | 独立经验抽取 LLM + `verify_evidence()` 原文核验 + 去重写入 `experiences` 表 |
+| **经验管道** | `query_experiences` | 只读 | `15s` / 不限 | 按分类（`roadmap / project / interview / tips`）、主题、关键词、学习状态查询 `experiences` 表 |
+| **经验管道** | `mark_experience` | 写本地库 | `15s` / 不限 | 更新经验学习状态（`unread / reading / starred / archived`） |
+| **经验管道** | `export_experiences` | 写本地文件 | `30s` / 不限 | 导出结构化 Markdown 学习笔记（`.md`）或 Excel（`.xlsx`） |
+
+### MCP 连接与防风控链路
+
+```text
+XhsAdapter (只读白名单校验)
+   │  仅放行: check_login_status / search_feeds / get_feed_detail
+   │  硬封禁: publish_content / like_feed / post_comment / favorite_feed / delete_cookies 等 9 个写工具
+   ▼
+RateLimiter (防风控三道闸)
+   │  ① 全局 asyncio.Lock 单路串行  ② 两次调用间隔 3s + random(0, 5s)  ③ SQLite 每日硬配额 (search≤50 / detail≤150)
+   ▼
+MCPClient (Streamable HTTP 长连接)
+   │  官方 mcp Python SDK (兼容 1.x / 2.x) → http://localhost:18060/mcp（断线自动重连一次）
+   ▼
+Docker: xpzouying/xiaohongshu-mcp
+      无头浏览器挂载 ./data/xhs_mcp/cookies.json，返回小红书原始 JSON
+```
+
+- **启动三项预检（Fail-Fast）**：Runtime 启动时自动校验 ① MCP 端口可达、② 白名单 3 工具存在且必填参数 Schema 匹配、③ 登录态有效，任一项不满足立即报错提示，不浪费 LLM Token。
+- **短编号凭证隔离**：真实 `feed_id` 与 `xsec_token` 仅保存在 `NoteCache` / SQLite，模型只接触 `n1/n2`，彻底避免模型抄错 token 或泄露凭证；同时利用 `int(feed_id[:8], 16)` 解码精确发布时间（20 篇实测 0 秒误差）。
+
+### Hook 与生命周期拦截点
+
+本项目目前**没有**提供外部声明式配置 Hook（如读取 `hooks.json` 执行外部 Shell 命令），但在 Harness 内部以**代码级拦截点与事件回调**实现了等效的生命周期 Hook：
+
+| 机制 | 位置 | 触发时机与作用 |
+| --- | --- | --- |
+| **Pre-Tool Guard（执行前拦截）** | `ExecutionEngine.execute()` · `XhsAdapter.call_allowed_tool()` | 工具调用前依次拦截：白名单检查 → `jsonschema` 参数校验 → 预算组上限检查 → MCP 只读白名单 → `RateLimiter` 串行与每日配额闸门。 |
+| **Post-Extract Guard（入库前防编造）** | `verify_evidence()`（`jobs/extract.py` & `knowledge/extract.py`） | 抽取 LLM 返回后强制校验 `evidence` 是否为原文连续子串，不通过直接拦截丢弃；来源字段（`note_id`、`source_url`、`published_at`）由代码强覆盖，不信任模型输出。 |
+| **Event Hook（`on_event` 观察者回调）** | `AgentLoop.run_turn(..., on_event=...)` | 在 `turn_start`、`llm_request`、`llm_response`、`tool_call`、`tool_result`、`budget_exhausted`、`cancelled`、`turn_complete` 8 个节点统一派发事件，CLI 渲染、Trace 落盘与 Web SSE 实时推送均作为订阅者挂载其上。 |
+| **Cancel Hook（协作式取消）** | `cancel_event: asyncio.Event` | 每轮循环与工具调用前检测取消信号，支持 Web 端随时中止长耗时任务并安全释放单任务互斥锁。 |
+
 ---
 
 ## 双模式与 Agent Loop
