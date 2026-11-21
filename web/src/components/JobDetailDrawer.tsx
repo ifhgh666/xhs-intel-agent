@@ -14,6 +14,7 @@ import {
   X,
 } from 'lucide-react'
 import type { JobItem, JobStatus } from '../api/types'
+import { OriginalNoteViewer } from './OriginalNoteViewer'
 import { StatusSelect } from './StatusBadge'
 
 interface JobDetailDrawerProps {
@@ -150,13 +151,18 @@ export function JobDetailDrawer({
             </blockquote>
           </div>
 
+          {/* 本地原帖全文与配图（免扫码直接查看） */}
+          {job.note_id && (
+            <OriginalNoteViewer noteId={job.note_id} defaultExpanded={job.needs_image} />
+          )}
+
           {/* 来源溯源 */}
           <div className="space-y-2 border-t border-slate-100 pt-4 text-xs text-slate-600">
             <div className="font-semibold text-slate-700">来源溯源</div>
             <div>原帖标题：{job.note_title || '-'}</div>
             <div>作者：{job.note_author || '-'}</div>
             <a
-              href={job.source_url}
+              href={job.open_url || job.source_url}
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-1.5 font-medium text-rose-600 hover:underline"
@@ -195,7 +201,7 @@ export function JobDetailDrawer({
             删除此条
           </button>
           <a
-            href={job.source_url}
+            href={job.open_url || job.source_url}
             target="_blank"
             rel="noreferrer"
             className="inline-flex items-center gap-1.5 rounded-lg bg-slate-900 px-3.5 py-1.5 text-xs font-medium text-white hover:bg-slate-800"

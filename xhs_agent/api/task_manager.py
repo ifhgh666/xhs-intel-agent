@@ -314,20 +314,31 @@ class TaskManager:
                     max_detail_calls=eff_detail,
                     mode=eff_mode,
                 )
+                from xhs_agent.xhs.cache import build_open_url
+
                 after_jobs = self.state.store.query_jobs(limit=500) if self.state.store is not None else []
-                newly_saved = [
-                    j.model_dump(mode="json")
-                    for j in after_jobs
-                    if j.id is not None and j.id not in before_job_ids
-                ]
                 after_exps = self.state.store.query_experiences(limit=500) if self.state.store is not None else []
+                new_job_objs = [j for j in after_jobs if j.id is not None and j.id not in before_job_ids]
+                new_exp_objs = [e for e in after_exps if e.id is not None and e.id not in before_exp_ids]
+                tokens = (
+                    self.state.store.get_xsec_tokens([j.note_id for j in new_job_objs] + [e.note_id for e in new_exp_objs])
+                    if self.state.store is not None
+                    else {}
+                )
+                newly_saved = [
+                    {
+                        **j.model_dump(mode="json"),
+                        "open_url": build_open_url(j.note_id, tokens.get(j.note_id)) if j.note_id else j.source_url,
+                    }
+                    for j in new_job_objs
+                ]
                 newly_saved_exps = [
                     {
                         **e.model_dump(mode="json"),
                         "category_label": CATEGORY_LABELS.get(e.category, e.category),
+                        "open_url": build_open_url(e.note_id, tokens.get(e.note_id)) if e.note_id else e.source_url,
                     }
-                    for e in after_exps
-                    if e.id is not None and e.id not in before_exp_ids
+                    for e in new_exp_objs
                 ]
 
                 run.status = "cancelled" if result.stop_reason == "cancelled" else "completed"

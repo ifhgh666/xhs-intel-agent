@@ -360,7 +360,7 @@ export function ExperiencesPage({ onMutated }: ExperiencesPageProps) {
                         )}
                       </div>
                       <a
-                        href={exp.source_url}
+                        href={exp.open_url || exp.source_url}
                         target="_blank"
                         rel="noreferrer"
                         onClick={(e) => e.stopPropagation()}

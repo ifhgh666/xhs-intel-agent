@@ -60,6 +60,7 @@ export interface JobItem {
   confidence: number
   note_id: string
   source_url: string
+  open_url?: string
   note_title: string | null
   note_author: string | null
   note_published_at: string | null
@@ -150,6 +151,7 @@ export interface ExperienceItem {
   evidence: string
   confidence: number
   source_url: string
+  open_url?: string
   note_title: string | null
   note_author: string | null
   note_published_at: string | null
@@ -246,4 +248,25 @@ export interface OverviewStats {
   total_cache_savings_cny: number
   avg_cache_hit_rate: number
   daily_usage: DailyUsageSummary
+}
+
+export interface NoteImage {
+  url: string
+  preview_url: string
+  width: number | null
+  height: number | null
+}
+
+export interface NoteSnapshot {
+  feed_id: string
+  title: string
+  author: string | null
+  ip_location: string | null
+  published_at: string | null
+  desc: string
+  tags: string[]
+  images: NoteImage[]
+  source_url: string
+  open_url: string
+  has_detail: boolean
 }

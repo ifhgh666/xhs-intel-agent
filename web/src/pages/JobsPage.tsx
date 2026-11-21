@@ -349,7 +349,7 @@ export function JobsPage({ onJobsMutated }: JobsPageProps) {
                       </td>
                       <td className="px-3 py-3 text-right whitespace-nowrap">
                         <a
-                          href={job.source_url}
+                          href={job.open_url || job.source_url}
                           target="_blank"
                           rel="noreferrer"
                           onClick={(e) => e.stopPropagation()}

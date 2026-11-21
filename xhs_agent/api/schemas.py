@@ -70,6 +70,7 @@ class JobItemResponse(BaseModel):
     confidence: float
     note_id: str
     source_url: str
+    open_url: str = ""
     note_title: str | None = None
     note_author: str | None = None
     note_published_at: datetime | None = None
@@ -154,6 +155,7 @@ class ExperienceItemResponse(BaseModel):
     evidence: str
     confidence: float
     source_url: str
+    open_url: str = ""
     note_title: str | None = None
     note_author: str | None = None
     note_published_at: datetime | None = None
@@ -242,3 +244,24 @@ class SessionDetailResponse(SessionSummaryResponse):
     tool_calls: dict[str, int] = Field(default_factory=dict)
     messages: list[SessionMessageItem] = Field(default_factory=list)
     latest_events: list[dict[str, Any]] = Field(default_factory=list)
+
+
+class NoteImageResponse(BaseModel):
+    url: str
+    preview_url: str
+    width: int | None = None
+    height: int | None = None
+
+
+class NoteSnapshotResponse(BaseModel):
+    feed_id: str
+    title: str
+    author: str | None = None
+    ip_location: str | None = None
+    published_at: datetime | None = None
+    desc: str = ""
+    tags: list[str] = Field(default_factory=list)
+    images: list[NoteImageResponse] = Field(default_factory=list)
+    source_url: str
+    open_url: str
+    has_detail: bool = False

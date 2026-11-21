@@ -12,6 +12,7 @@ import {
   X,
 } from 'lucide-react'
 import type { ExperienceCategory, ExperienceItem, ExperienceStatus } from '../api/types'
+import { OriginalNoteViewer } from './OriginalNoteViewer'
 
 export const EXP_CATEGORY_META: Record<
   ExperienceCategory,
@@ -222,6 +223,11 @@ export function ExperienceDetailDrawer({
             </blockquote>
           </div>
 
+          {/* 本地原帖全文与配图（免扫码直接查看） */}
+          {item.note_id && (
+            <OriginalNoteViewer noteId={item.note_id} defaultExpanded={item.needs_image} />
+          )}
+
           <div className="space-y-1 border-t border-slate-100 pt-4 text-xs text-slate-500">
             <div>原帖标题：{item.note_title || '-'}</div>
             <div>作者：{item.note_author || '-'}</div>
@@ -237,7 +243,7 @@ export function ExperienceDetailDrawer({
             删除此条
           </button>
           <a
-            href={item.source_url}
+            href={item.open_url || item.source_url}
             target="_blank"
             rel="noreferrer"
             className="inline-flex items-center gap-1.5 rounded-lg bg-slate-900 px-3.5 py-1.5 text-xs font-medium text-white hover:bg-slate-800"

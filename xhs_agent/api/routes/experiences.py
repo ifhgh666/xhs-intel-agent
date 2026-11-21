@@ -28,6 +28,7 @@ from xhs_agent.knowledge.tools import (
     export_experiences_to_excel,
     export_experiences_to_markdown,
 )
+from xhs_agent.xhs.cache import build_open_url
 
 router = APIRouter(prefix="/api/experiences", tags=["experiences"])
 
@@ -39,7 +40,7 @@ def _get_store(request: Request):
     return state.store
 
 
-def _to_item(record: ExperienceRecord) -> ExperienceItemResponse:
+def _to_item(record: ExperienceRecord, xsec_token: str | None = None) -> ExperienceItemResponse:
     assert record.id is not None
     return ExperienceItemResponse(
         id=record.id,
@@ -57,6 +58,7 @@ def _to_item(record: ExperienceRecord) -> ExperienceItemResponse:
         evidence=record.evidence,
         confidence=record.confidence,
         source_url=record.source_url,
+        open_url=build_open_url(record.note_id, xsec_token) if record.note_id else record.source_url,
         note_title=record.note_title,
         note_author=record.note_author,
         note_published_at=record.note_published_at,
@@ -92,11 +94,12 @@ async def list_experiences(
         page_size=page_size,
         include_facets=True,
     )
+    tokens = store.get_xsec_tokens([e.note_id for e in res["items"]])
     return ExperienceListResponse(
         total=res["total"],
         page=res["page"],
         page_size=res["page_size"],
-        items=[_to_item(e) for e in res["items"]],
+        items=[_to_item(e, tokens.get(e.note_id)) for e in res["items"]],
         facets=ExperienceFacetsResponse.model_validate(res["facets"]),
     )
 
@@ -155,7 +158,8 @@ async def get_experience_detail(request: Request, exp_id: int) -> ExperienceItem
     record = store.get_experience(exp_id)
     if record is None:
         raise HTTPException(status_code=404, detail=f"未找到 ID={exp_id} 的经验记录")
-    return _to_item(record)
+    tokens = store.get_xsec_tokens([record.note_id])
+    return _to_item(record, tokens.get(record.note_id))
 
 
 @router.patch("/{exp_id}", response_model=ExperienceItemResponse)
@@ -170,7 +174,8 @@ async def update_experience_status(
         raise HTTPException(status_code=404, detail=f"未找到 ID={exp_id} 的经验记录")
     record = store.get_experience(exp_id)
     assert record is not None
-    return _to_item(record)
+    tokens = store.get_xsec_tokens([record.note_id])
+    return _to_item(record, tokens.get(record.note_id))
 
 
 @router.delete("/{exp_id}", response_model=DeleteExperienceResponse)

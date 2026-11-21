@@ -13,6 +13,7 @@ import re
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from typing import Any
+from urllib.parse import urlencode
 
 _HEX8_RE = re.compile(r"^[0-9a-fA-F]{8}")
 
@@ -55,6 +56,16 @@ def parse_timestamp(value: Any) -> datetime | None:
 
 def build_source_url(feed_id: str) -> str:
     return f"https://www.xiaohongshu.com/explore/{feed_id}"
+
+
+def build_open_url(feed_id: str, xsec_token: str | None = None) -> str:
+    """构造可直达小红书网页端的原帖链接（有 xsec_token 时自动拼接，减少风控拦截）。"""
+    base = build_source_url(feed_id)
+    tok = (xsec_token or "").strip()
+    if not tok:
+        return base
+    query = urlencode({"xsec_token": tok, "xsec_source": "pc_search"})
+    return f"{base}?{query}"
 
 
 @dataclass

@@ -585,7 +585,7 @@ export function WorkspacePage({
                                         <Star className={`h-3.5 w-3.5 ${isStarred ? 'fill-amber-400' : ''}`} />
                                       </button>
                                       <a
-                                        href={job.source_url}
+                                        href={job.open_url || job.source_url}
                                         target="_blank"
                                         rel="noreferrer"
                                         className="rounded-md p-1 text-slate-400 hover:bg-slate-100 hover:text-rose-600"
@@ -635,7 +635,7 @@ export function WorkspacePage({
                                         <Star className={`h-3.5 w-3.5 ${isStarred ? 'fill-amber-400' : ''}`} />
                                       </button>
                                       <a
-                                        href={exp.source_url}
+                                        href={exp.open_url || exp.source_url}
                                         target="_blank"
                                         rel="noreferrer"
                                         className="rounded-md p-1 text-slate-400 hover:bg-slate-100 hover:text-indigo-600"

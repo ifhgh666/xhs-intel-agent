@@ -269,8 +269,20 @@ def test_d2_dual_mode_web_api_sse_and_experiences_endpoints(tmp_path: Path):
         assert r_list.status_code == 200
         body = r_list.json()
         assert body["total"] == 1
-        exp_id = body["items"][0]["id"]
+        exp_item = body["items"][0]
+        exp_id = exp_item["id"]
         assert body["facets"]["category_counts"]["interview"] == 1
+        assert "xsec_token=" in exp_item["open_url"] and "xsec_source=pc_search" in exp_item["open_url"]
+
+        # 验证本地原帖快照接口（正文 + 配图 + 带 token 外链）
+        r_note = client.get(f"/api/notes/{exp_item['note_id']}")
+        assert r_note.status_code == 200
+        snap = r_note.json()
+        assert snap["has_detail"] is True
+        assert "coding agent" in snap["desc"].lower()
+        assert "xsec_token=" in snap["open_url"]
+        assert all(img["url"].startswith("https://") for img in snap["images"])
+        assert client.get("/api/notes/nonexistent_feed_id").status_code == 404
 
         r_patch = client.patch(f"/api/experiences/{exp_id}", json={"status": "starred"})
         assert r_patch.status_code == 200 and r_patch.json()["status"] == "starred"

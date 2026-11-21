@@ -9,6 +9,7 @@ import type {
   JobQueryParams,
   JobStatus,
   LoginQrcodeResponse,
+  NoteSnapshot,
   OverviewStats,
   SessionDetail,
   SessionSummary,
@@ -137,6 +138,10 @@ export const api = {
       `/api/sessions/${sessionId}/cancel`,
       { method: 'POST' },
     ),
+
+  // Notes (local cached original post + images)
+  getNoteSnapshot: (feedId: string) =>
+    request<NoteSnapshot>(`/api/notes/${encodeURIComponent(feedId)}`),
 
   // Traces & Overview
   listTraces: () => request<TraceSummary[]>('/api/traces'),

@@ -251,6 +251,97 @@ class JobStore:
             "exp_processed_at": _iso_to_dt(row["exp_processed_at"]) if "exp_processed_at" in row.keys() else None,
         }
 
+    def get_xsec_tokens(self, feed_ids: Sequence[str]) -> dict[str, str]:
+        """批量查询笔记的 xsec_token，供 Web API 构造免拦截直达原帖链接。"""
+        unique_ids = [fid for fid in dict.fromkeys(feed_ids) if fid]
+        if not unique_ids:
+            return {}
+        placeholders = ",".join("?" for _ in unique_ids)
+        with self._lock:
+            rows = self._conn.execute(
+                f"SELECT feed_id, xsec_token FROM notes WHERE feed_id IN ({placeholders})",
+                tuple(unique_ids),
+            ).fetchall()
+        return {str(r["feed_id"]): str(r["xsec_token"]) for r in rows if r["xsec_token"]}
+
+    def get_note_snapshot(self, feed_id: str) -> dict[str, Any] | None:
+        """提取本地缓存的原帖全文、标签、配图与带 xsec_token 的直达链接。"""
+        from xhs_agent.xhs.cache import build_open_url, build_source_url
+
+        note_row = self.get_note(feed_id)
+        if note_row is None:
+            return None
+
+        detail = note_row.get("detail")
+        node: dict[str, Any] = {}
+        if isinstance(detail, dict):
+            cand = detail
+            if isinstance(cand.get("data"), dict):
+                cand = cand["data"]
+            if isinstance(cand.get("note"), dict):
+                cand = cand["note"]
+            elif isinstance(cand.get("feed"), dict):
+                cand = cand["feed"]
+            if isinstance(cand, dict):
+                node = cand
+
+        user = node.get("user") if isinstance(node.get("user"), dict) else {}
+        title = str(node.get("title") or node.get("displayTitle") or note_row.get("title") or "").strip()
+        desc = str(node.get("desc") or node.get("content") or node.get("description") or "").strip()
+        author = str(
+            user.get("nickname") or user.get("nickName") or user.get("name") or note_row.get("author") or ""
+        ).strip()
+        ip_location = str(node.get("ipLocation") or "").strip() or None
+
+        raw_tags = node.get("tagList") or node.get("tag_list") or node.get("tags") or []
+        tags: list[str] = []
+        if isinstance(raw_tags, list):
+            for tag in raw_tags:
+                if isinstance(tag, dict) and tag.get("name"):
+                    tags.append(str(tag["name"]).strip())
+                elif isinstance(tag, str) and tag.strip():
+                    tags.append(tag.strip())
+
+        def _normalize_img_url(raw: Any) -> str:
+            u = str(raw or "").strip()
+            if u.startswith("http://"):
+                return "https://" + u[len("http://") :]
+            return u
+
+        raw_images = node.get("imageList") or node.get("image_list") or node.get("images") or []
+        images: list[dict[str, Any]] = []
+        if isinstance(raw_images, list):
+            for img in raw_images:
+                if not isinstance(img, dict):
+                    continue
+                url = _normalize_img_url(img.get("urlDefault") or img.get("url") or img.get("urlPre"))
+                preview = _normalize_img_url(img.get("urlPre") or url)
+                if not url:
+                    continue
+                images.append(
+                    {
+                        "url": url,
+                        "preview_url": preview or url,
+                        "width": int(img["width"]) if isinstance(img.get("width"), (int, float)) else None,
+                        "height": int(img["height"]) if isinstance(img.get("height"), (int, float)) else None,
+                    }
+                )
+
+        xsec_token = note_row.get("xsec_token") or ""
+        return {
+            "feed_id": feed_id,
+            "title": title or "(无标题)",
+            "author": author or None,
+            "ip_location": ip_location,
+            "published_at": note_row.get("published_at"),
+            "desc": desc,
+            "tags": tags,
+            "images": images,
+            "source_url": build_source_url(feed_id),
+            "open_url": build_open_url(feed_id, xsec_token),
+            "has_detail": detail is not None,
+        }
+
     def is_note_processed(self, feed_id: str) -> bool:
         with self._lock:
             row = self._conn.execute(

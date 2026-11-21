@@ -19,6 +19,7 @@ from xhs_agent.api.schemas import (
 from xhs_agent.api.state import WebAppState
 from xhs_agent.jobs.models import JobRecord, JobStatus
 from xhs_agent.jobs.tools import export_jobs_to_excel
+from xhs_agent.xhs.cache import build_open_url
 
 router = APIRouter(prefix="/api/jobs", tags=["jobs"])
 
@@ -30,7 +31,7 @@ def _get_store(request: Request):
     return state.store
 
 
-def _to_item(record: JobRecord) -> JobItemResponse:
+def _to_item(record: JobRecord, xsec_token: str | None = None) -> JobItemResponse:
     assert record.id is not None
     return JobItemResponse(
         id=record.id,
@@ -50,6 +51,7 @@ def _to_item(record: JobRecord) -> JobItemResponse:
         confidence=record.confidence,
         note_id=record.note_id,
         source_url=record.source_url,
+        open_url=build_open_url(record.note_id, xsec_token) if record.note_id else record.source_url,
         note_title=record.note_title,
         note_author=record.note_author,
         note_published_at=record.note_published_at,
@@ -87,11 +89,12 @@ async def list_jobs(
         page_size=page_size,
         include_facets=True,
     )
+    tokens = store.get_xsec_tokens([j.note_id for j in res["items"]])
     return JobListResponse(
         total=res["total"],
         page=res["page"],
         page_size=res["page_size"],
-        items=[_to_item(j) for j in res["items"]],
+        items=[_to_item(j, tokens.get(j.note_id)) for j in res["items"]],
         facets=JobFacetsResponse.model_validate(res["facets"]),
     )
 
@@ -140,7 +143,8 @@ async def get_job_detail(request: Request, job_id: int) -> JobItemResponse:
     record = store.get_job(job_id)
     if record is None:
         raise HTTPException(status_code=404, detail=f"未找到 ID={job_id} 的岗位记录")
-    return _to_item(record)
+    tokens = store.get_xsec_tokens([record.note_id])
+    return _to_item(record, tokens.get(record.note_id))
 
 
 @router.patch("/{job_id}", response_model=JobItemResponse)
@@ -155,7 +159,8 @@ async def update_job_status(
         raise HTTPException(status_code=404, detail=f"未找到 ID={job_id} 的岗位记录")
     record = store.get_job(job_id)
     assert record is not None
-    return _to_item(record)
+    tokens = store.get_xsec_tokens([record.note_id])
+    return _to_item(record, tokens.get(record.note_id))
 
 
 @router.delete("/{job_id}", response_model=DeleteJobResponse)
