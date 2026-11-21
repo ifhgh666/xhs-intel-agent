@@ -5,7 +5,7 @@ from __future__ import annotations
 from contextlib import asynccontextmanager
 from pathlib import Path
 
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
@@ -95,8 +95,8 @@ def create_app(
 
         @app.get("/{full_path:path}", include_in_schema=False)
         async def serve_spa(full_path: str):
-            if full_path.startswith("api/"):
-                return {"detail": "Not Found"}
+            if full_path == "api" or full_path.startswith("api/"):
+                raise HTTPException(status_code=404, detail="Not Found")
             candidate = (dist_dir / full_path).resolve()
             if full_path and dist_dir.resolve() in candidate.parents and candidate.is_file():
                 return FileResponse(str(candidate))

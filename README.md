@@ -28,13 +28,17 @@ uv run python scripts/probe_login.py
 # 3. 单轮搜索、抽取入库并导出 Excel
 uv run python -m xhs_agent "帮我搜索广州的 AI Agent、RAG 实习岗位，优先找适合 2028 届本科生的岗位，入库后导出 Excel。"
 
-# 4. 多轮交互模式（支持追问筛选、mark_job 标记感兴趣/已投递、随时导出 Excel）
+# 4. 启动 Web 前后端工作台（单端口托管，浏览器打开 http://127.0.0.1:8000）
+cd web && npm install && npm run build && cd ..
+uv run python -m xhs_agent.api
+
+# 5. 多轮交互 CLI 模式（支持追问筛选、mark_job 标记感兴趣/已投递、随时导出 Excel）
 uv run python -m xhs_agent -i
 
-# 5. 运行全量离线测试（不依赖真实小红书与 LLM）
+# 6. 运行全量离线测试（不依赖真实小红书与 LLM）
 uv run pytest -v
 
-# 6. 运行 20 篇真实样本抽取评估
+# 7. 运行 20 篇真实样本抽取评估
 uv run python evals/run_eval.py
 ```
 
@@ -45,7 +49,8 @@ uv run python evals/run_eval.py
 - [x] 阶段 2：小红书适配层（`phase-2`：MCPClient、RateLimiter、NoteCache、XhsAdapter，搜索裁剪 -85.8%）
 - [x] 阶段 3：Harness 核心（`phase-3`：ToolRegistry、Trace、ExecutionEngine、ContextManager、DeepSeekClient、AgentLoop、Runtime、CLI）
 - [x] 阶段 4：岗位抽取与存储（`phase-4`：SQLite notes/jobs/daily_usage、JSON 抽取 + 原文证据校验、双层去重、Excel 导出，20 篇评估集核心字段准确率 97.8% / 编造率 0.0%）
-- [x] 阶段 5：工程化与增强（`phase-5`：全链路主/抽取 Token 与人民币费用统计、`mark_job` 状态管理、多轮交互式 CLI `-i`、日志分级 `-v`、48 项离线单测与端到端模拟测试全通过）
+- [x] 阶段 5：工程化与增强（`phase-5`：全链路主/抽取 Token 与人民币费用统计、`mark_job` 状态管理、多轮交互式 CLI `-i`、日志分级 `-v`）
+- [x] Web 前后端（`web-v1`：FastAPI + SSE 实时执行流、单任务互斥与取消、网页扫码登录弹窗、React + Vite + Tailwind 三视图工作台与单端口静态托管，54 项离线测试全通过）
 
 ## 使用说明
 

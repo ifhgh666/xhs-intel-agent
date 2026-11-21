@@ -234,3 +234,28 @@ async def test_w2_single_active_task_conflict_and_graceful_cancel(tmp_path: Path
             assert not any(name == "search_feeds" for name, _ in mock_mcp.calls)
             st = (await ac.get("/api/system/status")).json()
             assert st["active_session_id"] is None
+
+
+def test_w4_spa_static_hosting_and_api_404(tmp_path: Path):
+    dist = tmp_path / "dist"
+    (dist / "assets").mkdir(parents=True)
+    (dist / "index.html").write_text("<html><title>XHS SPA</title></html>", encoding="utf-8")
+    (dist / "assets" / "app.js").write_text("console.log('ok');", encoding="utf-8")
+
+    app = create_app(
+        db_path=tmp_path / "jobs.db",
+        traces_dir=tmp_path / "traces",
+        mcp_client=WebMockMCPClient(),
+        auto_connect_mcp=False,
+        web_dist_dir=dist,
+    )
+    with TestClient(app) as client:
+        r_root = client.get("/")
+        assert r_root.status_code == 200 and "XHS SPA" in r_root.text
+        r_route = client.get("/jobs")
+        assert r_route.status_code == 200 and "XHS SPA" in r_route.text
+        r_asset = client.get("/assets/app.js")
+        assert r_asset.status_code == 200 and "console.log" in r_asset.text
+        r_api_404 = client.get("/api/does-not-exist")
+        assert r_api_404.status_code == 404
+
