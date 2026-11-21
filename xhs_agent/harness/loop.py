@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import asyncio
 import logging
 from collections.abc import Callable
 from dataclasses import dataclass, field
@@ -133,8 +134,9 @@ class AgentLoop:
         trace: TraceLogger,
         on_event: EventCallback | None = None,
         turn_index: int = 1,
+        cancel_event: asyncio.Event | None = None,
     ) -> AgentRunResult:
-        """在既有 ContextManager 与 TraceLogger 上执行一轮完整推理（支持多轮交互对话）。"""
+        """在既有 ContextManager 与 TraceLogger 上执行一轮完整推理（支持多轮交互对话与优雅取消）。"""
         ctx.add_user(user_input)
         trace.log("turn_start", turn=turn_index, user_input=user_input)
 
@@ -148,8 +150,16 @@ class AgentLoop:
         tool_schemas = self.registry.schemas()
         stop_reason = "completed"
         final_answer = ""
+        was_cancelled = False
 
         for step in range(1, self.budget.max_steps + 1):
+            if cancel_event is not None and cancel_event.is_set():
+                was_cancelled = True
+                stop_reason = "cancelled"
+                trace.log("cancelled", step=step, turn=turn_index)
+                self._emit(on_event, "cancelled", {"step": step, "turn": turn_index})
+                break
+
             self.budget.steps_used = step
             messages = ctx.messages()
             trace.log("llm_request", step=step, turn=turn_index, message_count=len(messages))
@@ -201,6 +211,14 @@ class AgentLoop:
                 break
 
             for tc in resp.tool_calls:
+                if cancel_event is not None and cancel_event.is_set():
+                    was_cancelled = True
+                    stop_reason = "cancelled"
+                    ctx.add_tool_result(tc.id, {"ok": False, "error": "任务已被用户取消", "retryable": False})
+                    trace.log("cancelled", step=step, turn=turn_index, tool=tc.name)
+                    self._emit(on_event, "cancelled", {"step": step, "turn": turn_index, "tool": tc.name})
+                    continue
+
                 trace.log(
                     "tool_call",
                     step=step,
@@ -250,6 +268,9 @@ class AgentLoop:
                     stop_reason = reason or "consecutive_errors"
                     break
 
+            if was_cancelled:
+                break
+
             exhausted, reason = self.budget.exhausted()
             if exhausted:
                 stop_reason = reason or "budget_exhausted"
@@ -259,8 +280,11 @@ class AgentLoop:
         else:
             stop_reason = f"已达最大循环步数上限（{self.budget.max_steps}/{self.budget.max_steps}）"
 
-        # 触发预算/上限退出时，不直接中断，而是注入系统提示让 LLM 做最终总结
-        if not final_answer:
+        if was_cancelled and not final_answer:
+            final_answer = "任务已手动中止。此前已完成抽取的岗位数据均已安全保存至本地数据库。"
+            ctx.add_assistant(final_answer, None)
+        elif not final_answer:
+            # 触发预算/上限退出时，不直接中断，而是注入系统提示让 LLM 做最终总结
             ctx.add_system(BUDGET_WRAP_UP_PROMPT)
             wrap_step = self.budget.steps_used + 1
             messages = ctx.messages()

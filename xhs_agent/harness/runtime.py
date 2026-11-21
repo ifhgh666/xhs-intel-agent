@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import asyncio
 from datetime import date
 from pathlib import Path
 from typing import TYPE_CHECKING, Any
@@ -284,11 +285,21 @@ class AgentSession:
         user_input: str,
         *,
         on_event: EventCallback | None = None,
+        cancel_event: asyncio.Event | None = None,
+        max_steps: int | None = None,
+        max_search_calls: int | None = None,
+        max_detail_calls: int | None = None,
     ) -> AgentRunResult:
         """在当前会话中发送一条用户消息并执行完整 Agent Loop（每轮独立重置单轮预算）。"""
         assert self.runtime.llm is not None and self.runtime.registry is not None
         self.turns += 1
         budget = BudgetTracker.from_config(self.runtime.config.budget)
+        if max_steps is not None:
+            budget.max_steps = max_steps
+        if max_search_calls is not None:
+            budget.max_search_calls = max_search_calls
+        if max_detail_calls is not None:
+            budget.max_detail_calls = max_detail_calls
         executor = ExecutionEngine(self.runtime.registry, budget)
         extract_stats_fn = (
             self.runtime.job_tools.extractor.snapshot_stats
@@ -311,6 +322,7 @@ class AgentSession:
             trace=self.trace,
             on_event=on_event,
             turn_index=self.turns,
+            cancel_event=cancel_event,
         )
 
         self.total_usage.add(result.total_usage)

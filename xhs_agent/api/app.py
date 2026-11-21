@@ -10,8 +10,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 
-from xhs_agent.api.routes import jobs, system, traces
+from xhs_agent.api.routes import jobs, sessions, system, traces
 from xhs_agent.api.state import WebAppState
+from xhs_agent.api.task_manager import TaskManager
 from xhs_agent.config import AppConfig, ROOT_DIR
 from xhs_agent.harness.llm import LLMClientProtocol
 from xhs_agent.xhs import MCPClientProtocol, XhsAdapter
@@ -44,12 +45,15 @@ def create_app(
         auto_connect_mcp=auto_connect_mcp,
     )
 
+    task_manager = TaskManager(web_state)
+
     @asynccontextmanager
     async def lifespan(app: FastAPI):
         await web_state.startup()
         try:
             yield
         finally:
+            await task_manager.shutdown()
             await web_state.shutdown()
 
     app = FastAPI(
@@ -59,6 +63,7 @@ def create_app(
         lifespan=lifespan,
     )
     app.state.web_state = web_state
+    app.state.task_manager = task_manager
 
     # 仅允许本地开发端口跨域访问
     app.add_middleware(
@@ -75,6 +80,7 @@ def create_app(
     )
 
     app.include_router(system.router)
+    app.include_router(sessions.router)
     app.include_router(jobs.router)
     app.include_router(traces.router)
 

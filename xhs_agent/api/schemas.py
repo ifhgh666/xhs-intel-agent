@@ -130,3 +130,58 @@ class OverviewStatsResponse(BaseModel):
     total_cache_savings_cny: float
     avg_cache_hit_rate: float
     daily_usage: DailyUsageSummary
+
+
+class CreateSessionRequest(BaseModel):
+    max_steps: int | None = Field(default=None, ge=1, le=50)
+    max_search: int | None = Field(default=None, ge=1, le=15)
+    max_detail: int | None = Field(default=None, ge=1, le=50)
+
+
+class SendMessageRequest(BaseModel):
+    content: str = Field(min_length=1, max_length=2000)
+    max_steps: int | None = Field(default=None, ge=1, le=50)
+    max_search: int | None = Field(default=None, ge=1, le=15)
+    max_detail: int | None = Field(default=None, ge=1, le=50)
+
+
+class SendMessageResponse(BaseModel):
+    run_id: str
+    session_id: str
+    turn: int
+    status: str
+
+
+class CancelRunResponse(BaseModel):
+    cancelled: bool
+    session_id: str
+    run_id: str | None = None
+
+
+class SessionMessageItem(BaseModel):
+    role: str
+    content: str
+    turn: int
+    created_at: str
+    meta: dict[str, Any] = Field(default_factory=dict)
+
+
+class SessionSummaryResponse(BaseModel):
+    session_id: str
+    created_at: str
+    status: str
+    turns: int
+    total_llm_calls: int
+    total_tokens: int
+    total_cost_cny: float
+    last_message: str = ""
+    latest_run_id: str | None = None
+    trace_path: str
+
+
+class SessionDetailResponse(SessionSummaryResponse):
+    total_usage: dict[str, int] = Field(default_factory=dict)
+    cost: dict[str, Any] = Field(default_factory=dict)
+    tool_calls: dict[str, int] = Field(default_factory=dict)
+    messages: list[SessionMessageItem] = Field(default_factory=list)
+    latest_events: list[dict[str, Any]] = Field(default_factory=list)
