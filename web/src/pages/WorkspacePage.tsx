@@ -2,10 +2,13 @@ import { useEffect, useRef, useState } from 'react'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import {
+  AlertCircle,
   BookOpen,
   Bot,
   Briefcase,
+  CheckCircle2,
   ExternalLink,
+  Loader2,
   PanelRightClose,
   PanelRightOpen,
   Plus,
@@ -63,6 +66,158 @@ const MODE_OPTIONS: { value: AgentMode; label: string; icon: React.ReactNode }[]
   { value: 'experience', label: '找经验', icon: <BookOpen className="h-3 w-3" /> },
 ]
 
+interface LiveStepItem {
+  tool: string
+  label: string
+  status: 'running' | 'ok' | 'warn'
+  summary?: string
+}
+
+function formatToolAction(tool: string, args: Record<string, unknown> | undefined): string {
+  const kw = typeof args?.keyword === 'string' ? args.keyword : ''
+  const note = typeof args?.note === 'string' ? args.note : ''
+  switch (tool) {
+    case 'search_notes':
+      return kw ? `正在小红书搜索「${kw}」…` : '正在搜索小红书笔记…'
+    case 'get_note_detail':
+      return note ? `正在查看笔记 ${note} 详情…` : '正在查看笔记详情…'
+    case 'extract_and_save_jobs':
+      return note ? `正在抽取笔记 ${note} 的岗位信息并核验原文…` : '正在抽取岗位并入库…'
+    case 'extract_and_save_experience':
+      return note ? `正在抽取笔记 ${note} 的经验干货并核验原文…` : '正在抽取干货并入经验库…'
+    case 'query_jobs':
+      return '正在查询本地岗位库…'
+    case 'query_experiences':
+      return '正在查询本地经验知识库…'
+    case 'export_jobs':
+      return '正在导出岗位 Excel…'
+    case 'export_experiences':
+      return '正在导出学习笔记…'
+    case 'mark_job':
+      return '正在更新岗位状态…'
+    case 'mark_experience':
+      return '正在更新学习状态…'
+    default:
+      return `正在执行 ${tool}…`
+  }
+}
+
+function formatStepLabel(tool: string, args: Record<string, unknown> | undefined): string {
+  const kw = typeof args?.keyword === 'string' ? args.keyword : ''
+  const note = typeof args?.note === 'string' ? args.note : ''
+  switch (tool) {
+    case 'search_notes':
+      return kw ? `搜索「${kw}」` : '搜索小红书笔记'
+    case 'get_note_detail':
+      return note ? `预览笔记 ${note}` : '预览笔记详情'
+    case 'extract_and_save_jobs':
+      return note ? `抽取岗位 ${note}` : '抽取岗位入库'
+    case 'extract_and_save_experience':
+      return note ? `抽取经验 ${note}` : '抽取经验入库'
+    case 'query_jobs':
+      return '查询本地岗位库'
+    case 'query_experiences':
+      return '查询本地经验库'
+    case 'export_jobs':
+      return '导出岗位 Excel'
+    case 'export_experiences':
+      return '导出学习笔记'
+    case 'mark_job':
+      return '更新岗位状态'
+    case 'mark_experience':
+      return '更新学习状态'
+    default:
+      return tool
+  }
+}
+
+function buildLiveProgress(events: SSEEventPacket[], mode: AgentMode): {
+  headline: string
+  subline: string
+  steps: LiveStepItem[]
+} {
+  const steps: LiveStepItem[] = []
+  for (const pkt of events) {
+    if (pkt.event === 'tool_call') {
+      const tool = String(pkt.data.tool ?? '')
+      const args = (pkt.data.args as Record<string, unknown> | undefined) ?? undefined
+      steps.push({
+        tool,
+        label: formatStepLabel(tool, args),
+        status: 'running',
+      })
+    } else if (pkt.event === 'tool_result') {
+      const tool = String(pkt.data.tool ?? '')
+      const ok = Boolean(pkt.data.ok)
+      const summary = ok
+        ? String(pkt.data.summary ?? '完成')
+        : String(pkt.data.error ?? pkt.data.summary ?? '调用提示')
+      for (let i = steps.length - 1; i >= 0; i -= 1) {
+        if (steps[i].tool === tool && steps[i].status === 'running') {
+          steps[i] = { ...steps[i], status: ok ? 'ok' : 'warn', summary }
+          break
+        }
+      }
+    }
+  }
+
+  let headline =
+    mode === 'experience'
+      ? '正在查询中：规划经验检索关键词…'
+      : mode === 'jobs'
+        ? '正在查询中：规划岗位检索关键词…'
+        : '正在查询中：理解需求并规划检索方案…'
+  let subline = '为保护小红书账号，每次在线请求间隔 3–8 秒，过程会实时更新'
+
+  for (let i = events.length - 1; i >= 0; i -= 1) {
+    const pkt = events[i]
+    const d = pkt.data
+    if (pkt.event === 'cancelled') {
+      headline = '正在停止当前查询并收尾…'
+      subline = '等待当前步骤安全结束'
+      break
+    }
+    if (pkt.event === 'budget_exhausted') {
+      headline = '已达单轮查询上限，正在汇总已有结果…'
+      subline = String(d.reason ?? '')
+      break
+    }
+    if (pkt.event === 'tool_call') {
+      const tool = String(d.tool ?? '')
+      const args = (d.args as Record<string, unknown> | undefined) ?? undefined
+      headline = formatToolAction(tool, args)
+      subline =
+        tool === 'search_notes' ||
+        tool === 'get_note_detail' ||
+        tool === 'extract_and_save_jobs' ||
+        tool === 'extract_and_save_experience'
+          ? '正在等待小红书 MCP 响应与防风控间隔（3–8 秒/次）…'
+          : '正在处理本地数据…'
+      break
+    }
+    if (pkt.event === 'tool_result') {
+      headline = '正在分析检索结果，准备下一步…'
+      subline = String(d.summary ?? '步骤已完成')
+      break
+    }
+    if (pkt.event === 'llm_response') {
+      const tcCount = Number(d.tool_call_count ?? 0)
+      headline = tcCount === 0 ? '正在整理结果并生成最终回复…' : '已规划下一步工具调用，正在执行…'
+      break
+    }
+    if (pkt.event === 'llm_request') {
+      const step = Number(d.step ?? 1)
+      headline =
+        step <= 1
+          ? '正在查询中：分析问题并拆解小红书搜索词…'
+          : `正在查询中（第 ${step} 步）：思考是否继续检索或汇总结果…`
+      break
+    }
+  }
+
+  return { headline, subline, steps }
+}
+
 export function WorkspacePage({
   systemStatus,
   onRefreshSystem,
@@ -76,6 +231,7 @@ export function WorkspacePage({
   const [maxSearch, setMaxSearch] = useState(3)
   const [maxDetail, setMaxDetail] = useState(6)
   const [isRunning, setIsRunning] = useState(false)
+  const [elapsedSec, setElapsedSec] = useState(0)
   const [errorMsg, setErrorMsg] = useState<string | null>(null)
   const [showTimeline, setShowTimeline] = useState(true)
   const [starredIds, setStarredIds] = useState<Set<number>>(new Set())
@@ -86,7 +242,19 @@ export function WorkspacePage({
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' })
-  }, [messages, isRunning])
+  }, [messages, isRunning, events.length])
+
+  useEffect(() => {
+    if (!isRunning) {
+      setElapsedSec(0)
+      return
+    }
+    setElapsedSec(0)
+    const timer = window.setInterval(() => {
+      setElapsedSec((s) => s + 1)
+    }, 1000)
+    return () => window.clearInterval(timer)
+  }, [isRunning])
 
   useEffect(() => {
     return () => {
@@ -516,6 +684,59 @@ export function WorkspacePage({
                   )}
                 </div>
               ))}
+
+              {/* 运行中实时进度气泡：避免对话区陷入无输出等待 */}
+              {isRunning && (() => {
+                const progress = buildLiveProgress(events, mode)
+                const recentSteps = progress.steps.slice(-5)
+                return (
+                  <div className="flex justify-start gap-3">
+                    <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-rose-600 text-white">
+                      <Bot className="h-4 w-4" />
+                    </div>
+                    <div className="w-full max-w-[85%] rounded-2xl border border-rose-200/80 bg-rose-50/40 px-4 py-3 text-sm text-slate-800">
+                      <div className="flex items-center justify-between gap-3">
+                        <div className="flex items-center gap-2 font-medium text-rose-700">
+                          <Loader2 className="h-4 w-4 shrink-0 animate-spin" />
+                          <span>{progress.headline}</span>
+                        </div>
+                        <span className="shrink-0 rounded-full bg-white px-2 py-0.5 font-mono text-[11px] text-slate-500 ring-1 ring-rose-100">
+                          已耗时 {elapsedSec}s
+                        </span>
+                      </div>
+
+                      <p className="mt-1.5 text-xs text-slate-500">{progress.subline}</p>
+
+                      {recentSteps.length > 0 && (
+                        <div className="mt-2.5 space-y-1.5 border-t border-rose-100 pt-2.5">
+                          {recentSteps.map((st, i) => (
+                            <div
+                              key={`${st.tool}-${i}`}
+                              className="flex items-start gap-2 text-xs text-slate-700"
+                            >
+                              {st.status === 'running' ? (
+                                <Loader2 className="mt-0.5 h-3.5 w-3.5 shrink-0 animate-spin text-rose-600" />
+                              ) : st.status === 'ok' ? (
+                                <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-emerald-600" />
+                              ) : (
+                                <AlertCircle className="mt-0.5 h-3.5 w-3.5 shrink-0 text-amber-600" />
+                              )}
+                              <div className="min-w-0 flex-1">
+                                <span className="font-medium text-slate-800">{st.label}</span>
+                                {st.summary && (
+                                  <span className="ml-1.5 text-[11px] text-slate-500">
+                                    · {st.summary}
+                                  </span>
+                                )}
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                )
+              })()}
               <div ref={bottomRef} />
             </div>
           )}
