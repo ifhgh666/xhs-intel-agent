@@ -4,7 +4,7 @@
 
 **本地优先** · 双模式协同（岗位情报 + 学习经验） · 原文防编造校验 · DeepSeek 上下文缓存 · MCP 只读白名单
 
-[功能](#功能) · [技术栈](#技术栈) · [系统架构](#系统架构) · [双模式与 Agent Loop](#双模式与-agent-loop) · [防编造与评估](#防编造与评估) · [项目结构](#项目结构) · [快速开始](#快速开始) · [项目文档](#项目文档) · [致谢与声明](#致谢与声明)
+[功能](#功能) · [技术栈](#技术栈) · [系统架构](#系统架构) · [Harness 结构](#harness-结构设计) · [双模式与 Agent Loop](#双模式与-agent-loop) · [防编造与评估](#防编造与评估) · [项目结构](#项目结构) · [快速开始](#快速开始) · [致谢与声明](#致谢与声明)
 
 > **学习与使用说明**
 >
@@ -81,6 +81,38 @@ flowchart LR
     JobPipe --> DB[("本地 SQLite<br/>notes / jobs / experiences / daily_usage")]
     ExpPipe --> DB
 ```
+
+---
+
+## Harness 结构设计
+
+本项目不依赖 LangChain / AutoGen 等重型编排框架，而是在 [xhs_agent/harness/](xhs_agent/harness/) 中手写了一套轻量、可控、可离线单测的 **Agent Harness**。核心原则是把 **「大模型推理决策」** 与 **「代码级确定性护栏」** 彻底分离：模型只负责规划关键词、选择工具与归纳回答，所有安全边界（白名单、Schema 校验、超时、重试、预算熔断、上下文配对压缩、费用核算与轨迹审计）均由 Harness 强约束执行。
+
+```mermaid
+flowchart TB
+    Runtime["AgentRuntime / AgentSession (runtime.py)<br/>启动预检 · 10 工具装配 · 多轮会话 · Mode Prefix 注入"]
+    Runtime --> Loop["AgentLoop (loop.py)<br/>有限步 ReAct 主循环 · cancel_event 取消 · 预算熔断收尾 · on_event 回调"]
+
+    Loop <--> Context["ContextManager (context.py)<br/>前缀只追加保缓存 · 48k 阈值原子成对压缩"]
+    Loop <--> LLM["DeepSeekClient (llm.py)<br/>Function Calling · cache_hit/miss 统计 · Protocol 可注入"]
+    Loop --> Executor["ExecutionEngine + BudgetTracker (executor.py)<br/>jsonschema 校验 · 预算组限额 · 超时/退避重试 · 异常兜底"]
+    Executor --> Registry["ToolRegistry (registry.py)<br/>ToolSpec 白名单 · OpenAI Schema · timeout/budget_group"]
+    Loop --> Trace["TraceLogger (trace.py)<br/>traces/*.jsonl 全链路审计日志"]
+    Loop --> Pricing["Pricing (pricing.py)<br/>主模型 + 双抽取器 Token 合并计费与缓存省费估算"]
+```
+
+### 8 个核心模块职责
+
+| 模块 | 核心类 / 能力 | 关键工程设计 |
+| --- | --- | --- |
+| [runtime.py](xhs_agent/harness/runtime.py) | `AgentRuntime`、`AgentSession`、`build_v1_registry` | 启动时执行三项预检（MCP 连通、只读白名单 Schema 校验、小红书登录态检查）；按 `MODE_PREFIX_HINTS` 注入模式提示而不改动 System Prompt，保住多轮缓存；合并统计主模型与岗位/经验双抽取器的 Token 消耗。 |
+| [loop.py](xhs_agent/harness/loop.py) | `AgentLoop`、`AgentRunResult` | 驱动 `LLM → Tool → Observation` 主循环；每步前检测 `cancel_event` 实现安全取消；达到 `max_steps` 或预算耗尽时自动降级为不带 `tools` 的收尾请求，强制基于已有结果作答；通过 `on_event` 回调同时驱动 CLI 输出与 Web SSE 实时流。 |
+| [registry.py](xhs_agent/harness/registry.py) | `ToolRegistry`、`ToolSpec` | 统一声明工具的 JSON Schema、只读标记、单次超时时间与预算分组（如 `search`、`detail`），并自动导出 OpenAI Function Calling 格式的 `tools` 列表。 |
+| [executor.py](xhs_agent/harness/executor.py) | `ExecutionEngine`、`BudgetTracker` | 每次工具调用严格经过 5 道关卡：① 白名单存在性检查 → ② 参数 JSON 解析与 `jsonschema` 强校验 → ③ 预算组次数上限检查 → ④ `asyncio.wait_for` 超时与可重试网络错误退避重试 → ⑤ 所有异常封装为 `{"ok": false, "error": ..., "retryable": ...}` 回传模型，绝不导致主循环崩溃。 |
+| [context.py](xhs_agent/harness/context.py) | `ContextManager` | System Prompt 固定置顶且消息仅向后追加以最大化 DeepSeek 前缀缓存命中；当总字符超过 `48,000` 阈值时，按「`assistant(tool_calls)` + 对应全部 `tool` 响应」原子成组做摘要压缩或裁剪，绝不破坏 API 的 `tool_call_id` 配对协议。 |
+| [llm.py](xhs_agent/harness/llm.py) | `DeepSeekClient`、`LLMClientProtocol` | 封装 OpenAI 兼容客户端，提取 `prompt_cache_hit_tokens` / `cache_miss_tokens`；基于 Protocol 抽象，离线测试可直接注入 `ScriptedLLM` 实现零费用、100% 可复现的回归验证。 |
+| [trace.py](xhs_agent/harness/trace.py) | `TraceLogger` | 将每次运行的 `turn_start`、`llm_request/response`、`tool_call/result`、`budget_exhausted`、`cancelled`、`turn_complete` 实时追加写入 `traces/<session_id>.jsonl`，直接支撑 Web「监控与 Trace 回放」视图。 |
+| [pricing.py](xhs_agent/harness/pricing.py) | `CostEstimate`、`estimate_cost` | 读取 `config.toml` 的 `[pricing]` 费率表，拆分计算缓存命中费用、未命中费用、输出费用与缓存节省金额（CNY）。 |
 
 ---
 
