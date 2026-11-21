@@ -3,11 +3,14 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Any
+from typing import Any, Literal
 
 from pydantic import BaseModel, Field
 
 from xhs_agent.jobs.models import JobStatus
+from xhs_agent.knowledge.models import ExperienceCategory, ExperienceStatus
+
+AgentMode = Literal["auto", "jobs", "experience"]
 
 
 class QuotaItem(BaseModel):
@@ -30,6 +33,7 @@ class SystemStatusResponse(BaseModel):
     validated_tools: list[str] = Field(default_factory=list)
     db_path: str
     db_jobs_count: int
+    db_experiences_count: int = 0
     active_session_id: str | None = None
     daily_usage: DailyUsageSummary
     config_summary: dict[str, Any] = Field(default_factory=dict)
@@ -124,6 +128,8 @@ class TraceDetailResponse(BaseModel):
 class OverviewStatsResponse(BaseModel):
     total_jobs: int
     status_counts: dict[str, int] = Field(default_factory=dict)
+    total_experiences: int = 0
+    experience_category_counts: dict[str, int] = Field(default_factory=dict)
     total_sessions: int
     total_tokens: int
     total_cost_cny: float
@@ -132,10 +138,60 @@ class OverviewStatsResponse(BaseModel):
     daily_usage: DailyUsageSummary
 
 
+class ExperienceItemResponse(BaseModel):
+    id: int
+    note_id: str
+    category: ExperienceCategory
+    category_label: str
+    topic: str
+    title: str
+    target_audience: str | None = None
+    summary: str
+    key_points: list[str] = Field(default_factory=list)
+    tech_stack: list[str] = Field(default_factory=list)
+    resources: list[str] = Field(default_factory=list)
+    pitfalls: list[str] = Field(default_factory=list)
+    evidence: str
+    confidence: float
+    source_url: str
+    note_title: str | None = None
+    note_author: str | None = None
+    note_published_at: datetime | None = None
+    liked_count: int | None = None
+    collected_count: int | None = None
+    crawled_at: datetime
+    needs_image: bool = False
+    status: ExperienceStatus = "unread"
+
+
+class ExperienceFacetsResponse(BaseModel):
+    category_counts: dict[str, int] = Field(default_factory=dict)
+    status_counts: dict[str, int] = Field(default_factory=dict)
+    topics: list[str] = Field(default_factory=list)
+
+
+class ExperienceListResponse(BaseModel):
+    total: int
+    page: int
+    page_size: int
+    items: list[ExperienceItemResponse] = Field(default_factory=list)
+    facets: ExperienceFacetsResponse = Field(default_factory=ExperienceFacetsResponse)
+
+
+class ExperienceStatusUpdateRequest(BaseModel):
+    status: ExperienceStatus
+
+
+class DeleteExperienceResponse(BaseModel):
+    deleted: bool
+    id: int
+
+
 class CreateSessionRequest(BaseModel):
     max_steps: int | None = Field(default=None, ge=1, le=50)
     max_search: int | None = Field(default=None, ge=1, le=15)
     max_detail: int | None = Field(default=None, ge=1, le=50)
+    mode: AgentMode = "auto"
 
 
 class SendMessageRequest(BaseModel):
@@ -143,6 +199,7 @@ class SendMessageRequest(BaseModel):
     max_steps: int | None = Field(default=None, ge=1, le=50)
     max_search: int | None = Field(default=None, ge=1, le=15)
     max_detail: int | None = Field(default=None, ge=1, le=50)
+    mode: AgentMode | None = None
 
 
 class SendMessageResponse(BaseModel):

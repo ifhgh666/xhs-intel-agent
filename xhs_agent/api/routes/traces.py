@@ -184,6 +184,8 @@ async def get_overview_stats(request: Request) -> OverviewStatsResponse:
     store = state.store
     total_jobs = store.count_jobs() if store is not None else 0
     status_counts = store.get_status_counts() if store is not None else {}
+    total_experiences = store.count_experiences() if store is not None else 0
+    exp_cat_counts = store.get_experience_category_counts() if store is not None else {}
 
     traces = scan_trace_summaries(state.traces_dir, state.config.pricing)
     total_tokens = sum(t.total_tokens for t in traces)
@@ -195,6 +197,8 @@ async def get_overview_stats(request: Request) -> OverviewStatsResponse:
     return OverviewStatsResponse(
         total_jobs=total_jobs,
         status_counts=status_counts,
+        total_experiences=total_experiences,
+        experience_category_counts=exp_cat_counts,
         total_sessions=len(traces),
         total_tokens=total_tokens,
         total_cost_cny=round(total_cost, 6),

@@ -94,9 +94,9 @@ export function TracesPage() {
           <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             <KpiCard
               icon={<Database className="h-4 w-4 text-sky-600" />}
-              label="本地岗位库"
-              value={`${stats.total_jobs} 条`}
-              sub={`感兴趣 ${stats.status_counts.interested ?? 0} · 已投递 ${stats.status_counts.applied ?? 0}`}
+              label="本地岗位 / 经验库"
+              value={`${stats.total_jobs} 岗 · ${stats.total_experiences} 经验`}
+              sub={`感兴趣 ${stats.status_counts.interested ?? 0} · 已投递 ${stats.status_counts.applied ?? 0} · 路线 ${stats.experience_category_counts.roadmap ?? 0} · 面经 ${stats.experience_category_counts.interview ?? 0}`}
             />
             <KpiCard
               icon={<Coins className="h-4 w-4 text-rose-600" />}

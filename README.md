@@ -1,12 +1,13 @@
 # 实习信息智能检索 Agent
 
-基于大模型的实习信息检索 Agent：用户用自然语言描述需求，Agent 自主拆分关键词，通过 MCP 搜索小红书招聘笔记，抽取结构化岗位信息并做原文防编造校验，去重后存入本地 SQLite 数据库，支持多轮追问、岗位状态管理与导出 Excel。
+基于大模型的实习与学习经验智能检索 Agent（双模式）：用户用自然语言描述需求，Agent 自动识别或按选定模式（找岗位 / 找经验）自主拆分关键词，通过 MCP 搜索小红书笔记，分别抽取结构化岗位情报（`jobs`）或结构化学习经验与面经知识（`experiences`），并做原文证据防编造校验，去重后存入本地 SQLite 数据库，支持多轮追问、状态管理与导出 Excel / Markdown 笔记。
 
 ## 文档
 
 - [设计文档](docs/design.md)：架构、模块职责、工具设计、数据模型
 - [开发方案](docs/development_plan.md)：分阶段任务、验收标准、技术选型
 - [前后端设计方案](docs/web_fullstack_plan.md)：FastAPI + SSE 后端与 React/Vite Web 工作台设计方案
+- [双模式扩展方案](docs/dual_mode_plan.md)：岗位情报 + 经验知识（路线/项目/面经/避坑）双模式设计与实施计划
 - [阶段 1 人工评估表](evals/manual_review.md)：20 篇真实笔记评估与图片识别优先级结论
 
 ## 技术栈
@@ -51,6 +52,7 @@ uv run python evals/run_eval.py
 - [x] 阶段 4：岗位抽取与存储（`phase-4`：SQLite notes/jobs/daily_usage、JSON 抽取 + 原文证据校验、双层去重、Excel 导出，20 篇评估集核心字段准确率 97.8% / 编造率 0.0%）
 - [x] 阶段 5：工程化与增强（`phase-5`：全链路主/抽取 Token 与人民币费用统计、`mark_job` 状态管理、多轮交互式 CLI `-i`、日志分级 `-v`）
 - [x] Web 前后端（`web-v1`：FastAPI + SSE 实时执行流、单任务互斥与取消、网页扫码登录弹窗、React + Vite + Tailwind 三视图工作台与单端口静态托管，54 项离线测试全通过）
+- [x] 双模式升级（`dual-mode-v1`：岗位情报 + 学习经验/面经双通道解耦存储、10 工具 Harness 路由、`experiences` 表与 REST/导出 Markdown & Excel API、React「智能识别 / 找岗位 / 找经验」三态切换与「经验知识库」四视图工作台，57 项离线测试全通过）
 
 ## 使用说明
 

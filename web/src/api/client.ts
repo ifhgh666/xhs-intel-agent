@@ -1,4 +1,9 @@
 import type {
+  AgentMode,
+  ExperienceItem,
+  ExperienceListResponse,
+  ExperienceQueryParams,
+  ExperienceStatus,
   JobItem,
   JobListResponse,
   JobQueryParams,
@@ -55,6 +60,25 @@ function buildJobQuery(params: JobQueryParams): string {
   return qs ? `?${qs}` : ''
 }
 
+function buildExperienceQuery(params: ExperienceQueryParams, extra?: Record<string, string>): string {
+  const sp = new URLSearchParams()
+  if (params.category) sp.set('category', params.category)
+  if (params.topic) sp.set('topic', params.topic)
+  if (params.keyword) sp.set('keyword', params.keyword)
+  if (params.status) sp.set('status', params.status)
+  if (params.needs_image !== undefined && params.needs_image !== null) {
+    sp.set('needs_image', String(params.needs_image))
+  }
+  if (params.sort_by) sp.set('sort_by', params.sort_by)
+  if (params.page) sp.set('page', String(params.page))
+  if (params.page_size) sp.set('page_size', String(params.page_size))
+  if (extra) {
+    for (const [k, v] of Object.entries(extra)) sp.set(k, v)
+  }
+  const qs = sp.toString()
+  return qs ? `?${qs}` : ''
+}
+
 export const api = {
   // System
   getSystemStatus: (refresh = false) =>
@@ -75,8 +99,22 @@ export const api = {
     request<{ deleted: boolean; id: number }>(`/api/jobs/${id}`, { method: 'DELETE' }),
   getExportUrl: (params: JobQueryParams = {}) => `/api/jobs/export${buildJobQuery(params)}`,
 
+  // Experiences
+  listExperiences: (params: ExperienceQueryParams = {}) =>
+    request<ExperienceListResponse>(`/api/experiences${buildExperienceQuery(params)}`),
+  getExperience: (id: number) => request<ExperienceItem>(`/api/experiences/${id}`),
+  updateExperienceStatus: (id: number, status: ExperienceStatus) =>
+    request<ExperienceItem>(`/api/experiences/${id}`, {
+      method: 'PATCH',
+      body: JSON.stringify({ status }),
+    }),
+  deleteExperience: (id: number) =>
+    request<{ deleted: boolean; id: number }>(`/api/experiences/${id}`, { method: 'DELETE' }),
+  getExperiencesExportUrl: (params: ExperienceQueryParams = {}, format: 'md' | 'xlsx' = 'md') =>
+    `/api/experiences/export${buildExperienceQuery(params, { format })}`,
+
   // Sessions
-  createSession: (opts?: { max_search?: number; max_detail?: number; max_steps?: number }) =>
+  createSession: (opts?: { max_search?: number; max_detail?: number; max_steps?: number; mode?: AgentMode }) =>
     request<SessionSummary>('/api/sessions', {
       method: 'POST',
       body: JSON.stringify(opts ?? {}),
@@ -85,7 +123,7 @@ export const api = {
   getSession: (sessionId: string) => request<SessionDetail>(`/api/sessions/${sessionId}`),
   sendMessage: (
     sessionId: string,
-    payload: { content: string; max_search?: number; max_detail?: number; max_steps?: number },
+    payload: { content: string; max_search?: number; max_detail?: number; max_steps?: number; mode?: AgentMode },
   ) =>
     request<{ run_id: string; session_id: string; turn: number; status: string }>(
       `/api/sessions/${sessionId}/messages`,

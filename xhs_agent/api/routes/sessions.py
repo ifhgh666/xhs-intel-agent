@@ -34,6 +34,7 @@ async def create_session(
             max_steps=req.max_steps,
             max_search=req.max_search,
             max_detail=req.max_detail,
+            mode=req.mode,
         )
     except RuntimeError as exc:
         raise HTTPException(status_code=503, detail=str(exc)) from exc
@@ -69,6 +70,7 @@ async def send_message(
             max_steps=body.max_steps,
             max_search=body.max_search,
             max_detail=body.max_detail,
+            mode=body.mode,
         )
     except KeyError as exc:
         raise HTTPException(status_code=404, detail=str(exc)) from exc

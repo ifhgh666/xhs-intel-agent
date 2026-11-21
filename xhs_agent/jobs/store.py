@@ -17,6 +17,11 @@ from typing import Any
 
 from xhs_agent.config import ROOT_DIR
 from xhs_agent.jobs.models import JobRecord, JobStatus
+from xhs_agent.knowledge.models import (
+    ExperienceCategory,
+    ExperienceRecord,
+    ExperienceStatus,
+)
 
 DEFAULT_DB_PATH = ROOT_DIR / "data" / "xhs_jobs.db"
 
@@ -125,8 +130,43 @@ class JobStore:
                     count INTEGER NOT NULL DEFAULT 0,
                     PRIMARY KEY (day, category)
                 );
+
+                CREATE TABLE IF NOT EXISTS experiences (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    note_id TEXT NOT NULL UNIQUE,
+                    category TEXT NOT NULL,
+                    topic TEXT NOT NULL,
+                    title TEXT NOT NULL,
+                    target_audience TEXT,
+                    summary TEXT NOT NULL,
+                    key_points_json TEXT NOT NULL DEFAULT '[]',
+                    tech_stack_json TEXT NOT NULL DEFAULT '[]',
+                    resources_json TEXT NOT NULL DEFAULT '[]',
+                    pitfalls_json TEXT NOT NULL DEFAULT '[]',
+                    evidence TEXT NOT NULL,
+                    confidence REAL NOT NULL,
+                    source_url TEXT NOT NULL,
+                    note_title TEXT,
+                    note_author TEXT,
+                    note_published_at TEXT,
+                    liked_count INTEGER,
+                    collected_count INTEGER,
+                    crawled_at TEXT NOT NULL,
+                    needs_image INTEGER NOT NULL DEFAULT 0,
+                    status TEXT NOT NULL DEFAULT 'unread',
+                    created_at TEXT NOT NULL,
+                    updated_at TEXT NOT NULL
+                );
+
+                CREATE INDEX IF NOT EXISTS idx_experiences_category ON experiences (category);
+                CREATE INDEX IF NOT EXISTS idx_experiences_topic ON experiences (topic);
+                CREATE INDEX IF NOT EXISTS idx_experiences_status ON experiences (status);
                 """
             )
+            # 向后兼容迁移：给旧库 notes 表补加 exp_processed_at 列
+            cols = {r["name"] for r in self._conn.execute("PRAGMA table_info(notes)").fetchall()}
+            if "exp_processed_at" not in cols:
+                self._conn.execute("ALTER TABLE notes ADD COLUMN exp_processed_at TEXT")
 
     # ------------------------------------------------------------------
     # UsageCounter 协议实现（无缝对接 RateLimiter）
@@ -208,6 +248,7 @@ class JobStore:
             "raw_feed": json.loads(row["raw_json"]) if row["raw_json"] else None,
             "detail": json.loads(row["detail_json"]) if row["detail_json"] else None,
             "processed_at": _iso_to_dt(row["processed_at"]),
+            "exp_processed_at": _iso_to_dt(row["exp_processed_at"]) if "exp_processed_at" in row.keys() else None,
         }
 
     def is_note_processed(self, feed_id: str) -> bool:
@@ -225,6 +266,24 @@ class JobStore:
             with self._conn:
                 self._conn.execute(
                     "UPDATE notes SET processed_at = ?, updated_at = ? WHERE feed_id = ?",
+                    (ts, now, feed_id),
+                )
+
+    def is_note_exp_processed(self, feed_id: str) -> bool:
+        with self._lock:
+            row = self._conn.execute(
+                "SELECT exp_processed_at FROM notes WHERE feed_id = ?",
+                (feed_id,),
+            ).fetchone()
+        return bool(row and row["exp_processed_at"])
+
+    def mark_note_exp_processed(self, feed_id: str, processed_at: datetime | None = None) -> None:
+        ts = _dt_to_iso(processed_at or datetime.now(timezone.utc))
+        now = _utc_now_iso()
+        with self._lock:
+            with self._conn:
+                self._conn.execute(
+                    "UPDATE notes SET exp_processed_at = ?, updated_at = ? WHERE feed_id = ?",
                     (ts, now, feed_id),
                 )
 
@@ -539,4 +598,266 @@ class JobStore:
     def count_jobs(self) -> int:
         with self._lock:
             row = self._conn.execute("SELECT COUNT(*) AS c FROM jobs").fetchone()
+        return int(row["c"]) if row else 0
+
+    # ------------------------------------------------------------------
+    # experiences 表操作（双模式经验知识库：路线/项目/面经/避坑）
+    # ------------------------------------------------------------------
+
+    def _row_to_experience(self, row: sqlite3.Row) -> ExperienceRecord:
+        return ExperienceRecord(
+            id=int(row["id"]),
+            note_id=row["note_id"],
+            category=row["category"],
+            topic=row["topic"],
+            title=row["title"],
+            target_audience=row["target_audience"],
+            summary=row["summary"],
+            key_points=json.loads(row["key_points_json"] or "[]"),
+            tech_stack=json.loads(row["tech_stack_json"] or "[]"),
+            resources=json.loads(row["resources_json"] or "[]"),
+            pitfalls=json.loads(row["pitfalls_json"] or "[]"),
+            evidence=row["evidence"],
+            confidence=float(row["confidence"]),
+            source_url=row["source_url"],
+            note_title=row["note_title"],
+            note_author=row["note_author"],
+            note_published_at=_iso_to_dt(row["note_published_at"]),
+            liked_count=int(row["liked_count"]) if row["liked_count"] is not None else None,
+            collected_count=int(row["collected_count"]) if row["collected_count"] is not None else None,
+            crawled_at=_iso_to_dt(row["crawled_at"]) or datetime.now(timezone.utc),
+            needs_image=bool(row["needs_image"]),
+            status=row["status"],
+        )
+
+    def upsert_experience(self, record: ExperienceRecord) -> tuple[ExperienceRecord, bool]:
+        """按 note_id 唯一写入或更新经验卡片；返回 (落库记录, 是否新增)。"""
+        now = _utc_now_iso()
+        with self._lock:
+            existing = self._conn.execute(
+                "SELECT * FROM experiences WHERE note_id = ?",
+                (record.note_id,),
+            ).fetchone()
+            if existing is not None:
+                with self._conn:
+                    self._conn.execute(
+                        """
+                        UPDATE experiences SET
+                            category = ?, topic = ?, title = ?, target_audience = ?,
+                            summary = ?, key_points_json = ?, tech_stack_json = ?,
+                            resources_json = ?, pitfalls_json = ?, evidence = ?,
+                            confidence = ?, liked_count = COALESCE(?, liked_count),
+                            collected_count = COALESCE(?, collected_count),
+                            needs_image = ?, updated_at = ?
+                        WHERE id = ?
+                        """,
+                        (
+                            record.category,
+                            record.topic,
+                            record.title,
+                            record.target_audience,
+                            record.summary,
+                            json.dumps(record.key_points, ensure_ascii=False),
+                            json.dumps(record.tech_stack, ensure_ascii=False),
+                            json.dumps(record.resources, ensure_ascii=False),
+                            json.dumps(record.pitfalls, ensure_ascii=False),
+                            record.evidence,
+                            record.confidence,
+                            record.liked_count,
+                            record.collected_count,
+                            1 if record.needs_image else 0,
+                            now,
+                            int(existing["id"]),
+                        ),
+                    )
+                row = self._conn.execute("SELECT * FROM experiences WHERE id = ?", (int(existing["id"]),)).fetchone()
+                return self._row_to_experience(row), False
+
+            with self._conn:
+                cur = self._conn.execute(
+                    """
+                    INSERT INTO experiences (
+                        note_id, category, topic, title, target_audience, summary,
+                        key_points_json, tech_stack_json, resources_json, pitfalls_json,
+                        evidence, confidence, source_url, note_title, note_author,
+                        note_published_at, liked_count, collected_count, crawled_at,
+                        needs_image, status, created_at, updated_at
+                    )
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    """,
+                    (
+                        record.note_id,
+                        record.category,
+                        record.topic,
+                        record.title,
+                        record.target_audience,
+                        record.summary,
+                        json.dumps(record.key_points, ensure_ascii=False),
+                        json.dumps(record.tech_stack, ensure_ascii=False),
+                        json.dumps(record.resources, ensure_ascii=False),
+                        json.dumps(record.pitfalls, ensure_ascii=False),
+                        record.evidence,
+                        record.confidence,
+                        record.source_url,
+                        record.note_title,
+                        record.note_author,
+                        _dt_to_iso(record.note_published_at),
+                        record.liked_count,
+                        record.collected_count,
+                        _dt_to_iso(record.crawled_at),
+                        1 if record.needs_image else 0,
+                        record.status,
+                        now,
+                        now,
+                    ),
+                )
+                new_id = int(cur.lastrowid)
+            row = self._conn.execute("SELECT * FROM experiences WHERE id = ?", (new_id,)).fetchone()
+            return self._row_to_experience(row), True
+
+    def get_experience(self, exp_id: int) -> ExperienceRecord | None:
+        with self._lock:
+            row = self._conn.execute("SELECT * FROM experiences WHERE id = ?", (int(exp_id),)).fetchone()
+        return self._row_to_experience(row) if row is not None else None
+
+    def get_experience_by_note(self, note_id: str) -> ExperienceRecord | None:
+        with self._lock:
+            row = self._conn.execute("SELECT * FROM experiences WHERE note_id = ?", (note_id,)).fetchone()
+        return self._row_to_experience(row) if row is not None else None
+
+    def query_experiences(
+        self,
+        *,
+        category: ExperienceCategory | None = None,
+        topic: str | None = None,
+        keyword: str | None = None,
+        status: ExperienceStatus | None = None,
+        needs_image: bool | None = None,
+        sort_by: str = "latest",
+        limit: int = 50,
+    ) -> list[ExperienceRecord]:
+        res = self.query_experiences_paginated(
+            category=category,
+            topic=topic,
+            keyword=keyword,
+            status=status,
+            needs_image=needs_image,
+            sort_by=sort_by,
+            page=1,
+            page_size=max(1, min(int(limit), 500)),
+            include_facets=False,
+        )
+        return res["items"]
+
+    def query_experiences_paginated(
+        self,
+        *,
+        category: ExperienceCategory | None = None,
+        topic: str | None = None,
+        keyword: str | None = None,
+        status: ExperienceStatus | None = None,
+        needs_image: bool | None = None,
+        sort_by: str = "latest",
+        page: int = 1,
+        page_size: int = 20,
+        include_facets: bool = True,
+    ) -> dict[str, Any]:
+        safe_page = max(1, int(page))
+        safe_size = max(1, min(int(page_size), 500))
+        offset = (safe_page - 1) * safe_size
+
+        clauses: list[str] = []
+        params: list[Any] = []
+        if category:
+            clauses.append("category = ?")
+            params.append(category)
+        if topic and topic.strip():
+            clauses.append("topic LIKE ?")
+            params.append(f"%{topic.strip()}%")
+        if status:
+            clauses.append("status = ?")
+            params.append(status)
+        if needs_image is not None:
+            clauses.append("needs_image = ?")
+            params.append(1 if needs_image else 0)
+        if keyword and keyword.strip():
+            kw = f"%{keyword.strip()}%"
+            clauses.append(
+                "(title LIKE ? OR topic LIKE ? OR summary LIKE ? OR key_points_json LIKE ? OR tech_stack_json LIKE ? OR evidence LIKE ?)"
+            )
+            params.extend([kw, kw, kw, kw, kw, kw])
+
+        where_sql = f"WHERE {' AND '.join(clauses)}" if clauses else ""
+        order_sql = (
+            "ORDER BY COALESCE(liked_count, 0) DESC, COALESCE(note_published_at, crawled_at) DESC"
+            if sort_by == "likes"
+            else "ORDER BY COALESCE(note_published_at, crawled_at) DESC, id DESC"
+        )
+
+        with self._lock:
+            total_row = self._conn.execute(f"SELECT COUNT(*) AS c FROM experiences {where_sql}", params).fetchone()
+            total = int(total_row["c"]) if total_row else 0
+            rows = self._conn.execute(
+                f"SELECT * FROM experiences {where_sql} {order_sql} LIMIT ? OFFSET ?",
+                [*params, safe_size, offset],
+            ).fetchall()
+            items = [self._row_to_experience(r) for r in rows]
+
+            facets: dict[str, Any] = {}
+            if include_facets:
+                facets = {
+                    "category_counts": self.get_experience_category_counts(),
+                    "status_counts": self.get_experience_status_counts(),
+                    "topics": self.get_experience_topics(),
+                }
+
+        return {
+            "total": total,
+            "page": safe_page,
+            "page_size": safe_size,
+            "items": items,
+            "facets": facets,
+        }
+
+    def get_experience_category_counts(self) -> dict[str, int]:
+        counts = {"roadmap": 0, "project": 0, "interview": 0, "tips": 0}
+        with self._lock:
+            rows = self._conn.execute("SELECT category, COUNT(*) AS c FROM experiences GROUP BY category").fetchall()
+        for r in rows:
+            counts[str(r["category"])] = int(r["c"])
+        return counts
+
+    def get_experience_status_counts(self) -> dict[str, int]:
+        counts = {"unread": 0, "reading": 0, "starred": 0, "archived": 0}
+        with self._lock:
+            rows = self._conn.execute("SELECT status, COUNT(*) AS c FROM experiences GROUP BY status").fetchall()
+        for r in rows:
+            counts[str(r["status"])] = int(r["c"])
+        return counts
+
+    def get_experience_topics(self) -> list[str]:
+        with self._lock:
+            rows = self._conn.execute(
+                "SELECT DISTINCT topic FROM experiences WHERE topic IS NOT NULL AND TRIM(topic) != '' ORDER BY topic ASC"
+            ).fetchall()
+        return [str(r["topic"]).strip() for r in rows if r["topic"]]
+
+    def update_experience_status(self, exp_id: int, status: ExperienceStatus) -> bool:
+        with self._lock:
+            with self._conn:
+                cur = self._conn.execute(
+                    "UPDATE experiences SET status = ?, updated_at = ? WHERE id = ?",
+                    (status, _utc_now_iso(), int(exp_id)),
+                )
+            return cur.rowcount > 0
+
+    def delete_experience(self, exp_id: int) -> bool:
+        with self._lock:
+            with self._conn:
+                cur = self._conn.execute("DELETE FROM experiences WHERE id = ?", (int(exp_id),))
+            return cur.rowcount > 0
+
+    def count_experiences(self) -> int:
+        with self._lock:
+            row = self._conn.execute("SELECT COUNT(*) AS c FROM experiences").fetchone()
         return int(row["c"]) if row else 0

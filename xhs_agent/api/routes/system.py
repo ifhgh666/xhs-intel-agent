@@ -29,6 +29,7 @@ async def get_system_status(
         await state.refresh_login_status()
 
     db_count = state.store.count_jobs() if state.store is not None else 0
+    exp_count = state.store.count_experiences() if state.store is not None else 0
     return SystemStatusResponse(
         mcp_url=state.config.mcp.url,
         mcp_connected=state.mcp_connected,
@@ -38,6 +39,7 @@ async def get_system_status(
         validated_tools=list(state.validated_tools),
         db_path=str(state.db_path),
         db_jobs_count=db_count,
+        db_experiences_count=exp_count,
         active_session_id=state.active_session_id,
         daily_usage=DailyUsageSummary.model_validate(state.get_daily_usage_dict()),
         config_summary={

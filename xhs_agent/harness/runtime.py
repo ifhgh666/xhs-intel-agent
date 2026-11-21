@@ -21,10 +21,18 @@ from xhs_agent.xhs.adapter import VALID_SEARCH_FILTERS
 
 if TYPE_CHECKING:
     from xhs_agent.jobs.tools import JobTools
+    from xhs_agent.knowledge.tools import KnowledgeTools
 
 DEFAULT_AGENT_PROMPT_PATH = ROOT_DIR / "xhs_agent" / "prompts" / "agent_system.md"
 DEFAULT_EXPORT_DIR = ROOT_DIR / "data"
 _VALID_JOB_STATUSES = ["new", "interested", "applied", "rejected", "expired"]
+_VALID_EXP_CATEGORIES = ["roadmap", "project", "interview", "tips"]
+_VALID_EXP_STATUSES = ["unread", "reading", "starred", "archived"]
+
+MODE_PREFIX_HINTS: dict[str, str] = {
+    "jobs": "[当前模式：仅岗位情报模式 — 请专注搜索招聘帖并使用 extract_and_save_jobs / query_jobs / export_jobs，不要抽取学习经验]\n",
+    "experience": "[当前模式：仅经验知识模式 — 请专注搜索学习路线/项目/面经/避坑干货（优先按最多收藏或最多点赞排序），使用 extract_and_save_experience / query_experiences / export_experiences，不要调用 extract_and_save_jobs]\n",
+}
 
 
 class StartupPrecheckError(RuntimeError):
@@ -122,129 +130,248 @@ def build_v1_registry(
     adapter: XhsAdapter,
     config: AppConfig,
     job_tools: JobTools | None = None,
+    knowledge_tools: KnowledgeTools | None = None,
 ) -> ToolRegistry:
-    """注册全量业务工具（search_notes / get_note_detail / extract_and_save_jobs / query_jobs / export_jobs / mark_job）。"""
+    """注册双模式全量业务工具（搜索/预览 + 岗位 4 工具 + 经验 4 工具）。"""
     registry = build_phase3_registry(adapter, config)
-    if job_tools is None:
-        return registry
-
-    registry.register(
-        ToolSpec(
-            name="extract_and_save_jobs",
-            description=(
-                "核心入库管道：自动获取笔记详情（优先走缓存）、独立抽取结构化岗位、做原文防编造校验、"
-                "笔记级与岗位级去重并写入本地 SQLite 数据库，仅返回一行精简摘要（新增/重复/无岗位/需看图）。"
-                "对筛选出的高相关招聘帖优先直接调用本工具。"
-            ),
-            parameters={
-                "type": "object",
-                "properties": {
-                    "note": {
-                        "type": "string",
-                        "minLength": 1,
-                        "description": "笔记短编号，必须来自 search_notes 返回结果（如 'n1'）",
+    if job_tools is not None:
+        registry.register(
+            ToolSpec(
+                name="extract_and_save_jobs",
+                description=(
+                    "岗位入库管道：自动获取笔记详情（优先走缓存）、独立抽取结构化招聘岗位、做原文防编造校验、"
+                    "笔记级与岗位级去重并写入本地 SQLite jobs 表，仅返回一行精简摘要。"
+                ),
+                parameters={
+                    "type": "object",
+                    "properties": {
+                        "note": {
+                            "type": "string",
+                            "minLength": 1,
+                            "description": "笔记短编号，必须来自 search_notes 返回结果（如 'n1'）",
+                        },
                     },
+                    "required": ["note"],
+                    "additionalProperties": False,
                 },
-                "required": ["note"],
-                "additionalProperties": False,
-            },
-            handler=job_tools.extract_and_save_jobs,
-            read_only=False,
-            timeout=150.0,
-            max_calls_per_task=config.budget.max_detail_calls,
-            budget_group="detail",
+                handler=job_tools.extract_and_save_jobs,
+                read_only=False,
+                timeout=150.0,
+                max_calls_per_task=config.budget.max_detail_calls,
+                budget_group="detail",
+            )
         )
-    )
 
-    query_filter_props: dict[str, Any] = {
-        "city": {"type": "string", "description": "城市关键词，如 '广州'"},
-        "keyword": {"type": "string", "description": "公司、岗位、技能或标题关键词，如 'Agent'、'RAG'"},
-        "graduation_year": {"type": "string", "description": "届别关键词，如 '2028'"},
-        "since": {"type": "string", "description": "起始发布时间（ISO 日期，如 '2026-09-20'）"},
-        "status": {
+        query_filter_props: dict[str, Any] = {
+            "city": {"type": "string", "description": "城市关键词，如 '广州'"},
+            "keyword": {"type": "string", "description": "公司、岗位、技能或标题关键词，如 'Agent'、'RAG'"},
+            "graduation_year": {"type": "string", "description": "届别关键词，如 '2028'"},
+            "since": {"type": "string", "description": "起始发布时间（ISO 日期，如 '2026-09-20'）"},
+            "status": {
+                "type": "string",
+                "enum": _VALID_JOB_STATUSES,
+                "description": "岗位状态筛选：new / interested / applied / rejected / expired",
+            },
+            "limit": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 200,
+                "description": "最多返回条数，默认 20",
+            },
+        }
+
+        registry.register(
+            ToolSpec(
+                name="query_jobs",
+                description=(
+                    "按城市、关键词、届别、时间或状态查询本地 SQLite 岗位库，返回已验证的结构化岗位列表及来源链接。"
+                ),
+                parameters={
+                    "type": "object",
+                    "properties": query_filter_props,
+                    "additionalProperties": False,
+                },
+                handler=job_tools.query_jobs,
+                read_only=True,
+                timeout=15.0,
+            )
+        )
+
+        export_props = dict(query_filter_props)
+        export_props["path"] = {
             "type": "string",
-            "enum": _VALID_JOB_STATUSES,
-            "description": "岗位状态筛选：new / interested / applied / rejected / expired",
-        },
-        "limit": {
-            "type": "integer",
-            "minimum": 1,
-            "maximum": 200,
-            "description": "最多返回条数，默认 20",
-        },
-    }
+            "description": "可选导出文件路径或文件名（如 'gz_ai_interns.xlsx'），不填则自动保存到 data/ 目录",
+        }
 
-    registry.register(
-        ToolSpec(
-            name="query_jobs",
-            description=(
-                "按城市、关键词、届别、时间或状态查询本地 SQLite 岗位库，返回已验证的结构化岗位列表及来源链接。"
-                "在抽取完相关笔记后，调用本工具获取准确字段用于最终汇总。"
-            ),
-            parameters={
-                "type": "object",
-                "properties": query_filter_props,
-                "additionalProperties": False,
-            },
-            handler=job_tools.query_jobs,
-            read_only=True,
-            timeout=15.0,
-        )
-    )
-
-    export_props = dict(query_filter_props)
-    export_props["path"] = {
-        "type": "string",
-        "description": "可选导出文件路径或文件名（如 'gz_ai_interns.xlsx'），不填则自动保存到 data/ 目录",
-    }
-
-    registry.register(
-        ToolSpec(
-            name="export_jobs",
-            description=(
-                "将符合筛选条件的本地岗位导出为 Excel (.xlsx) 文件（包含来源链接列、过期提醒与看图标记），"
-                "返回生成的文件绝对路径与导出条数。"
-            ),
-            parameters={
-                "type": "object",
-                "properties": export_props,
-                "additionalProperties": False,
-            },
-            handler=job_tools.export_jobs,
-            read_only=False,
-            timeout=30.0,
-        )
-    )
-
-    registry.register(
-        ToolSpec(
-            name="mark_job",
-            description=(
-                "更新本地岗位库中某条岗位的跟进状态：new（新发现）、interested（感兴趣）、"
-                "applied（已投递）、rejected（已拒绝/不合适）、expired（已过期）。"
-            ),
-            parameters={
-                "type": "object",
-                "properties": {
-                    "job_id": {
-                        "type": "integer",
-                        "minimum": 1,
-                        "description": "岗位 ID（来自 query_jobs 返回的 id 字段）",
-                    },
-                    "status": {
-                        "type": "string",
-                        "enum": _VALID_JOB_STATUSES,
-                        "description": "目标状态：new / interested / applied / rejected / expired",
-                    },
+        registry.register(
+            ToolSpec(
+                name="export_jobs",
+                description=(
+                    "将符合筛选条件的本地岗位导出为 Excel (.xlsx) 文件（包含来源链接列、过期提醒与看图标记），"
+                    "返回生成的文件绝对路径与导出条数。"
+                ),
+                parameters={
+                    "type": "object",
+                    "properties": export_props,
+                    "additionalProperties": False,
                 },
-                "required": ["job_id", "status"],
-                "additionalProperties": False,
-            },
-            handler=job_tools.mark_job,
-            read_only=False,
-            timeout=15.0,
+                handler=job_tools.export_jobs,
+                read_only=False,
+                timeout=30.0,
+            )
         )
-    )
+
+        registry.register(
+            ToolSpec(
+                name="mark_job",
+                description=(
+                    "更新本地岗位库中某条岗位的跟进状态：new（新发现）、interested（感兴趣）、"
+                    "applied（已投递）、rejected（已拒绝/不合适）、expired（已过期）。"
+                ),
+                parameters={
+                    "type": "object",
+                    "properties": {
+                        "job_id": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "description": "岗位 ID（来自 query_jobs 返回的 id 字段）",
+                        },
+                        "status": {
+                            "type": "string",
+                            "enum": _VALID_JOB_STATUSES,
+                            "description": "目标状态：new / interested / applied / rejected / expired",
+                        },
+                    },
+                    "required": ["job_id", "status"],
+                    "additionalProperties": False,
+                },
+                handler=job_tools.mark_job,
+                read_only=False,
+                timeout=15.0,
+            )
+        )
+
+    if knowledge_tools is not None:
+        registry.register(
+            ToolSpec(
+                name="extract_and_save_experience",
+                description=(
+                    "经验知识入库管道：自动获取笔记详情（优先走本地缓存）、独立抽取学习路线/项目实战/面经真题/避坑经验、"
+                    "做原文防编造校验并写入本地 SQLite experiences 表，仅返回一行精简摘要（不暴露全文给主上下文）。"
+                ),
+                parameters={
+                    "type": "object",
+                    "properties": {
+                        "note": {
+                            "type": "string",
+                            "minLength": 1,
+                            "description": "笔记短编号，必须来自 search_notes 返回结果（如 'n2'）",
+                        },
+                    },
+                    "required": ["note"],
+                    "additionalProperties": False,
+                },
+                handler=knowledge_tools.extract_and_save_experience,
+                read_only=False,
+                timeout=150.0,
+                max_calls_per_task=config.budget.max_detail_calls,
+                budget_group="detail",
+            )
+        )
+
+        exp_filter_props: dict[str, Any] = {
+            "category": {
+                "type": "string",
+                "enum": _VALID_EXP_CATEGORIES,
+                "description": "经验分类：roadmap(学习路线) / project(项目实战) / interview(面试真题) / tips(避坑复盘)",
+            },
+            "topic": {"type": "string", "description": "主题关键词，如 'AI Agent'、'RAG'、'MCP'"},
+            "keyword": {"type": "string", "description": "全文检索关键词（匹配标题、要点、技术栈与总结）"},
+            "status": {
+                "type": "string",
+                "enum": _VALID_EXP_STATUSES,
+                "description": "学习状态：unread / reading / starred / archived",
+            },
+            "limit": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 200,
+                "description": "最多返回条数，默认 20",
+            },
+        }
+
+        query_exp_props = dict(exp_filter_props)
+        query_exp_props["sort_by"] = {
+            "type": "string",
+            "enum": ["latest", "likes"],
+            "description": "排序方式：latest(最新发布) 或 likes(点赞最高)",
+        }
+
+        registry.register(
+            ToolSpec(
+                name="query_experiences",
+                description=(
+                    "按分类、主题、关键词或学习状态查询本地 SQLite 经验知识库，返回结构化总结、要点、资源与来源链接。"
+                ),
+                parameters={
+                    "type": "object",
+                    "properties": query_exp_props,
+                    "additionalProperties": False,
+                },
+                handler=knowledge_tools.query_experiences,
+                read_only=True,
+                timeout=15.0,
+            )
+        )
+
+        registry.register(
+            ToolSpec(
+                name="mark_experience",
+                description="更新本地经验知识库中某条干货的学习状态：unread / reading / starred / archived。",
+                parameters={
+                    "type": "object",
+                    "properties": {
+                        "exp_id": {"type": "integer", "minimum": 1, "description": "经验 ID（来自 query_experiences）"},
+                        "status": {
+                            "type": "string",
+                            "enum": _VALID_EXP_STATUSES,
+                            "description": "目标状态：unread / reading / starred / archived",
+                        },
+                    },
+                    "required": ["exp_id", "status"],
+                    "additionalProperties": False,
+                },
+                handler=knowledge_tools.mark_experience,
+                read_only=False,
+                timeout=15.0,
+            )
+        )
+
+        export_exp_props = dict(exp_filter_props)
+        export_exp_props["format"] = {
+            "type": "string",
+            "enum": ["markdown", "excel"],
+            "description": "导出格式：markdown（默认，生成 .md 学习笔记）或 excel（生成 .xlsx）",
+        }
+        export_exp_props["path"] = {
+            "type": "string",
+            "description": "可选导出文件名或路径，不填则自动保存到 data/ 目录",
+        }
+
+        registry.register(
+            ToolSpec(
+                name="export_experiences",
+                description="将本地经验知识库导出为结构化 Markdown 学习笔记 (.md) 或 Excel (.xlsx)，返回文件路径与条数。",
+                parameters={
+                    "type": "object",
+                    "properties": export_exp_props,
+                    "additionalProperties": False,
+                },
+                handler=knowledge_tools.export_experiences,
+                read_only=False,
+                timeout=30.0,
+            )
+        )
 
     return registry
 
@@ -289,6 +416,7 @@ class AgentSession:
         max_steps: int | None = None,
         max_search_calls: int | None = None,
         max_detail_calls: int | None = None,
+        mode: str = "auto",
     ) -> AgentRunResult:
         """在当前会话中发送一条用户消息并执行完整 Agent Loop（每轮独立重置单轮预算）。"""
         assert self.runtime.llm is not None and self.runtime.registry is not None
@@ -301,11 +429,7 @@ class AgentSession:
         if max_detail_calls is not None:
             budget.max_detail_calls = max_detail_calls
         executor = ExecutionEngine(self.runtime.registry, budget)
-        extract_stats_fn = (
-            self.runtime.job_tools.extractor.snapshot_stats
-            if self.runtime.job_tools is not None
-            else None
-        )
+        extract_stats_fn = self.runtime.combined_extract_stats
         loop = AgentLoop(
             llm=self.runtime.llm,
             registry=self.runtime.registry,
@@ -316,8 +440,10 @@ class AgentSession:
             pricing=self.runtime.config.pricing,
             extract_stats_fn=extract_stats_fn,
         )
+        prefix = MODE_PREFIX_HINTS.get(mode, "")
+        effective_input = f"{prefix}{user_input}" if prefix else user_input
         result = await loop.run_turn(
-            user_input,
+            effective_input,
             ctx=self.ctx,
             trace=self.trace,
             on_event=on_event,
@@ -378,8 +504,23 @@ class AgentRuntime:
         self.adapter: XhsAdapter | None = None
         self.llm: LLMClientProtocol | None = None
         self.job_tools: JobTools | None = None
+        self.knowledge_tools: KnowledgeTools | None = None
         self.registry: ToolRegistry | None = None
         self.precheck_summary: dict[str, Any] = {}
+
+    def combined_extract_stats(self) -> tuple[int, TokenUsage]:
+        """合并岗位抽取 LLM 与经验抽取 LLM 的累计调用次数与 Token 用量。"""
+        total_calls = 0
+        total_usage = TokenUsage()
+        if self.job_tools is not None:
+            c, u = self.job_tools.extractor.snapshot_stats()
+            total_calls += c
+            total_usage.add(u)
+        if self.knowledge_tools is not None:
+            c, u = self.knowledge_tools.extractor.snapshot_stats()
+            total_calls += c
+            total_usage.add(u)
+        return total_calls, total_usage
 
     async def start(self) -> None:
         """启动预检：初始化 SQLite → 连接 MCP → 校验白名单工具与 Schema → 检查登录态 → 装配注册表与 LLM。"""
@@ -439,6 +580,8 @@ class AgentRuntime:
         if self.enable_job_tools and self.store is not None:
             from xhs_agent.jobs.extract import JobExtractor
             from xhs_agent.jobs.tools import JobTools
+            from xhs_agent.knowledge.extract import ExperienceExtractor
+            from xhs_agent.knowledge.tools import KnowledgeTools
 
             ext_llm = self._injected_extractor_llm or self.llm
             extractor = JobExtractor(ext_llm, self.config.llm)
@@ -448,7 +591,19 @@ class AgentRuntime:
                 extractor=extractor,
                 export_dir=self.export_dir,
             )
-            self.registry = build_v1_registry(self.adapter, self.config, self.job_tools)
+            exp_extractor = ExperienceExtractor(ext_llm, self.config.llm)
+            self.knowledge_tools = KnowledgeTools(
+                adapter=self.adapter,
+                store=self.store,
+                extractor=exp_extractor,
+                export_dir=self.export_dir,
+            )
+            self.registry = build_v1_registry(
+                self.adapter,
+                self.config,
+                self.job_tools,
+                self.knowledge_tools,
+            )
         else:
             self.registry = build_phase3_registry(self.adapter, self.config)
 
@@ -497,9 +652,7 @@ class AgentRuntime:
             self.prompt_path,
             current_date=self.current_date,
         )
-        extract_stats_fn = (
-            self.job_tools.extractor.snapshot_stats if self.job_tools is not None else None
-        )
+        extract_stats_fn = self.combined_extract_stats
         loop = AgentLoop(
             llm=self.llm,
             registry=self.registry,

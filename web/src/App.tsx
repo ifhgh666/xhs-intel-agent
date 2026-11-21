@@ -1,14 +1,15 @@
 import { useCallback, useEffect, useState } from 'react'
-import { Activity, Briefcase, MessageSquareText } from 'lucide-react'
+import { Activity, BookOpen, Briefcase, MessageSquareText } from 'lucide-react'
 import { api } from './api/client'
 import type { SystemStatus } from './api/types'
 import { LoginQrModal } from './components/LoginQrModal'
 import { TopStatusBar } from './components/TopStatusBar'
+import { ExperiencesPage } from './pages/ExperiencesPage'
 import { JobsPage } from './pages/JobsPage'
 import { TracesPage } from './pages/TracesPage'
 import { WorkspacePage } from './pages/WorkspacePage'
 
-type PageTab = 'workspace' | 'jobs' | 'traces'
+type PageTab = 'workspace' | 'jobs' | 'experiences' | 'traces'
 
 export function App() {
   const [activeTab, setActiveTab] = useState<PageTab>('workspace')
@@ -74,6 +75,13 @@ export function App() {
             onClick={() => setActiveTab('jobs')}
           />
           <NavItem
+            active={activeTab === 'experiences'}
+            icon={<BookOpen className="h-4 w-4" />}
+            label="经验知识库"
+            badge={status ? String(status.db_experiences_count) : undefined}
+            onClick={() => setActiveTab('experiences')}
+          />
+          <NavItem
             active={activeTab === 'traces'}
             icon={<Activity className="h-4 w-4" />}
             label="监控与 Trace"
@@ -108,6 +116,9 @@ export function App() {
             />
           )}
           {activeTab === 'jobs' && <JobsPage onJobsMutated={() => void refreshStatus(false)} />}
+          {activeTab === 'experiences' && (
+            <ExperiencesPage onMutated={() => void refreshStatus(false)} />
+          )}
           {activeTab === 'traces' && <TracesPage />}
         </main>
       </div>

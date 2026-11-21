@@ -16,6 +16,9 @@ from xhs_agent.harness.llm import DeepSeekClient, LLMClientProtocol
 from xhs_agent.harness.runtime import AgentRuntime, AgentSession, build_v1_registry
 from xhs_agent.jobs.extract import JobExtractor
 from xhs_agent.jobs.tools import JobTools
+from xhs_agent.knowledge.extract import ExperienceExtractor
+from xhs_agent.knowledge.models import CATEGORY_LABELS
+from xhs_agent.knowledge.tools import KnowledgeTools
 
 logger = logging.getLogger("xhs_agent.api.task_manager")
 
@@ -81,6 +84,7 @@ class ManagedSession:
     default_max_steps: int | None = None
     default_max_search: int | None = None
     default_max_detail: int | None = None
+    default_mode: str = "auto"
 
     @property
     def status(self) -> str:
@@ -161,13 +165,13 @@ class TaskManager:
         max_steps: int | None = None,
         max_search: int | None = None,
         max_detail: int | None = None,
+        mode: str = "auto",
     ) -> ManagedSession:
         if self.state.store is None or self.state.adapter is None:
             raise RuntimeError("WebAppState 尚未完成初始化")
 
         main_llm, ext_llm = self._ensure_llms()
 
-        # 为该会话构造独立预算配置视图（共享底层 adapter、NoteCache 与 SQLite store）
         session_cfg = self.state.config.model_copy(deep=True)
         if max_steps is not None:
             session_cfg.budget.max_steps = max_steps
@@ -185,7 +189,6 @@ class TaskManager:
             export_dir=self.state.export_dir,
             traces_dir=self.state.traces_dir,
         )
-        # 直接装配运行时内部组件（不在此处阻塞重复 MCP 预检，降级模式下仍可使用 query/mark/export 工具）
         rt.store = self.state.store
         rt.adapter = self.state.adapter
         rt.llm = main_llm
@@ -196,7 +199,19 @@ class TaskManager:
             extractor=extractor,
             export_dir=self.state.export_dir,
         )
-        rt.registry = build_v1_registry(self.state.adapter, session_cfg, rt.job_tools)
+        exp_extractor = ExperienceExtractor(ext_llm, session_cfg.llm)
+        rt.knowledge_tools = KnowledgeTools(
+            adapter=self.state.adapter,
+            store=self.state.store,
+            extractor=exp_extractor,
+            export_dir=self.state.export_dir,
+        )
+        rt.registry = build_v1_registry(
+            self.state.adapter,
+            session_cfg,
+            rt.job_tools,
+            rt.knowledge_tools,
+        )
 
         agent_session = rt.new_session()
         managed = ManagedSession(
@@ -205,6 +220,7 @@ class TaskManager:
             default_max_steps=max_steps,
             default_max_search=max_search,
             default_max_detail=max_detail,
+            default_mode=mode,
         )
         self.sessions[managed.session_id] = managed
         return managed
@@ -224,6 +240,12 @@ class TaskManager:
         jobs = self.state.store.query_jobs(limit=500)
         return {j.id for j in jobs if j.id is not None}
 
+    def _snapshot_exp_ids(self) -> set[int]:
+        if self.state.store is None:
+            return set()
+        exps = self.state.store.query_experiences(limit=500)
+        return {e.id for e in exps if e.id is not None}
+
     async def start_turn(
         self,
         session_id: str,
@@ -232,6 +254,7 @@ class TaskManager:
         max_steps: int | None = None,
         max_search: int | None = None,
         max_detail: int | None = None,
+        mode: str | None = None,
     ) -> RunRecord:
         managed = self.sessions.get(session_id)
         if managed is None:
@@ -262,9 +285,14 @@ class TaskManager:
         eff_steps = max_steps if max_steps is not None else managed.default_max_steps
         eff_search = max_search if max_search is not None else managed.default_max_search
         eff_detail = max_detail if max_detail is not None else managed.default_max_detail
+        eff_mode = mode if mode is not None else managed.default_mode
 
-        before_ids = self._snapshot_job_ids()
-        run.publish("turn_start", {"run_id": run_id, "session_id": session_id, "turn": next_turn, "user_input": cleaned})
+        before_job_ids = self._snapshot_job_ids()
+        before_exp_ids = self._snapshot_exp_ids()
+        run.publish(
+            "turn_start",
+            {"run_id": run_id, "session_id": session_id, "turn": next_turn, "mode": eff_mode, "user_input": cleaned},
+        )
 
         async def _runner() -> None:
             def on_event(event_type: str, payload: dict[str, Any]) -> None:
@@ -284,12 +312,22 @@ class TaskManager:
                     max_steps=eff_steps,
                     max_search_calls=eff_search,
                     max_detail_calls=eff_detail,
+                    mode=eff_mode,
                 )
                 after_jobs = self.state.store.query_jobs(limit=500) if self.state.store is not None else []
                 newly_saved = [
                     j.model_dump(mode="json")
                     for j in after_jobs
-                    if j.id is not None and j.id not in before_ids
+                    if j.id is not None and j.id not in before_job_ids
+                ]
+                after_exps = self.state.store.query_experiences(limit=500) if self.state.store is not None else []
+                newly_saved_exps = [
+                    {
+                        **e.model_dump(mode="json"),
+                        "category_label": CATEGORY_LABELS.get(e.category, e.category),
+                    }
+                    for e in after_exps
+                    if e.id is not None and e.id not in before_exp_ids
                 ]
 
                 run.status = "cancelled" if result.stop_reason == "cancelled" else "completed"
@@ -297,6 +335,7 @@ class TaskManager:
 
                 meta = {
                     "run_id": run_id,
+                    "mode": eff_mode,
                     "stop_reason": result.stop_reason,
                     "steps": result.steps,
                     "llm_calls": result.llm_calls,
@@ -306,6 +345,7 @@ class TaskManager:
                     "cost": result.cost.to_dict(),
                     "tool_calls": result.tool_calls,
                     "newly_saved_jobs": newly_saved,
+                    "newly_saved_experiences": newly_saved_exps,
                 }
                 managed.messages.append(
                     ChatMessageRecord(

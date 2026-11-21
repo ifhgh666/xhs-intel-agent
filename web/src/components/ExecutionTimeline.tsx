@@ -1,10 +1,12 @@
 import {
   AlertCircle,
+  BookOpen,
   CheckCircle2,
   Cpu,
   Database,
   Download,
   FileSearch,
+  FileText,
   Loader2,
   Search,
   ShieldCheck,
@@ -22,10 +24,14 @@ interface ExecutionTimelineProps {
 const TOOL_LABELS: Record<string, { label: string; icon: React.ReactNode }> = {
   search_notes: { label: '搜索小红书笔记', icon: <Search className="h-3.5 w-3.5" /> },
   get_note_detail: { label: '预览笔记详情', icon: <FileSearch className="h-3.5 w-3.5" /> },
-  extract_and_save_jobs: { label: '抽取并校验入库', icon: <Database className="h-3.5 w-3.5" /> },
+  extract_and_save_jobs: { label: '抽取岗位并入库', icon: <Database className="h-3.5 w-3.5" /> },
   query_jobs: { label: '查询本地岗位库', icon: <Sparkles className="h-3.5 w-3.5" /> },
-  export_jobs: { label: '导出 Excel 表格', icon: <Download className="h-3.5 w-3.5" /> },
+  export_jobs: { label: '导出岗位 Excel', icon: <Download className="h-3.5 w-3.5" /> },
   mark_job: { label: '更新岗位状态', icon: <Tag className="h-3.5 w-3.5" /> },
+  extract_and_save_experience: { label: '抽取干货并入经验库', icon: <BookOpen className="h-3.5 w-3.5" /> },
+  query_experiences: { label: '查询本地经验库', icon: <Sparkles className="h-3.5 w-3.5" /> },
+  mark_experience: { label: '更新学习状态', icon: <Tag className="h-3.5 w-3.5" /> },
+  export_experiences: { label: '导出学习笔记', icon: <FileText className="h-3.5 w-3.5" /> },
 }
 
 export function ExecutionTimeline({ events, isRunning }: ExecutionTimelineProps) {
@@ -184,7 +190,8 @@ function TimelineCard({ pkt }: { pkt: SSEEventPacket }) {
 
   if (pkt.event === 'turn_complete') {
     const cost = (d.cost ?? {}) as Record<string, number>
-    const newly = Array.isArray(d.newly_saved_jobs) ? d.newly_saved_jobs.length : 0
+    const newlyJobs = Array.isArray(d.newly_saved_jobs) ? d.newly_saved_jobs.length : 0
+    const newlyExps = Array.isArray(d.newly_saved_experiences) ? d.newly_saved_experiences.length : 0
     return (
       <div className="rounded-xl border border-emerald-300 bg-emerald-50 px-3 py-2.5 text-xs text-emerald-900">
         <div className="flex items-center justify-between font-semibold">
@@ -195,7 +202,7 @@ function TimelineCard({ pkt }: { pkt: SSEEventPacket }) {
           <span className="font-mono">¥{(cost.total_cost ?? 0).toFixed(4)}</span>
         </div>
         <div className="mt-1 text-[11px] text-emerald-800">
-          新入库 {newly} 个岗位 · 共调用 LLM {String(d.total_llm_calls ?? 0)} 次
+          新入库岗位 {newlyJobs} · 经验 {newlyExps} · LLM {String(d.total_llm_calls ?? 0)} 次
         </div>
       </div>
     )

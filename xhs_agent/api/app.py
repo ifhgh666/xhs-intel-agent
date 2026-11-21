@@ -10,7 +10,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 
-from xhs_agent.api.routes import jobs, sessions, system, traces
+from xhs_agent.api.routes import experiences, jobs, sessions, system, traces
 from xhs_agent.api.state import WebAppState
 from xhs_agent.api.task_manager import TaskManager
 from xhs_agent.config import AppConfig, ROOT_DIR
@@ -82,6 +82,7 @@ def create_app(
     app.include_router(system.router)
     app.include_router(sessions.router)
     app.include_router(jobs.router)
+    app.include_router(experiences.router)
     app.include_router(traces.router)
 
     # 若已构建 web/dist，直接由 FastAPI 单端口托管前端 SPA

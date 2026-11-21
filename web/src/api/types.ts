@@ -1,4 +1,7 @@
 export type JobStatus = 'new' | 'interested' | 'applied' | 'rejected' | 'expired'
+export type AgentMode = 'auto' | 'jobs' | 'experience'
+export type ExperienceCategory = 'roadmap' | 'project' | 'interview' | 'tips'
+export type ExperienceStatus = 'unread' | 'reading' | 'starred' | 'archived'
 
 export interface QuotaItem {
   used: number
@@ -20,6 +23,7 @@ export interface SystemStatus {
   validated_tools: string[]
   db_path: string
   db_jobs_count: number
+  db_experiences_count: number
   active_session_id: string | null
   daily_usage: DailyUsageSummary
   config_summary: {
@@ -124,8 +128,61 @@ export interface SessionMessage {
     cost?: CostEstimate
     tool_calls?: Record<string, number>
     newly_saved_jobs?: JobItem[]
+    newly_saved_experiences?: ExperienceItem[]
+    mode?: AgentMode
     error?: string
   }
+}
+
+export interface ExperienceItem {
+  id: number
+  note_id: string
+  category: ExperienceCategory
+  category_label: string
+  topic: string
+  title: string
+  target_audience: string | null
+  summary: string
+  key_points: string[]
+  tech_stack: string[]
+  resources: string[]
+  pitfalls: string[]
+  evidence: string
+  confidence: number
+  source_url: string
+  note_title: string | null
+  note_author: string | null
+  note_published_at: string | null
+  liked_count: number | null
+  collected_count: number | null
+  crawled_at: string
+  needs_image: boolean
+  status: ExperienceStatus
+}
+
+export interface ExperienceFacets {
+  category_counts: Record<ExperienceCategory, number>
+  status_counts: Record<ExperienceStatus, number>
+  topics: string[]
+}
+
+export interface ExperienceListResponse {
+  total: number
+  page: number
+  page_size: number
+  items: ExperienceItem[]
+  facets: ExperienceFacets
+}
+
+export interface ExperienceQueryParams {
+  category?: ExperienceCategory | ''
+  topic?: string
+  keyword?: string
+  status?: ExperienceStatus | ''
+  needs_image?: boolean | null
+  sort_by?: 'latest' | 'likes'
+  page?: number
+  page_size?: number
 }
 
 export interface SessionSummary {
@@ -181,6 +238,8 @@ export interface TraceDetail {
 export interface OverviewStats {
   total_jobs: number
   status_counts: Record<string, number>
+  total_experiences: number
+  experience_category_counts: Record<string, number>
   total_sessions: number
   total_tokens: number
   total_cost_cny: number

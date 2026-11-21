@@ -63,6 +63,12 @@ class ToolExecutionResult:
         if isinstance(self.data, dict):
             if "notes" in self.data and isinstance(self.data["notes"], list):
                 return f"keyword={self.data.get('keyword')!r} count={len(self.data['notes'])}"
+            if "note" in self.data and "exp_id" in self.data:
+                return (
+                    f"note={self.data.get('note')} status={self.data.get('status')} "
+                    f"cat={self.data.get('category_label') or self.data.get('category')} "
+                    f"points={self.data.get('key_points_count', 0)}"
+                )
             if "note" in self.data and "created" in self.data:
                 return (
                     f"note={self.data.get('note')} status={self.data.get('status')} "

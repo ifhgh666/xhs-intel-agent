@@ -2,7 +2,9 @@ import { useEffect, useRef, useState } from 'react'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import {
+  BookOpen,
   Bot,
+  Briefcase,
   ExternalLink,
   PanelRightClose,
   PanelRightOpen,
@@ -16,6 +18,8 @@ import {
 import { api, ApiError } from '../api/client'
 import { subscribeSessionEvents } from '../api/sse'
 import type {
+  AgentMode,
+  ExperienceItem,
   JobItem,
   SSEEventPacket,
   SessionDetail,
@@ -30,10 +34,28 @@ interface WorkspacePageProps {
   onOpenLogin: () => void
 }
 
-const STARTER_PROMPTS = [
-  '帮我搜索广州的 AI Agent、RAG 实习岗位，优先找适合 2028 届本科生的岗位，入库后导出 Excel。',
-  '帮我搜索深圳的大模型 / AI 应用开发日常实习，要求最近 1 个月发布的。',
-  '查询本地岗位库里所有广州的岗位，按推荐度整理给我。',
+const STARTER_PROMPTS: { mode: AgentMode; tag: string; text: string }[] = [
+  {
+    mode: 'experience',
+    tag: '学习经验',
+    text: '帮我搜索 AI Agent 与 RAG 的学习路线、高赞实战项目和面试准备经验，入库经验知识库并导出 Markdown 笔记。',
+  },
+  {
+    mode: 'jobs',
+    tag: '实习岗位',
+    text: '帮我搜索广州的 AI Agent、RAG 实习岗位，优先找适合 2028 届本科生的岗位，入库后导出 Excel。',
+  },
+  {
+    mode: 'auto',
+    tag: '双模式协同',
+    text: '帮我找广州 AI Agent 实习岗位，顺便搜集几篇高赞 AI Agent 实习面经真题和避坑经验。',
+  },
+]
+
+const MODE_OPTIONS: { value: AgentMode; label: string; icon: React.ReactNode }[] = [
+  { value: 'auto', label: '智能识别', icon: <Sparkles className="h-3 w-3" /> },
+  { value: 'jobs', label: '找岗位', icon: <Briefcase className="h-3 w-3" /> },
+  { value: 'experience', label: '找经验', icon: <BookOpen className="h-3 w-3" /> },
 ]
 
 export function WorkspacePage({
@@ -45,12 +67,14 @@ export function WorkspacePage({
   const [messages, setMessages] = useState<SessionMessage[]>([])
   const [events, setEvents] = useState<SSEEventPacket[]>([])
   const [input, setInput] = useState('')
+  const [mode, setMode] = useState<AgentMode>('auto')
   const [maxSearch, setMaxSearch] = useState(3)
   const [maxDetail, setMaxDetail] = useState(6)
   const [isRunning, setIsRunning] = useState(false)
   const [errorMsg, setErrorMsg] = useState<string | null>(null)
   const [showTimeline, setShowTimeline] = useState(true)
   const [starredIds, setStarredIds] = useState<Set<number>>(new Set())
+  const [starredExpIds, setStarredExpIds] = useState<Set<number>>(new Set())
 
   const unsubscribeRef = useRef<(() => void) | null>(null)
   const bottomRef = useRef<HTMLDivElement | null>(null)
@@ -116,6 +140,8 @@ export function WorkspacePage({
                 : never,
               tool_calls: (d.tool_calls as Record<string, number>) ?? {},
               newly_saved_jobs: (d.newly_saved_jobs as JobItem[]) ?? [],
+              newly_saved_experiences: (d.newly_saved_experiences as ExperienceItem[]) ?? [],
+              mode: (d.mode as AgentMode) ?? mode,
             },
           }
           setMessages((prev) => [...prev, assistantMsg])
@@ -141,7 +167,7 @@ export function WorkspacePage({
     if (isRunning) return
     setErrorMsg(null)
     try {
-      const created = await api.createSession({ max_search: maxSearch, max_detail: maxDetail })
+      const created = await api.createSession({ max_search: maxSearch, max_detail: maxDetail, mode })
       setSessionId(created.session_id)
       setMessages([])
       setEvents([])
@@ -150,15 +176,21 @@ export function WorkspacePage({
     }
   }
 
-  const handleSend = async (overrideText?: string) => {
+  const handleSend = async (overrideText?: string, overrideMode?: AgentMode) => {
     const text = (overrideText ?? input).trim()
+    const targetMode = overrideMode ?? mode
+    if (overrideMode) setMode(overrideMode)
     if (!text || isRunning) return
     setErrorMsg(null)
 
     try {
       let sid = sessionId
       if (!sid) {
-        const created = await api.createSession({ max_search: maxSearch, max_detail: maxDetail })
+        const created = await api.createSession({
+          max_search: maxSearch,
+          max_detail: maxDetail,
+          mode: targetMode,
+        })
         sid = created.session_id
         setSessionId(sid)
       }
@@ -176,6 +208,7 @@ export function WorkspacePage({
         content: text,
         max_search: maxSearch,
         max_detail: maxDetail,
+        mode: targetMode,
       })
       onRefreshSystem()
       attachStream(sid, res.run_id)
@@ -202,6 +235,15 @@ export function WorkspacePage({
     try {
       await api.updateJobStatus(jobId, 'interested')
       setStarredIds((prev) => new Set(prev).add(jobId))
+    } catch {
+      // ignore
+    }
+  }
+
+  const handleQuickStarExp = async (expId: number) => {
+    try {
+      await api.updateExperienceStatus(expId, 'starred')
+      setStarredExpIds((prev) => new Set(prev).add(expId))
     } catch {
       // ignore
     }
@@ -265,21 +307,34 @@ export function WorkspacePage({
                 <Sparkles className="h-6 w-6" />
               </div>
               <h2 className="mt-4 text-lg font-semibold text-slate-900">
-                用自然语言告诉我你想找什么实习
+                实习岗位 + 学习经验双模式智能检索
               </h2>
-              <p className="mt-1.5 max-w-md text-xs leading-relaxed text-slate-500">
-                Agent 会自主拆分关键词搜索小红书、过滤面经与 Vlog、独立抽取结构化岗位、做原文防编造校验与去重入库，支持多轮追问筛选与一键导出 Excel。
+              <p className="mt-1.5 max-w-lg text-xs leading-relaxed text-slate-500">
+                支持「找岗位」与「找学习路线 / 实战项目 / 高频面经」双管道协同，分别沉淀到独立的岗位库与经验知识库，全程原文防编造校验并支持导出 Excel 与 Markdown 复习笔记。
               </p>
 
               <div className="mt-7 grid w-full gap-2.5 text-left">
-                {STARTER_PROMPTS.map((prompt) => (
+                {STARTER_PROMPTS.map((item) => (
                   <button
-                    key={prompt}
+                    key={item.text}
                     disabled={isRunning}
-                    onClick={() => void handleSend(prompt)}
+                    onClick={() => void handleSend(item.text, item.mode)}
                     className="group flex cursor-pointer items-center justify-between rounded-xl border border-slate-200 bg-slate-50/70 px-4 py-3 text-xs text-slate-700 transition hover:border-rose-300 hover:bg-rose-50/40"
                   >
-                    <span className="leading-relaxed">{prompt}</span>
+                    <div className="flex items-start gap-2.5">
+                      <span
+                        className={`mt-0.5 shrink-0 rounded-full px-2 py-0.5 text-[10px] font-semibold ${
+                          item.mode === 'experience'
+                            ? 'bg-indigo-100 text-indigo-700'
+                            : item.mode === 'jobs'
+                              ? 'bg-rose-100 text-rose-700'
+                              : 'bg-slate-200 text-slate-700'
+                        }`}
+                      >
+                        {item.tag}
+                      </span>
+                      <span className="leading-relaxed">{item.text}</span>
+                    </div>
                     <Send className="ml-3 h-3.5 w-3.5 shrink-0 text-slate-400 group-hover:text-rose-600" />
                   </button>
                 ))}
@@ -372,6 +427,56 @@ export function WorkspacePage({
                           </div>
                         )}
 
+                        {/* 本轮新入库经验卡片 */}
+                        {msg.meta?.newly_saved_experiences && msg.meta.newly_saved_experiences.length > 0 && (
+                          <div className="mt-3 space-y-1.5 border-t border-slate-200 pt-3">
+                            <div className="text-[11px] font-semibold text-indigo-600">
+                              本轮新入库经验知识（{msg.meta.newly_saved_experiences.length} 篇）
+                            </div>
+                            <div className="grid gap-1.5 sm:grid-cols-2">
+                              {msg.meta.newly_saved_experiences.map((exp) => {
+                                const isStarred = starredExpIds.has(exp.id) || exp.status === 'starred'
+                                return (
+                                  <div
+                                    key={exp.id}
+                                    className="flex items-center justify-between rounded-xl border border-indigo-100 bg-white px-3 py-2 text-xs"
+                                  >
+                                    <div className="min-w-0 pr-2">
+                                      <div className="truncate font-semibold text-slate-900">
+                                        {exp.title}
+                                      </div>
+                                      <div className="truncate text-[11px] text-slate-500">
+                                        {exp.category_label} · {exp.topic} · {exp.key_points.length} 条要点
+                                      </div>
+                                    </div>
+                                    <div className="flex shrink-0 items-center gap-1">
+                                      <button
+                                        onClick={() => void handleQuickStarExp(exp.id)}
+                                        title="收藏该篇经验"
+                                        className={`cursor-pointer rounded-md p-1 transition ${
+                                          isStarred
+                                            ? 'bg-amber-50 text-amber-500'
+                                            : 'text-slate-400 hover:bg-slate-100 hover:text-amber-500'
+                                        }`}
+                                      >
+                                        <Star className={`h-3.5 w-3.5 ${isStarred ? 'fill-amber-400' : ''}`} />
+                                      </button>
+                                      <a
+                                        href={exp.source_url}
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        className="rounded-md p-1 text-slate-400 hover:bg-slate-100 hover:text-indigo-600"
+                                      >
+                                        <ExternalLink className="h-3.5 w-3.5" />
+                                      </a>
+                                    </div>
+                                  </div>
+                                )
+                              })}
+                            </div>
+                          </div>
+                        )}
+
                         {/* 费用与缓存统计条 */}
                         {msg.meta?.cost && (
                           <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 border-t border-slate-200/80 pt-2 font-mono text-[11px] text-slate-500">
@@ -422,9 +527,33 @@ export function WorkspacePage({
         <div className="border-t border-slate-200 bg-white px-5 py-3.5">
           <div className="mx-auto max-w-3xl">
             <div className="mb-2 flex flex-wrap items-center justify-between gap-2 text-[11px] text-slate-500">
-              <div className="flex flex-wrap items-center gap-4">
+              <div className="flex flex-wrap items-center gap-3">
+                {/* 双模式切换胶囊 */}
+                <div className="inline-flex rounded-lg border border-slate-200 bg-slate-100/80 p-0.5">
+                  {MODE_OPTIONS.map((opt) => (
+                    <button
+                      key={opt.value}
+                      type="button"
+                      disabled={isRunning}
+                      onClick={() => setMode(opt.value)}
+                      className={`inline-flex cursor-pointer items-center gap-1 rounded-md px-2 py-1 text-[11px] font-medium transition ${
+                        mode === opt.value
+                          ? opt.value === 'experience'
+                            ? 'bg-indigo-600 text-white shadow-2xs'
+                            : opt.value === 'jobs'
+                              ? 'bg-rose-600 text-white shadow-2xs'
+                              : 'bg-slate-900 text-white shadow-2xs'
+                          : 'text-slate-600 hover:text-slate-900'
+                      }`}
+                    >
+                      {opt.icon}
+                      {opt.label}
+                    </button>
+                  ))}
+                </div>
+
                 <label className="inline-flex items-center gap-1.5">
-                  <span>最多搜索</span>
+                  <span>搜索</span>
                   <input
                     type="range"
                     min={1}
@@ -432,12 +561,12 @@ export function WorkspacePage({
                     value={maxSearch}
                     disabled={isRunning}
                     onChange={(e) => setMaxSearch(Number(e.target.value))}
-                    className="h-1.5 w-20 accent-rose-600"
+                    className="h-1.5 w-16 accent-rose-600"
                   />
-                  <span className="w-5 font-mono font-semibold text-slate-700">{maxSearch}</span>
+                  <span className="w-4 font-mono font-semibold text-slate-700">{maxSearch}</span>
                 </label>
                 <label className="inline-flex items-center gap-1.5">
-                  <span>最多抽取</span>
+                  <span>抽取</span>
                   <input
                     type="range"
                     min={1}
@@ -445,7 +574,7 @@ export function WorkspacePage({
                     value={maxDetail}
                     disabled={isRunning}
                     onChange={(e) => setMaxDetail(Number(e.target.value))}
-                    className="h-1.5 w-20 accent-rose-600"
+                    className="h-1.5 w-16 accent-rose-600"
                   />
                   <span className="w-6 font-mono font-semibold text-slate-700">{maxDetail}篇</span>
                 </label>
