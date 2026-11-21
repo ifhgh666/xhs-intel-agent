@@ -240,6 +240,25 @@ class XhsAdapter:
             "message": res.text,
         }
 
+    async def get_login_qrcode(self) -> dict[str, Any]:
+        """受限接口：仅用于 CLI/Web 登录弹窗显式拉取扫码二维码（绝不纳入 LLM 工具白名单）。"""
+        async with self.rate_limiter.acquire(category=None):
+            res = await self.mcp.call_tool("get_login_qrcode", {}, timeout=45.0)
+        if res.is_error:
+            raise MCPToolExecutionError("get_login_qrcode", res.text or "获取二维码失败")
+
+        image_data_uri: str | None = None
+        for item in res.raw_content:
+            if item.get("type") == "image" and item.get("data"):
+                mime = item.get("mimeType") or item.get("mime_type") or "image/png"
+                image_data_uri = f"data:{mime};base64,{item['data']}"
+                break
+
+        return {
+            "hint_text": res.text,
+            "image_base64": image_data_uri,
+        }
+
     async def search_notes(
         self,
         keyword: str,

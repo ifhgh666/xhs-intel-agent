@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import json
 import sqlite3
+import threading
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -48,12 +49,17 @@ class JobStore:
     def __init__(self, db_path: Path | str | None = None) -> None:
         self.db_path = Path(db_path) if db_path is not None else DEFAULT_DB_PATH
         self.db_path.parent.mkdir(parents=True, exist_ok=True)
-        self._conn = sqlite3.connect(str(self.db_path))
+        self._lock = threading.RLock()
+        self._conn = sqlite3.connect(str(self.db_path), check_same_thread=False)
         self._conn.row_factory = sqlite3.Row
+        with self._lock:
+            self._conn.execute("PRAGMA journal_mode=WAL;")
+            self._conn.execute("PRAGMA busy_timeout=5000;")
         self.init_schema()
 
     def close(self) -> None:
-        self._conn.close()
+        with self._lock:
+            self._conn.close()
 
     def __enter__(self) -> JobStore:
         return self
@@ -127,23 +133,25 @@ class JobStore:
     # ------------------------------------------------------------------
 
     def get_count(self, day: str, category: str) -> int:
-        row = self._conn.execute(
-            "SELECT count FROM daily_usage WHERE day = ? AND category = ?",
-            (day, category),
-        ).fetchone()
+        with self._lock:
+            row = self._conn.execute(
+                "SELECT count FROM daily_usage WHERE day = ? AND category = ?",
+                (day, category),
+            ).fetchone()
         return int(row["count"]) if row else 0
 
     def increment(self, day: str, category: str, delta: int = 1) -> int:
-        with self._conn:
-            self._conn.execute(
-                """
-                INSERT INTO daily_usage (day, category, count)
-                VALUES (?, ?, ?)
-                ON CONFLICT(day, category) DO UPDATE SET count = count + excluded.count
-                """,
-                (day, category, delta),
-            )
-        return self.get_count(day, category)
+        with self._lock:
+            with self._conn:
+                self._conn.execute(
+                    """
+                    INSERT INTO daily_usage (day, category, count)
+                    VALUES (?, ?, ?)
+                    ON CONFLICT(day, category) DO UPDATE SET count = count + excluded.count
+                    """,
+                    (day, category, delta),
+                )
+            return self.get_count(day, category)
 
     # ------------------------------------------------------------------
     # notes 表操作（NoteCache 持久化 + 笔记级去重）
@@ -165,28 +173,30 @@ class JobStore:
         detail_str = json.dumps(detail, ensure_ascii=False) if detail is not None else None
         pub_str = _dt_to_iso(published_at)
 
-        with self._conn:
-            self._conn.execute(
-                """
-                INSERT INTO notes (
-                    feed_id, xsec_token, title, author, published_at,
-                    raw_json, detail_json, processed_at, updated_at
+        with self._lock:
+            with self._conn:
+                self._conn.execute(
+                    """
+                    INSERT INTO notes (
+                        feed_id, xsec_token, title, author, published_at,
+                        raw_json, detail_json, processed_at, updated_at
+                    )
+                    VALUES (?, ?, ?, ?, ?, ?, ?, NULL, ?)
+                    ON CONFLICT(feed_id) DO UPDATE SET
+                        xsec_token = COALESCE(NULLIF(excluded.xsec_token, ''), notes.xsec_token),
+                        title = COALESCE(NULLIF(excluded.title, ''), notes.title),
+                        author = COALESCE(NULLIF(excluded.author, ''), notes.author),
+                        published_at = COALESCE(excluded.published_at, notes.published_at),
+                        raw_json = COALESCE(excluded.raw_json, notes.raw_json),
+                        detail_json = COALESCE(excluded.detail_json, notes.detail_json),
+                        updated_at = excluded.updated_at
+                    """,
+                    (feed_id, xsec_token, title, author, pub_str, raw_str, detail_str, now),
                 )
-                VALUES (?, ?, ?, ?, ?, ?, ?, NULL, ?)
-                ON CONFLICT(feed_id) DO UPDATE SET
-                    xsec_token = COALESCE(NULLIF(excluded.xsec_token, ''), notes.xsec_token),
-                    title = COALESCE(NULLIF(excluded.title, ''), notes.title),
-                    author = COALESCE(NULLIF(excluded.author, ''), notes.author),
-                    published_at = COALESCE(excluded.published_at, notes.published_at),
-                    raw_json = COALESCE(excluded.raw_json, notes.raw_json),
-                    detail_json = COALESCE(excluded.detail_json, notes.detail_json),
-                    updated_at = excluded.updated_at
-                """,
-                (feed_id, xsec_token, title, author, pub_str, raw_str, detail_str, now),
-            )
 
     def get_note(self, feed_id: str) -> dict[str, Any] | None:
-        row = self._conn.execute("SELECT * FROM notes WHERE feed_id = ?", (feed_id,)).fetchone()
+        with self._lock:
+            row = self._conn.execute("SELECT * FROM notes WHERE feed_id = ?", (feed_id,)).fetchone()
         if row is None:
             return None
         return {
@@ -201,20 +211,22 @@ class JobStore:
         }
 
     def is_note_processed(self, feed_id: str) -> bool:
-        row = self._conn.execute(
-            "SELECT processed_at FROM notes WHERE feed_id = ?",
-            (feed_id,),
-        ).fetchone()
+        with self._lock:
+            row = self._conn.execute(
+                "SELECT processed_at FROM notes WHERE feed_id = ?",
+                (feed_id,),
+            ).fetchone()
         return bool(row and row["processed_at"])
 
     def mark_note_processed(self, feed_id: str, processed_at: datetime | None = None) -> None:
         ts = _dt_to_iso(processed_at or datetime.now(timezone.utc))
         now = _utc_now_iso()
-        with self._conn:
-            self._conn.execute(
-                "UPDATE notes SET processed_at = ?, updated_at = ? WHERE feed_id = ?",
-                (ts, now, feed_id),
-            )
+        with self._lock:
+            with self._conn:
+                self._conn.execute(
+                    "UPDATE notes SET processed_at = ?, updated_at = ? WHERE feed_id = ?",
+                    (ts, now, feed_id),
+                )
 
     # ------------------------------------------------------------------
     # jobs 表操作（岗位 upsert 去重、查询与状态更新）
@@ -254,107 +266,108 @@ class JobStore:
         """写入或按 dedup_key 合并岗位；返回 (落库记录, 是否新增)。"""
         now = _utc_now_iso()
 
-        if record.dedup_key:
-            existing_row = self._conn.execute(
-                "SELECT * FROM jobs WHERE dedup_key = ? ORDER BY id ASC LIMIT 1",
-                (record.dedup_key,),
-            ).fetchone()
-            if existing_row is not None:
-                existing = self._row_to_job(existing_row)
-                extra = list(existing.extra_sources)
-                if record.source_url != existing.source_url and record.source_url not in extra:
-                    extra.append(record.source_url)
+        with self._lock:
+            if record.dedup_key:
+                existing_row = self._conn.execute(
+                    "SELECT * FROM jobs WHERE dedup_key = ? ORDER BY id ASC LIMIT 1",
+                    (record.dedup_key,),
+                ).fetchone()
+                if existing_row is not None:
+                    existing = self._row_to_job(existing_row)
+                    extra = list(existing.extra_sources)
+                    if record.source_url != existing.source_url and record.source_url not in extra:
+                        extra.append(record.source_url)
 
-                # 保留最早来源，但对缺失字段做温和补全（不覆盖已有非空字段）
-                merged_skills = list(dict.fromkeys([*existing.skills, *record.skills]))
-                with self._conn:
-                    self._conn.execute(
-                        """
-                        UPDATE jobs SET
-                            education = COALESCE(education, ?),
-                            graduation_year = COALESCE(graduation_year, ?),
-                            skills_json = ?,
-                            internship_duration = COALESCE(internship_duration, ?),
-                            attendance_days = COALESCE(attendance_days, ?),
-                            salary = COALESCE(salary, ?),
-                            deadline = COALESCE(deadline, ?),
-                            apply_method = COALESCE(apply_method, ?),
-                            application_url = COALESCE(application_url, ?),
-                            extra_sources_json = ?,
-                            updated_at = ?
-                        WHERE id = ?
-                        """,
-                        (
-                            record.education,
-                            record.graduation_year,
-                            json.dumps(merged_skills, ensure_ascii=False),
-                            record.internship_duration,
-                            record.attendance_days,
-                            record.salary,
-                            record.deadline,
-                            record.apply_method,
-                            record.application_url,
-                            json.dumps(extra, ensure_ascii=False),
-                            now,
-                            existing.id,
-                        ),
+                    merged_skills = list(dict.fromkeys([*existing.skills, *record.skills]))
+                    with self._conn:
+                        self._conn.execute(
+                            """
+                            UPDATE jobs SET
+                                education = COALESCE(education, ?),
+                                graduation_year = COALESCE(graduation_year, ?),
+                                skills_json = ?,
+                                internship_duration = COALESCE(internship_duration, ?),
+                                attendance_days = COALESCE(attendance_days, ?),
+                                salary = COALESCE(salary, ?),
+                                deadline = COALESCE(deadline, ?),
+                                apply_method = COALESCE(apply_method, ?),
+                                application_url = COALESCE(application_url, ?),
+                                extra_sources_json = ?,
+                                updated_at = ?
+                            WHERE id = ?
+                            """,
+                            (
+                                record.education,
+                                record.graduation_year,
+                                json.dumps(merged_skills, ensure_ascii=False),
+                                record.internship_duration,
+                                record.attendance_days,
+                                record.salary,
+                                record.deadline,
+                                record.apply_method,
+                                record.application_url,
+                                json.dumps(extra, ensure_ascii=False),
+                                now,
+                                existing.id,
+                            ),
+                        )
+                    updated_row = self._conn.execute("SELECT * FROM jobs WHERE id = ?", (existing.id,)).fetchone()
+                    return self._row_to_job(updated_row), False
+
+            with self._conn:
+                cur = self._conn.execute(
+                    """
+                    INSERT INTO jobs (
+                        dedup_key, company, position, city, education, graduation_year,
+                        skills_json, internship_duration, attendance_days, salary, deadline,
+                        apply_method, application_url, evidence, confidence,
+                        note_id, source_url, note_title, note_author, note_published_at,
+                        crawled_at, needs_image, maybe_expired, extra_sources_json,
+                        status, created_at, updated_at
                     )
-                updated_row = self._conn.execute("SELECT * FROM jobs WHERE id = ?", (existing.id,)).fetchone()
-                return self._row_to_job(updated_row), False
-
-        with self._conn:
-            cur = self._conn.execute(
-                """
-                INSERT INTO jobs (
-                    dedup_key, company, position, city, education, graduation_year,
-                    skills_json, internship_duration, attendance_days, salary, deadline,
-                    apply_method, application_url, evidence, confidence,
-                    note_id, source_url, note_title, note_author, note_published_at,
-                    crawled_at, needs_image, maybe_expired, extra_sources_json,
-                    status, created_at, updated_at
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    """,
+                    (
+                        record.dedup_key,
+                        record.company,
+                        record.position,
+                        record.city,
+                        record.education,
+                        record.graduation_year,
+                        json.dumps(record.skills, ensure_ascii=False),
+                        record.internship_duration,
+                        record.attendance_days,
+                        record.salary,
+                        record.deadline,
+                        record.apply_method,
+                        record.application_url,
+                        record.evidence,
+                        record.confidence,
+                        record.note_id,
+                        record.source_url,
+                        record.note_title,
+                        record.note_author,
+                        _dt_to_iso(record.note_published_at),
+                        _dt_to_iso(record.crawled_at),
+                        1 if record.needs_image else 0,
+                        1 if record.maybe_expired else 0,
+                        json.dumps(record.extra_sources, ensure_ascii=False),
+                        record.status,
+                        now,
+                        now,
+                    ),
                 )
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-                """,
-                (
-                    record.dedup_key,
-                    record.company,
-                    record.position,
-                    record.city,
-                    record.education,
-                    record.graduation_year,
-                    json.dumps(record.skills, ensure_ascii=False),
-                    record.internship_duration,
-                    record.attendance_days,
-                    record.salary,
-                    record.deadline,
-                    record.apply_method,
-                    record.application_url,
-                    record.evidence,
-                    record.confidence,
-                    record.note_id,
-                    record.source_url,
-                    record.note_title,
-                    record.note_author,
-                    _dt_to_iso(record.note_published_at),
-                    _dt_to_iso(record.crawled_at),
-                    1 if record.needs_image else 0,
-                    1 if record.maybe_expired else 0,
-                    json.dumps(record.extra_sources, ensure_ascii=False),
-                    record.status,
-                    now,
-                    now,
-                ),
-            )
-            new_id = int(cur.lastrowid)
+                new_id = int(cur.lastrowid)
 
-        row = self._conn.execute("SELECT * FROM jobs WHERE id = ?", (new_id,)).fetchone()
-        return self._row_to_job(row), True
+            row = self._conn.execute("SELECT * FROM jobs WHERE id = ?", (new_id,)).fetchone()
+            return self._row_to_job(row), True
 
     def get_jobs_by_note(self, note_id: str) -> list[JobRecord]:
-        rows = self._conn.execute(
-            "SELECT * FROM jobs WHERE note_id = ? ORDER BY id ASC",
-            (note_id,),
-        ).fetchall()
+        with self._lock:
+            rows = self._conn.execute(
+                "SELECT * FROM jobs WHERE note_id = ? ORDER BY id ASC",
+                (note_id,),
+            ).fetchall()
         return [self._row_to_job(r) for r in rows]
 
     def query_jobs(
@@ -365,24 +378,56 @@ class JobStore:
         graduation_year: str | None = None,
         since: str | None = None,
         status: JobStatus | None = None,
+        only_fresh: bool = False,
+        needs_image: bool | None = None,
         limit: int = 50,
     ) -> list[JobRecord]:
+        res = self.query_jobs_paginated(
+            city=city,
+            keyword=keyword,
+            graduation_year=graduation_year,
+            since=since,
+            status=status,
+            only_fresh=only_fresh,
+            needs_image=needs_image,
+            page=1,
+            page_size=max(1, min(int(limit), 500)),
+            include_facets=False,
+        )
+        return res["items"]
+
+    def _build_job_filters(
+        self,
+        *,
+        city: str | None = None,
+        keyword: str | None = None,
+        graduation_year: str | None = None,
+        since: str | None = None,
+        status: JobStatus | None = None,
+        only_fresh: bool = False,
+        needs_image: bool | None = None,
+    ) -> tuple[str, list[Any]]:
         clauses: list[str] = []
         params: list[Any] = []
 
-        if city:
+        if city and city.strip():
             clauses.append("city LIKE ?")
             params.append(f"%{city.strip()}%")
-        if graduation_year:
+        if graduation_year and graduation_year.strip():
             clauses.append("graduation_year LIKE ?")
             params.append(f"%{graduation_year.strip()}%")
         if status:
             clauses.append("status = ?")
             params.append(status)
-        if since:
+        if since and since.strip():
             clauses.append("COALESCE(note_published_at, crawled_at) >= ?")
             params.append(since.strip())
-        if keyword:
+        if only_fresh:
+            clauses.append("maybe_expired = 0")
+        if needs_image is not None:
+            clauses.append("needs_image = ?")
+            params.append(1 if needs_image else 0)
+        if keyword and keyword.strip():
             kw = f"%{keyword.strip()}%"
             clauses.append(
                 "(company LIKE ? OR position LIKE ? OR skills_json LIKE ? OR note_title LIKE ? OR evidence LIKE ?)"
@@ -390,28 +435,108 @@ class JobStore:
             params.extend([kw, kw, kw, kw, kw])
 
         where_sql = f"WHERE {' AND '.join(clauses)}" if clauses else ""
-        sql = f"""
-            SELECT * FROM jobs
-            {where_sql}
-            ORDER BY COALESCE(note_published_at, crawled_at) DESC, id DESC
-            LIMIT ?
-        """
-        params.append(max(1, min(int(limit), 500)))
-        rows = self._conn.execute(sql, params).fetchall()
-        return [self._row_to_job(r) for r in rows]
+        return where_sql, params
+
+    def query_jobs_paginated(
+        self,
+        *,
+        city: str | None = None,
+        keyword: str | None = None,
+        graduation_year: str | None = None,
+        since: str | None = None,
+        status: JobStatus | None = None,
+        only_fresh: bool = False,
+        needs_image: bool | None = None,
+        page: int = 1,
+        page_size: int = 20,
+        include_facets: bool = True,
+    ) -> dict[str, Any]:
+        safe_page = max(1, int(page))
+        safe_size = max(1, min(int(page_size), 500))
+        offset = (safe_page - 1) * safe_size
+
+        where_sql, params = self._build_job_filters(
+            city=city,
+            keyword=keyword,
+            graduation_year=graduation_year,
+            since=since,
+            status=status,
+            only_fresh=only_fresh,
+            needs_image=needs_image,
+        )
+
+        with self._lock:
+            total_row = self._conn.execute(f"SELECT COUNT(*) AS c FROM jobs {where_sql}", params).fetchone()
+            total = int(total_row["c"]) if total_row else 0
+
+            rows = self._conn.execute(
+                f"""
+                SELECT * FROM jobs
+                {where_sql}
+                ORDER BY COALESCE(note_published_at, crawled_at) DESC, id DESC
+                LIMIT ? OFFSET ?
+                """,
+                [*params, safe_size, offset],
+            ).fetchall()
+            items = [self._row_to_job(r) for r in rows]
+
+            facets: dict[str, Any] = {}
+            if include_facets:
+                facets = {
+                    "cities": self.get_distinct_cities(),
+                    "status_counts": self.get_status_counts(),
+                }
+
+        return {
+            "total": total,
+            "page": safe_page,
+            "page_size": safe_size,
+            "items": items,
+            "facets": facets,
+        }
+
+    def get_status_counts(self) -> dict[str, int]:
+        counts: dict[str, int] = {
+            "new": 0,
+            "interested": 0,
+            "applied": 0,
+            "rejected": 0,
+            "expired": 0,
+        }
+        with self._lock:
+            rows = self._conn.execute("SELECT status, COUNT(*) AS c FROM jobs GROUP BY status").fetchall()
+        for row in rows:
+            counts[str(row["status"])] = int(row["c"])
+        return counts
+
+    def get_distinct_cities(self) -> list[str]:
+        with self._lock:
+            rows = self._conn.execute(
+                "SELECT DISTINCT city FROM jobs WHERE city IS NOT NULL AND TRIM(city) != '' ORDER BY city ASC"
+            ).fetchall()
+        return [str(r["city"]).strip() for r in rows if r["city"]]
 
     def get_job(self, job_id: int) -> JobRecord | None:
-        row = self._conn.execute("SELECT * FROM jobs WHERE id = ?", (int(job_id),)).fetchone()
+        with self._lock:
+            row = self._conn.execute("SELECT * FROM jobs WHERE id = ?", (int(job_id),)).fetchone()
         return self._row_to_job(row) if row is not None else None
 
     def update_job_status(self, job_id: int, status: JobStatus) -> bool:
-        with self._conn:
-            cur = self._conn.execute(
-                "UPDATE jobs SET status = ?, updated_at = ? WHERE id = ?",
-                (status, _utc_now_iso(), job_id),
-            )
-        return cur.rowcount > 0
+        with self._lock:
+            with self._conn:
+                cur = self._conn.execute(
+                    "UPDATE jobs SET status = ?, updated_at = ? WHERE id = ?",
+                    (status, _utc_now_iso(), int(job_id)),
+                )
+            return cur.rowcount > 0
+
+    def delete_job(self, job_id: int) -> bool:
+        with self._lock:
+            with self._conn:
+                cur = self._conn.execute("DELETE FROM jobs WHERE id = ?", (int(job_id),))
+            return cur.rowcount > 0
 
     def count_jobs(self) -> int:
-        row = self._conn.execute("SELECT COUNT(*) AS c FROM jobs").fetchone()
+        with self._lock:
+            row = self._conn.execute("SELECT COUNT(*) AS c FROM jobs").fetchone()
         return int(row["c"]) if row else 0

@@ -6,6 +6,7 @@
 
 - [设计文档](docs/design.md)：架构、模块职责、工具设计、数据模型
 - [开发方案](docs/development_plan.md)：分阶段任务、验收标准、技术选型
+- [前后端设计方案](docs/web_fullstack_plan.md)：FastAPI + SSE 后端与 React/Vite Web 工作台设计方案
 - [阶段 1 人工评估表](evals/manual_review.md)：20 篇真实笔记评估与图片识别优先级结论
 
 ## 技术栈
