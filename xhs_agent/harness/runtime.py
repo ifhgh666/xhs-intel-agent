@@ -1,4 +1,4 @@
-"""Runtime：启动预检、SQLite 初始化、全量业务工具注册、预算组装与资源生命周期管理。"""
+"""Runtime：启动预检、SQLite 初始化、全量业务工具注册、多轮会话与资源生命周期管理。"""
 
 from __future__ import annotations
 
@@ -7,10 +7,13 @@ from pathlib import Path
 from typing import TYPE_CHECKING, Any
 
 from xhs_agent.config import AppConfig, ROOT_DIR, load_config
+from xhs_agent.harness.context import ContextManager
 from xhs_agent.harness.executor import BudgetTracker, ExecutionEngine
-from xhs_agent.harness.llm import DeepSeekClient, LLMClientProtocol
+from xhs_agent.harness.llm import DeepSeekClient, LLMClientProtocol, TokenUsage
 from xhs_agent.harness.loop import AgentLoop, AgentRunResult, EventCallback
+from xhs_agent.harness.pricing import CostEstimate, estimate_cost
 from xhs_agent.harness.registry import ToolRegistry, ToolSpec
+from xhs_agent.harness.trace import TraceLogger
 from xhs_agent.jobs.store import DEFAULT_DB_PATH, JobStore
 from xhs_agent.xhs import MCPClient, RateLimiter, XhsAdapter
 from xhs_agent.xhs.adapter import VALID_SEARCH_FILTERS
@@ -18,9 +21,8 @@ from xhs_agent.xhs.adapter import VALID_SEARCH_FILTERS
 if TYPE_CHECKING:
     from xhs_agent.jobs.tools import JobTools
 
-DEFAULT_EXPORT_DIR = ROOT_DIR / "data"
-
 DEFAULT_AGENT_PROMPT_PATH = ROOT_DIR / "xhs_agent" / "prompts" / "agent_system.md"
+DEFAULT_EXPORT_DIR = ROOT_DIR / "data"
 _VALID_JOB_STATUSES = ["new", "interested", "applied", "rejected", "expired"]
 
 
@@ -120,7 +122,7 @@ def build_v1_registry(
     config: AppConfig,
     job_tools: JobTools | None = None,
 ) -> ToolRegistry:
-    """注册第一版全部 5 个业务工具（search_notes / get_note_detail / extract_and_save_jobs / query_jobs / export_jobs）。"""
+    """注册全量业务工具（search_notes / get_note_detail / extract_and_save_jobs / query_jobs / export_jobs / mark_job）。"""
     registry = build_phase3_registry(adapter, config)
     if job_tools is None:
         return registry
@@ -213,7 +215,120 @@ def build_v1_registry(
         )
     )
 
+    registry.register(
+        ToolSpec(
+            name="mark_job",
+            description=(
+                "更新本地岗位库中某条岗位的跟进状态：new（新发现）、interested（感兴趣）、"
+                "applied（已投递）、rejected（已拒绝/不合适）、expired（已过期）。"
+            ),
+            parameters={
+                "type": "object",
+                "properties": {
+                    "job_id": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "description": "岗位 ID（来自 query_jobs 返回的 id 字段）",
+                    },
+                    "status": {
+                        "type": "string",
+                        "enum": _VALID_JOB_STATUSES,
+                        "description": "目标状态：new / interested / applied / rejected / expired",
+                    },
+                },
+                "required": ["job_id", "status"],
+                "additionalProperties": False,
+            },
+            handler=job_tools.mark_job,
+            read_only=False,
+            timeout=15.0,
+        )
+    )
+
     return registry
+
+
+class AgentSession:
+    """多轮交互式对话会话：跨轮次保持上下文历史、Trace 文件、NoteCache 与累计费用统计。"""
+
+    def __init__(self, runtime: AgentRuntime, *, session_id: str | None = None) -> None:
+        if runtime.llm is None or runtime.registry is None:
+            raise RuntimeError("AgentRuntime 尚未启动。")
+        self.runtime = runtime
+        self.system_prompt = render_agent_system_prompt(
+            runtime.prompt_path,
+            current_date=runtime.current_date,
+        )
+        self.ctx = ContextManager(self.system_prompt, session_id=session_id)
+        self.trace = TraceLogger(self.ctx.session_id, traces_dir=runtime.traces_dir)
+        self.turns = 0
+        self.total_usage = TokenUsage()
+        self.total_llm_calls = 0
+        self.total_tool_calls: dict[str, int] = {}
+        self.trace.log("session_start", mode="interactive", tools=runtime.registry.names())
+
+    @property
+    def session_id(self) -> str:
+        return self.ctx.session_id
+
+    @property
+    def trace_path(self) -> Path:
+        return self.trace.path
+
+    @property
+    def total_cost(self) -> CostEstimate:
+        return estimate_cost(self.total_usage, self.runtime.config.pricing)
+
+    async def ask(
+        self,
+        user_input: str,
+        *,
+        on_event: EventCallback | None = None,
+    ) -> AgentRunResult:
+        """在当前会话中发送一条用户消息并执行完整 Agent Loop（每轮独立重置单轮预算）。"""
+        assert self.runtime.llm is not None and self.runtime.registry is not None
+        self.turns += 1
+        budget = BudgetTracker.from_config(self.runtime.config.budget)
+        executor = ExecutionEngine(self.runtime.registry, budget)
+        extract_stats_fn = (
+            self.runtime.job_tools.extractor.snapshot_stats
+            if self.runtime.job_tools is not None
+            else None
+        )
+        loop = AgentLoop(
+            llm=self.runtime.llm,
+            registry=self.runtime.registry,
+            executor=executor,
+            budget=budget,
+            system_prompt=self.system_prompt,
+            traces_dir=self.runtime.traces_dir,
+            pricing=self.runtime.config.pricing,
+            extract_stats_fn=extract_stats_fn,
+        )
+        result = await loop.run_turn(
+            user_input,
+            ctx=self.ctx,
+            trace=self.trace,
+            on_event=on_event,
+            turn_index=self.turns,
+        )
+
+        self.total_usage.add(result.total_usage)
+        self.total_llm_calls += result.total_llm_calls
+        for tool_name, cnt in result.tool_calls.items():
+            self.total_tool_calls[tool_name] = self.total_tool_calls.get(tool_name, 0) + cnt
+        return result
+
+    def finish(self) -> None:
+        self.trace.log(
+            "session_end",
+            mode="interactive",
+            turns=self.turns,
+            total_llm_calls=self.total_llm_calls,
+            total_usage=self.total_usage.to_dict(),
+            cost=self.total_cost.to_dict(),
+            tool_calls=dict(self.total_tool_calls),
+        )
 
 
 class AgentRuntime:
@@ -256,13 +371,11 @@ class AgentRuntime:
 
     async def start(self) -> None:
         """启动预检：初始化 SQLite → 连接 MCP → 校验白名单工具与 Schema → 检查登录态 → 装配注册表与 LLM。"""
-        # 0. 初始化 SQLite（notes / jobs / daily_usage）
         if self._injected_store is not None:
             self.store = self._injected_store
         elif self.enable_job_tools:
             self.store = JobStore(self.db_path)
 
-        # 1. 连接 MCP 并组装适配层（每日配额持久化到 SQLite daily_usage）
         if self._injected_adapter is not None:
             self.adapter = self._injected_adapter
         else:
@@ -287,14 +400,12 @@ class AgentRuntime:
             )
             self.adapter = XhsAdapter(self._mcp_client, rate_limiter=limiter)
 
-        # 2. 白名单工具与参数 Schema 预检
         try:
             validated = await self.adapter.validate_mcp_tools()
         except Exception as exc:
             await self.close()
             raise StartupPrecheckError(f"MCP 工具白名单/Schema 预检失败: {exc}") from exc
 
-        # 3. 登录状态预检
         try:
             login = await self.adapter.check_login_status()
         except Exception as exc:
@@ -308,7 +419,6 @@ class AgentRuntime:
                 "请先运行 `uv run python scripts/probe_login.py --save-qrcode` 获取二维码并扫码登录。"
             )
 
-        # 4. 装配 LLM 客户端、抽取管道与工具注册表
         if self._injected_llm is not None:
             self.llm = self._injected_llm
         else:
@@ -355,6 +465,10 @@ class AgentRuntime:
     async def __aexit__(self, exc_type: Any, exc: Any, tb: Any) -> None:
         await self.close()
 
+    def new_session(self, *, session_id: str | None = None) -> AgentSession:
+        """创建一个支持多轮对话的 AgentSession。"""
+        return AgentSession(self, session_id=session_id)
+
     async def run_task(
         self,
         task: str,
@@ -371,6 +485,9 @@ class AgentRuntime:
             self.prompt_path,
             current_date=self.current_date,
         )
+        extract_stats_fn = (
+            self.job_tools.extractor.snapshot_stats if self.job_tools is not None else None
+        )
         loop = AgentLoop(
             llm=self.llm,
             registry=self.registry,
@@ -378,5 +495,7 @@ class AgentRuntime:
             budget=budget,
             system_prompt=system_prompt,
             traces_dir=self.traces_dir,
+            pricing=self.config.pricing,
+            extract_stats_fn=extract_stats_fn,
         )
         return await loop.run(task, session_id=session_id, on_event=on_event)

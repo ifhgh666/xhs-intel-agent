@@ -339,3 +339,23 @@ class JobTools:
             "path": str(saved_path.resolve()),
             "count": len(records),
         }
+
+    async def mark_job(self, job_id: int, status: JobStatus) -> dict[str, Any]:
+        """更新单条岗位的业务跟进状态（new / interested / applied / rejected / expired）。"""
+        existing = self.store.get_job(job_id)
+        if existing is None:
+            raise ValueError(f"未找到 ID={job_id} 的岗位记录，请先调用 query_jobs 确认岗位 ID。")
+
+        old_status = existing.status
+        self.store.update_job_status(job_id, status)
+        updated = self.store.get_job(job_id)
+        assert updated is not None
+        return {
+            "id": updated.id,
+            "company": updated.company,
+            "position": updated.position,
+            "city": updated.city,
+            "old_status": old_status,
+            "status": updated.status,
+            "source_url": updated.source_url,
+        }

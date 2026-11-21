@@ -400,6 +400,10 @@ class JobStore:
         rows = self._conn.execute(sql, params).fetchall()
         return [self._row_to_job(r) for r in rows]
 
+    def get_job(self, job_id: int) -> JobRecord | None:
+        row = self._conn.execute("SELECT * FROM jobs WHERE id = ?", (int(job_id),)).fetchone()
+        return self._row_to_job(row) if row is not None else None
+
     def update_job_status(self, job_id: int, status: JobStatus) -> bool:
         with self._conn:
             cur = self._conn.execute(

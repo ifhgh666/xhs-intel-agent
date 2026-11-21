@@ -21,3 +21,10 @@ max_steps = 25
 max_search_calls = 6
 max_detail_calls = 30
 max_consecutive_errors = 3
+
+[pricing]
+# DeepSeek-V3 (deepseek-chat) 参考单价：人民币 / 百万 Token（可在官网调价时直接修改）
+currency = "CNY"
+input_cache_hit_per_1m = 0.2
+input_cache_miss_per_1m = 2.0
+output_per_1m = 3.0

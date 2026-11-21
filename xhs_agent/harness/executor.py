@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import asyncio
 import json
+import logging
 import time
 from collections.abc import Awaitable, Callable
 from dataclasses import dataclass, field
@@ -24,6 +25,17 @@ from xhs_agent.harness.llm import ToolCallRequest
 from xhs_agent.harness.registry import ToolRegistry, ToolSpec
 from xhs_agent.xhs.mcp_client import MCPError
 from xhs_agent.xhs.rate_limiter import RateLimitExceededError
+
+logger = logging.getLogger("xhs_agent.executor")
+
+
+def is_retryable_tool_error(exc: Exception) -> bool:
+    """明确区分可重试错误（网络/超时/临时断线）与不可重试业务错误。"""
+    if isinstance(exc, (asyncio.TimeoutError, TimeoutError, ConnectionError)):
+        return True
+    if isinstance(exc, MCPError):
+        return bool(exc.retryable)
+    return False
 
 
 @dataclass
@@ -269,7 +281,9 @@ class ExecutionEngine:
                 break
             except asyncio.TimeoutError:
                 if attempt + 1 < attempts:
-                    await self._sleep(self.retry_backoff_sec * (2**attempt))
+                    delay = self.retry_backoff_sec * (2**attempt)
+                    logger.warning("工具 %s 超时，%.1fs 后重试 (%d/%d)", spec.name, delay, attempt + 1, attempts - 1)
+                    await self._sleep(delay)
                     continue
                 self.budget.record_call(spec, charge_group=True)
                 self.budget.record_outcome(False)
@@ -279,20 +293,6 @@ class ExecutionEngine:
                     ok=False,
                     error=f"工具 '{call.name}' 执行超时（>{spec.timeout}s）。",
                     retryable=True,
-                    duration_ms=int((time.monotonic() - t0) * 1000),
-                )
-            except MCPError as exc:
-                if exc.retryable and attempt + 1 < attempts:
-                    await self._sleep(self.retry_backoff_sec * (2**attempt))
-                    continue
-                self.budget.record_call(spec, charge_group=True)
-                self.budget.record_outcome(False)
-                result = ToolExecutionResult(
-                    tool_call_id=call.id,
-                    tool_name=call.name,
-                    ok=False,
-                    error=str(exc),
-                    retryable=exc.retryable,
                     duration_ms=int((time.monotonic() - t0) * 1000),
                 )
             except RateLimitExceededError as exc:
@@ -307,13 +307,28 @@ class ExecutionEngine:
                 )
                 break
             except Exception as exc:
+                retryable = is_retryable_tool_error(exc)
+                if retryable and attempt + 1 < attempts:
+                    delay = self.retry_backoff_sec * (2**attempt)
+                    logger.warning(
+                        "工具 %s 发生可重试异常 (%s)，%.1fs 后重试 (%d/%d)",
+                        spec.name,
+                        exc,
+                        delay,
+                        attempt + 1,
+                        attempts - 1,
+                    )
+                    await self._sleep(delay)
+                    continue
+                if isinstance(exc, MCPError) or retryable:
+                    self.budget.record_call(spec, charge_group=True)
                 self.budget.record_outcome(False)
                 result = ToolExecutionResult(
                     tool_call_id=call.id,
                     tool_name=call.name,
                     ok=False,
                     error=str(exc),
-                    retryable=False,
+                    retryable=retryable,
                     duration_ms=int((time.monotonic() - t0) * 1000),
                 )
                 break

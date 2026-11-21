@@ -76,6 +76,21 @@ class JobExtractor:
         self.llm_config = llm_config
         path = prompt_path or DEFAULT_EXTRACT_PROMPT_PATH
         self.system_prompt = path.read_text(encoding="utf-8")
+        self.total_usage = TokenUsage()
+        self.call_count = 0
+
+    def snapshot_stats(self) -> tuple[int, TokenUsage]:
+        """返回当前累计抽取 LLM 调用次数与 Token 用量快照（供按任务/轮次求差值）。"""
+        return (
+            self.call_count,
+            TokenUsage(
+                prompt_tokens=self.total_usage.prompt_tokens,
+                completion_tokens=self.total_usage.completion_tokens,
+                total_tokens=self.total_usage.total_tokens,
+                cache_hit_tokens=self.total_usage.cache_hit_tokens,
+                cache_miss_tokens=self.total_usage.cache_miss_tokens,
+            ),
+        )
 
     async def extract(
         self,
@@ -111,6 +126,8 @@ class JobExtractor:
                 response_format={"type": "json_object"},
             )
             total_usage.add(resp.usage)
+            self.total_usage.add(resp.usage)
+            self.call_count += 1
             last_raw_text = resp.content
 
             try:

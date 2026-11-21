@@ -39,11 +39,19 @@ class BudgetConfig(BaseModel):
     max_consecutive_errors: int = Field(default=3, ge=1)
 
 
+class PricingConfig(BaseModel):
+    currency: str = "CNY"
+    input_cache_hit_per_1m: float = Field(default=0.2, ge=0.0)
+    input_cache_miss_per_1m: float = Field(default=2.0, ge=0.0)
+    output_per_1m: float = Field(default=3.0, ge=0.0)
+
+
 class AppConfig(BaseModel):
     llm: LLMConfig = Field(default_factory=LLMConfig)
     mcp: MCPConfig = Field(default_factory=MCPConfig)
     rate_limit: RateLimitConfig = Field(default_factory=RateLimitConfig)
     budget: BudgetConfig = Field(default_factory=BudgetConfig)
+    pricing: PricingConfig = Field(default_factory=PricingConfig)
 
 
 def load_config(path: Path | str | None = None) -> AppConfig:
