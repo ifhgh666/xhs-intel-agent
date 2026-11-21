@@ -12,7 +12,6 @@ import {
   X,
 } from 'lucide-react'
 import type { ExperienceCategory, ExperienceItem, ExperienceStatus } from '../api/types'
-import { OriginalNoteViewer } from './OriginalNoteViewer'
 
 export const EXP_CATEGORY_META: Record<
   ExperienceCategory,
@@ -222,11 +221,6 @@ export function ExperienceDetailDrawer({
               “{item.evidence}”
             </blockquote>
           </div>
-
-          {/* 本地原帖全文与配图（免扫码直接查看） */}
-          {item.note_id && (
-            <OriginalNoteViewer noteId={item.note_id} defaultExpanded={item.needs_image} />
-          )}
 
           <div className="space-y-1 border-t border-slate-100 pt-4 text-xs text-slate-500">
             <div>原帖标题：{item.note_title || '-'}</div>

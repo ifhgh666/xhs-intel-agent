@@ -14,7 +14,6 @@ import {
   X,
 } from 'lucide-react'
 import type { JobItem, JobStatus } from '../api/types'
-import { OriginalNoteViewer } from './OriginalNoteViewer'
 import { StatusSelect } from './StatusBadge'
 
 interface JobDetailDrawerProps {
@@ -150,11 +149,6 @@ export function JobDetailDrawer({
               “{job.evidence}”
             </blockquote>
           </div>
-
-          {/* 本地原帖全文与配图（免扫码直接查看） */}
-          {job.note_id && (
-            <OriginalNoteViewer noteId={job.note_id} defaultExpanded={job.needs_image} />
-          )}
 
           {/* 来源溯源 */}
           <div className="space-y-2 border-t border-slate-100 pt-4 text-xs text-slate-600">
